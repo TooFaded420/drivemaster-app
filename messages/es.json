@@ -1,0 +1,97 @@
+{
+  "common": {
+    "appName": "DriveMaster",
+    "loading": "Cargando...",
+    "error": "Algo sali\u00f3 mal",
+    "retry": "Intentar de nuevo",
+    "back": "Atr\u00e1s",
+    "next": "Siguiente",
+    "skip": "Saltar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "share": "Compartir",
+    "copy": "Copiar",
+    "copied": "\u00a1Copiado!",
+    "close": "Cerrar"
+  },
+  "nav": {
+    "home": "Inicio",
+    "quiz": "Examen",
+    "leaderboard": "Ranking",
+    "profile": "Perfil",
+    "settings": "Ajustes"
+  },
+  "dashboard": {
+    "welcomeBack": "\u00a1Bienvenido!",
+    "totalXP": "XP Total",
+    "accuracy": "Precisi\u00f3n",
+    "level": "Nivel {level}",
+    "quickPractice": "Pr\u00e1ctica R\u00e1pida",
+    "timedTest": "Examen con Tiempo",
+    "categoryProgress": "Progreso por Categor\u00eda",
+    "dailyQuests": "Misiones Diarias",
+    "leaderboard": "Tabla de Posiciones"
+  },
+  "quiz": {
+    "questionOf": "Pregunta {current} de {total}",
+    "submitAnswer": "Enviar Respuesta",
+    "nextQuestion": "Siguiente Pregunta",
+    "previousQuestion": "Anterior",
+    "completeQuiz": "Completar Examen",
+    "correct": "\u00a1Correcto!",
+    "tryAgain": "Intentar de Nuevo",
+    "moreQuizzes": "M\u00e1s Ex\u00e1menes",
+    "shareScore": "Compartir Puntuaci\u00f3n",
+    "challengeFriend": "Retar a un Amigo"
+  },
+  "countdown": {
+    "setDate": "Establece tu fecha de examen",
+    "setDateDescription": "Establece tu fecha de examen para que Dash te ayude a prepararte",
+    "daysUntil": "{days} d\u00eda para tu examen",
+    "daysUntilPlural": "{days} d\u00edas para tu examen",
+    "testDay": "\u00a1El d\u00eda del examen lleg\u00f3!",
+    "howDidItGo": "\u00bfC\u00f3mo te fue?",
+    "updateDate": "Actualizar Fecha",
+    "ready": "listo"
+  },
+  "challenge": {
+    "challengeFrom": "Reto de",
+    "expired": "Reto Expirado",
+    "expiredDescription": "Este reto termin\u00f3. \u00a1Pero puedes seguir practicando!",
+    "acceptChallenge": "Aceptar Reto",
+    "beatScore": "\u00bfPuedes superar a {name}?",
+    "results": "Resultados",
+    "startPractice": "Comenzar Pr\u00e1ctica",
+    "createChallenge": "Retar a un Amigo",
+    "creating": "Creando...",
+    "challengeLink": "Enlace del Reto"
+  },
+  "parent": {
+    "title": "Actualizaciones para Padres",
+    "description": "Vincula una cuenta de padre para que vean tu progreso semanal",
+    "imStudent": "Soy estudiante",
+    "studentDescription": "Genera un c\u00f3digo para compartir con tu padre/madre",
+    "imParent": "Soy padre/madre",
+    "parentDescription": "Ingresa el c\u00f3digo que tu hijo/a comparti\u00f3 contigo",
+    "generateCode": "Generar C\u00f3digo",
+    "generating": "Generando...",
+    "inviteCode": "Tu c\u00f3digo de invitaci\u00f3n",
+    "expiresIn24h": "Expira en 24 horas",
+    "enterCode": "Ingresar C\u00f3digo",
+    "enterCodeDescription": "Ingresa el c\u00f3digo de 6 caracteres que tu hijo/a comparti\u00f3",
+    "linkAccount": "Vincular Cuenta",
+    "linking": "Vinculando...",
+    "linked": "\u00a1Vinculado!",
+    "linkedDescription": "Recibir\u00e1s actualizaciones semanales por email sobre el progreso de tu hijo/a."
+  },
+  "mascot": {
+    "name": "Dash"
+  },
+  "errors": {
+    "notFound": "P\u00e1gina no encontrada",
+    "notFoundDescription": "Parece que tomaste un camino equivocado. Ni Dash puede encontrar esta p\u00e1gina.",
+    "serverError": "Algo sali\u00f3 mal",
+    "serverErrorDescription": "No te preocupes, tu progreso est\u00e1 guardado. Intenta refrescar la p\u00e1gina.",
+    "backToDashboard": "Volver al Inicio"
+  }
+}
