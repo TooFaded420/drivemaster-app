@@ -12,7 +12,7 @@ import crypto from "crypto";
  */
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient();
+    const supabase = await createClient() as any;
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
 
     // Deterministically select 10 questions using the seed
     const questionIds = selectQuestionsFromSeed(
-      questions.map((q) => q.id),
+      questions.map((q: any) => q.id),
       seed,
       10
     );

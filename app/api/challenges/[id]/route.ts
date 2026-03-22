@@ -13,7 +13,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const supabase = await createClient();
+    const supabase = await createClient() as any;
 
     // Fetch challenge
     const { data: challenge, error } = await supabase
@@ -43,7 +43,7 @@ export async function GET(
 
     // Reorder to match challenge question_ids order
     const orderedQuestions = challenge.question_ids
-      .map((qId: number) => questions?.find((q) => q.id === qId))
+      .map((qId: number) => questions?.find((q: any) => q.id === qId))
       .filter(Boolean);
 
     // Get existing results for this challenge

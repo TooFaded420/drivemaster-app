@@ -60,7 +60,7 @@ function getDashEmotion(state: CountdownState, readiness: number): "happy" | "ex
 }
 
 export function useCountdown(userId?: string): CountdownData {
-  const supabase = createClient();
+  const supabase = createClient() as any;
   const [testDateStr, setTestDateStr] = useState<string | null>(null);
   const [categories, setCategories] = useState<CategoryAccuracy[]>([]);
   const [isLoading, setIsLoading] = useState(true);

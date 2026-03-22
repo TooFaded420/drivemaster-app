@@ -2,7 +2,7 @@
 ## Comprehensive Technical Architecture & Design Document
 
 **Version:** 1.0  
-**Date:** January 2026  
+**Date:** February 2026  
 **Status:** Draft  
 
 ---
@@ -276,7 +276,7 @@ Duolingo has mastered the psychology of habit formation. Here's what makes it wo
 
 ### 4.1 Tech Stack Recommendation
 
-**Recommended Stack: Next.js 14+ with App Router**
+**Recommended Stack: Next.js 16+ with App Router**
 
 **Rationale:**
 - **Mobile-first:** Excellent PWA support for app-like experience
@@ -294,7 +294,7 @@ Duolingo has mastered the psychology of habit formation. Here's what makes it wo
 
 | Layer | Technology | Purpose |
 |-------|------------|---------|
-| Frontend | Next.js 14+ (App Router) | React framework with SSR/SSG |
+| Frontend | Next.js 16+ (App Router) | React framework with SSR/SSG |
 | Language | TypeScript | Type safety and DX |
 | Styling | Tailwind CSS | Utility-first CSS |
 | UI Components | shadcn/ui | Accessible component library |
@@ -1084,9 +1084,9 @@ in marked and unmarked crosswalks.
 
 ```bash
 # Supabase
-NEXT_PUBLIC_SUPABASE_URL=https://synwblfnankqbmdsinqt.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_B417ktuGCDw9WNANG3AlcA_WMJy3nP1
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
 # App
 NEXT_PUBLIC_APP_URL=https://drivemaster.app

@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Resend not configured — skipping digest", sent: 0 });
     }
 
-    const supabase = await createClient();
+    const supabase = await createClient() as any;
 
     // Get all approved parent links with parent emails
     const { data: links, error } = await supabase
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
         .maybeSingle();
 
       const totalAnswered = weeklyAttempts?.length || 0;
-      const correctCount = weeklyAttempts?.filter((a) => a.is_correct).length || 0;
+      const correctCount = weeklyAttempts?.filter((a: any) => a.is_correct).length || 0;
       const accuracy = totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 0;
       const daysStudied = new Set(
         weeklyAttempts?.map((a: any) => new Date(a.created_at).toDateString()) || []

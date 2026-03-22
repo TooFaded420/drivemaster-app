@@ -14,7 +14,7 @@ export async function POST(
 ) {
   try {
     const { id } = await params;
-    const supabase = await createClient();
+    const supabase = await createClient() as any;
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
