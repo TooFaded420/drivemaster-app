@@ -1,7 +1,7 @@
 "use client";
 
 import { useCountdown, CountdownState } from "@/hooks/use-countdown";
-import { Mascot } from "@/components/mascot";
+import { Dash as Mascot } from "@/components/mascot";
 import { Calendar, Target, AlertTriangle } from "lucide-react";
 import { features } from "@/lib/feature-flags";
 import Link from "next/link";

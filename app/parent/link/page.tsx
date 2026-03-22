@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { features } from "@/lib/feature-flags";
-import { Mascot } from "@/components/mascot";
+import { Dash as Mascot } from "@/components/mascot";
 import { Check, Copy, KeyRound, Link2 } from "lucide-react";
 import { toast } from "sonner";
 import NextLink from "next/link";

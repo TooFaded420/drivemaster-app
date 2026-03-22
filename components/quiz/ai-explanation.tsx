@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Mascot } from "@/components/mascot";
+import { Dash as Mascot } from "@/components/mascot";
 import { features } from "@/lib/feature-flags";
 
 /**

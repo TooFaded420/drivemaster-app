@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { Mascot } from "@/components/mascot";
+import { Dash as Mascot } from "@/components/mascot";
 import { features } from "@/lib/feature-flags";
 import Link from "next/link";
 import { Trophy, Clock, ArrowRight, Copy, Check } from "lucide-react";
