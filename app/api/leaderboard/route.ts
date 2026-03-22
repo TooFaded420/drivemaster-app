@@ -14,16 +14,17 @@ export async function GET(request: NextRequest) {
     const type = searchParams.get("type") || "global";
     const league = searchParams.get("league");
     const state = searchParams.get("state");
-    const limit = parseInt(searchParams.get("limit") || "100");
+    const limit = Math.min(parseInt(searchParams.get("limit") || "20"), 50);
+    const offset = parseInt(searchParams.get("offset") || "0");
 
     // Get current user
     const { data: { user } } = await supabase.auth.getUser();
 
     let query = supabase
       .from("leaderboard_entries")
-      .select("*")
+      .select("*", { count: "exact" })
       .order("weekly_xp", { ascending: false })
-      .limit(limit);
+      .range(offset, offset + limit - 1);
 
     // Apply filters based on type
     if (type === "league" && league) {
@@ -32,7 +33,7 @@ export async function GET(request: NextRequest) {
       query = query.eq("state", state);
     }
 
-    const { data, error } = await query;
+    const { data, error, count } = await query;
 
     if (error) {
       console.error("Error fetching leaderboard:", error);
@@ -42,14 +43,22 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Transform data to include rank
+    // Transform data to include rank (offset-aware for pagination)
     const entries = (data || []).map((entry, index) => ({
       ...entry,
-      rank: index + 1,
+      rank: offset + index + 1,
       isCurrentUser: entry.user_id === user?.id,
     }));
 
-    return NextResponse.json({ entries });
+    return NextResponse.json({
+      entries,
+      pagination: {
+        total: count ?? 0,
+        offset,
+        limit,
+        hasMore: (count ?? 0) > offset + limit,
+      },
+    });
   } catch (error) {
     console.error("Error in leaderboard API:", error);
     return NextResponse.json(

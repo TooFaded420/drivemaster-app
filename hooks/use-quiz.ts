@@ -4,6 +4,7 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { QuestionWithAnswers, QuizSession } from "@/types/database";
 import { calculateAnswerXP, calculateXP, XPCalculationResult } from "@/lib/gamification/xp-calculator";
+import { toast } from "sonner";
 
 export interface QuizAnswer {
   questionId: number;
@@ -165,17 +166,18 @@ export function useQuiz(options: UseQuizOptions) {
         }
       }
 
-      // Order randomly and limit
+      // Fetch questions (no ordering — we shuffle client-side)
       const { data, error: queryError } = await query
-        .order("id", { ascending: false }) // Temporary randomization
         .limit(quizType === "marathon" ? 1000 : questionCount);
 
       if (queryError) throw queryError;
 
-      // Shuffle questions
-      const shuffledQuestions = data
-        ? [...data].sort(() => Math.random() - 0.5)
-        : [];
+      // Fisher-Yates shuffle for unbiased randomization
+      const shuffledQuestions = data ? [...data] : [];
+      for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
+      }
 
       setState((prev) => ({
         ...prev,
@@ -243,7 +245,7 @@ export function useQuiz(options: UseQuizOptions) {
             .select("wrong_count")
             .eq("user_id", userId)
             .eq("question_id", currentQuestion.id)
-            .single();
+            .maybeSingle();
 
           if (existing) {
             await supabase
@@ -271,7 +273,7 @@ export function useQuiz(options: UseQuizOptions) {
             .select("wrong_count")
             .eq("user_id", userId)
             .eq("question_id", currentQuestion.id)
-            .single();
+            .maybeSingle();
 
           if (existing) {
             await supabase
@@ -286,6 +288,7 @@ export function useQuiz(options: UseQuizOptions) {
         }
       } catch (err) {
         console.error("Failed to save attempt:", err);
+        toast.error("Your answer was recorded but progress sync failed. It will retry automatically.");
       }
     }
   }, [state, userId, supabase]);
@@ -345,13 +348,24 @@ export function useQuiz(options: UseQuizOptions) {
       ? Math.round(state.totalTimeTaken / state.answers.length)
       : 0;
 
+    // Check if this is user's first quiz attempt
+    let isFirstAttempt = true;
+    if (userId) {
+      const { count } = await supabase
+        .from("quiz_sessions")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId)
+        .eq("is_completed", true);
+      isFirstAttempt = (count ?? 0) === 0;
+    }
+
     // Calculate XP
     const xpResult = calculateXP({
       correctAnswers,
       totalQuestions: state.questions.length,
       averageTimePerQuestion,
       streakCount: state.maxStreak,
-      isFirstAttempt: true, // TODO: Check if first attempt
+      isFirstAttempt,
       difficulty: "medium",
     });
 
@@ -431,6 +445,7 @@ export function useQuiz(options: UseQuizOptions) {
         }
       } catch (err) {
         console.error("Failed to save quiz session:", err);
+        toast.error("Quiz results saved locally but failed to sync. They'll sync when you're back online.");
       }
     }
   }, [state, userId, supabase, quizType, categoryId]);
