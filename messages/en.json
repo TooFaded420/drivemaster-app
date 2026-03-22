@@ -1,0 +1,97 @@
+{
+  "common": {
+    "appName": "DriveMaster",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try Again",
+    "back": "Back",
+    "next": "Next",
+    "skip": "Skip",
+    "save": "Save",
+    "cancel": "Cancel",
+    "share": "Share",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "close": "Close"
+  },
+  "nav": {
+    "home": "Home",
+    "quiz": "Quiz",
+    "leaderboard": "Rank",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "welcomeBack": "Welcome back!",
+    "totalXP": "Total XP",
+    "accuracy": "Accuracy",
+    "level": "Level {level}",
+    "quickPractice": "Quick Practice",
+    "timedTest": "Timed Test",
+    "categoryProgress": "Category Progress",
+    "dailyQuests": "Daily Quests",
+    "leaderboard": "Leaderboard"
+  },
+  "quiz": {
+    "questionOf": "Question {current} of {total}",
+    "submitAnswer": "Submit Answer",
+    "nextQuestion": "Next Question",
+    "previousQuestion": "Previous",
+    "completeQuiz": "Complete Quiz",
+    "correct": "Correct!",
+    "tryAgain": "Try Again",
+    "moreQuizzes": "More Quizzes",
+    "shareScore": "Share Score",
+    "challengeFriend": "Challenge a Friend"
+  },
+  "countdown": {
+    "setDate": "Set your test date",
+    "setDateDescription": "Set your test date so Dash can help you prepare",
+    "daysUntil": "{days} day until your test",
+    "daysUntilPlural": "{days} days until your test",
+    "testDay": "Test day is here!",
+    "howDidItGo": "How'd it go?",
+    "updateDate": "Update Date",
+    "ready": "ready"
+  },
+  "challenge": {
+    "challengeFrom": "Challenge from",
+    "expired": "Challenge Expired",
+    "expiredDescription": "This challenge has ended. But you can still practice!",
+    "acceptChallenge": "Accept Challenge",
+    "beatScore": "Can you beat {name}'s score?",
+    "results": "Results",
+    "startPractice": "Start Practice",
+    "createChallenge": "Challenge a Friend",
+    "creating": "Creating...",
+    "challengeLink": "Challenge Link"
+  },
+  "parent": {
+    "title": "Parent Progress Updates",
+    "description": "Link a parent account so they can see your weekly study progress",
+    "imStudent": "I'm a student",
+    "studentDescription": "Generate a code to share with your parent",
+    "imParent": "I'm a parent",
+    "parentDescription": "Enter the code your teen shared with you",
+    "generateCode": "Generate Code",
+    "generating": "Generating...",
+    "inviteCode": "Your invite code",
+    "expiresIn24h": "Expires in 24 hours",
+    "enterCode": "Enter Invite Code",
+    "enterCodeDescription": "Enter the 6-character code your teen shared with you",
+    "linkAccount": "Link Account",
+    "linking": "Linking...",
+    "linked": "Linked!",
+    "linkedDescription": "You'll receive weekly email updates about your teen's study progress."
+  },
+  "mascot": {
+    "name": "Dash"
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "notFoundDescription": "Looks like you took a wrong turn. Even Dash can't find this page.",
+    "serverError": "Something went wrong",
+    "serverErrorDescription": "Don't worry, your progress is saved. Try refreshing the page.",
+    "backToDashboard": "Back to Dashboard"
+  }
+}
