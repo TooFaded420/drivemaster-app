@@ -3,6 +3,17 @@
 import { useState, useEffect, useCallback, useRef, RefObject } from "react";
 
 // ============================================
+// Constants (extracted from inline magic numbers)
+// ============================================
+const SWIPE_THRESHOLD_PX = 50;
+const SWIPE_VELOCITY_THRESHOLD = 0.3;
+const LONG_PRESS_DEFAULT_MS = 500;
+const DOUBLE_TAP_DELAY_MS = 300;
+const PULL_TO_REFRESH_THRESHOLD_PX = 80;
+const PINCH_MIN_DISTANCE = 10;
+const HAPTIC_DURATIONS = { light: 10, medium: 25, heavy: 50, success: [10, 30, 10], error: [30, 10, 30] } as const;
+
+// ============================================
 // Touch Detection
 // ============================================
 
@@ -180,6 +191,11 @@ export function useLongPress(options: LongPressOptions) {
       if (event.type === "mousedown") {
         const mouseEvent = event as React.MouseEvent;
         if (mouseEvent.button !== 0) return;
+      }
+
+      // Clear any existing timer to prevent leaks on rapid re-trigger
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
       }
 
       isLongPress.current = false;

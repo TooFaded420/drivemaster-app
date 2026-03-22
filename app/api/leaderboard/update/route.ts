@@ -19,12 +19,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Parse request body
+    // Parse and validate request body
     const { xpEarned, activityType } = await request.json();
 
-    if (!xpEarned || typeof xpEarned !== "number") {
+    if (!xpEarned || typeof xpEarned !== "number" || xpEarned <= 0 || xpEarned > 500 || !Number.isInteger(xpEarned)) {
       return NextResponse.json(
-        { error: "Invalid XP amount" },
+        { error: "Invalid XP amount. Must be a positive integer up to 500." },
         { status: 400 }
       );
     }

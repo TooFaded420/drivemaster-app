@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { MobileNav } from "@/components/layout/mobile-nav";
@@ -7,10 +7,18 @@ import { DesktopSidebar } from "@/components/layout/desktop-sidebar";
 import { PWAInstallPrompt } from "@/components/pwa-install-prompt";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
 });
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
+
+// Cabinet Grotesk loaded via CSS @import from Fontshare CDN (see globals.css)
+const inter = { variable: `${dmSans.variable} ${jetbrainsMono.variable}` };
 
 export const metadata: Metadata = {
   title: "DriveMaster - Illinois Driving Test Prep",
