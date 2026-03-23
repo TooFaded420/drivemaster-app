@@ -2,8 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { MobileNav } from "@/components/layout/mobile-nav";
-import { DesktopSidebar } from "@/components/layout/desktop-sidebar";
 import { PWAInstallPrompt } from "@/components/pwa-install-prompt";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -88,16 +86,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Desktop Sidebar */}
-          <DesktopSidebar />
-          
-          {/* Mobile Navigation */}
-          <MobileNav />
-          
-          {/* Main content wrapper */}
-          <div className="md:pl-16 lg:pl-64">
-            {children}
-          </div>
+          {children}
           
           {/* PWA Install Prompt */}
           <PWAInstallPrompt delay={5000} />

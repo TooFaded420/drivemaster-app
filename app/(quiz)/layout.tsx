@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { DesktopSidebar } from "@/components/layout/desktop-sidebar";
 import { MobileNav } from "@/components/layout/mobile-nav";
 
-export default async function DashboardLayout({
+export default async function QuizLayout({
   children,
 }: {
   children: React.ReactNode;
