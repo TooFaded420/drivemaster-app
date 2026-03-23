@@ -49,7 +49,7 @@ export default function Home() {
                 <Star className="w-4 h-4 fill-current" />
                 Trusted by 10,000+ Illinois drivers
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
                 Master Your Illinois<br />
                 <span className="text-blue-600">Driving Test</span> with Confidence
               </h1>
@@ -101,19 +101,19 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">500+</div>
+              <div className="text-3xl font-bold text-blue-600 font-mono tabular-nums">500+</div>
               <div className="text-gray-600">Practice Questions</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">95%</div>
+              <div className="text-3xl font-bold text-blue-600 font-mono tabular-nums">95%</div>
               <div className="text-gray-600">Pass Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">10K+</div>
+              <div className="text-3xl font-bold text-blue-600 font-mono tabular-nums">10K+</div>
               <div className="text-gray-600">Active Learners</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">4.9</div>
+              <div className="text-3xl font-bold text-blue-600 font-mono tabular-nums">4.9</div>
               <div className="text-gray-600">App Rating</div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display tracking-tight">
               Meet Your Study Buddy
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -177,7 +177,7 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display tracking-tight">
               Everything You Need to Pass
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -363,7 +363,7 @@ export default function Home() {
           <div className="flex justify-center mb-8">
             <Dash emotion="excited" size="xl" animate={true} />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 font-display tracking-tight">
             Ready to Start Your Journey?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
