@@ -76,7 +76,7 @@ export default function Home() {
             <div className="relative flex justify-center lg:justify-end">
               <div className="relative">
                 {/* Background decoration */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full opacity-30 blur-3xl scale-150" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-orange-100 rounded-full opacity-30 blur-3xl scale-150" />
                 
                 {/* Dash with welcome message */}
                 <div className="relative">
