@@ -64,7 +64,7 @@ export default function Home() {
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
-                <Link href="/practice">
+                <Link href="/quiz">
                   <Button size="lg" variant="outline" className="text-lg px-8">
                     Try Practice Question
                   </Button>
