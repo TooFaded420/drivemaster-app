@@ -140,48 +140,44 @@ export function useQuiz(options: UseQuizOptions) {
       setIsLoading(true);
       setError(null);
 
-      let query = supabase
-        .from("questions")
-        .select(`
-          *,
-          answers (*)
-        `)
-        .eq("is_active", true);
+      // Build API URL with query params
+      const params = new URLSearchParams();
+      params.set("count", String(quizType === "marathon" ? 1000 : questionCount));
 
       if (quizType === "category" && categoryId) {
-        query = query.eq("category_id", categoryId);
+        params.set("category", String(categoryId));
       }
 
-      if (quizType === "mistakes" && userId) {
-        // Get questions the user got wrong
-        const { data: wrongAnswers } = await supabase
-          .from("user_wrong_answers")
-          .select("question_id")
-          .eq("user_id", userId)
-          .eq("is_mastered", false);
+      const res = await fetch(`/api/questions/random?${params}`);
+      if (!res.ok) throw new Error("Failed to fetch questions");
 
-        if (wrongAnswers && wrongAnswers.length > 0) {
-          const questionIds = wrongAnswers.map((wa) => wa.question_id);
-          query = query.in("id", questionIds);
-        }
+      const json = await res.json();
+      if (!json.success || !json.data?.length) {
+        throw new Error("No questions available");
       }
 
-      // Fetch questions (no ordering — we shuffle client-side)
-      const { data, error: queryError } = await query
-        .limit(quizType === "marathon" ? 1000 : questionCount);
-
-      if (queryError) throw queryError;
-
-      // Fisher-Yates shuffle for unbiased randomization
-      const shuffledQuestions = data ? [...data] : [];
-      for (let i = shuffledQuestions.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
-      }
+      // Transform local data format (options[] + correct_answer index)
+      // into the answers[] format the UI expects
+      const transformed: QuestionWithAnswers[] = json.data.map(
+        (q: { id: string; question_text: string; options: string[]; correct_answer: number; explanation: string | null; category_id: string | null; difficulty: string; image_url: string | null; has_image: boolean; source: string | null; times_asked: number; correct_count: number; created_at?: string }) => ({
+          ...q,
+          id: typeof q.id === "string" ? parseInt(q.id.replace(/\D/g, "").slice(0, 8)) || Math.random() * 100000 | 0 : q.id,
+          category_id: q.category_id ? parseInt(q.category_id.replace(/\D/g, "").slice(0, 8)) || null : null,
+          question_type: "multiple_choice",
+          is_active: true,
+          answers: q.options.map((text: string, idx: number) => ({
+            id: (typeof q.id === "string" ? parseInt(q.id.replace(/\D/g, "").slice(0, 8)) || 0 : q.id) * 10 + idx,
+            question_id: typeof q.id === "string" ? parseInt(q.id.replace(/\D/g, "").slice(0, 8)) || 0 : q.id,
+            answer_text: text,
+            is_correct: idx === q.correct_answer,
+            sort_order: idx,
+          })),
+        })
+      );
 
       setState((prev) => ({
         ...prev,
-        questions: shuffledQuestions as QuestionWithAnswers[],
+        questions: transformed,
         questionStartTime: Date.now(),
       }));
     } catch (err) {

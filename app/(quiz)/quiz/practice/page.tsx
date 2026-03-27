@@ -72,6 +72,11 @@ export default function PracticeQuizPage() {
         );
       }
 
+      // Store results in sessionStorage for the results page
+      try {
+        sessionStorage.setItem("quizResults", JSON.stringify(quiz.results));
+      } catch {}
+
       // Redirect to results after a delay
       const timeout = setTimeout(() => {
         router.push("/quiz/results");
@@ -205,6 +210,7 @@ export default function PracticeQuizPage() {
           onNext={quiz.nextQuestion}
           onSubmit={quiz.submitAnswer}
           onExit={() => router.push("/quiz")}
+          onComplete={quiz.completeQuiz}
           onFlag={() => quiz.flagQuestion(quiz.currentQuestionIndex)}
           isFlagged={quiz.flaggedQuestions.includes(quiz.currentQuestionIndex)}
           canGoBack={quiz.canGoBack}

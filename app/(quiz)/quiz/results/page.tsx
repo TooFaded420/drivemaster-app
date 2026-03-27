@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -26,34 +26,25 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-// Mock results - in a real app, this would come from the quiz state or API
-const mockResults = {
+const fallbackResults = {
   totalQuestions: 10,
-  correctAnswers: 8,
-  wrongAnswers: 2,
-  accuracy: 80,
-  totalTimeTaken: 245, // seconds
-  averageTimePerQuestion: 24.5,
-  maxStreak: 5,
+  correctAnswers: 0,
+  wrongAnswers: 10,
+  accuracy: 0,
+  totalTimeTaken: 0,
+  averageTimePerQuestion: 0,
+  maxStreak: 0,
   xpEarned: {
-    baseXP: 80,
-    speedBonus: 10,
-    streakBonus: 5,
+    baseXP: 0,
+    speedBonus: 0,
+    streakBonus: 0,
     perfectBonus: 0,
-    firstAttemptBonus: 20,
+    firstAttemptBonus: 0,
     difficultyBonus: 0,
-    totalXP: 115,
-    breakdown: [
-      { label: "Correct Answers", value: 80, description: "8 × 10 XP" },
-      { label: "Speed Bonus", value: 10, description: "Avg 24.5s per question" },
-      { label: "Streak Bonus", value: 5, description: "5 in a row" },
-      { label: "First Attempt", value: 20, description: "First time taking this quiz" },
-    ],
+    totalXP: 0,
+    breakdown: [],
   },
-  weakCategories: [
-    { categoryId: 1, categoryName: "Traffic Signs", wrongCount: 1 },
-    { categoryId: 2, categoryName: "Rules of the Road", wrongCount: 1 },
-  ],
+  weakCategories: [],
 };
 
 export default function QuizResultsPage() {
@@ -62,7 +53,25 @@ export default function QuizResultsPage() {
   const [showXPBreakdown, setShowXPBreakdown] = useState(false);
   const [animatedXP, setAnimatedXP] = useState(0);
 
-  const results = mockResults; // In real app, get from context or API
+  const [results, setResults] = useState(fallbackResults);
+  const hasLoadedRef = useRef(false);
+
+  useEffect(() => {
+    if (hasLoadedRef.current) return;
+    hasLoadedRef.current = true;
+    try {
+      const stored = sessionStorage.getItem("quizResults");
+      if (stored) {
+        setResults(JSON.parse(stored));
+        sessionStorage.removeItem("quizResults");
+      } else {
+        router.push("/quiz");
+      }
+    } catch {
+      router.push("/quiz");
+    }
+  }, [router]);
+
   const isPassing = results.accuracy >= 80;
 
   useEffect(() => {
@@ -98,7 +107,7 @@ export default function QuizResultsPage() {
     }
 
     return () => clearInterval(timer);
-  }, []);
+  }, [results]);
 
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);

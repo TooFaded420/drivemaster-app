@@ -9,6 +9,7 @@ interface QuizControlsProps {
   onSubmit: () => void;
   onExit: () => void;
   onFlag: () => void;
+  onComplete?: () => void;
   isFlagged: boolean;
   canGoBack: boolean;
   canGoForward: boolean;
@@ -24,6 +25,7 @@ export function QuizControls({
   onSubmit,
   onExit,
   onFlag,
+  onComplete,
   isFlagged,
   canGoBack,
   canGoForward,
@@ -47,7 +49,7 @@ export function QuizControls({
       ) : (
         <Button
           className="w-full h-14 text-lg"
-          onClick={isLastQuestion ? onExit : onNext}
+          onClick={isLastQuestion ? (onComplete || onExit) : onNext}
         >
           {isLastQuestion ? (
             <>
