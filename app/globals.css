@@ -1,8 +1,8 @@
-@import "tailwindcss";
-@import "tw-animate-css";
 /* Fonts loaded via next/font/google in layout.tsx (DM Sans, JetBrains Mono)
    and via Fontshare CDN below (Cabinet Grotesk — not available in next/font) */
 @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
