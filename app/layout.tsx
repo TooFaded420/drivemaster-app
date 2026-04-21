@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { AnalyticsConsentProvider } from "@/lib/providers/analytics-consent";
 import { PHProvider } from "@/lib/providers/posthog-provider";
 import { ClarityScript } from "@/lib/providers/clarity-script";
+import { PWAInit } from "@/components/pwa-init";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -123,6 +124,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
       >
+        <PWAInit />
         {/* a11y: skip navigation link */}
         <a
           href="#main"
