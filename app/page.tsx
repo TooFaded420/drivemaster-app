@@ -85,74 +85,71 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section with Dash */}
-      <section className="pt-16 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
-                <CheckCircle2 className="w-4 h-4" />
-                Built for everyone taking the Illinois permit test
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
-                Master Your Illinois<br />
-                <span className="text-blue-600">Driving Test</span> with Confidence
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
-                Interactive practice questions, gamified learning, and personalized study plans
-                to help you pass your permit or license test on the first try.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link href="/signup">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8">
-                    Start Learning Free
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
-                <Link href="/quiz">
-                  <Button size="lg" variant="outline" className="text-lg px-8">
-                    Try Practice Question
-                  </Button>
-                </Link>
-              </div>
+      {/* Full-bleed cinematic hero with looping video background */}
+      <section className="relative isolate overflow-hidden">
+        {/* Video layer — fills the hero, sits below overlay */}
+        <div className="absolute inset-0 -z-10">
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/videos/hero-loop-poster.jpg"
+            aria-hidden="true"
+          >
+            <source src="/videos/hero-loop.webm" type="video/webm" />
+            <source src="/videos/hero-loop.mp4" type="video/mp4" />
+          </video>
+          {/* Legibility gradient — dark-left fading to transparent-right, darker at bottom */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/15" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/20" aria-hidden="true" />
+        </div>
+
+        {/* Content overlay */}
+        <div className="relative mx-auto flex min-h-[min(85vh,720px)] max-w-7xl flex-col justify-end px-4 pb-20 pt-28 sm:px-6 sm:pb-24 sm:pt-32 lg:px-8 lg:pb-28 lg:pt-36">
+          <div className="max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md ring-1 ring-white/20">
+              <CheckCircle2 className="h-4 w-4 text-orange-300" aria-hidden="true" />
+              Built for everyone taking the Illinois permit test
             </div>
-
-            {/* Right Content - Hero Video with floating Dash */}
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-lg">
-                {/* Ambient gradient glow behind the video */}
-                <div className="absolute -inset-6 bg-gradient-to-br from-blue-300 to-orange-200 rounded-[2rem] opacity-40 blur-3xl" aria-hidden="true" />
-
-                {/* Video — seamlessly looping hero */}
-                <video
-                  className="relative w-full aspect-video rounded-2xl shadow-2xl object-cover ring-1 ring-black/5"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  poster="/videos/hero-loop-poster.jpg"
-                  aria-label="DriveMaster hero video"
-                >
-                  <source src="/videos/hero-loop.webm" type="video/webm" />
-                  <source src="/videos/hero-loop.mp4" type="video/mp4" />
-                </video>
-
-                {/* Floating Dash badge overlaid on the video's bottom-left */}
-                <div className="absolute -bottom-6 -left-6 hidden sm:block">
-                  <Dash
-                    emotion="happy"
-                    size="lg"
-                    animate={true}
-                    showSpeechBubble={true}
-                    speechTitle={MASCOT_MESSAGES.welcome.title}
-                    speechText={MASCOT_MESSAGES.welcome.message}
-                    speechPosition="right"
-                  />
-                </div>
-              </div>
+            <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
+              Pass your Illinois<br />
+              <span className="bg-gradient-to-r from-orange-300 to-orange-500 bg-clip-text text-transparent">permit test</span> with confidence.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-white/90 drop-shadow sm:text-xl">
+              3,400+ practice questions. All official IL SOS topics. Dash breaks down every wrong answer so you actually learn it.
+              Free to start.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link href="/signup">
+                <Button size="lg" className="h-14 bg-orange-500 px-8 text-lg font-semibold text-white shadow-xl shadow-orange-500/30 transition-transform hover:scale-[1.02] hover:bg-orange-600">
+                  Start Free Practice
+                  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link href="/quiz">
+                <Button size="lg" variant="outline" className="h-14 border-white/40 bg-white/5 px-8 text-lg font-semibold text-white backdrop-blur-md hover:bg-white/15 hover:text-white">
+                  Try a practice question
+                </Button>
+              </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Floating Dash badge, bottom-right, hidden on mobile to keep the hero clean */}
+        <div className="pointer-events-none absolute bottom-6 right-4 hidden lg:block">
+          <div className="pointer-events-auto">
+            <Dash
+              emotion="happy"
+              size="lg"
+              animate={true}
+              showSpeechBubble={true}
+              speechTitle={MASCOT_MESSAGES.welcome.title}
+              speechText={MASCOT_MESSAGES.welcome.message}
+              speechPosition="left"
+            />
           </div>
         </div>
       </section>
