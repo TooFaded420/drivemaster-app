@@ -5,9 +5,11 @@
 
 interface EnvVar {
   name: string;
-  required: boolean;
+  required: boolean | "production";
   description: string;
 }
+
+const isProd = process.env.NODE_ENV === "production" || process.env.VERCEL_ENV === "production";
 
 const envVars: EnvVar[] = [
   {
@@ -65,13 +67,13 @@ const envVars: EnvVar[] = [
   },
   {
     name: "SYNTHETIC_API_KEY",
-    required: true,
-    description: "synthetic.new API key used by /api/explain",
+    required: "production",
+    description: "synthetic.new API key used by /api/explain (required in production)",
   },
   {
     name: "RESEND_API_KEY",
-    required: true,
-    description: "Resend API key used by the weekly parent digest",
+    required: "production",
+    description: "Resend API key used by the weekly parent digest (required in production)",
   },
 ];
 
@@ -84,8 +86,10 @@ function validateEnv(): { valid: boolean; errors: string[]; warnings: string[] }
   for (const envVar of envVars) {
     const value = process.env[envVar.name];
 
+    const isRequired = envVar.required === true || (envVar.required === "production" && isProd);
+
     if (!value || value === "your-anon-key" || value === "https://your-project.supabase.co") {
-      if (envVar.required) {
+      if (isRequired) {
         errors.push(`❌ Required variable ${envVar.name} is not set (${envVar.description})`);
       } else {
         warnings.push(`⚠️  Optional variable ${envVar.name} is not set (${envVar.description})`);
@@ -93,7 +97,7 @@ function validateEnv(): { valid: boolean; errors: string[]; warnings: string[] }
     } else {
       // Check for placeholder values
       if (value.includes("your-") || value.includes("xxx") || value.includes("XXXXXXXXXX")) {
-        if (envVar.required) {
+        if (isRequired) {
           errors.push(`❌ ${envVar.name} contains placeholder value: ${value}`);
         } else {
           warnings.push(`⚠️  ${envVar.name} contains placeholder value: ${value}`);
