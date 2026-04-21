@@ -50,6 +50,29 @@ const envVars: EnvVar[] = [
     required: false,
     description: "Sentry error tracking DSN",
   },
+  // Server-side secrets. Empty string must fail — prevents the
+  // `Bearer undefined` hole in the cron digest endpoint and the
+  // open-admin hole in /api/questions/seed.
+  {
+    name: "ADMIN_API_KEY",
+    required: true,
+    description: "Admin API key for protected admin endpoints (questions/seed, etc.)",
+  },
+  {
+    name: "CRON_SECRET",
+    required: true,
+    description: "Shared secret for Vercel Cron → /api/cron/* Authorization header",
+  },
+  {
+    name: "SYNTHETIC_API_KEY",
+    required: true,
+    description: "synthetic.new API key used by /api/explain",
+  },
+  {
+    name: "RESEND_API_KEY",
+    required: true,
+    description: "Resend API key used by the weekly parent digest",
+  },
 ];
 
 function validateEnv(): { valid: boolean; errors: string[]; warnings: string[] } {
