@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" role="img" aria-label="DriveMaster">
+  <defs>
+    <linearGradient id="bgMark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="arcG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── LOGOMARK: 120×120 squircle centred at x=120 ── -->
+  <rect x="60" y="0" width="120" height="120" rx="26" fill="url(#bgMark)"/>
+
+  <!-- Speedometer arc: centre 120,78  radius 40
+       Start 195°: 120+40·cos195=120−38.6=81.4≈81, 78+40·sin195=78−10.4=67.6≈68
+       End   345°: 120+40·cos345=120+38.6=158.6≈159, 78+40·sin345=78−10.4=67.6≈68 -->
+  <path d="M 81 68 A 40 40 0 1 1 159 68"
+    fill="none" stroke="url(#arcG)" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- Tick marks at 255°, 270°, 285° (major) -->
+  <!-- 255°: r=32 to r=40 → (120+32·cos255,78+32·sin255)=(112,47) to (120+40·cos255,78+40·sin255)=(110,39) -->
+  <line x1="112" y1="47" x2="110" y2="39" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <!-- 270° top: (120,46) to (120,38) -->
+  <line x1="120" y1="46" x2="120" y2="38" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.75"/>
+  <!-- 285°: (128,47) to (130,39) -->
+  <line x1="128" y1="47" x2="130" y2="39" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <!-- Minor ticks at 210° and 330° -->
+  <!-- 210°: (120+32·cos210,78+32·sin210)=(92.3,62) to (120+40·cos210,78+40·sin210)=(85.4,58) -->
+  <line x1="92" y1="62" x2="85" y2="58" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+  <!-- 330°: (120+32·cos330,78+32·sin330)=(147.7,62) to (120+40·cos330,78+40·sin330)=(154.6,58) -->
+  <line x1="148" y1="62" x2="155" y2="58" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Orange needle at 330°: tip 120+37·cos330=120+32=152, 78+37·sin330=78−18.5=59.5≈60 -->
+  <!-- tail 150°: 120+11·cos150=120−9.5=110.5≈111, 78+11·sin150=78+5.5=83.5≈84 -->
+  <line x1="111" y1="84" x2="152" y2="60" stroke="#F97316" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="120" cy="78" r="8" fill="#F97316"/>
+  <circle cx="120" cy="78" r="4" fill="#EA580C"/>
+
+  <!-- D letterform inside squircle, below speedometer -->
+  <rect x="101" y="90" width="8" height="20" rx="3" fill="white"/>
+  <path d="M 107 90 h8 a 10 10 0 0 1 0 20 h-8 Z" fill="white"/>
+  <path d="M 108 93.5 h5 a 6.5 6.5 0 0 1 0 13 h-5 Z" fill="url(#bgMark)"/>
+
+  <!-- Orange accent bar under D -->
+  <rect x="101" y="114" width="36" height="4" rx="2" fill="#F97316" opacity="0.9"/>
+
+  <!-- ── WORDMARK stacked below mark ── -->
+  <text
+    x="120" y="158"
+    font-family="'Cabinet Grotesk', 'Arial Black', Arial, sans-serif"
+    font-weight="800"
+    font-size="34"
+    letter-spacing="-1"
+    fill="#2563EB"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >Drive</text>
+
+  <text
+    x="120" y="192"
+    font-family="'Cabinet Grotesk', 'Arial Black', Arial, sans-serif"
+    font-weight="800"
+    font-size="34"
+    letter-spacing="-1"
+    fill="#0F172A"
+    text-anchor="middle"
+    dominant-baseline="auto"
+  >Master</text>
+</svg>

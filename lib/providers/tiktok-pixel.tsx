@@ -1,0 +1,64 @@
+"use client";
+
+// ============================================
+// TikTokPixel
+// Injects TikTok Pixel only when:
+//   1. Consent is 'granted'
+//   2. NEXT_PUBLIC_TIKTOK_PIXEL_ID is set
+//   3. Current route is not a sensitive/auth page
+// Never receives PII. Only passes anonymous events.
+// ============================================
+
+import Script from "next/script";
+import { usePathname } from "next/navigation";
+import { useAnalyticsConsent } from "@/lib/providers/analytics-consent";
+
+declare global {
+  interface Window {
+    ttq: {
+      init: (pixelId: string) => void;
+      track: (event: string, props?: Record<string, unknown>) => void;
+      page: () => void;
+      load: (pixelId: string) => void;
+      methods: string[];
+      setAndDefer: (t: object, e: string) => void;
+      instance: (t: string) => object;
+      instances: object[];
+      _i: Record<string, unknown>;
+      _t: Record<string, unknown>;
+      _o: Record<string, unknown>;
+    };
+    TiktokAnalyticsObject?: string;
+  }
+}
+
+const TIKTOK_PIXEL_ID = process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID ?? "";
+
+const BLOCKED_ROUTES = ["/login", "/signup", "/auth", "/privacy", "/settings"];
+
+export function TikTokPixel() {
+  const { consent } = useAnalyticsConsent();
+  const pathname = usePathname();
+
+  const isBlocked = BLOCKED_ROUTES.some(
+    (route) => pathname === route || pathname.startsWith(route + "/")
+  );
+
+  if (!TIKTOK_PIXEL_ID || consent !== "granted" || isBlocked) return null;
+
+  return (
+    <Script
+      id="tiktok-pixel"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=i+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('${TIKTOK_PIXEL_ID}');
+  ttq.page();
+}(window, document, 'ttq');
+        `.trim(),
+      }}
+    />
+  );
+}

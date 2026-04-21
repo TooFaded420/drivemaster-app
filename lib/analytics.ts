@@ -81,3 +81,73 @@ export function reset(): void {
   const ph = getPosthog();
   ph?.reset();
 }
+
+// ============================================
+// Conversion helper
+// Fires a named conversion to all active pixels.
+// Safe to call even when pixels are not loaded — all calls are guarded
+// with window checks and try/catch so a missing pixel never crashes the caller.
+// ============================================
+
+export type ConversionName =
+  | "signup_completed"
+  | "first_quiz_completed"
+  | "upgrade_clicked";
+
+/**
+ * Fire a conversion event to Meta Pixel, TikTok Pixel, GA4, and PostHog.
+ * Only fires when consent is granted. Pass Supabase user.id only, never email.
+ * @param name - the conversion event name
+ * @param value - optional monetary value (e.g. for upgrade_clicked)
+ */
+export function fireConversion(name: ConversionName, value?: number): void {
+  if (!isConsentGranted()) return;
+  if (typeof window === "undefined") return;
+
+  // --- Meta Pixel ---
+  try {
+    if ("fbq" in window && typeof window.fbq === "function") {
+      if (name === "signup_completed") {
+        window.fbq("track", "Lead");
+      } else if (name === "first_quiz_completed") {
+        window.fbq("track", "StartTrial");
+      } else if (name === "upgrade_clicked") {
+        window.fbq("track", "Purchase", value !== undefined ? { value, currency: "USD" } : {});
+      }
+    }
+  } catch {
+    // pixel not loaded or blocked — ignore
+  }
+
+  // --- TikTok Pixel ---
+  try {
+    if ("ttq" in window && window.ttq && typeof window.ttq.track === "function") {
+      if (name === "signup_completed") {
+        window.ttq.track("CompleteRegistration");
+      } else if (name === "first_quiz_completed") {
+        window.ttq.track("ViewContent");
+      } else if (name === "upgrade_clicked") {
+        window.ttq.track("PlaceAnOrder", value !== undefined ? { value, currency: "USD" } : {});
+      }
+    }
+  } catch {
+    // pixel not loaded or blocked — ignore
+  }
+
+  // --- Google Analytics 4 ---
+  try {
+    if ("gtag" in window && typeof window.gtag === "function") {
+      window.gtag("event", name, value !== undefined ? { value } : {});
+    }
+  } catch {
+    // gtag not loaded or blocked — ignore
+  }
+
+  // --- PostHog (keep existing pipeline receiving the event) ---
+  try {
+    const ph = getPosthog();
+    ph?.capture(name, value !== undefined ? { value } : undefined);
+  } catch {
+    // posthog not loaded — ignore
+  }
+}

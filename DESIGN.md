@@ -2,14 +2,14 @@
 
 ## Product Context
 - **What this is:** A gamified driving test prep PWA with a mascot (Dash), XP/streaks/leaderboards, and AI-powered explanations
-- **Who it's for:** Procrastinating teenagers (15-17) studying for their first driving test
+- **Who it's for:** Anyone procrastinating on the Illinois permit test — first-timers (15+), adults new to Illinois, and retakers
 - **Space/industry:** Ed-tech / test prep (competitors: Duolingo, Zutobi, DMV Genie, driving-tests.org)
 - **Project type:** Mobile-first web app (PWA)
 
 ## Aesthetic Direction
 - **Direction:** Playful/Toy-like with energy
 - **Decoration level:** Intentional — gradient cards for stats, clean white space in quiz UI
-- **Mood:** Fun, energetic, teen-native. Feels like a game, not homework. Duolingo's playfulness with a bit of street energy. Dash speaks like a hype-beast friend, not a teacher.
+- **Mood:** Fun, energetic, game-native. Feels like a game, not homework. Duolingo's playfulness with a bit of street energy. Dash's voice is casual and encouraging — works for anyone, skews teen-friendly but never patronizing.
 - **Reference sites:** Duolingo (mascot-driven, white space, bold color), Zutobi (gamification, leaderboards), but DriveMaster is more personality-driven than either
 
 ## Typography
@@ -109,7 +109,7 @@
   - Example: "Nah that ain't it. At a 4-way stop it's first-come-first-served. Think of it like a line at the cafeteria."
 
 ## Share Card Design
-- **Format:** Achievement card (score-focused, teen-first)
+- **Format:** Achievement card (score-focused, shareable)
 - **Sizes:** 1080x1920 (Instagram Story), 1080x1080 (square post)
 - **Layout:** Blue gradient background, "DriveMaster Certified" badge, large score %, username, streak count, Dash celebrating, QR code at bottom
 - **Typography:** Cabinet Grotesk 800 for score, DM Sans for details
@@ -122,5 +122,6 @@
 | 2026-03-21 | Initial design system created | Created by /design-consultation based on competitive research (Duolingo, Zutobi, DMV Genie) and product context (teen-focused gamified test prep) |
 | 2026-03-21 | Blue + orange palette over blue + purple | Orange is more energetic and matches streak/fire theming. Purple felt too corporate for teens. |
 | 2026-03-21 | Cabinet Grotesk display font | Rounded and bold — feels like a game, not a textbook. Available free via Fontshare. |
-| 2026-03-21 | Dash hype-beast personality | Teens respond to "smart friend" not "teacher." Design review chose ultra-casual Gen Z tone. |
-| 2026-03-21 | Achievement card over challenge card for sharing | Achievement cards get shared more — teens share about themselves, not the app. Challenge mechanic has its own share link. |
+| 2026-03-21 | Dash hype-beast personality | Users respond to "smart friend" not "teacher." Design review chose ultra-casual tone that skews teen-friendly but works for any age. |
+| 2026-03-21 | Achievement card over challenge card for sharing | Achievement cards get shared more — users share about themselves, not the app. Challenge mechanic has its own share link. |
+| 2026-04-21 | Broadened positioning from teen-first to universal permit-prep | DriveMaster serves anyone taking the IL permit test — teens, adults, new residents, retakers. Dash tone and gamification stay; teen exclusivity dropped. |
