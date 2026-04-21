@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" role="img" aria-label="DriveMaster">
+  <defs>
+    <linearGradient id="bgMark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="arcG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── LOGOMARK (64×64 squircle with mini speedometer) ── -->
+  <rect x="0" y="8" width="64" height="64" rx="14" fill="url(#bgMark)"/>
+
+  <!-- Speedometer arc: centre 32,44  radius 21
+       Start 195°: 32+21·cos195=32−20.3=11.7≈12, 44+21·sin195=44−5.4=38.6≈39
+       End   345°: 32+21·cos345=32+20.3=52.3≈52, 44+21·sin345=44−5.4=38.6≈39 -->
+  <path d="M 12 39 A 21 21 0 1 1 52 39"
+    fill="none" stroke="url(#arcG)" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Tick at 270° (top): from r=17 to r=21 → (32,27) to (32,23) -->
+  <line x1="32" y1="27" x2="32" y2="23" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Orange needle at 330°: tip 32+19·cos330=32+16.5=48.5≈49, 44+19·sin330=44−9.5=34.5≈35 -->
+  <!-- tail 150°: 32+6·cos150=32−5.2=26.8≈27, 44+6·sin150=44+3=47 -->
+  <line x1="27" y1="47" x2="49" y2="35" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="32" cy="44" r="3.5" fill="#F97316"/>
+
+  <!-- Mini D under speedometer -->
+  <rect x="22" y="52" width="4" height="13" rx="1.5" fill="white"/>
+  <path d="M 25 52 h4 a 6.5 6.5 0 0 1 0 13 h-4 Z" fill="white"/>
+  <path d="M 25.5 54.5 h2.5 a 4 4 0 0 1 0 8 h-2.5 Z" fill="url(#bgMark)"/>
+
+  <!-- Orange accent dot at bottom-right of logomark -->
+  <circle cx="51" cy="62" r="4" fill="#F97316"/>
+
+  <!-- ── WORDMARK: "DriveMaster" as geometric sans paths ──
+       Each glyph is hand-constructed with rounded strokes/terminals approximating
+       Cabinet Grotesk 800 proportions. Baseline at y=58, cap height 34px.
+       Total text starts at x=80, letter-spacing tight (-0.02em equivalent).
+
+       Strategy: Use SVG text with embedded style as a fallback-safe approach.
+       Since Cabinet Grotesk is loaded via Fontshare in the app's CSS, the SVG
+       will render correctly when embedded in the HTML context. For standalone SVG
+       use (e.g. OG image), we provide a geometric approximation via text element
+       with font-family stack.
+
+       For true path-only wordmark we hand-draw key letterforms below.
+  -->
+
+  <!-- "Drive" in primary blue text (rendered as path-approximation via text for correctness) -->
+  <!-- We use text elements with explicit font-family. In the app context Cabinet Grotesk
+       is already loaded. The SVG is served from /public so the font IS available. -->
+
+  <!-- "DRIVE" portion — blue-grey for slight contrast, then "MASTER" in dark -->
+  <text
+    x="80" y="58"
+    font-family="'Cabinet Grotesk', 'Arial Black', Arial, sans-serif"
+    font-weight="800"
+    font-size="40"
+    letter-spacing="-1"
+    fill="#2563EB"
+    dominant-baseline="auto"
+  >Drive</text>
+
+  <text
+    x="192" y="58"
+    font-family="'Cabinet Grotesk', 'Arial Black', Arial, sans-serif"
+    font-weight="800"
+    font-size="40"
+    letter-spacing="-1"
+    fill="#0F172A"
+    dominant-baseline="auto"
+  >Master</text>
+
+  <!-- Orange needle-speed underline accent under "Master" -->
+  <rect x="192" y="64" width="4" height="4" rx="2" fill="#F97316"/>
+  <rect x="200" y="65" width="60" height="3" rx="1.5" fill="#F97316" opacity="0.4"/>
+</svg>

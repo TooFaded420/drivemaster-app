@@ -12,6 +12,7 @@ import {
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const faqItems = [
@@ -64,11 +65,14 @@ export default function Home() {
       {/* Navigation */}
       <nav className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
-              <Car className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+          <div className="flex items-center">
+            <Image
+              src="/icons/logo-wordmark.svg"
+              alt="DriveMaster"
+              width={200}
+              height={48}
+              priority
+            />
           </div>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -468,11 +472,13 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Car className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+          <div className="flex items-center justify-center mb-4">
+            <Image
+              src="/icons/logo-wordmark.svg"
+              alt="DriveMaster"
+              width={160}
+              height={38}
+            />
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
