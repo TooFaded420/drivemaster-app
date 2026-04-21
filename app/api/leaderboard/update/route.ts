@@ -3,15 +3,19 @@ import { createClient } from "@/lib/supabase/server";
 
 /**
  * POST /api/leaderboard/update
- * Update user's weekly XP after completing a quiz or activity
+ * Update user's weekly XP after completing a quiz or activity.
+ *
+ * Uses the `increment_weekly_xp` Postgres RPC for an atomic update
+ * (see supabase/migrations/003_atomic_xp_update.sql). The previous
+ * read-then-write pattern was vulnerable to concurrent-write races.
  */
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    
+
     // Get current user
     const { data: { user } } = await supabase.auth.getUser();
-    
+
     if (!user) {
       return NextResponse.json(
         { error: "Unauthorized" },
@@ -29,88 +33,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get current season
-    const now = new Date().toISOString();
-    const { data: season, error: seasonError } = await supabase
-      .from("league_seasons")
-      .select("id")
-      .lte("week_start", now)
-      .gte("week_end", now)
-      .eq("is_active", true)
-      .single();
+    // Atomic increment via RPC (cap enforced server-side at 500 as well).
+    const { data: newWeeklyXp, error: rpcError } = await supabase.rpc(
+      "increment_weekly_xp",
+      {
+        user_id: user.id,
+        xp_amount: xpEarned,
+        max_per_call: 500,
+      }
+    );
 
-    if (seasonError || !season) {
+    if (rpcError) {
+      console.error("Error incrementing weekly XP:", rpcError);
       return NextResponse.json(
-        { error: "No active season found" },
-        { status: 400 }
-      );
-    }
-
-    // Get or create user league record
-    const { data: userLeague, error: userLeagueError } = await supabase
-      .from("user_leagues")
-      .select("*")
-      .eq("user_id", user.id)
-      .eq("season_id", season.id)
-      .single();
-
-    if (userLeagueError && userLeagueError.code !== "PGRST116") {
-      console.error("Error fetching user league:", userLeagueError);
-      return NextResponse.json(
-        { error: "Failed to fetch user league" },
+        { error: "Failed to update weekly XP" },
         { status: 500 }
       );
     }
 
-    let result;
-
-    if (!userLeague) {
-      // Create new user league record
-      const { data, error } = await supabase
-        .from("user_leagues")
-        .insert({
-          user_id: user.id,
-          season_id: season.id,
-          current_league: "bronze",
-          weekly_xp: xpEarned,
-        })
-        .select()
-        .single();
-
-      if (error) {
-        console.error("Error creating user league:", error);
-        return NextResponse.json(
-          { error: "Failed to create user league" },
-          { status: 500 }
-        );
-      }
-
-      result = data;
-    } else {
-      // Update existing record
-      const { data, error } = await supabase
-        .from("user_leagues")
-        .update({
-          weekly_xp: userLeague.weekly_xp + xpEarned,
-          updated_at: new Date().toISOString(),
-        })
-        .eq("user_id", user.id)
-        .eq("season_id", season.id)
-        .select()
-        .single();
-
-      if (error) {
-        console.error("Error updating user league:", error);
-        return NextResponse.json(
-          { error: "Failed to update user league" },
-          { status: 500 }
-        );
-      }
-
-      result = data;
-    }
-
-    // Also update total XP in user_stats
+    // Also update total XP in user_stats.
     const { data: userStats } = await supabase
       .from("user_stats")
       .select("total_xp")
@@ -128,7 +69,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      data: result,
+      data: { weekly_xp: newWeeklyXp },
       xpAdded: xpEarned,
       activityType,
     });
