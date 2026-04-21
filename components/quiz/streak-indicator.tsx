@@ -8,7 +8,7 @@ interface StreakIndicatorProps {
   maxStreak?: number;
 }
 
-export function StreakIndicator({ streak, maxStreak }: StreakIndicatorProps) {
+export function StreakIndicator({ streak }: StreakIndicatorProps) {
   const shouldReduceMotion = useReducedMotion();
 
   if (streak < 2) return null;
