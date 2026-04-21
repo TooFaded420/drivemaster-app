@@ -636,6 +636,126 @@ export interface Database {
         }
         Relationships: []
       }
+      parent_links: {
+        Row: {
+          id: string
+          teen_user_id: string
+          parent_user_id: string | null
+          invite_code: string | null
+          invite_expires_at: string | null
+          status: string
+          linked_at: string | null
+          approved_at: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          teen_user_id: string
+          parent_user_id?: string | null
+          invite_code?: string | null
+          invite_expires_at?: string | null
+          status?: string
+          linked_at?: string | null
+          approved_at?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          teen_user_id?: string
+          parent_user_id?: string | null
+          invite_code?: string | null
+          invite_expires_at?: string | null
+          status?: string
+          linked_at?: string | null
+          approved_at?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
+      challenges: {
+        Row: {
+          id: string
+          creator_id: string
+          seed: string
+          question_ids: number[]
+          status: string
+          expires_at: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          creator_id: string
+          seed: string
+          question_ids: number[]
+          status?: string
+          expires_at: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          creator_id?: string
+          seed?: string
+          question_ids?: number[]
+          status?: string
+          expires_at?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
+      challenge_results: {
+        Row: {
+          id: string
+          challenge_id: string
+          user_id: string
+          score: number
+          correct_count: number
+          total_questions: number
+          time_taken_seconds: number | null
+          completed_at: string
+        }
+        Insert: {
+          id?: string
+          challenge_id: string
+          user_id: string
+          score: number
+          correct_count: number
+          total_questions: number
+          time_taken_seconds?: number | null
+          completed_at?: string
+        }
+        Update: {
+          id?: string
+          challenge_id?: string
+          user_id?: string
+          score?: number
+          correct_count?: number
+          total_questions?: number
+          time_taken_seconds?: number | null
+          completed_at?: string
+        }
+        Relationships: []
+      }
+      ai_explanations: {
+        Row: {
+          question_id: number
+          wrong_answer_index: number
+          explanation: string
+          created_at: string
+        }
+        Insert: {
+          question_id: number
+          wrong_answer_index: number
+          explanation: string
+          created_at?: string
+        }
+        Update: {
+          question_id?: number
+          wrong_answer_index?: number
+          explanation?: string
+          created_at?: string
+        }
+        Relationships: []
+      }
       friends: {
         Row: {
           id: string
@@ -727,7 +847,21 @@ export interface Database {
       }
     }
     Functions: {
-      [_ in never]: never
+      increment_weekly_xp: {
+        Args: {
+          user_id: string
+          xp_amount: number
+          max_per_call?: number
+        }
+        Returns: number
+      }
+      increment_xp: {
+        Args: {
+          user_id_param: string
+          xp_amount: number
+        }
+        Returns: number
+      }
     }
     Enums: {
       [_ in never]: never

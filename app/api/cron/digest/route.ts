@@ -25,7 +25,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Resend not configured — skipping digest", sent: 0 });
     }
 
-    const supabase = await createClient() as any;
+    // NOTE: /api/cron/digest still has schema drift (profiles.email,
+    // user_stats.streak_count, user_attempts.created_at vs attempt_date)
+    // that is out of scope for this security pass. Keep the cast until
+    // that schema is reconciled.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const supabase = (await createClient()) as any;
 
     // Get all approved parent links with parent emails
     const { data: links, error } = await supabase

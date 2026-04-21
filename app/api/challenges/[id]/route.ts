@@ -13,7 +13,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const supabase = await createClient() as any;
+    const supabase = await createClient();
 
     // Require auth — challenge content includes questions
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -33,11 +33,19 @@ export async function GET(
     }
 
     // Check expiry
+    // Supabase typegen models one-to-one joins as either a single object
+    // or an array depending on the FK config. Normalize it here.
+    const creator = Array.isArray(challenge.creator)
+      ? challenge.creator[0]
+      : challenge.creator;
+    const creatorName =
+      (creator as { username?: string } | null)?.username || "Someone";
+
     if (new Date(challenge.expires_at) < new Date() || challenge.status === "expired") {
       return NextResponse.json({
         error: "Challenge expired",
         expired: true,
-        creatorName: (challenge.creator as any)?.username || "Someone",
+        creatorName,
       }, { status: 410 });
     }
 
@@ -49,7 +57,7 @@ export async function GET(
 
     // Reorder to match challenge question_ids order
     const orderedQuestions = challenge.question_ids
-      .map((qId: number) => questions?.find((q: any) => q.id === qId))
+      .map((qId: number) => questions?.find((q) => q.id === qId))
       .filter(Boolean);
 
     // Get existing results for this challenge
@@ -62,7 +70,7 @@ export async function GET(
       challenge: {
         id: challenge.id,
         creatorId: challenge.creator_id,
-        creatorName: (challenge.creator as any)?.username || "Someone",
+        creatorName,
         status: challenge.status,
         expiresAt: challenge.expires_at,
         questionCount: challenge.question_ids.length,

@@ -27,7 +27,7 @@ Start by acknowledging their choice, then explain the right answer with a memora
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient() as any;
+    const supabase = await createClient();
 
     // Require auth — AI calls cost credits; unauth = free abuse vector
     const { data: { user }, error: authError } = await supabase.auth.getUser();
