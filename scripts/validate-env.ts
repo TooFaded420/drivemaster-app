@@ -71,6 +71,11 @@ const envVars: EnvVar[] = [
     description: "synthetic.new API key used by /api/explain (required in production)",
   },
   {
+    name: "SUPABASE_SERVICE_ROLE_KEY",
+    required: "production",
+    description: "Supabase service-role key used by /api/explain to write the ai_explanations cache (required in production; ai_explanations writes are blocked for authenticated role since migration 006)",
+  },
+  {
     name: "RESEND_API_KEY",
     required: "production",
     description: "Resend API key used by the weekly parent digest (required in production)",
