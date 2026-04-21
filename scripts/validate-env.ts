@@ -86,6 +86,18 @@ const envVars: EnvVar[] = [
     required: "production",
     description: "Resend API key used by the weekly parent digest (required in production)",
   },
+  {
+    name: "UPSTASH_REDIS_REST_URL",
+    required: false,
+    description:
+      "Upstash Redis REST URL for rate limiting. Optional; missing = rate limit is a no-op.",
+  },
+  {
+    name: "UPSTASH_REDIS_REST_TOKEN",
+    required: false,
+    description:
+      "Upstash Redis REST token for rate limiting. Optional; missing = rate limit is a no-op.",
+  },
 ];
 
 function validateEnv(): { valid: boolean; errors: string[]; warnings: string[] } {
