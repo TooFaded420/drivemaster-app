@@ -25,15 +25,16 @@ const navItems = [
 ];
 
 /**
- * Navigation - Legacy navigation component
- * 
- * NOTE: This component is being replaced by MobileNav and DesktopSidebar
- * for better separation of concerns and more responsive design.
- * 
- * @deprecated Use MobileNav and DesktopSidebar instead
+ * Navigation - Responsive navigation shell.
+ * Renders MobileNavigation on small screens and DesktopNavigation on md+.
  */
 export function Navigation() {
-  return null;
+  return (
+    <>
+      <MobileNavigation />
+      <DesktopNavigation />
+    </>
+  );
 }
 
 /**

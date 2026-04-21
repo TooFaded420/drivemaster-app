@@ -6,8 +6,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { MobileLayout } from "@/components/mobile-layout";
 import { Dash } from "@/components/mascot";
 import { useMascot } from "@/hooks/use-mascot";
@@ -25,36 +23,40 @@ import {
   Star,
   ArrowRight,
 } from "lucide-react";
+import { toast } from "sonner";
 
-// Mock results - in a real app, this would come from the quiz state or API
-const mockResults = {
-  totalQuestions: 10,
-  correctAnswers: 8,
-  wrongAnswers: 2,
-  accuracy: 80,
-  totalTimeTaken: 245, // seconds
-  averageTimePerQuestion: 24.5,
-  maxStreak: 5,
+type QuizResults = {
+  totalQuestions: number;
+  correctAnswers: number;
+  wrongAnswers: number;
+  accuracy: number;
+  totalTimeTaken: number;
+  averageTimePerQuestion: number;
+  maxStreak: number;
   xpEarned: {
-    baseXP: 80,
-    speedBonus: 10,
-    streakBonus: 5,
-    perfectBonus: 0,
-    firstAttemptBonus: 20,
-    difficultyBonus: 0,
-    totalXP: 115,
-    breakdown: [
-      { label: "Correct Answers", value: 80, description: "8 × 10 XP" },
-      { label: "Speed Bonus", value: 10, description: "Avg 24.5s per question" },
-      { label: "Streak Bonus", value: 5, description: "5 in a row" },
-      { label: "First Attempt", value: 20, description: "First time taking this quiz" },
-    ],
-  },
-  weakCategories: [
-    { categoryId: 1, categoryName: "Traffic Signs", wrongCount: 1 },
-    { categoryId: 2, categoryName: "Rules of the Road", wrongCount: 1 },
-  ],
+    baseXP: number;
+    speedBonus: number;
+    streakBonus: number;
+    perfectBonus: number;
+    firstAttemptBonus: number;
+    difficultyBonus: number;
+    totalXP: number;
+    breakdown: { label: string; description: string; value: number }[];
+  };
+  weakCategories: { categoryId: string; categoryName: string; wrongCount: number }[];
 };
+
+function loadResults(): QuizResults | null {
+  try {
+    const stored = sessionStorage.getItem("quizResults");
+    if (!stored) return null;
+    const parsed = JSON.parse(stored) as QuizResults;
+    sessionStorage.removeItem("quizResults");
+    return parsed;
+  } catch {
+    return null;
+  }
+}
 
 export default function QuizResultsPage() {
   const router = useRouter();
@@ -62,10 +64,22 @@ export default function QuizResultsPage() {
   const [showXPBreakdown, setShowXPBreakdown] = useState(false);
   const [animatedXP, setAnimatedXP] = useState(0);
 
-  const results = mockResults; // In real app, get from context or API
-  const isPassing = results.accuracy >= 80;
+  // Lazy initializer reads sessionStorage once at mount — no setState-in-effect needed.
+  const [results] = useState<QuizResults | null>(loadResults);
+
+  const isPassing = (results?.accuracy ?? 0) >= 80;
+
+  // Redirect when no results found (runs after render so router is stable).
+  useEffect(() => {
+    if (!results) {
+      toast("Your results expired — let's run it back. 🔁");
+      router.push("/quiz");
+    }
+  }, [results, router]);
 
   useEffect(() => {
+    if (!results) return;
+
     // Animate XP counter
     const duration = 2000;
     const steps = 60;
@@ -92,13 +106,18 @@ export default function QuizResultsPage() {
     } else {
       mascot.show(
         "encouraging",
-        `You got ${results.accuracy}%. Keep practicing and you'll improve! 💪`,
-        "Don't Give Up!"
+        `You scored ${results.accuracy}% — keep grinding and you'll nail it! 💪`,
+        "So Close!"
       );
     }
 
     return () => clearInterval(timer);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [results]);
+
+  if (!results) {
+    return null;
+  }
 
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);

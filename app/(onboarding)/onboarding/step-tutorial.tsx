@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dash } from "@/components/mascot";
@@ -43,7 +43,7 @@ const tutorialSlides = [
     icon: BookOpen,
     title: "Study by Category",
     description: "Focus on specific topics like Traffic Signs, Rules of the Road, or Safe Driving. Master each area one at a time.",
-    color: "from-purple-500 to-purple-600",
+    color: "from-cyan-500 to-cyan-600",
   },
   {
     id: "goals",
@@ -62,6 +62,7 @@ const tutorialSlides = [
 ];
 
 export function StepTutorial({ updateData, onComplete }: StepTutorialProps) {
+  const shouldReduceMotion = useReducedMotion();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [completedSlides, setCompletedSlides] = useState<number[]>([]);
 
@@ -130,7 +131,7 @@ export function StepTutorial({ updateData, onComplete }: StepTutorialProps) {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -50 }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
       >
         <Card className="overflow-hidden">
           {/* Header with gradient */}

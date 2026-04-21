@@ -19,7 +19,7 @@ interface TouchFriendlyProps {
 }
 
 const sizeClasses = {
-  small: "min-w-[36px] min-h-[36px]",
+  small: "min-w-[44px] min-h-[44px]",
   default: "min-w-[44px] min-h-[44px]",
   comfortable: "min-w-[48px] min-h-[48px]",
   large: "min-w-[56px] min-h-[56px]",

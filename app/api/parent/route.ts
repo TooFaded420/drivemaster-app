@@ -17,7 +17,7 @@ import crypto from "crypto";
 // POST: generate code OR link with code
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient() as any;
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
@@ -27,6 +27,27 @@ export async function POST(request: NextRequest) {
     const { action, inviteCode } = await request.json();
 
     if (action === "generate") {
+      // Don't silently overwrite an approved (active) link. If the teen
+      // already has an active parent, they must explicitly remove that
+      // link before generating a new invite. Regenerating while the
+      // request is still pending_teen_approval (or any earlier state)
+      // is fine — the teen hasn't consented yet.
+      const { data: existing } = await supabase
+        .from("parent_links")
+        .select("status")
+        .eq("teen_user_id", user.id)
+        .maybeSingle();
+
+      if (existing?.status === "active") {
+        return NextResponse.json(
+          {
+            error:
+              "You already have an approved parent. Remove the existing link before generating a new code.",
+          },
+          { status: 409 }
+        );
+      }
+
       // Teen generates an invite code
       const code = crypto.randomBytes(3).toString("hex").toUpperCase(); // 6-char hex
       const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24h expiry
@@ -70,7 +91,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Check expiry
-      if (new Date(link.invite_expires_at) < new Date()) {
+      if (!link.invite_expires_at || new Date(link.invite_expires_at) < new Date()) {
         return NextResponse.json({ error: "This invite code has expired. Ask your teen for a new one." }, { status: 410 });
       }
 
@@ -79,12 +100,12 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: "You can't link to your own account" }, { status: 400 });
       }
 
-      // Update the link with parent info
+      // Attach parent and mark as pending teen approval (minor-consent flow).
       const { error: updateError } = await supabase
         .from("parent_links")
         .update({
           parent_user_id: user.id,
-          status: "approved", // Auto-approve for v1 (teen approval flow deferred)
+          status: "pending_teen_approval",
           linked_at: new Date().toISOString(),
         })
         .eq("id", link.id);
@@ -94,7 +115,11 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: "Failed to link account" }, { status: 500 });
       }
 
-      return NextResponse.json({ success: true, message: "Linked! You'll receive weekly progress updates." });
+      return NextResponse.json({
+        success: true,
+        message: "Request sent. Your teen needs to approve the link before you'll see their progress.",
+        status: "pending_teen_approval",
+      });
     }
 
     return NextResponse.json({ error: "Invalid action" }, { status: 400 });
@@ -107,7 +132,7 @@ export async function POST(request: NextRequest) {
 // GET: check link status
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient() as any;
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
@@ -121,16 +146,45 @@ export async function GET(request: NextRequest) {
       .eq("teen_user_id", user.id)
       .maybeSingle();
 
-    // Check if user is a parent with a link
-    const { data: asParentLink } = await supabase
+    // Check if user is a parent with a link. Until the teen approves
+    // (status === 'active'), we strip the teen join so the parent gets
+    // "pending approval" UI with zero teen PII. This prevents a parent
+    // who only knows the invite code from learning who the teen is.
+    const { data: asParentLinkRaw } = await supabase
       .from("parent_links")
       .select("status, teen_user_id, teen:profiles!teen_user_id(username)")
       .eq("parent_user_id", user.id)
       .maybeSingle();
 
+    let asParentLink: {
+      status: string;
+      teen_user_id: string | null;
+      teen: { username: string } | null;
+    } | null = null;
+
+    if (asParentLinkRaw) {
+      if (asParentLinkRaw.status === "active") {
+        // Supabase typegen can shape the join as object or array.
+        const teenJoin = Array.isArray(asParentLinkRaw.teen)
+          ? asParentLinkRaw.teen[0]
+          : asParentLinkRaw.teen;
+        asParentLink = {
+          status: asParentLinkRaw.status,
+          teen_user_id: asParentLinkRaw.teen_user_id,
+          teen: (teenJoin as { username: string } | null) ?? null,
+        };
+      } else {
+        asParentLink = {
+          status: asParentLinkRaw.status,
+          teen_user_id: null,
+          teen: null,
+        };
+      }
+    }
+
     return NextResponse.json({
       asTeen: asTeenLink || null,
-      asParent: asParentLink || null,
+      asParent: asParentLink,
     });
   } catch (error) {
     console.error("Error in parent GET API:", error);

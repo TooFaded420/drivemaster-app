@@ -5,9 +5,17 @@
 
 interface EnvVar {
   name: string;
-  required: boolean;
+  required: boolean | "production";
   description: string;
 }
+
+// When running on Vercel, NODE_ENV=production for BOTH preview and production
+// builds, so trust VERCEL_ENV when it's set. Fall back to NODE_ENV only when
+// building outside Vercel (local `npm run build`, CI). This keeps preview
+// builds from failing on production-only keys like SYNTHETIC_API_KEY.
+const isProd = process.env.VERCEL_ENV
+  ? process.env.VERCEL_ENV === "production"
+  : process.env.NODE_ENV === "production";
 
 const envVars: EnvVar[] = [
   {
@@ -33,12 +41,50 @@ const envVars: EnvVar[] = [
   {
     name: "NEXT_PUBLIC_POSTHOG_KEY",
     required: false,
-    description: "PostHog analytics key",
+    description: "PostHog analytics project API key",
+  },
+  {
+    name: "NEXT_PUBLIC_POSTHOG_HOST",
+    required: false,
+    description: "PostHog UI host (defaults to https://us.posthog.com)",
+  },
+  {
+    name: "NEXT_PUBLIC_CLARITY_ID",
+    required: false,
+    description: "Microsoft Clarity project ID",
   },
   {
     name: "NEXT_PUBLIC_SENTRY_DSN",
     required: false,
     description: "Sentry error tracking DSN",
+  },
+  // Server-side secrets. Empty string must fail — prevents the
+  // `Bearer undefined` hole in the cron digest endpoint and the
+  // open-admin hole in /api/questions/seed.
+  {
+    name: "ADMIN_API_KEY",
+    required: true,
+    description: "Admin API key for protected admin endpoints (questions/seed, etc.)",
+  },
+  {
+    name: "CRON_SECRET",
+    required: true,
+    description: "Shared secret for Vercel Cron → /api/cron/* Authorization header",
+  },
+  {
+    name: "SYNTHETIC_API_KEY",
+    required: "production",
+    description: "synthetic.new API key used by /api/explain (required in production)",
+  },
+  {
+    name: "SUPABASE_SERVICE_ROLE_KEY",
+    required: "production",
+    description: "Supabase service-role key used by /api/explain to write the ai_explanations cache (required in production; ai_explanations writes are blocked for authenticated role since migration 006)",
+  },
+  {
+    name: "RESEND_API_KEY",
+    required: "production",
+    description: "Resend API key used by the weekly parent digest (required in production)",
   },
 ];
 
@@ -51,8 +97,10 @@ function validateEnv(): { valid: boolean; errors: string[]; warnings: string[] }
   for (const envVar of envVars) {
     const value = process.env[envVar.name];
 
+    const isRequired = envVar.required === true || (envVar.required === "production" && isProd);
+
     if (!value || value === "your-anon-key" || value === "https://your-project.supabase.co") {
-      if (envVar.required) {
+      if (isRequired) {
         errors.push(`❌ Required variable ${envVar.name} is not set (${envVar.description})`);
       } else {
         warnings.push(`⚠️  Optional variable ${envVar.name} is not set (${envVar.description})`);
@@ -60,7 +108,7 @@ function validateEnv(): { valid: boolean; errors: string[]; warnings: string[] }
     } else {
       // Check for placeholder values
       if (value.includes("your-") || value.includes("xxx") || value.includes("XXXXXXXXXX")) {
-        if (envVar.required) {
+        if (isRequired) {
           errors.push(`❌ ${envVar.name} contains placeholder value: ${value}`);
         } else {
           warnings.push(`⚠️  ${envVar.name} contains placeholder value: ${value}`);
@@ -75,7 +123,7 @@ function validateEnv(): { valid: boolean; errors: string[]; warnings: string[] }
 }
 
 function main(): void {
-  const { valid, errors, warnings } = validateEnv();
+  const { errors, warnings } = validateEnv();
 
   if (warnings.length > 0) {
     console.log("\n⚠️  Warnings:");

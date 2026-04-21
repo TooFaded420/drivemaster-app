@@ -166,7 +166,7 @@ export function TutorialTooltip({
         style={position}
       >
         {/* Header with gradient */}
-        <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-4">
+        <div className="bg-gradient-to-r from-blue-500 to-orange-500 p-4">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-white/80">
               Step {currentStep + 1} of {TUTORIAL_STEPS.length}
@@ -230,7 +230,7 @@ export function TutorialTooltip({
               <Button
                 size="sm"
                 onClick={onComplete}
-                className="h-8 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                className="h-8 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
               >
                 Finish
               </Button>
@@ -238,7 +238,7 @@ export function TutorialTooltip({
               <Button
                 size="sm"
                 onClick={onNext}
-                className="h-8 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                className="h-8 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
               >
                 Next
                 <ChevronRight className="w-4 h-4 ml-1" />

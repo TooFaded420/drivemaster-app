@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dash } from "@/components/mascot";
@@ -37,6 +37,7 @@ const features = [
 ];
 
 export function StepWelcome({ onComplete }: StepWelcomeProps) {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className="space-y-8">
       {/* Hero section */}
@@ -44,7 +45,7 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 200 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 200 }}
           className="flex justify-center"
         >
           <Dash
@@ -61,7 +62,7 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.2 }}
         >
           <h1 className="text-3xl lg:text-4xl font-bold text-gray-900">
             Let's Get You Road-Ready!
@@ -76,7 +77,7 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3 }}
         className="grid grid-cols-1 sm:grid-cols-2 gap-4"
       >
         {features.map((feature, index) => (
@@ -84,11 +85,11 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
             key={feature.title}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 + index * 0.1 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.4 + index * 0.1 }}
           >
             <Card className="h-full hover:shadow-md transition-shadow">
               <CardContent className="p-4 flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-orange-500 flex items-center justify-center shrink-0">
                   <feature.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -105,13 +106,13 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.8 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.8 }}
         className="text-center"
       >
         <Button
           size="lg"
           onClick={() => onComplete()}
-          className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
+          className="bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
         >
           Let's Get Started!
         </Button>

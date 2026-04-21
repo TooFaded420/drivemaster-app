@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Dash } from "@/components/mascot";
@@ -19,6 +19,7 @@ interface StepGoalsProps {
 }
 
 export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
+  const shouldReduceMotion = useReducedMotion();
   const [formData, setFormData] = useState({
     testDate: data.testDate || "",
     dailyStudyTime: data.dailyGoal || 20,
@@ -69,6 +70,7 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={shouldReduceMotion ? { duration: 0 } : undefined}
         className="space-y-6"
       >
         {/* Test date */}
@@ -147,7 +149,8 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
           key={`${formData.testDate}-${formData.dailyStudyTime}`}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-100"
+          transition={shouldReduceMotion ? { duration: 0 } : undefined}
+          className="p-4 bg-gradient-to-r from-blue-50 to-orange-50 rounded-xl border border-blue-100"
         >
           <p className="text-sm text-blue-800 font-medium">📚 Your Study Plan</p>
           <p className="text-sm text-blue-600 mt-1">{getStudyPlan()}</p>
@@ -157,7 +160,7 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
         <Button
           size="lg"
           onClick={handleSubmit}
-          className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+          className="w-full bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
         >
           Continue
         </Button>

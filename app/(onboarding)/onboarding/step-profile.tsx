@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,6 +21,7 @@ interface StepProfileProps {
 }
 
 export function StepProfile({ data, updateData, onComplete }: StepProfileProps) {
+  const shouldReduceMotion = useReducedMotion();
   const [formData, setFormData] = useState({
     displayName: "",
     age: "",
@@ -80,6 +81,7 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={shouldReduceMotion ? { duration: 0 } : undefined}
         className="space-y-6"
       >
         {/* Name input */}
@@ -177,7 +179,7 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
         <Button
           size="lg"
           onClick={handleSubmit}
-          className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+          className="w-full bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
         >
           Continue
         </Button>

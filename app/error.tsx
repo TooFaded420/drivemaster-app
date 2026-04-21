@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Dash } from "@/components/mascot";
 
 export default function Error({
   error,
@@ -14,18 +16,29 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center">
-      <div className="mb-6 text-6xl font-bold text-destructive">500</div>
-      <h1 className="mb-2 text-2xl font-bold">Something went wrong</h1>
-      <p className="mb-8 max-w-md text-muted-foreground">
-        Don&apos;t worry, your progress is saved. Try refreshing the page.
-      </p>
-      <button
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center gap-6">
+      <Dash
+        emotion="encouraging"
+        size="lg"
+        animate={true}
+        showSpeechBubble={true}
+        speechTitle="Oof, hit a bump 😬"
+        speechText="Your progress is safe — just hit retry and we're back in it."
+        speechPosition="bottom"
+      />
+      <div className="space-y-2">
+        <h1 className="text-2xl font-bold text-gray-900">Something went sideways</h1>
+        <p className="max-w-md text-muted-foreground">
+          Not your fault. Hit retry and let&apos;s keep the streak alive.
+        </p>
+      </div>
+      <Button
         onClick={reset}
-        className="inline-flex items-center rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+        className="bg-blue-600 hover:bg-blue-700 px-8"
+        size="lg"
       >
-        Try Again
-      </button>
+        Retry
+      </Button>
     </div>
   );
 }

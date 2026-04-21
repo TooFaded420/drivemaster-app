@@ -9,7 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { createClient } from "@/lib/supabase/client";
-import { Car, Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { Dash } from "@/components/mascot";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -63,19 +64,19 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
       <div className="w-full max-w-md">
-        {/* Logo */}
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-            <Car className="w-7 h-7 text-white" />
-          </div>
-          <span className="text-2xl font-bold text-gray-900">DriveMaster</span>
+        <div className="flex justify-center mb-4">
+          <Dash
+            emotion="excited"
+            size="md"
+            animate={true}
+          />
         </div>
 
         <Card>
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl text-center">Create an account</CardTitle>
+            <CardTitle className="text-2xl text-center">Let&apos;s get this permit 🔥</CardTitle>
             <CardDescription className="text-center">
-              Start your journey to passing your driving test
+              Create your account and start crushing practice questions
             </CardDescription>
           </CardHeader>
           <CardContent>

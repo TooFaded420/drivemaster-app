@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
  * POST /api/explain — AI-powered wrong answer explanation
@@ -26,7 +27,14 @@ Start by acknowledging their choice, then explain the right answer with a memora
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient() as any;
+    const supabase = await createClient();
+
+    // Require auth — AI calls cost credits; unauth = free abuse vector
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { questionId, selectedAnswerIndex, questionText, selectedAnswerText, correctAnswerText, staticExplanation } = await request.json();
 
     if (!questionId || selectedAnswerIndex === undefined) {
@@ -90,12 +98,20 @@ export async function POST(request: NextRequest) {
         throw new Error("Empty or invalid response from API");
       }
 
-      // Cache the result
-      await supabase.from("ai_explanations").upsert({
-        question_id: questionId,
-        wrong_answer_index: selectedAnswerIndex,
-        explanation,
-      }, { onConflict: "question_id,wrong_answer_index" }).select();
+      // Cache the result via service-role client. The authenticated-role
+      // INSERT/UPDATE policies on ai_explanations were dropped in migration
+      // 006 (cache poisoning vector). Reads still go through the user client.
+      try {
+        const admin = createAdminClient();
+        await admin.from("ai_explanations").upsert({
+          question_id: questionId,
+          wrong_answer_index: selectedAnswerIndex,
+          explanation,
+        }, { onConflict: "question_id,wrong_answer_index" });
+      } catch (cacheErr) {
+        // Cache write is best-effort — don't fail the response.
+        console.error("ai_explanations cache write failed:", cacheErr);
+      }
 
       return NextResponse.json({ explanation, source: "ai" });
     } catch (err) {

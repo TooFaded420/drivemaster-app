@@ -1,17 +1,17 @@
-@import "tailwindcss";
-@import "tw-animate-css";
 /* Fonts loaded via next/font/google in layout.tsx (DM Sans, JetBrains Mono)
    and via Fontshare CDN below (Cabinet Grotesk — not available in next/font) */
 @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'DM Sans', var(--font-geist-sans), sans-serif;
-  --font-mono: 'JetBrains Mono', var(--font-geist-mono), monospace;
-  --font-display: 'Cabinet Grotesk', 'DM Sans', sans-serif;
+  --font-sans: var(--font-dm-sans), 'DM Sans', var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', var(--font-geist-mono), monospace;
+  --font-display: 'Cabinet Grotesk', var(--font-dm-sans), 'DM Sans', sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { QuestionWithAnswers } from "@/types/database";
@@ -21,6 +22,8 @@ export function QuestionCard({
   isFlagged,
   onToggleFlag,
 }: QuestionCardProps) {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <Card className="border-0 shadow-lg overflow-hidden">
       <CardHeader className="pb-4">
@@ -84,11 +87,20 @@ export function QuestionCard({
           </motion.div>
         </AnimatePresence>
 
-        {/* Image placeholder - would show actual image if available */}
         {question.image_url && (
           <div className="mt-4 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
             <div className="aspect-video flex items-center justify-center">
-              <ImageIcon className="w-12 h-12 text-gray-400" />
+              {imgError ? (
+                <ImageIcon className="w-12 h-12 text-gray-400" />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={question.image_url}
+                  alt={`Question image: ${question.question_text.slice(0, 60)}...`}
+                  className="w-full h-full object-contain"
+                  onError={() => setImgError(true)}
+                />
+              )}
             </div>
           </div>
         )}

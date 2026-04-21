@@ -14,7 +14,7 @@ export async function POST(
 ) {
   try {
     const { id } = await params;
-    const supabase = await createClient() as any;
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
@@ -78,11 +78,14 @@ export async function POST(
         .eq("id", id);
     }
 
-    // Award participation XP (25 XP for completing a challenge)
+    // Award participation XP (25 XP for completing a challenge).
+    // RPC may not exist yet — swallow the error silently.
     const participationXP = 25;
-    await supabase.rpc("increment_xp", { user_id_param: user.id, xp_amount: participationXP }).catch(() => {
-      // RPC may not exist yet — silently fail
-    });
+    try {
+      await supabase.rpc("increment_xp", { user_id_param: user.id, xp_amount: participationXP });
+    } catch {
+      // noop
+    }
 
     return NextResponse.json({
       result,

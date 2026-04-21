@@ -137,7 +137,7 @@ export default function MarathonQuizPage() {
           </Link>
           
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="border-purple-200 text-purple-700">
+            <Badge variant="outline" className="border-orange-200 text-orange-700">
               <Infinity className="w-3 h-3 mr-1" />
               Marathon
             </Badge>
@@ -157,21 +157,21 @@ export default function MarathonQuizPage() {
               Question <span className="font-semibold">{quiz.currentQuestionIndex + 1}</span> of{" "}
               <span className="font-semibold">{quiz.questions.length}</span>
             </span>
-            <span className="text-purple-600 font-medium">
+            <span className="text-orange-600 font-medium">
               {Math.round(progressPercentage)}% Complete
             </span>
           </div>
           <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full transition-all duration-300"
+              className="h-full bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-300"
               style={{ width: `${progressPercentage}%` }}
             />
           </div>
         </div>
 
         {/* Marathon Info */}
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-3">
-          <div className="flex items-center gap-2 text-purple-700">
+        <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+          <div className="flex items-center gap-2 text-orange-700">
             <Infinity className="w-5 h-5" />
             <span className="text-sm font-medium">
               Marathon Mode: Answer all {quiz.questions.length} questions

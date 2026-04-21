@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Flame } from "lucide-react";
 
 interface StreakIndicatorProps {
@@ -8,7 +8,9 @@ interface StreakIndicatorProps {
   maxStreak?: number;
 }
 
-export function StreakIndicator({ streak, maxStreak }: StreakIndicatorProps) {
+export function StreakIndicator({ streak }: StreakIndicatorProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   if (streak < 2) return null;
 
   const getStreakMessage = (count: number): string => {
@@ -20,7 +22,8 @@ export function StreakIndicator({ streak, maxStreak }: StreakIndicatorProps) {
   };
 
   const getStreakColor = (count: number): string => {
-    if (count >= 10) return "bg-purple-100 text-purple-700 border-purple-200";
+    // 10+ gets a saturated gradient: clearly outranks the red-100 tier below it
+    if (count >= 10) return "bg-gradient-to-br from-orange-500 to-red-500 text-white border-orange-300";
     if (count >= 7) return "bg-red-100 text-red-700 border-red-200";
     if (count >= 5) return "bg-orange-100 text-orange-700 border-orange-200";
     return "bg-yellow-100 text-yellow-700 border-yellow-200";
@@ -39,7 +42,7 @@ export function StreakIndicator({ streak, maxStreak }: StreakIndicatorProps) {
             streak
           )}`}
           animate={
-            streak >= 5
+            streak >= 5 && !shouldReduceMotion
               ? {
                   scale: [1, 1.05, 1],
                 }
@@ -53,7 +56,7 @@ export function StreakIndicator({ streak, maxStreak }: StreakIndicatorProps) {
         >
           <motion.div
             animate={
-              streak >= 3
+              streak >= 3 && !shouldReduceMotion
                 ? {
                     rotate: [0, -10, 10, -10, 10, 0],
                   }

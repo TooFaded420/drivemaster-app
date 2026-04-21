@@ -1,5 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import { DesktopSidebar } from "@/components/layout/desktop-sidebar";
+import { MobileNav } from "@/components/layout/mobile-nav";
 
 export default async function DashboardLayout({
   children,
@@ -13,5 +15,13 @@ export default async function DashboardLayout({
     redirect("/login");
   }
 
-  return children;
+  return (
+    <>
+      <DesktopSidebar />
+      <MobileNav />
+      <div className="md:pl-16 lg:pl-64">
+        {children}
+      </div>
+    </>
+  );
 }

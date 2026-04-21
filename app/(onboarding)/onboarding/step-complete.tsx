@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dash } from "@/components/mascot";
@@ -23,6 +23,7 @@ interface StepCompleteProps {
 }
 
 export function StepComplete({ data, onComplete }: StepCompleteProps) {
+  const shouldReduceMotion = useReducedMotion();
   const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
               key={i}
               className="absolute w-3 h-3 rounded-full"
               style={{
-                background: ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444'][i % 5],
+                background: ['#3B82F6', '#F97316', '#10B981', '#F59E0B', '#EF4444'][i % 5],
                 left: `${Math.random() * 100}%`,
                 top: -20,
               }}
@@ -59,7 +60,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
                 x: (Math.random() - 0.5) * 200,
                 rotate: Math.random() * 360,
               }}
-              transition={{
+              transition={shouldReduceMotion ? { duration: 0 } : {
                 duration: 2 + Math.random() * 2,
                 delay: Math.random() * 0.5,
                 ease: "easeOut",
@@ -73,7 +74,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 200 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 200 }}
         className="flex justify-center"
       >
         <Dash
@@ -91,7 +92,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.2 }}
       >
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full text-white font-medium">
           <Trophy className="w-5 h-5" />
@@ -103,7 +104,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3 }}
       >
         <h1 className="text-3xl lg:text-4xl font-bold text-gray-900">
           You're All Set!
@@ -117,7 +118,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.4 }}
         className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-lg mx-auto"
       >
         <Card>
@@ -132,8 +133,8 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
 
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
-              <Star className="w-5 h-5 text-purple-600" />
+            <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
+              <Star className="w-5 h-5 text-orange-600" />
             </div>
             <p className="text-2xl font-bold text-gray-900">1</p>
             <p className="text-xs text-gray-500">Achievement</p>
@@ -165,8 +166,8 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 max-w-lg mx-auto"
+        transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.5 }}
+        className="bg-gradient-to-r from-blue-50 to-orange-50 rounded-2xl p-6 max-w-lg mx-auto"
       >
         <h3 className="font-semibold text-gray-900 mb-3">What's Next?</h3>
         <ul className="space-y-2 text-left">
@@ -195,12 +196,12 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.6 }}
+        transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.6 }}
       >
         <Link href="/dashboard">
           <Button
             size="lg"
-            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
+            className="bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
           >
             Go to Dashboard
             <ArrowRight className="w-5 h-5 ml-2" />
