@@ -19,14 +19,17 @@ const nextConfig: NextConfig = {
   output: "standalone",
   distDir: ".next",
   
-  // Image optimization settings for static export
+  // Image optimization settings
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
         hostname: "*.supabase.co",
         pathname: "/storage/v1/object/public/**",
+      },
+      {
+        protocol: "https",
+        hostname: "synwblfnankqbmdsinqt.supabase.co",
       },
     ],
   },
