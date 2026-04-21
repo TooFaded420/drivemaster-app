@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { createClient } from "@/lib/supabase/client";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { GoogleOAuthButton } from "@/components/auth/google-oauth-button";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -56,7 +57,15 @@ export default function LoginPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-4">
+              <GoogleOAuthButton mode="login" />
+              <div className="flex items-center gap-3 text-sm text-gray-500">
+                <div className="h-px flex-1 bg-border" />
+                <span>or</span>
+                <div className="h-px flex-1 bg-border" />
+              </div>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               {error && (
                 <Alert variant="destructive">
                   <AlertDescription>{error}</AlertDescription>
