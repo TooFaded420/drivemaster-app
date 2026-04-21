@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import {
+  getIdentifier,
+  getRateLimiter,
+  rateLimitHeaders,
+} from "@/lib/ratelimit";
+
+const rlLeaderboardUpdate = getRateLimiter("leaderboard:update", 60, 60); // 60/min
 
 /**
  * POST /api/leaderboard/update
@@ -20,6 +27,16 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: "Unauthorized" },
         { status: 401 }
+      );
+    }
+
+    const { success, retryAfter } = await rlLeaderboardUpdate.limit(
+      getIdentifier(request, user.id)
+    );
+    if (!success) {
+      return NextResponse.json(
+        { error: "Too many requests. Try again soon." },
+        { status: 429, headers: rateLimitHeaders(retryAfter) }
       );
     }
 
