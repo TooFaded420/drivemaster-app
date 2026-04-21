@@ -72,7 +72,7 @@ export function MobileNav() {
                 </div>
 
                 {/* Menu Items */}
-                <nav className="flex-1 p-4 space-y-1">
+                <nav aria-label="Main" className="flex-1 p-4 space-y-1">
                   {navItems.map((item) => {
                     const Icon = item.icon;
                     const active = isActive(item.href);
@@ -82,6 +82,7 @@ export function MobileNav() {
                         key={item.href}
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
+                        aria-current={active ? "page" : undefined}
                       >
                         <Button
                           variant={active ? "secondary" : "ghost"}
@@ -119,14 +120,19 @@ export function MobileNav() {
       </header>
 
       {/* Bottom Navigation - Fixed on mobile */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md border-t z-40 md:hidden safe-area-bottom">
+      <nav aria-label="Main" className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md border-t z-40 md:hidden safe-area-bottom">
         <div className="flex items-center justify-around h-16 px-2">
           {navItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
 
             return (
-              <Link key={item.href} href={item.href} className="flex-1">
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex-1"
+                aria-current={active ? "page" : undefined}
+              >
                 <Button
                   variant="ghost"
                   className={cn(
@@ -134,7 +140,7 @@ export function MobileNav() {
                     active ? "text-primary" : "text-muted-foreground"
                   )}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-5 h-5" aria-hidden="true" />
                   <span className="text-xs font-medium">{item.label}</span>
                 </Button>
               </Link>
