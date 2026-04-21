@@ -52,9 +52,9 @@ export function QuestionCard({
             className={`p-2 rounded-full transition-colors ${
               isFlagged
                 ? "text-orange-500 bg-orange-100"
-                : "text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                : "text-gray-500 hover:text-gray-600 hover:bg-gray-100"
             }`}
-            aria-label={isFlagged ? "Unflag question" : "Flag question"}
+            aria-label={isFlagged ? "Unflag this question" : "Flag this question"}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +66,8 @@ export function QuestionCard({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
+              focusable="false"
             >
               <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
               <line x1="4" y1="22" x2="4" y2="15" />
@@ -91,7 +93,7 @@ export function QuestionCard({
           <div className="mt-4 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
             <div className="aspect-video flex items-center justify-center">
               {imgError ? (
-                <ImageIcon className="w-12 h-12 text-gray-400" />
+                <ImageIcon className="w-12 h-12 text-gray-500" aria-hidden="true" />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
