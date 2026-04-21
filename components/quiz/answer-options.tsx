@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
+import { useRef, KeyboardEvent } from "react";
 import { Tables } from "@/types/database";
 
 interface AnswerOptionsProps {
@@ -29,8 +30,24 @@ export function AnswerOptions({
 
   const getOptionLetter = (index: number) => String.fromCharCode(65 + index);
 
+  // Refs for each option button so arrow-key focus works
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (isAnswered) return;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      const next = (index + 1) % sortedAnswers.length;
+      buttonRefs.current[next]?.focus();
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const prev = (index - 1 + sortedAnswers.length) % sortedAnswers.length;
+      buttonRefs.current[prev]?.focus();
+    }
+  };
+
   return (
-    <div className="space-y-3">
+    <div role="radiogroup" aria-label="Answer options" className="space-y-3">
       {sortedAnswers.map((answer, index) => {
         const isSelected = selectedAnswerId === answer.id;
         const isCorrect = answer.is_correct;
@@ -51,7 +68,7 @@ export function AnswerOptions({
           } else {
             // Unselected wrong answer
             buttonClass += "border-gray-200 bg-white opacity-60";
-            letterClass += "bg-gray-200 text-gray-500";
+            letterClass += "bg-gray-200 text-gray-600";
           }
         } else {
           // Not answered yet
@@ -67,7 +84,11 @@ export function AnswerOptions({
         return (
           <motion.button
             key={answer.id}
+            ref={(el) => { buttonRefs.current[index] = el; }}
+            role="radio"
+            aria-checked={isSelected}
             onClick={() => !isAnswered && onSelectAnswer(answer.id)}
+            onKeyDown={(e) => handleKeyDown(e, index)}
             disabled={isAnswered}
             className={buttonClass}
             whileHover={!isAnswered ? { scale: 1.01 } : {}}
@@ -77,7 +98,7 @@ export function AnswerOptions({
             transition={{ delay: index * 0.05 }}
           >
             <div className="flex items-center gap-4">
-              <div className={letterClass}>
+              <div className={letterClass} aria-hidden="true">
                 {showCorrectness ? (
                   isCorrect ? (
                     <CheckCircle2 className="w-5 h-5" />
@@ -97,7 +118,7 @@ export function AnswerOptions({
                       ? "text-green-700 font-medium"
                       : isSelected
                       ? "text-red-700"
-                      : "text-gray-500"
+                      : "text-gray-600"
                     : "text-gray-700"
                 }`}
               >

@@ -1,6 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import {
+  getIdentifier,
+  getRateLimiter,
+  rateLimitHeaders,
+} from "@/lib/ratelimit";
 import crypto from "crypto";
+
+const TOO_MANY = { error: "Too many requests. Try again soon." };
+
+// Per-route limiters (constructed once per module load via the cached Map).
+const rlGenerate = getRateLimiter("parent:generate", 5, 60 * 60); // 5/hour
+const rlLink = getRateLimiter("parent:link", 10, 60 * 60); // 10/hour
+const rlParentGet = getRateLimiter("parent:get", 60, 60); // 60/min
 
 /**
  * Parent Linking API
@@ -27,6 +39,15 @@ export async function POST(request: NextRequest) {
     const { action, inviteCode } = await request.json();
 
     if (action === "generate") {
+      const { success, retryAfter } = await rlGenerate.limit(
+        getIdentifier(request, user.id)
+      );
+      if (!success) {
+        return NextResponse.json(TOO_MANY, {
+          status: 429,
+          headers: rateLimitHeaders(retryAfter),
+        });
+      }
       // Don't silently overwrite an approved (active) link. If the teen
       // already has an active parent, they must explicitly remove that
       // link before generating a new invite. Regenerating while the
@@ -73,6 +94,16 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "link") {
+      const { success, retryAfter } = await rlLink.limit(
+        getIdentifier(request, user.id)
+      );
+      if (!success) {
+        return NextResponse.json(TOO_MANY, {
+          status: 429,
+          headers: rateLimitHeaders(retryAfter),
+        });
+      }
+
       // Parent links with an invite code
       if (!inviteCode || inviteCode.length !== 6) {
         return NextResponse.json({ error: "Invalid invite code" }, { status: 400 });
@@ -137,6 +168,16 @@ export async function GET(request: NextRequest) {
 
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { success, retryAfter } = await rlParentGet.limit(
+      getIdentifier(request, user.id)
+    );
+    if (!success) {
+      return NextResponse.json(TOO_MANY, {
+        status: 429,
+        headers: rateLimitHeaders(retryAfter),
+      });
     }
 
     // Check if user is a teen with a link

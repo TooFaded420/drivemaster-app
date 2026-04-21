@@ -1,20 +1,62 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Dash } from "@/components/mascot";
 import { MASCOT_MESSAGES } from "@/lib/constants/mascot";
-import { 
-  Car, 
-  Trophy, 
-  Target, 
-  Flame, 
-  BookOpen, 
+import {
+  Car,
+  Trophy,
+  Target,
+  Flame,
+  BookOpen,
   Users,
   ArrowRight,
-  Star,
   CheckCircle2
 } from "lucide-react";
 import Link from "next/link";
+
+const faqItems = [
+  {
+    question: "How many questions are on the Illinois permit test?",
+    answer: "35 questions. You need 28 correct (80%) to pass.",
+  },
+  {
+    question: "What's the minimum age to get an Illinois permit?",
+    answer: "15 if you're enrolled in an approved driver's ed course, 17 years and 3 months otherwise.",
+  },
+  {
+    question: "Is DriveMaster free?",
+    answer: "Yes. All 3,400+ practice questions, zero credit card required.",
+  },
+  {
+    question: "Does this cover the real IL SOS test topics?",
+    answer: "Yes — road signs, rules of the road, traffic laws, sharing the road, and vehicle operation. Everything on the official test.",
+  },
+  {
+    question: "How should I use DriveMaster to study?",
+    answer: "Mix Practice Mode (build skills) with Timed Mode (simulate the real test). Even 15 min/day makes a huge difference.",
+  },
+  {
+    question: "What happens if I fail the practice tests?",
+    answer: "Dash breaks down every wrong answer so you actually learn it. Retry as many times as you want — no judgment.",
+  },
+  {
+    question: "Do I need an account?",
+    answer: "Yes — so we can save your streak and track which questions you've already mastered.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
 
 export default function Home() {
   return (
@@ -46,15 +88,15 @@ export default function Home() {
             {/* Left Content */}
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
-                <Star className="w-4 h-4 fill-current" />
-                Trusted by 10,000+ Illinois drivers
+                <CheckCircle2 className="w-4 h-4" />
+                Built specifically for Illinois teens
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
                 Master Your Illinois<br />
                 <span className="text-blue-600">Driving Test</span> with Confidence
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
-                Interactive practice questions, gamified learning, and personalized study plans 
+                Interactive practice questions, gamified learning, and personalized study plans
                 to help you pass your permit or license test on the first try.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -77,7 +119,7 @@ export default function Home() {
               <div className="relative">
                 {/* Background decoration */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-orange-100 rounded-full opacity-30 blur-3xl scale-150" />
-                
+
                 {/* Dash with welcome message */}
                 <div className="relative">
                   <Dash
@@ -96,25 +138,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Honest Value Props Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 font-mono tabular-nums">500+</div>
-              <div className="text-gray-600">Practice Questions</div>
+              <div className="text-3xl font-bold text-blue-600 font-display tracking-tight mb-1">Free to Start</div>
+              <div className="text-gray-600">No credit card, no trial. All 3,400+ questions unlocked.</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 font-mono tabular-nums">95%</div>
-              <div className="text-gray-600">Pass Rate</div>
+              <div className="text-3xl font-bold text-orange-500 font-display tracking-tight mb-1">IL-Official Topics</div>
+              <div className="text-gray-600">Road signs, rules, traffic laws — everything on the real SOS test.</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 font-mono tabular-nums">10K+</div>
-              <div className="text-gray-600">Active Learners</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 font-mono tabular-nums">4.9</div>
-              <div className="text-gray-600">App Rating</div>
+              <div className="text-3xl font-bold text-green-600 font-display tracking-tight mb-1">Teen-First Design</div>
+              <div className="text-gray-600">Built for Illinois teens aged 15-17, not generic test-takers.</div>
             </div>
           </div>
         </div>
@@ -128,7 +166,7 @@ export default function Home() {
               Meet Your Study Buddy
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Dash will guide you through your learning journey, celebrate your wins, 
+              Dash will guide you through your learning journey, celebrate your wins,
               and keep you motivated every step of the way!
             </p>
           </div>
@@ -184,7 +222,7 @@ export default function Home() {
               Comprehensive tools and features designed to make studying engaging and effective
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
@@ -357,6 +395,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display tracking-tight">
+              Illinois Permit Test — FAQs
+            </h2>
+            <p className="text-gray-600">
+              Real answers, no fluff. Everything you need to know before test day. 🎯
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqItems.map((item) => (
+              <details
+                key={item.question}
+                className="group rounded-xl border border-gray-200 bg-white shadow-sm open:shadow-md transition-shadow"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-gray-900 marker:content-none list-none">
+                  <span>{item.question}</span>
+                  <span
+                    aria-hidden="true"
+                    className="ml-auto shrink-0 text-orange-500 text-xl font-bold leading-none transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                  {item.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* CTA Section with Dash */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto text-center">
@@ -367,8 +447,7 @@ export default function Home() {
             Ready to Start Your Journey?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of successful drivers who passed their test with DriveMaster. 
-            It's free to get started!
+            Free to start, Illinois-specific, and designed to actually make studying not boring. Let&apos;s go.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/signup">
@@ -394,6 +473,9 @@ export default function Home() {
               <Car className="w-5 h-5 text-white" />
             </div>
             <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+          </div>
+          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
+            <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
           </div>
           <p className="text-center text-gray-600 text-sm">
             © 2026 DriveMaster. All rights reserved. Not affiliated with the Illinois Secretary of State.

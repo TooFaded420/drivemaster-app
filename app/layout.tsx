@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { AnalyticsConsentProvider } from "@/lib/providers/analytics-consent";
 import { PHProvider } from "@/lib/providers/posthog-provider";
 import { ClarityScript } from "@/lib/providers/clarity-script";
+import { PWAInit } from "@/components/pwa-init";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -21,16 +22,56 @@ const jetbrainsMono = JetBrains_Mono({
 // Cabinet Grotesk loaded via CSS @import from Fontshare CDN (see globals.css)
 const inter = { variable: `${dmSans.variable} ${jetbrainsMono.variable}` };
 
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://drivemaster-app.vercel.app";
+const title = "DriveMaster - Illinois Driving Test Prep";
+const description =
+  "Free Illinois permit practice tests. 3,400+ questions across all official SOS topics. Gamified for teens.";
+
 export const metadata: Metadata = {
-  title: "DriveMaster - Illinois Driving Test Prep",
-  description: "Master your Illinois driving test with interactive practice questions, gamified learning, and personalized study plans. Join thousands of successful drivers!",
-  keywords: ["driving test", "Illinois DMV", "permit test", "drivers license", "practice test"],
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  keywords: [
+    "illinois permit test",
+    "illinois drivers license",
+    "dmv practice test",
+    "il sos",
+    "drivers ed illinois",
+    "permit test 2026",
+  ],
   authors: [{ name: "DriveMaster" }],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "DriveMaster - Illinois Driving Test Prep",
-    description: "Master your Illinois driving test with interactive practice questions and gamified learning.",
-    type: "website",
+    title,
+    description,
+    url: siteUrl,
+    siteName: "DriveMaster",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "DriveMaster - Illinois driving test prep",
+      },
+    ],
     locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/twitter-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   manifest: "/manifest.json",
   appleWebApp: {
@@ -83,6 +124,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
       >
+        <PWAInit />
+        {/* a11y: skip navigation link */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded"
+        >
+          Skip to content
+        </a>
         <AnalyticsConsentProvider>
           <PHProvider>
             <ThemeProvider
@@ -91,7 +140,9 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              {children}
+              <main id="main">
+                {children}
+              </main>
 
               {/* PWA Install Prompt */}
               <PWAInstallPrompt delay={5000} />

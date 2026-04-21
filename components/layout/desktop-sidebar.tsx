@@ -160,7 +160,7 @@ export function DesktopSidebar({
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 py-4 px-3 space-y-1 overflow-y-auto scrollbar-thin">
+        <nav aria-label="Main" className="flex-1 py-4 px-3 space-y-1 overflow-y-auto scrollbar-thin">
           {navItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
@@ -176,8 +176,8 @@ export function DesktopSidebar({
                 )}
                 asChild
               >
-                <Link href={item.href}>
-                  <Icon className="w-5 h-5 flex-shrink-0" />
+                <Link href={item.href} aria-current={active ? "page" : undefined}>
+                  <Icon className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
                   {!collapsed && (
                     <span className="whitespace-nowrap overflow-hidden">
                       {item.label}

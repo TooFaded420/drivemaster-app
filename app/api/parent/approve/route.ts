@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import {
+  getIdentifier,
+  getRateLimiter,
+  rateLimitHeaders,
+} from "@/lib/ratelimit";
+
+const rlApprove = getRateLimiter("parent:approve", 10, 60); // 10/min
 
 /**
  * POST /api/parent/approve — teen approves or rejects a pending parent link.
@@ -20,6 +27,16 @@ export async function POST(request: NextRequest) {
 
     if (!user) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { success, retryAfter } = await rlApprove.limit(
+      getIdentifier(request, user.id)
+    );
+    if (!success) {
+      return NextResponse.json(
+        { error: "Too many requests. Try again soon." },
+        { status: 429, headers: rateLimitHeaders(retryAfter) }
+      );
     }
 
     const body = await request.json().catch(() => ({}));

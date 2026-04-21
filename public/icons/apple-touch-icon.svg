@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DriveMaster icon">
+  <!-- Blue circle background with padding for iOS safe area -->
+  <rect width="512" height="512" rx="96" fill="#2563EB"/>
+  <!-- White "D" letterform — inset to respect iOS safe area (~10% padding) -->
+  <path d="M175 175 h66 c58 0 110 40 110 88 s-52 88-110 88 H175 Z M213 215 v96 h28 c40 0 74-18 74-48 s-34-48-74-48 Z" fill="#FFFFFF"/>
+  <!-- Orange accent bar -->
+  <rect x="175" y="339" width="176" height="14" rx="7" fill="#F97316"/>
+</svg>
