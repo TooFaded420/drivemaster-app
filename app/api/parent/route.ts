@@ -17,7 +17,7 @@ import crypto from "crypto";
 // POST: generate code OR link with code
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient() as any;
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Check expiry
-      if (new Date(link.invite_expires_at) < new Date()) {
+      if (!link.invite_expires_at || new Date(link.invite_expires_at) < new Date()) {
         return NextResponse.json({ error: "This invite code has expired. Ask your teen for a new one." }, { status: 410 });
       }
 
@@ -132,7 +132,7 @@ export async function POST(request: NextRequest) {
 // GET: check link status
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient() as any;
+    const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
@@ -164,10 +164,14 @@ export async function GET(request: NextRequest) {
 
     if (asParentLinkRaw) {
       if (asParentLinkRaw.status === "active") {
+        // Supabase typegen can shape the join as object or array.
+        const teenJoin = Array.isArray(asParentLinkRaw.teen)
+          ? asParentLinkRaw.teen[0]
+          : asParentLinkRaw.teen;
         asParentLink = {
           status: asParentLinkRaw.status,
           teen_user_id: asParentLinkRaw.teen_user_id,
-          teen: asParentLinkRaw.teen ?? null,
+          teen: (teenJoin as { username: string } | null) ?? null,
         };
       } else {
         asParentLink = {
