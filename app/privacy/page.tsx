@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Privacy Policy — DriveMaster",
-  description: "How DriveMaster collects, uses, and protects your data. Written for teens and parents.",
+  description: "How DriveMaster collects, uses, and protects your data. Plain language for all users.",
 };
 
 const LAST_UPDATED = "2026-04-21";
@@ -31,9 +31,10 @@ export default function PrivacyPage() {
             1. Who we are
           </h2>
           <p>
-            DriveMaster is a free Illinois driving-test prep app built for teens aged 15–17.
-            We help you study for the Illinois Secretary of State permit and license tests through practice
-            questions, gamified learning, and a study buddy named Dash.
+            DriveMaster is a free Illinois driving-test prep app used by Illinois residents of many ages
+            preparing for the permit test, including minors. We help you study for the Illinois Secretary
+            of State permit and license tests through practice questions, gamified learning, and a study
+            buddy named Dash. We&apos;ve built privacy safeguards for under-18 users per COPPA and IL BIPA.
           </p>
           <p className="mt-2">
             This policy covers what data we collect, why, and how you can control it.
@@ -214,7 +215,7 @@ export default function PrivacyPage() {
             9. COPPA &amp; Illinois BIPA posture
           </h2>
           <p>
-            DriveMaster is designed for users aged 15–17. <strong>If you are under 13, do not use DriveMaster.</strong>{" "}
+            DriveMaster is used by people of many ages preparing for the Illinois permit test. <strong>If you are under 13, do not use DriveMaster.</strong>{" "}
             We do not knowingly collect personal information from children under 13. If we learn that a user is under 13,
             we will delete the account and all associated data within 30 days.
           </p>
