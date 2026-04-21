@@ -118,22 +118,37 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Content - Dash Mascot */}
+            {/* Right Content - Hero Video with floating Dash */}
             <div className="relative flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Background decoration */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-orange-100 rounded-full opacity-30 blur-3xl scale-150" />
+              <div className="relative w-full max-w-lg">
+                {/* Ambient gradient glow behind the video */}
+                <div className="absolute -inset-6 bg-gradient-to-br from-blue-300 to-orange-200 rounded-[2rem] opacity-40 blur-3xl" aria-hidden="true" />
 
-                {/* Dash with welcome message */}
-                <div className="relative">
+                {/* Video — seamlessly looping hero */}
+                <video
+                  className="relative w-full aspect-video rounded-2xl shadow-2xl object-cover ring-1 ring-black/5"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="/videos/hero-loop-poster.jpg"
+                  aria-label="DriveMaster hero video"
+                >
+                  <source src="/videos/hero-loop.webm" type="video/webm" />
+                  <source src="/videos/hero-loop.mp4" type="video/mp4" />
+                </video>
+
+                {/* Floating Dash badge overlaid on the video's bottom-left */}
+                <div className="absolute -bottom-6 -left-6 hidden sm:block">
                   <Dash
                     emotion="happy"
-                    size="xl"
+                    size="lg"
                     animate={true}
                     showSpeechBubble={true}
                     speechTitle={MASCOT_MESSAGES.welcome.title}
                     speechText={MASCOT_MESSAGES.welcome.message}
-                    speechPosition="left"
+                    speechPosition="right"
                   />
                 </div>
               </div>
