@@ -7,6 +7,9 @@ import { Toaster } from "@/components/ui/sonner";
 import { AnalyticsConsentProvider } from "@/lib/providers/analytics-consent";
 import { PHProvider } from "@/lib/providers/posthog-provider";
 import { ClarityScript } from "@/lib/providers/clarity-script";
+import { MetaPixel } from "@/lib/providers/meta-pixel";
+import { TikTokPixel } from "@/lib/providers/tiktok-pixel";
+import { GoogleAnalytics } from "@/lib/providers/google-analytics";
 import { PWAInit } from "@/components/pwa-init";
 
 const dmSans = DM_Sans({
@@ -152,6 +155,10 @@ export default function RootLayout({
             </ThemeProvider>
             {/* Microsoft Clarity — consent-gated, client component */}
             <ClarityScript />
+            {/* Paid-traffic pixels — consent-gated, client components */}
+            <MetaPixel />
+            <TikTokPixel />
+            <GoogleAnalytics />
           </PHProvider>
         </AnalyticsConsentProvider>
       </body>

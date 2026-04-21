@@ -54,6 +54,21 @@ const envVars: EnvVar[] = [
     description: "Microsoft Clarity project ID",
   },
   {
+    name: "NEXT_PUBLIC_META_PIXEL_ID",
+    required: false,
+    description: "Meta Pixel ID for paid-traffic conversion tracking (optional)",
+  },
+  {
+    name: "NEXT_PUBLIC_TIKTOK_PIXEL_ID",
+    required: false,
+    description: "TikTok Pixel ID for Spark Ads attribution (optional)",
+  },
+  {
+    name: "NEXT_PUBLIC_GA_MEASUREMENT_ID",
+    required: false,
+    description: "Google Analytics 4 Measurement ID (format G-XXXXXXXXXX, optional)",
+  },
+  {
     name: "NEXT_PUBLIC_SENTRY_DSN",
     required: false,
     description: "Sentry error tracking DSN",
