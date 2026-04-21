@@ -74,6 +74,15 @@ export async function POST(request: NextRequest) {
  */
 export async function GET(request: NextRequest) {
   try {
+    // Verify admin access (matches POST/PUT pattern)
+    const adminKey = request.headers.get('x-admin-key');
+    if (adminKey !== process.env.ADMIN_API_KEY) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized - Admin access required' },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const format = searchParams.get('format') || 'json';
     

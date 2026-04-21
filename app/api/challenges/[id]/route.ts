@@ -15,6 +15,12 @@ export async function GET(
     const { id } = await params;
     const supabase = await createClient() as any;
 
+    // Require auth — challenge content includes questions
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     // Fetch challenge
     const { data: challenge, error } = await supabase
       .from("challenges")

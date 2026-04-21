@@ -27,6 +27,13 @@ Start by acknowledging their choice, then explain the right answer with a memora
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient() as any;
+
+    // Require auth — AI calls cost credits; unauth = free abuse vector
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { questionId, selectedAnswerIndex, questionText, selectedAnswerText, correctAnswerText, staticExplanation } = await request.json();
 
     if (!questionId || selectedAnswerIndex === undefined) {

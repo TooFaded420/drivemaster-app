@@ -21,6 +21,16 @@ import { QuestionFilter } from '@/lib/data/questions/types';
  */
 export async function GET(request: NextRequest) {
   try {
+    // Require auth — answers/explanations must not leak
+    const supabase = await createClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    if (authError || !user) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     
     // Build filter from query params
@@ -98,9 +108,9 @@ export async function POST(request: NextRequest) {
     const supabase = await createClient();
     
     // Verify admin authentication
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    
-    if (authError || !user) {
+    const { data: { user: postUser }, error: authError } = await supabase.auth.getUser();
+
+    if (authError || !postUser) {
       return NextResponse.json(
         { success: false, error: 'Unauthorized' },
         { status: 401 }
