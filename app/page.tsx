@@ -89,7 +89,7 @@ export default function Home() {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
                 <CheckCircle2 className="w-4 h-4" />
-                Built specifically for Illinois teens
+                Built for everyone taking the Illinois permit test
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
                 Master Your Illinois<br />
@@ -151,8 +151,8 @@ export default function Home() {
               <div className="text-gray-600">Road signs, rules, traffic laws — everything on the real SOS test.</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 font-display tracking-tight mb-1">Teen-First Design</div>
-              <div className="text-gray-600">Built for Illinois teens aged 15-17, not generic test-takers.</div>
+              <div className="text-3xl font-bold text-green-600 font-display tracking-tight mb-1">Game-Like Learning</div>
+              <div className="text-gray-600">XP, streaks, and leagues make studying actually hard to quit.</div>
             </div>
           </div>
         </div>
