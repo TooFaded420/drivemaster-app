@@ -33,7 +33,17 @@ const envVars: EnvVar[] = [
   {
     name: "NEXT_PUBLIC_POSTHOG_KEY",
     required: false,
-    description: "PostHog analytics key",
+    description: "PostHog analytics project API key",
+  },
+  {
+    name: "NEXT_PUBLIC_POSTHOG_HOST",
+    required: false,
+    description: "PostHog UI host (defaults to https://us.posthog.com)",
+  },
+  {
+    name: "NEXT_PUBLIC_CLARITY_ID",
+    required: false,
+    description: "Microsoft Clarity project ID",
   },
   {
     name: "NEXT_PUBLIC_SENTRY_DSN",
@@ -75,7 +85,7 @@ function validateEnv(): { valid: boolean; errors: string[]; warnings: string[] }
 }
 
 function main(): void {
-  const { valid, errors, warnings } = validateEnv();
+  const { errors, warnings } = validateEnv();
 
   if (warnings.length > 0) {
     console.log("\n⚠️  Warnings:");

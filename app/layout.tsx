@@ -4,6 +4,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { PWAInstallPrompt } from "@/components/pwa-install-prompt";
 import { Toaster } from "@/components/ui/sonner";
+import { AnalyticsConsentProvider } from "@/lib/providers/analytics-consent";
+import { PHProvider } from "@/lib/providers/posthog-provider";
+import { ClarityScript } from "@/lib/providers/clarity-script";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -80,20 +83,26 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          
-          {/* PWA Install Prompt */}
-          <PWAInstallPrompt delay={5000} />
-          
-          {/* Toast notifications */}
-          <Toaster position="bottom-center" className="md:bottom-4" />
-        </ThemeProvider>
+        <AnalyticsConsentProvider>
+          <PHProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+
+              {/* PWA Install Prompt */}
+              <PWAInstallPrompt delay={5000} />
+
+              {/* Toast notifications */}
+              <Toaster position="bottom-center" className="md:bottom-4" />
+            </ThemeProvider>
+            {/* Microsoft Clarity — consent-gated, client component */}
+            <ClarityScript />
+          </PHProvider>
+        </AnalyticsConsentProvider>
       </body>
     </html>
   );
