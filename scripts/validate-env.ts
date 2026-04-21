@@ -9,7 +9,13 @@ interface EnvVar {
   description: string;
 }
 
-const isProd = process.env.NODE_ENV === "production" || process.env.VERCEL_ENV === "production";
+// When running on Vercel, NODE_ENV=production for BOTH preview and production
+// builds, so trust VERCEL_ENV when it's set. Fall back to NODE_ENV only when
+// building outside Vercel (local `npm run build`, CI). This keeps preview
+// builds from failing on production-only keys like SYNTHETIC_API_KEY.
+const isProd = process.env.VERCEL_ENV
+  ? process.env.VERCEL_ENV === "production"
+  : process.env.NODE_ENV === "production";
 
 const envVars: EnvVar[] = [
   {
