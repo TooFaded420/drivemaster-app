@@ -15,7 +15,10 @@ import { createClient } from "@/lib/supabase/server";
  */
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient() as any;
+    // parent_links is not in the generated Database types — cast matches
+    // the existing pattern across app/api (parent, explain, challenges, cron).
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const supabase = (await createClient()) as any;
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
