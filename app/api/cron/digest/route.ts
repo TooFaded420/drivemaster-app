@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
         parent:profiles!parent_user_id(email, username),
         teen:profiles!teen_user_id(username, test_date)
       `)
-      .eq("status", "approved");
+      .eq("status", "active");
 
     if (error || !links || links.length === 0) {
       return NextResponse.json({ message: "No linked parents found", sent: 0 });

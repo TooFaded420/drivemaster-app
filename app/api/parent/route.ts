@@ -79,12 +79,12 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: "You can't link to your own account" }, { status: 400 });
       }
 
-      // Update the link with parent info
+      // Attach parent and mark as pending teen approval (minor-consent flow).
       const { error: updateError } = await supabase
         .from("parent_links")
         .update({
           parent_user_id: user.id,
-          status: "approved", // Auto-approve for v1 (teen approval flow deferred)
+          status: "pending_teen_approval",
           linked_at: new Date().toISOString(),
         })
         .eq("id", link.id);
@@ -94,7 +94,11 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: "Failed to link account" }, { status: 500 });
       }
 
-      return NextResponse.json({ success: true, message: "Linked! You'll receive weekly progress updates." });
+      return NextResponse.json({
+        success: true,
+        message: "Request sent. Your teen needs to approve the link before you'll see their progress.",
+        status: "pending_teen_approval",
+      });
     }
 
     return NextResponse.json({ error: "Invalid action" }, { status: 400 });
