@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { MobileLayout } from "@/components/mobile-layout";
 import { Dash } from "@/components/mascot";
 import { useMascot } from "@/hooks/use-mascot";
@@ -25,27 +23,40 @@ import {
   Star,
   ArrowRight,
 } from "lucide-react";
+import { toast } from "sonner";
 
-const fallbackResults = {
-  totalQuestions: 10,
-  correctAnswers: 0,
-  wrongAnswers: 10,
-  accuracy: 0,
-  totalTimeTaken: 0,
-  averageTimePerQuestion: 0,
-  maxStreak: 0,
+type QuizResults = {
+  totalQuestions: number;
+  correctAnswers: number;
+  wrongAnswers: number;
+  accuracy: number;
+  totalTimeTaken: number;
+  averageTimePerQuestion: number;
+  maxStreak: number;
   xpEarned: {
-    baseXP: 0,
-    speedBonus: 0,
-    streakBonus: 0,
-    perfectBonus: 0,
-    firstAttemptBonus: 0,
-    difficultyBonus: 0,
-    totalXP: 0,
-    breakdown: [],
-  },
-  weakCategories: [],
+    baseXP: number;
+    speedBonus: number;
+    streakBonus: number;
+    perfectBonus: number;
+    firstAttemptBonus: number;
+    difficultyBonus: number;
+    totalXP: number;
+    breakdown: { label: string; description: string; value: number }[];
+  };
+  weakCategories: { categoryId: string; categoryName: string; wrongCount: number }[];
 };
+
+function loadResults(): QuizResults | null {
+  try {
+    const stored = sessionStorage.getItem("quizResults");
+    if (!stored) return null;
+    const parsed = JSON.parse(stored) as QuizResults;
+    sessionStorage.removeItem("quizResults");
+    return parsed;
+  } catch {
+    return null;
+  }
+}
 
 export default function QuizResultsPage() {
   const router = useRouter();
@@ -53,28 +64,22 @@ export default function QuizResultsPage() {
   const [showXPBreakdown, setShowXPBreakdown] = useState(false);
   const [animatedXP, setAnimatedXP] = useState(0);
 
-  const [results, setResults] = useState(fallbackResults);
-  const hasLoadedRef = useRef(false);
+  // Lazy initializer reads sessionStorage once at mount — no setState-in-effect needed.
+  const [results] = useState<QuizResults | null>(loadResults);
 
+  const isPassing = (results?.accuracy ?? 0) >= 80;
+
+  // Redirect when no results found (runs after render so router is stable).
   useEffect(() => {
-    if (hasLoadedRef.current) return;
-    hasLoadedRef.current = true;
-    try {
-      const stored = sessionStorage.getItem("quizResults");
-      if (stored) {
-        setResults(JSON.parse(stored));
-        sessionStorage.removeItem("quizResults");
-      } else {
-        router.push("/quiz");
-      }
-    } catch {
+    if (!results) {
+      toast("Your results expired — let's run it back. 🔁");
       router.push("/quiz");
     }
-  }, [router]);
-
-  const isPassing = results.accuracy >= 80;
+  }, [results, router]);
 
   useEffect(() => {
+    if (!results) return;
+
     // Animate XP counter
     const duration = 2000;
     const steps = 60;
@@ -101,13 +106,18 @@ export default function QuizResultsPage() {
     } else {
       mascot.show(
         "encouraging",
-        `You got ${results.accuracy}%. Keep practicing and you'll improve! 💪`,
-        "Don't Give Up!"
+        `You scored ${results.accuracy}% — keep grinding and you'll nail it! 💪`,
+        "So Close!"
       );
     }
 
     return () => clearInterval(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [results]);
+
+  if (!results) {
+    return null;
+  }
 
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);
