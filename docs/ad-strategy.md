@@ -1,9 +1,9 @@
 # Ad Strategy — DriveMaster (4 Weeks)
 
-**Audience:** Illinois teens 15-17 learning to drive.
+**Audience:** Anyone preparing for the Illinois permit test — teens (15+), adults new to Illinois, retakers.
 **Product:** Free gamified permit-test prep PWA (drivemaster-app.vercel.app).
 **Timeline:** April 21 – May 19, 2026.
-**Constraint:** Under-18 targeting rules + validation gate = organic focus until week 3 minimum.
+**Constraint:** Validation gate = organic focus until week 3 minimum. Under-18 ad targeting still restricted on Meta/TikTok, but adult targeting is now fully available and broadens reach significantly.
 
 ---
 
@@ -11,22 +11,25 @@
 
 Before a single dollar spends, three facts dominate ad planning for DriveMaster.
 
-**COPPA and Platform Rules Are the Primary Constraint**
+**The Positioning Pivot Is a Net Positive for Ad Strategy**
 
-Meta (Facebook, Instagram) removed interest-based targeting for under-18 users in the US in January 2023. TikTok's under-18 targeting is heavily restricted. This kills the "micro-target 15-17yr olds via interest in driving-ed" plan. It's not coming back.
+DriveMaster now targets anyone taking the Illinois permit test — not just teens 15-17. This directly relaxes the biggest ad constraint: COPPA and platform under-18 targeting restrictions. Adults who need the IL permit test (new residents, returning drivers, retakers) are fully targetable on every platform with interest-based ads. This is no longer a blocker — it's an advantage.
+
+Meta (Facebook, Instagram) removed interest-based targeting for under-18 users in the US in January 2023. TikTok's under-18 targeting is heavily restricted. Those constraints still exist for the teen portion of the audience, but the broader adult audience sidesteps them entirely.
 
 **Options:**
-- **(A) Target parents** with parent-directed creative ("Your teen is procrastinating on the permit test again. DriveMaster makes it fun."). This works legally and targeting-wise — parents get interest-based ads, and parent reach to teen conversion is measurable.
-- **(B) Target 18+ college students in Illinois** as a proxy ("Remember when you were taking the permit test? One of your friends is probably right now. DriveMaster makes their grind less painful."). Converts teens via referral, not direct ads.
-- **(C) Organic-only until age-gate + parental-consent flow ships** (probably week 4-6 timeline). Once implemented, paid targeting of under-18 becomes compliant and precise. Until then, paid spend to under-18 has legal friction.
+- **(A) Target adults directly** — new Illinois residents, adults who let their license lapse, anyone searching "illinois permit test" who isn't a teenager. Full interest-based targeting available. This is now the primary paid channel.
+- **(B) Target parents** with parent-directed creative ("Your teen is procrastinating on the permit test again. DriveMaster makes it fun."). Still works and still converts.
+- **(C) Target 18+ college students in Illinois** as a proxy for teen referral and organic spread.
+- **(D) Organic-only for under-18 direct reach** — TikTok organic, Reddit seeding, and driving-school partnerships reach teens without paid compliance friction.
 
-**This ad strategy uses (A) + (B) + organic aggressively.** No paid spend to 15-17yr old targeting until compliance infrastructure ships.
+**This ad strategy uses (A) + (B) + (C) + organic aggressively.** No paid spend to under-18 direct targeting until compliance infrastructure ships, but the adult audience means paid spend is no longer blocked.
 
 **One Real Illinois Teen Must Validate Retention First**
 
 The sprint plan (2026-04-21-sprint-plan.md) gates all feature work on this: "Week 1 stabilize core loop. Week 2 recruit and observe one real teen. Ship one retention feature based on observed behavior, not wishlist." Ads before that validation is premature spend. A teen who bounces in 2 days costs the same CPA as a teen who retains. Until retention is *observed* (not assumed), ad spend teaches you nothing.
 
-**State this rule plainly:** No paid acquisition spend scales until one real Illinois teen has signed up, completed at least 3 quizzes, and shown week-1 retention. This is not a suggestion. April/early May = observation + organic only. Paid spend unlock = mid-May if validation hits.
+**State this rule plainly:** No paid acquisition spend scales until one real Illinois permit-test studier has signed up, completed at least 3 quizzes, and shown week-1 retention. This is not a suggestion. April/early May = observation + organic only. Paid spend unlock = mid-May if validation hits.
 
 **No UTM Attribution Until Middleware Ships**
 
@@ -57,41 +60,41 @@ Every dollar in April and May is learning spend. There is no paywall, no convers
 
 ## 2. Channel Ranked List (Top 5)
 
-Ranked by fit for current constraints (parent-targeting, 18+ proxy, organic scale).
+Ranked by fit for current constraints (adult targeting now primary, parent-targeting secondary, organic for under-18).
 
-### Channel 1: TikTok Organic + Amplified
+### Channel 1: Google Search (Broadest Intent, Now Primary Paid Channel)
 
-**CPM range:** N/A (organic). Amplification (Creator Fund, TikTok ads to 18+ retargeting): $0.30-1.50 CPM. 
-**Minimum daily budget:** $10 for creator-amplified tier (test audience ~5k reach).
-**Format:** 15-60 sec vertical video. Hook in first 3 sec. Music trends encouraged. Dash mascot + teen testimonial combo performs best in this space.
-**Gotcha:** TikTok's organic reach is unpredictable. One video hits 100k views, the next hits 200. Budget conservatively for reach; plan for viral upside as bonus.
-**Teen PMF rating:** A. This is where teens live. Organic reach avoids compliance friction. Amplification (if needed) targets 18+ or lookalikes, not under-18 direct targeting.
-
-**Action this channel:** 5 posts in 14 days, 2-3 featuring Dash, 1-2 featuring a real teen success story (once one exists mid-May), 1 behind-the-scenes. Track view counts; if any single post exceeds 1k views, double down on that format in the following week. Creator Fund payout is bonus money; ignore it for ROI math.
-
----
-
-### Channel 2: Google Search (Parent + Teen Hybrid)
-
-**CPM/CPC range:** $0.80-2.50 CPC (permit-test keywords are education vertical, moderate competition). 
+**CPM/CPC range:** $0.80-2.50 CPC (permit-test keywords are education vertical, moderate competition).
 **Minimum daily budget:** $20 (5-10 clicks/day at $2 CPC).
-**Format:** Search ads (responsive), landing page optimized for CTR on "free illinois permit test" + "illinois DMV practice test" queries.
+**Format:** Search ads (responsive), landing page optimized for CTR on "free illinois permit test" + "illinois DMV practice test" + "illinois permit test adults" queries.
 **Gotcha:** Search demand is seasonal (peaks summer). April-May volume is 40% of July. Bid strategy matters: Target CPA of $40-60 per signup (test budget) or $30-40 (serious budget). Google's Smart Bidding will optimize toward that ceiling.
-**Teen PMF rating:** A-. Teens and parents both search "illinois permit test" the week before the appointment. High intent. Low CPM/CPC relative to other channels.
+**Audience PMF rating:** A. Anyone searching "illinois permit test" — teen, adult, new resident — has immediate intent. The broader positioning means every searcher is now a valid target, not just parents and teens. This is the highest-ROI entry channel.
 
-**Action this channel:** Launch 3-5 ad group clusters: parent-targeting ("Your teen is procrastinating again"), teen-targeting ("Free, no ads, just you and Dash"), and broad ("Illinois permit test"). A/B test landing pages (see section 4). Start with $200 budget spread across 2 weeks; scale if CPA < $50.
+**Action this channel:** Launch 4-6 ad group clusters: adult/new-resident-targeting ("Moving to Illinois? Get your permit fast"), parent-targeting ("Your teen is procrastinating again"), broad intent ("illinois permit test"), and free angle ("free illinois DMV practice test"). A/B test landing pages (see section 4). Start with $200 budget spread across 2 weeks; scale if CPA < $50.
 
 ---
 
-### Channel 3: Meta (Facebook/Instagram) Parent Targeting
+### Channel 2: TikTok Organic + Amplified
 
-**CPM range:** $1.50-4.00 CPM (targeting parents 35-50 in IL, interest: family, education, parenting).
+**CPM range:** N/A (organic). Amplification (Creator Fund, TikTok ads to 18+ retargeting): $0.30-1.50 CPM.
+**Minimum daily budget:** $10 for creator-amplified tier (test audience ~5k reach).
+**Format:** 15-60 sec vertical video. Hook in first 3 sec. Music trends encouraged. Dash mascot + real-user success story combo performs best in this space.
+**Gotcha:** TikTok's organic reach is unpredictable. One video hits 100k views, the next hits 200. Budget conservatively for reach; plan for viral upside as bonus.
+**Audience PMF rating:** A. This is where teens live, and TikTok's organic reach avoids compliance friction. Concepts can skew teen where the platform favors that demo — but primary persona is now any procrastinator, not exclusively 15-17. Amplification targets 18+ or lookalikes.
+
+**Action this channel:** 5 posts in 14 days, 2-3 featuring Dash, 1-2 featuring a real success story (once one exists mid-May), 1 behind-the-scenes. Track view counts; if any single post exceeds 1k views, double down on that format in the following week. Creator Fund payout is bonus money; ignore it for ROI math.
+
+---
+
+### Channel 3: Meta (Facebook/Instagram) — Adult + Parent Targeting
+
+**CPM range:** $1.50-4.00 CPM (targeting adults 18-45 in IL, interests: driving, moving to Illinois, adult education; parents 35-55, interest: family/education).
 **Minimum daily budget:** $15 (200-400 impressions/day).
-**Format:** Carousel ads (3-5 assets), static image ads, or video (15-30 sec). Parent-centric copy ("Is your teen procrastinating on the permit test?"). Dash in supporting role (credibility, not lead). Before/after tone: stressed parent → confident teen.
+**Format:** Carousel ads (3-5 assets), static image ads, or video (15-30 sec). Two creative directions: (1) adult/new-resident copy ("New to Illinois? Get your permit faster."), (2) parent-centric copy ("Is your teen procrastinating on the permit test?"). Dash in supporting role.
 **Gotcha:** Meta's audience overlap with Google is high. Meta's cost-per-click is 2-3x Google's. Expect CPC of $3-6. Meta excels at retargeting (traffic from landing pages), not cold acquisition. Pair Meta spend with Google spend; use Meta to retarget Google clickers who didn't convert.
-**Teen PMF rating:** B. Parents convert better than teens on Meta, but parents are a proxy, not the user. Conversion to active teen usage may have friction.
+**Audience PMF rating:** B+. Adult targeting on Meta is now fully available and interest-based. Parent targeting still works. Both audiences convert without compliance friction.
 
-**Action this channel:** Launch a $300 test campaign, week 2. Target: parents 35-55 in Illinois, interests in family/education. Use two ad sets: (1) cold audience, (2) warm audience (website visitors from organic sources). Run for 10 days; kill if CPA > $75 or CTR < 1%.
+**Action this channel:** Launch a $300 test campaign, week 2. Split between two ad sets: (1) adults 18-35 new to IL or with lapsed license, (2) parents 35-55 in Illinois. Use warm retargeting as a third set for website visitors. Run for 10 days; kill if CPA > $75 or CTR < 1%.
 
 ---
 
@@ -121,26 +124,26 @@ Ranked by fit for current constraints (parent-targeting, 18+ proxy, organic scal
 
 ## 3. Creative Concepts (15 Total, 5 Per Top-3 Channel)
 
-All copy in Dash hype-beast tone: casual, one emoji max, max 3 sentences, never condescending.
+All copy in Dash hype-beast tone: casual, one emoji max, max 3 sentences, never condescending. Concepts can skew teen where the platform (TikTok) favors that demo, but no concept is teen-exclusive — primary persona is any procrastinator studying for the IL permit test.
 
 ### TikTok Organic (5 Concepts)
 
 **Concept 1: "Dash Walks You Through It"**
 - Hook (0-3 sec): Dash on screen, spinning, hype. "Yo, permit test stressing you?"
-- Payoff: Cut to a teen breezing through 5 quiz questions in 20 seconds, Dash celebrating each one.
+- Payoff: Cut to someone breezing through 5 quiz questions in 20 seconds, Dash celebrating each one.
 - CTA: "Try DriveMaster — free, no BS, just you and Dash."
 - Production: Voiceover + screen record + Dash animation (easy, 30 min).
 - Emoji: 🔥
 
-**Concept 2: "Real Teen, Real Results"**
-- Hook: A teen on their phone, stressed, scrolling. "Me the day before my permit test..."
-- Payoff: Same teen, now using DriveMaster, smiling, finishing a quiz. "Me after DriveMaster."
+**Concept 2: "POV: Walking Into the IL SOS Cold"**
+- Hook: Person looking stressed, walking into a building. "POV: walking into the IL SOS cold..."
+- Payoff: Same person on phone, smiling, finishing a DriveMaster quiz. "Me if I'd found this first."
 - CTA: "Free app, takes 10 min a day. Download now."
 - Production: User-generated video or actor, no special effects (15 min).
 - Emoji: 🎮
 
 **Concept 3: "Your Procrastination is About to Get Worse (JK)"**
-- Hook: Comedic pause, teen looking at calendar. "Your permit test is in 2 weeks..."
+- Hook: Comedic pause, person looking at calendar. "Your permit test is in 2 weeks..."
 - Payoff: "And you haven't studied. But DriveMaster makes it actually fun. No cap."
 - CTA: "Download, study, pass."
 - Production: Text overlay + music trend (10 min).
@@ -148,13 +151,13 @@ All copy in Dash hype-beast tone: casual, one emoji max, max 3 sentences, never 
 
 **Concept 4: "Dash's Hype Speeches Are Unmatched"**
 - Hook: Dash on screen, hyping up a missed quiz question. "Nah fam, close but—"
-- Payoff: Dash explains the rule in 1 sentence. Teen gets the next one. Both celebrate.
+- Payoff: Dash explains the rule in 1 sentence. Person gets the next one right. Both celebrate.
 - CTA: "Get a mascot that actually cares. Free."
 - Production: Screen record + Dash voice (30 min).
 - Emoji: 💪
 
 **Concept 5: "From 'Ugh' to 'Yo, I Passed'"**
-- Hook: Montage of a teen's reaction over 3 days: Day 1 (ugh), Day 2 (okay), Day 3 (YOOO).
+- Hook: Montage of reactions over 3 days: Day 1 (ugh), Day 2 (okay), Day 3 (YOOO).
 - Payoff: Share card of their score.
 - CTA: "Your turn. DriveMaster."
 - Production: UGC with clips, music trend (30 min).
@@ -182,12 +185,12 @@ All copy in Dash hype-beast tone: casual, one emoji max, max 3 sentences, never 
 - Production: Text only (5 min).
 - Emoji: None.
 
-**Concept 3: "Illinois Teen Permit Test — Study with Dash"**
-- Headline 1: "Illinois Teen Permit Test"
+**Concept 3: "Illinois Permit Test — Study with Dash"**
+- Headline 1: "Illinois Permit Test Prep"
 - Headline 2: "Procrastination-Proof App"
 - Headline 3: "Dash Mascot Coaching Included"
-- Description: "DriveMaster makes permit-test prep fun. AI explanations, gamified streaks, share your score. Free for Illinois teens."
-- Landing page: `/illinois-teen-permit-15-years-old` (age/location explicit, reassuring to parents).
+- Description: "DriveMaster makes permit-test prep fun. AI explanations, gamified streaks, share your score. Free for everyone."
+- Landing page: `/illinois-permit-test` (general, works for any searcher).
 - Production: Text only (5 min).
 - Emoji: None.
 
@@ -204,7 +207,7 @@ All copy in Dash hype-beast tone: casual, one emoji max, max 3 sentences, never 
 - Headline 1: "Illinois Permit Test"
 - Headline 2: "Free Prep, No Paywall"
 - Headline 3: "3000+ Practice Questions"
-- Description: "Study for the Illinois permit test free. Gamified, fun, built for teens. No upsells, no data selling."
+- Description: "Study for the Illinois permit test free. Gamified, fun, built for procrastinators. No upsells, no data selling."
 - Landing page: Homepage `/` (simple, entry-level).
 - Production: Text only (5 min).
 - Emoji: None.
@@ -220,9 +223,9 @@ All copy in Dash hype-beast tone: casual, one emoji max, max 3 sentences, never 
 - Production: Stock photo + text overlay (10 min).
 - Emoji: 📚
 
-**Concept 2: "Every Illinois Teen Procrastinates. Make It Less Painful."**
+**Concept 2: "Everyone Procrastinates on the Permit Test. Make It Less Painful."**
 - Visual: Dash mascot, confident, pointing at camera.
-- Copy: "Free permit-test prep that's actually fun. Gamified. No BS. Your teen finishes quizzes in 10 min, not all night."
+- Copy: "Free permit-test prep that's actually fun. Gamified. No BS. Finish quizzes in 10 min, not all night."
 - CTA: "Download Free"
 - Production: Illustration or animation (30 min).
 - Emoji: 🎯
@@ -234,9 +237,9 @@ All copy in Dash hype-beast tone: casual, one emoji max, max 3 sentences, never 
 - Production: Screenshot + text (5 min).
 - Emoji: 🏆
 
-**Concept 4: "Your Teen Passed Their Permit Test. What's Their Secret?"**
-- Visual: Teen holding their new permit, smiling (or stock photo), Dash mascot in corner.
-- Copy: "DriveMaster: The free permit-test prep Illinois teens trust. Gamified, mascot-coached, zero upsells. Start now."
+**Concept 4: "They Passed the IL Permit Test. What's Their Secret?"**
+- Visual: Person holding their new permit, smiling (or stock photo), Dash mascot in corner.
+- Copy: "DriveMaster: Free permit-test prep for Illinois. Gamified, mascot-coached, zero upsells. Start now."
 - CTA: "Download"
 - Production: Video testimonial or stock photo (20 min).
 - Emoji: ✅
@@ -256,14 +259,14 @@ Today, DriveMaster has one landing page (homepage). Ad funnel will fragment if e
 
 **Option A: Four Distinct Landing Pages**
 
-1. **`/illinois-permit-test`** (parent-targeting, Google Search for "illinois permit test")
+1. **`/illinois-permit-test`** (primary paid-traffic landing — general intent, all audiences)
    - Hero: "Illinois Permit Test Prep That Actually Works"
-   - Subheader: "Free. Gamified. No paywalls. For teens 15-17."
-   - Social proof: Unverified for now (replace with real review once one teen uses it). Placeholder: "Trusted by Illinois families."
+   - Subheader: "Free. Gamified. No paywalls. For everyone studying the IL test."
+   - Social proof: Unverified for now (replace with real review once a user validates). Placeholder: "Trusted by Illinois residents."
    - CTA: "Start Free" (button)
    - Design: Cabinet Grotesk hero, DM Sans body, Blue CTA, Orange accents on feature cards.
 
-2. **`/free-illinois-dmv-practice-test`** (SEO-optimized, Google Search for "free illinois DMV practice test")
+2. **`/free-illinois-dmv-practice-test`** (primary free-angle landing — Google Search "free illinois DMV practice test")
    - Hero: "Free Illinois DMV Practice Test — 3000+ Official Questions"
    - Subheader: "Learn the rules, pass the test, drive free."
    - Emphasis: "Free" appears 4+ times in above-the-fold.
@@ -271,13 +274,14 @@ Today, DriveMaster has one landing page (homepage). Ad funnel will fragment if e
    - CTA: "Practice Now" (button)
    - Design: Cabinet Grotesk for numbers, DM Sans for explainers, Green accents (test-passing theme).
 
-3. **`/illinois-teen-permit-15-years-old`** (explicit age framing, reassures parents and teens)
+3. **`/illinois-teen-permit-15-years-old`** (one of several SEO landing pages — targets a specific search query, not our primary positioning)
    - Hero: "For Illinois Teens (15-17): Free Permit-Test Prep That Doesn't Suck"
    - Subheader: "Pass the test. Get your license. Stop procrastinating."
    - Tone: Dash speaks in testimonial ("Yo, I gotchu"). Mascot front-and-center.
    - Social proof: "Designed for your age. Coaches explain things you'll actually understand."
    - CTA: "Let's Go" (button)
    - Design: Dash-forward visual, TikTok-native colors, Orange > Blue priority.
+   - Note: This page targets a specific high-intent search query. It is not the primary paid-traffic destination — `/illinois-permit-test` and `/free-illinois-dmv-practice-test` are.
 
 4. **Homepage `/`** (broad, all traffic, existing)
    - Status: Keep as-is for organic/direct. Update "unverified claims" (10,000+ drivers, 95% pass rate, 4.9 rating) to honest, factual claims only (or remove if not yet validated).
@@ -540,7 +544,7 @@ Tripwires that trigger an immediate decision: kill, pause, or investigate.
 
 | Day | Item | Owner | Est. Hours | Output |
 |-----|------|-------|-----------|--------|
-| 1 | Text 2 people to find one Illinois teen for 20-min Zoom usability test + Venmo $20. (This is item #1 because it's the gate.) | Founder | 0.5 | At least 1 "yes" or 1 warm lead in motion. |
+| 1 | Text 2 people to find one Illinois person prepping for the permit test — any age — for 20-min Zoom usability test + Venmo $20. (This is item #1 because it's the gate.) | Founder | 0.5 | At least 1 "yes" or 1 warm lead in motion. |
 | 2 | Remove unverified landing page claims ("10,000+ users", "95% pass rate", "4.9 rating"). Replace with factual claims or placeholder. | Founder | 1 | Updated `/app/page.tsx`. Commit. |
 | 3 | Implement UTM middleware in `lib/middleware/utm.ts`. Extract `utm_*` query params, store in 30-day cookie. Test locally. | Founder (or eng) | 4 | Middleware module, tested. Commit. Flag for Vercel env var setup if any. |
 | 4 | Set up PostHog free tier. Create account, get API key, install SDK in `lib/providers/posthog.ts`. Instrument: `signup_completed`, `first_quiz_started`, `quiz_completed`. | Founder | 3 | PostHog client configured, 3 events instrumented, deployed. Verify events fire in dev. |
@@ -583,11 +587,11 @@ Tripwires that trigger an immediate decision: kill, pause, or investigate.
 
 **3 Highest-Confidence Recommendations:**
 
-1. **Validate one real teen's retention before paid scaling (week 1-2 gate).** This is the biggest risk in any ad strategy for a pre-product-market-fit app. Running ads before retention is proven turns ad spend into expensive learning. The sprint plan is right: observation first, ads second. Enforce this as a hard rule.
+1. **Validate one real Illinois permit-test studier's retention before paid scaling (week 1-2 gate).** This is the biggest risk in any ad strategy for a pre-product-market-fit app. Running ads before retention is proven turns ad spend into expensive learning. The sprint plan is right: observation first, ads second. Enforce this as a hard rule.
 
-2. **Target parents on Meta/Google + broad "driving education" audiences, not under-18 directly.** COPPA killed under-18 interest-targeting in 2023. Parent-targeting (Meta + Google) works legally and converts well. Pair with organic TikTok reach for under-18 direct exposure. This sidesteps compliance friction and scales faster.
+2. **The positioning pivot from teen-first to universal is a net positive for paid strategy.** Adult targeting on Meta/Google is fully available with interest-based ads — no compliance friction. Google Search captures all intent (teens, adults, new residents) in one keyword cluster. Pair adult targeting with organic TikTok reach for the teen segment. This expands the addressable paid audience significantly.
 
-3. **Google Search is the highest-ROI entry channel.** Searchers for "illinois permit test" have immediate intent. Expected CPA: $30-40. CPM is lower than Meta. Start here for week 2-3 test spend. TikTok organic is the long-term moat; Google is the quick feedback loop.
+3. **Google Search is the highest-ROI entry channel and is now the primary paid destination.** Searchers for "illinois permit test" include everyone who needs the product, not just teens. Expected CPA: $30-40. CPM is lower than Meta. Start here for week 2-3 test spend. TikTok organic is the long-term moat; Google is the quick feedback loop.
 
 **1 Thing I'm Least Confident About:**
 

@@ -28,14 +28,14 @@ Workaround cost: low dollar, high emotional friction (boring, generic, last-minu
 
 ## Target User & Narrowest Wedge
 
-**User:** one specific 15-17yr old in Illinois, recruited by end of week 1. Candidate sources: friend-of-family teen, local high-school driver's-ed instructor referral, r/Illinois or r/teenagers post, Illinois-focused Discord.
+**User:** one specific Illinois resident preparing for the permit test, recruited by end of week 1. Could be a first-timer (15+), an adult new to Illinois, or a retaker — the observation goal is the same. Candidate sources: friend-of-family, local high-school driver's-ed instructor referral, r/Illinois or r/teenagers post, Illinois-focused Discord.
 
 **Wedge:** a stabilized, instrumented, on-brand core loop (sign up → onboarding → quiz → results → Dash hype) that one real teen can run end-to-end without hitting broken nav, placeholder images, or fake-zero results screens. Retention feature selection deferred to week 2 based on observed behavior.
 
 ## Constraints
 
 - Solo dev, ~2 weeks.
-- Minor users (15-17) — elevated security + privacy bar (COPPA-adjacent, IL BIPA applies).
+- Minors will be among users — elevated security + privacy bar applies (COPPA-adjacent, IL BIPA). Adult users don't reduce this bar.
 - Must honor DESIGN.md (Cabinet Grotesk / DM Sans / JetBrains Mono; Blue/Orange/Green palette; 44px touch targets; Dash tone rules).
 
 ## Premises
@@ -96,10 +96,10 @@ No new code for 2 weeks. Put the broken app in front of 5 teens, record Clarity 
 - Raise `small` variant in `components/layout/touch-friendly.tsx:22` to 44px floor.
 - Add Dash mascot to signup page and error page (`app/error.tsx`) — the two highest-emotion moments currently off-tone.
 
-**Day 7: Recruit one teen**
-- Post in r/teenagers, r/Illinois, and 2-3 Illinois-area high school Discords.
-- Ask 2 friends-with-kids and 1 driving-school owner for one referral each.
-- Target: one named 15-17yr old Illinoisan willing to screenshare for 20 min + use the app for 5 days.
+**Day 7: Recruit one Illinois permit-test studier**
+- Post in r/Illinois, r/teenagers, and 2-3 Illinois-area high school Discords.
+- Ask 2 friends-with-connections and 1 driving-school owner for one referral each.
+- Target: one named Illinois resident actively preparing for the permit test, willing to screenshare for 20 min + use the app for 5 days. Age doesn't matter — the behavior observation goal is the same.
 
 ### Week 2 — One Teen (Monday → Sunday)
 
@@ -143,7 +143,7 @@ Existing Vercel deployment pipeline covers the web PWA.
 
 ## The Assignment
 
-**Before you touch a single line of code:** today, open your phone. Text two people — a friend with a 15-17yr old, or anyone with a connection to an Illinois high school. One sentence: "Hey, any chance your kid / your friend's kid would spend 20 minutes trying a driving-test app I'm building? I'll Venmo them $20." You cannot start week 1 without at least one yes or one lead in motion, because week 2 depends on the recruit and recruiting always takes longer than coding.
+**Before you touch a single line of code:** today, open your phone. Text two people — a friend, family member, or anyone with a connection to someone preparing for the Illinois permit test. One sentence: "Hey, any chance you know someone studying for the Illinois permit test who'd spend 20 minutes trying a driving app I'm building? I'll Venmo them $20." You cannot start week 1 without at least one yes or one lead in motion, because week 2 depends on the recruit and recruiting always takes longer than coding.
 
 ## What I noticed about how you think
 
