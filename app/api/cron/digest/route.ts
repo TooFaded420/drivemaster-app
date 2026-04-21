@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
  * POST /api/cron/digest — Weekly parent progress email digest
@@ -14,7 +14,7 @@ import { createClient } from "@/lib/supabase/server";
 
 export async function POST(request: NextRequest) {
   try {
-    // Verify cron secret
+    // Verify cron secret — must be first check before any DB access
     const authHeader = request.headers.get("authorization");
     if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -25,64 +25,89 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Resend not configured — skipping digest", sent: 0 });
     }
 
-    // NOTE: /api/cron/digest still has schema drift (profiles.email,
-    // user_stats.streak_count, user_attempts.created_at vs attempt_date)
-    // that is out of scope for this security pass. Keep the cast until
-    // that schema is reconciled.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const supabase = (await createClient()) as any;
+    // Use service-role client so we can call auth.admin APIs and bypass RLS
+    const adminClient = createAdminClient();
 
-    // Get all approved parent links with parent emails
-    const { data: links, error } = await supabase
+    // Get all active parent links (status='active' per teen-consent model, migration 005)
+    // Cap at 100 to avoid unbounded scans per cron run
+    const { data: links, error } = await adminClient
       .from("parent_links")
-      .select(`
-        parent_user_id,
-        teen_user_id,
-        parent:profiles!parent_user_id(email, username),
-        teen:profiles!teen_user_id(username, test_date)
-      `)
-      .eq("status", "active");
+      .select("parent_user_id, teen_user_id")
+      .eq("status", "active")
+      .limit(100);
 
     if (error || !links || links.length === 0) {
-      return NextResponse.json({ message: "No linked parents found", sent: 0 });
+      return NextResponse.json({ message: "No linked parents found", sent: 0, skipped: 0 });
     }
 
     let sent = 0;
+    let skipped = 0;
 
     for (const link of links) {
-      const parentEmail = (link.parent as any)?.email;
-      const teenName = (link.teen as any)?.username || "Your teen";
-      const testDate = (link.teen as any)?.test_date;
+      if (!link.parent_user_id) {
+        skipped++;
+        continue;
+      }
 
-      if (!parentEmail) continue;
+      // Resolve parent email from auth.users (profiles does NOT store email)
+      const { data: parentAuthUser, error: parentErr } =
+        await adminClient.auth.admin.getUserById(link.parent_user_id);
 
-      // Get teen's stats for the past week
-      const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+      const parentEmail = parentAuthUser?.user?.email;
+      if (parentErr || !parentEmail) {
+        skipped++;
+        continue;
+      }
 
-      const { data: weeklyAttempts } = await supabase
+      // Fetch teen profile for display name and test date
+      const { data: teenProfile } = await adminClient
+        .from("profiles")
+        .select("username, test_date")
+        .eq("id", link.teen_user_id)
+        .maybeSingle();
+
+      const teenName = teenProfile?.username || "Your teen";
+      const testDate = teenProfile?.test_date ?? null;
+
+      // Get teen's attempts for the past week
+      // Column is `attempt_date` (not created_at) per database.ts / user_attempts schema
+      const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+        .toISOString()
+        .split("T")[0]; // attempt_date is a DATE column
+
+      const { data: weeklyAttempts } = await adminClient
         .from("user_attempts")
-        .select("is_correct")
+        .select("is_correct, attempt_date")
         .eq("user_id", link.teen_user_id)
-        .gte("created_at", weekAgo);
+        .gte("attempt_date", weekAgo);
 
-      const { data: stats } = await supabase
+      // Get teen's gamification stats
+      // Column is `current_streak` (not streak_count) per migration 002 / user_stats schema
+      const { data: stats } = await adminClient
         .from("user_stats")
-        .select("total_xp, current_level, streak_count")
+        .select("total_xp, current_level, current_streak")
         .eq("user_id", link.teen_user_id)
         .maybeSingle();
 
-      const totalAnswered = weeklyAttempts?.length || 0;
-      const correctCount = weeklyAttempts?.filter((a: any) => a.is_correct).length || 0;
-      const accuracy = totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 0;
+      const totalAnswered = weeklyAttempts?.length ?? 0;
+      const correctCount =
+        weeklyAttempts?.filter((a) => a.is_correct).length ?? 0;
+      const accuracy =
+        totalAnswered > 0
+          ? Math.round((correctCount / totalAnswered) * 100)
+          : 0;
       const daysStudied = new Set(
-        weeklyAttempts?.map((a: any) => new Date(a.created_at).toDateString()) || []
+        weeklyAttempts?.map((a) => a.attempt_date) ?? []
       ).size;
 
       // Calculate days until test
       let daysUntilTest = "";
       if (testDate) {
-        const days = Math.ceil((new Date(testDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24));
-        daysUntilTest = days > 0 ? `${days} days until their test` : "Test date has passed";
+        const days = Math.ceil(
+          (new Date(testDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24)
+        );
+        daysUntilTest =
+          days > 0 ? `${days} days until their test` : "Test date has passed";
       }
 
       // Send email via Resend
@@ -91,7 +116,7 @@ export async function POST(request: NextRequest) {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${resendKey}`,
+            Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
             from: "DriveMaster <updates@drivemaster.app>",
@@ -106,8 +131,8 @@ export async function POST(request: NextRequest) {
                   <p style="margin: 8px 0;"><strong>Days studied:</strong> ${daysStudied} of 7</p>
                   <p style="margin: 8px 0;"><strong>Questions answered:</strong> ${totalAnswered}</p>
                   <p style="margin: 8px 0;"><strong>Accuracy:</strong> ${accuracy}%</p>
-                  <p style="margin: 8px 0;"><strong>Current streak:</strong> ${stats?.streak_count || 0} days</p>
-                  <p style="margin: 8px 0;"><strong>Level:</strong> ${stats?.current_level || 1}</p>
+                  <p style="margin: 8px 0;"><strong>Current streak:</strong> ${stats?.current_streak ?? 0} days</p>
+                  <p style="margin: 8px 0;"><strong>Level:</strong> ${stats?.current_level ?? 1}</p>
                   ${daysUntilTest ? `<p style="margin: 8px 0;"><strong>${daysUntilTest}</strong></p>` : ""}
                 </div>
 
@@ -121,10 +146,15 @@ export async function POST(request: NextRequest) {
         sent++;
       } catch (emailErr) {
         console.error(`Failed to send digest to ${parentEmail}:`, emailErr);
+        skipped++;
       }
     }
 
-    return NextResponse.json({ message: `Digest sent to ${sent} parents`, sent });
+    return NextResponse.json({
+      message: `Digest sent to ${sent} parents`,
+      sent,
+      skipped,
+    });
   } catch (error) {
     console.error("Error in digest cron:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
