@@ -244,8 +244,8 @@ export default function Home() {
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-purple-600" />
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                  <Target className="w-6 h-6 text-orange-600" />
                 </div>
                 <CardTitle>Personalized Practice</CardTitle>
                 <CardDescription>

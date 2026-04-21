@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useOnboarding } from "@/hooks/use-onboarding";
 import { Dash } from "@/components/mascot";
 import { Button } from "@/components/ui/button";
@@ -37,6 +37,7 @@ interface MascotMessage {
 export default function OnboardingPage() {
   const router = useRouter();
   const onboarding = useOnboarding();
+  const shouldReduceMotion = useReducedMotion();
   const [showChecklist, setShowChecklist] = useState(false);
   const [mascotMessage, setMascotMessage] = useState<MascotMessage>({
     title: "Welcome! 🎉",
@@ -98,7 +99,7 @@ export default function OnboardingPage() {
       <div className="hidden lg:flex lg:w-80 xl:w-96 bg-white border-r border-gray-100 flex-col">
         <div className="p-6 border-b border-gray-100">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-orange-500 rounded-xl flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -126,7 +127,7 @@ export default function OnboardingPage() {
         </div>
 
         {/* XP Counter */}
-        <div className="p-6 border-t border-gray-100 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div className="p-6 border-t border-gray-100 bg-gradient-to-r from-blue-50 to-orange-50">
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-600">XP Earned</span>
             <span className="font-bold text-blue-600">+{onboarding.xpEarned} XP</span>
@@ -174,7 +175,7 @@ export default function OnboardingPage() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
+                  transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
                 >
                   {CurrentStepComponent && (
                     <CurrentStepComponent
@@ -194,6 +195,7 @@ export default function OnboardingPage() {
               key={mascotMessage.title}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
+              transition={shouldReduceMotion ? { duration: 0 } : undefined}
               className="text-center"
             >
               <Dash
@@ -244,7 +246,7 @@ export default function OnboardingPage() {
                   onboarding.goToNextStep();
                 }
               }}
-              className="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+              className="flex-1 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
             >
               {isLastStep ? "Finish" : "Next"}
               {!isLastStep && <ChevronRight className="w-4 h-4 ml-1" />}
@@ -295,7 +297,7 @@ export default function OnboardingPage() {
                 onboarding.goToNextStep();
               }
             }}
-            className="gap-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+            className="gap-2 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
           >
             {isLastStep ? "Complete" : "Next"}
             {!isLastStep && <ChevronRight className="w-4 h-4" />}

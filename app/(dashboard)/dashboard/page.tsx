@@ -117,14 +117,14 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-500 to-purple-600 text-white border-0">
+          <Card className="bg-gradient-to-br from-orange-500 to-orange-600 text-white border-0">
             <CardContent className="p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Target className="w-5 h-5" />
-                <span className="text-sm text-purple-100">Accuracy</span>
+                <span className="text-sm text-orange-100">Accuracy</span>
               </div>
               <div className="text-2xl font-bold">{mockStats.accuracy}%</div>
-              <div className="text-sm text-purple-100">{mockStats.questionsAnswered} questions</div>
+              <div className="text-sm text-orange-100">{mockStats.questionsAnswered} questions</div>
             </CardContent>
           </Card>
         </div>

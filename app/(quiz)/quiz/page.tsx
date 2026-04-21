@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -56,10 +56,10 @@ const quizModes = [
     name: "Marathon Mode",
     description: "Practice with all available questions",
     icon: Infinity,
-    color: "bg-purple-500",
-    hoverColor: "hover:bg-purple-600",
-    textColor: "text-purple-600",
-    bgColor: "bg-purple-50",
+    color: "bg-orange-500",
+    hoverColor: "hover:bg-orange-600",
+    textColor: "text-orange-600",
+    bgColor: "bg-orange-50",
     href: "/quiz/marathon",
     badge: "All Questions",
     estimatedTime: "Varies",
@@ -120,6 +120,7 @@ const categories = [
 
 export default function QuizLobbyPage() {
   const mascot = useMascot({ autoHideDelay: 6000 });
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     // Show welcome message
@@ -185,7 +186,7 @@ export default function QuizLobbyPage() {
                 key={mode.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
               >
                 <Link href={mode.href}>
                   <Card className="group cursor-pointer hover:shadow-md transition-shadow border-gray-200">
@@ -234,7 +235,7 @@ export default function QuizLobbyPage() {
                 key={category.id}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4 + index * 0.1 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.4 + index * 0.1 }}
               >
                 <Link href={`/quiz/category/${category.id}`}>
                   <Card className="group cursor-pointer hover:shadow-md transition-all h-full border-gray-200">

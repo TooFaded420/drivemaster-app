@@ -142,14 +142,14 @@ export const DEFAULT_CATEGORIES = [
     name: "Vehicle Operation",
     description: "Vehicle controls and basic operation",
     icon: "car",
-    color: "#8B5CF6",
+    color: "#06B6D4",
   },
   {
     id: 6,
     name: "Sharing the Road",
     description: "Pedestrians, cyclists, and other vehicles",
     icon: "users",
-    color: "#EC4899",
+    color: "#F59E0B",
   },
 ] as const;
 

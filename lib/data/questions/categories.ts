@@ -38,7 +38,7 @@ export const ILLINOIS_CATEGORIES: QuestionCategory[] = [
     name: 'Alcohol & Drug Laws',
     description: 'DUI laws, implied consent, blood alcohol concentration limits, and penalties',
     icon: 'Wine',
-    color: '#8B5CF6', // Purple
+    color: '#06B6D4', // Cyan (Info)
     question_count: 0,
     order: 4,
   },
@@ -56,7 +56,7 @@ export const ILLINOIS_CATEGORIES: QuestionCategory[] = [
     name: 'Parking & Emergency Situations',
     description: 'Parking regulations, emergency procedures, and vehicle breakdown protocols',
     icon: 'ParkingCircle',
-    color: '#EC4899', // Pink
+    color: '#F59E0B', // Amber (Warning)
     question_count: 0,
     order: 6,
   },
@@ -65,7 +65,7 @@ export const ILLINOIS_CATEGORIES: QuestionCategory[] = [
     name: 'Vehicle Equipment & Maintenance',
     description: 'Required vehicle equipment, safety inspections, and basic maintenance requirements',
     icon: 'Wrench',
-    color: '#6366F1', // Indigo
+    color: '#10B981', // Emerald (Success)
     question_count: 0,
     order: 7,
   },

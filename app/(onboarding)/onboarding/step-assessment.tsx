@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Dash } from "@/components/mascot";
@@ -16,6 +16,7 @@ interface StepAssessmentProps {
 }
 
 export function StepAssessment({ data, updateData, onComplete }: StepAssessmentProps) {
+  const shouldReduceMotion = useReducedMotion();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [answers, setAnswers] = useState<{ questionId: number; correct: boolean }[]>([]);
@@ -125,7 +126,7 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
         <Button
           size="lg"
           onClick={handleFinish}
-          className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+          className="bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
         >
           Continue
         </Button>
@@ -158,6 +159,7 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
+          transition={shouldReduceMotion ? { duration: 0 } : undefined}
           className="space-y-4"
         >
           <div className="bg-white rounded-xl border border-gray-200 p-6">
@@ -231,7 +233,7 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
               <Button
                 size="lg"
                 onClick={handleNext}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                className="w-full bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
               >
                 {currentQuestion < ASSESSMENT_QUESTIONS.length - 1 ? "Next Question" : "See Results"}
               </Button>

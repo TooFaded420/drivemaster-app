@@ -84,7 +84,7 @@ export function OnboardingChecklist({
       {/* Progress bar */}
       <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-6">
         <motion.div
-          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+          className="h-full bg-gradient-to-r from-blue-500 to-orange-500 rounded-full"
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
           transition={{ duration: 0.5, ease: "easeOut" }}
