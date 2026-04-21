@@ -1,14 +1,12 @@
 "use client";
 
-// ============================================
 // AnalyticsConsentToggle
 // User-facing toggle for opting in/out of anonymous analytics.
+// Mounted in app/(dashboard)/settings/page.tsx under the Privacy card.
 //
-// TODO: Mount this component inside app/(settings)/settings/page.tsx
-// once the settings route is created. Example:
-//   import { AnalyticsConsentToggle } from "@/components/analytics-consent-toggle";
-//   <AnalyticsConsentToggle />
-// ============================================
+// Note: The "under 16" eligibility line was removed because COPPA-grade
+// age-verification enforcement is not yet implemented. Showing it would
+// create a false sense of protection. Revisit when age-gate lands.
 
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -35,7 +33,7 @@ export function AnalyticsConsentToggle() {
         onCheckedChange={handleChange}
         aria-label="Toggle anonymous analytics sharing"
       />
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1.5">
         <Label
           htmlFor="analytics-consent"
           className="font-medium cursor-pointer"
@@ -43,9 +41,18 @@ export function AnalyticsConsentToggle() {
           Share anonymous usage data
         </Label>
         <p className="text-sm text-muted-foreground">
-          Help us improve DriveMaster — share anonymous usage data. Stays off
-          for anyone under 16.
+          Help us make DriveMaster better by sharing which screens work and
+          which don&apos;t.
         </p>
+        <p className="text-xs text-muted-foreground">
+          No names, no answers — just clicks and timing.
+        </p>
+        <a
+          href="/privacy"
+          className="text-xs underline text-blue-600 w-fit"
+        >
+          See what we collect →
+        </a>
       </div>
     </div>
   );
