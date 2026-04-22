@@ -143,10 +143,10 @@ export default function MistakesQuizPage() {
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl font-semibold text-foreground mb-2">
             Failed to load questions
           </h2>
-          <p className="text-gray-600 mb-4">{quiz.error}</p>
+          <p className="text-muted-foreground mb-4">{quiz.error}</p>
           <Button onClick={() => quiz.restartQuiz()}>Try Again</Button>
         </div>
       </MobileLayout>
@@ -158,13 +158,13 @@ export default function MistakesQuizPage() {
     return (
       <MobileLayout>
         <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-4">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4">
-            <CheckCircle2 className="w-10 h-10 text-green-600" />
+          <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-4">
+            <CheckCircle2 className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-2xl font-bold text-foreground mb-2">
             No Mistakes to Review!
           </h2>
-          <p className="text-gray-600 mb-6 max-w-sm">
+          <p className="text-muted-foreground mb-6 max-w-sm">
             Great job! You haven't made any mistakes yet, or you've already mastered all the questions you got wrong.
           </p>
           <div className="space-y-3 w-full max-w-xs">
@@ -227,12 +227,12 @@ export default function MistakesQuizPage() {
         />
 
         {/* Review Info */}
-        <Card className="bg-orange-50 border-orange-200">
+        <Card className="bg-accent/10 border border-accent/20">
           <CardContent className="p-3">
-            <div className="flex items-center gap-2 text-orange-700">
+            <div className="flex items-center gap-2 text-accent">
               <RotateCcw className="w-5 h-5" />
               <span className="text-sm">
-                <strong>Review Mode:</strong> These are questions you got wrong before. 
+                <strong>Review Mode:</strong> These are questions you got wrong before.
                 Get them right to master them!
               </span>
             </div>
@@ -305,7 +305,7 @@ export default function MistakesQuizPage() {
         {/* Mastered Count */}
         {quiz.answers.length > 0 && (
           <div className="text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               <span className="font-semibold text-green-600">
                 {quiz.answers.filter((a) => a.isCorrect).length}
               </span>{" "}

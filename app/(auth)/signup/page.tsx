@@ -87,12 +87,12 @@ export default function SignupPage() {
               </div>
               <CardTitle className="text-2xl text-center">Check your email</CardTitle>
               <CardDescription className="text-center">
-                We sent a confirmation link to <span className="font-medium text-gray-900">{email}</span>.
+                We sent a confirmation link to <span className="font-medium text-foreground">{email}</span>.
                 Click it to finish setting up your account.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-500 text-center">
+              <p className="text-sm text-muted-foreground text-center">
                 Didn&apos;t get it? Check your spam folder, or{" "}
                 <Link href="/signup" className="text-blue-600 hover:underline font-medium">
                   try again
@@ -132,7 +132,7 @@ export default function SignupPage() {
           <CardContent>
             <div className="space-y-4">
               <GoogleOAuthButton mode="signup" />
-              <div className="flex items-center gap-3 text-sm text-gray-500">
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <div className="h-px flex-1 bg-border" />
                 <span>or</span>
                 <div className="h-px flex-1 bg-border" />
@@ -185,7 +185,7 @@ export default function SignupPage() {
                     )}
                   </Button>
                 </div>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-muted-foreground">
                   Must be at least 6 characters
                 </p>
               </div>
@@ -220,7 +220,7 @@ export default function SignupPage() {
             </form>
 
             <div className="mt-6 text-center text-sm">
-              <span className="text-gray-600">Already have an account? </span>
+              <span className="text-muted-foreground">Already have an account? </span>
               <Link href="/login" className="text-blue-600 hover:underline font-medium">
                 Sign in
               </Link>

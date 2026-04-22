@@ -101,8 +101,8 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
             onSpeechBubbleClick={() => mascot.hide()}
           />
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Welcome back!</h1>
-            <p className="text-gray-600">Ready to continue your driving journey?</p>
+            <h1 className="text-2xl font-bold text-foreground">Welcome back!</h1>
+            <p className="text-muted-foreground">Ready to continue your driving journey?</p>
           </div>
         </div>
         <div className="flex items-center gap-2 bg-orange-100 px-4 py-2 rounded-full">
@@ -132,12 +132,12 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
       {!stats.hasStats ? (
         <Card className="border-dashed">
           <CardContent className="p-8 text-center space-y-4">
-            <div className="mx-auto w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-blue-600" />
+            <div className="mx-auto w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center">
+              <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-gray-900">Let&apos;s get started</h2>
-              <p className="text-gray-600 mt-1">
+              <h2 className="text-lg font-bold text-foreground">Let&apos;s get started</h2>
+              <p className="text-muted-foreground mt-1">
                 Take your first quiz to start tracking XP, streaks, and progress.
               </p>
             </div>
@@ -183,14 +183,14 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg">Level Progress</CardTitle>
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-muted-foreground">
                   {levelProgress}% to Level {stats.currentLevel + 1}
                 </span>
               </div>
             </CardHeader>
             <CardContent>
               <Progress value={levelProgress} className="h-3" />
-              <div className="flex justify-between mt-2 text-sm text-gray-500">
+              <div className="flex justify-between mt-2 text-sm text-muted-foreground">
                 <span>Level {stats.currentLevel}</span>
                 <span>Level {stats.currentLevel + 1}</span>
               </div>
@@ -234,15 +234,15 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
         </CardHeader>
         <CardContent className="space-y-4">
           {categories.length === 0 ? (
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               No category progress yet. Answer some questions to see your breakdown.
             </p>
           ) : (
             categories.map((category) => (
               <div key={category.id}>
                 <div className="flex justify-between mb-1">
-                  <span className="text-sm font-medium text-gray-700">{category.name}</span>
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm font-medium text-foreground">{category.name}</span>
+                  <span className="text-sm text-muted-foreground">
                     {category.completed}/{category.total}
                   </span>
                 </div>
@@ -272,15 +272,17 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
             <div
               key={quest.id}
               className={`flex items-center justify-between p-3 rounded-lg ${
-                quest.completed ? "bg-green-50" : "bg-gray-50"
+                quest.completed
+                  ? "bg-emerald-50 dark:bg-emerald-900/20"
+                  : "bg-muted"
               }`}
             >
               <div className="flex items-center gap-3">
                 <div
                   className={`w-6 h-6 rounded-full flex items-center justify-center ${
                     quest.completed
-                      ? "bg-green-500 text-white"
-                      : "bg-gray-200 text-gray-500"
+                      ? "bg-emerald-500 text-white"
+                      : "bg-border text-muted-foreground"
                   }`}
                 >
                   {quest.completed ? (
@@ -289,17 +291,20 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
                     <span className="text-xs">{quest.id}</span>
                   )}
                 </div>
-                <span className={quest.completed ? "text-green-700" : "text-gray-700"}>
+                <span className={quest.completed
+                  ? "text-emerald-700 dark:text-emerald-400"
+                  : "text-foreground"
+                }>
                   {quest.title}
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 {!quest.completed && (
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm text-muted-foreground">
                     {quest.current}/{quest.target}
                   </span>
                 )}
-                <span className="text-sm font-medium text-yellow-600">+{quest.xp} XP</span>
+                <span className="text-sm font-medium text-amber-600 dark:text-amber-400">+{quest.xp} XP</span>
               </div>
             </div>
           ))}
@@ -324,7 +329,7 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
         </CardHeader>
         <CardContent>
           {leaderboard.length === 0 ? (
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               No leaderboard entries yet this week.
             </p>
           ) : (
@@ -333,32 +338,33 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
                 <div
                   key={entry.userId}
                   className={`flex items-center justify-between p-3 rounded-lg ${
-                    entry.isUser ? "bg-blue-50 border border-blue-200" : "bg-gray-50"
+                    entry.isUser
+                      ? "bg-blue-50 dark:bg-blue-900/25 border border-blue-200 dark:border-blue-700/50"
+                      : "bg-muted"
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
                         entry.rank === 1
-                          ? "bg-yellow-100 text-yellow-700"
+                          ? "bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400"
                           : entry.rank === 2
-                          ? "bg-gray-200 text-gray-700"
+                          ? "bg-muted text-muted-foreground"
                           : entry.rank === 3
-                          ? "bg-orange-100 text-orange-700"
-                          : "bg-gray-100 text-gray-600"
+                          ? "bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-400"
+                          : "bg-muted text-muted-foreground"
                       }`}
                     >
                       {entry.rank}
                     </div>
-                    <span
-                      className={
-                        entry.isUser ? "font-medium text-blue-700" : "text-gray-700"
-                      }
-                    >
+                    <span className={entry.isUser
+                      ? "font-medium text-blue-700 dark:text-blue-400"
+                      : "text-foreground"
+                    }>
                       {entry.name}
                     </span>
                   </div>
-                  <span className="font-medium text-gray-900">
+                  <span className="font-medium text-foreground">
                     {entry.weeklyXp.toLocaleString()} XP
                   </span>
                 </div>
@@ -371,11 +377,11 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
       {/* Floating Dash Study Buddy */}
       {showMascotWidget && (
         <div className="hidden lg:block fixed bottom-6 right-6 z-50">
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-xs">
+          <div className="bg-card rounded-2xl shadow-xl border border-border p-4 max-w-xs">
             <div className="flex items-start gap-3">
               <Dash emotion="happy" size="sm" animate={true} className="flex-shrink-0" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-card-foreground">
                   Need help? I&apos;m here to guide you through your practice!
                 </p>
                 <div className="flex gap-2 mt-3">

@@ -139,8 +139,8 @@ export default function QuizLobbyPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Practice Quiz</h1>
-            <p className="text-gray-600">Choose how you want to practice</p>
+            <h1 className="text-2xl font-bold text-foreground">Practice Quiz</h1>
+            <p className="text-muted-foreground">Choose how you want to practice</p>
           </div>
           {/* speechPosition="left" → bubble extends leftward into open header space,
               never downward over the stats cards below */}
@@ -156,34 +156,34 @@ export default function QuizLobbyPage() {
           />
         </div>
 
-        {/* Quick Stats */}
+        {/* Quick Stats — gradient cards with dark-mode safe text */}
         <div className="grid grid-cols-3 gap-3">
-          <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+          <Card className="bg-gradient-to-br from-blue-500 to-blue-600 border-0 text-white">
             <CardContent className="p-3 text-center">
-              <Trophy className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <p className="text-lg font-bold text-blue-900">12</p>
-              <p className="text-xs text-blue-700">Quizzes</p>
+              <Trophy className="w-5 h-5 text-blue-100 mx-auto mb-1" />
+              <p className="text-lg font-bold">12</p>
+              <p className="text-xs text-blue-100">Quizzes</p>
             </CardContent>
           </Card>
-          <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
+          <Card className="bg-gradient-to-br from-orange-500 to-orange-600 border-0 text-white">
             <CardContent className="p-3 text-center">
-              <Flame className="w-5 h-5 text-orange-600 mx-auto mb-1" />
-              <p className="text-lg font-bold text-orange-900">5</p>
-              <p className="text-xs text-orange-700">Day Streak</p>
+              <Flame className="w-5 h-5 text-orange-100 mx-auto mb-1" />
+              <p className="text-lg font-bold">5</p>
+              <p className="text-xs text-orange-100">Day Streak</p>
             </CardContent>
           </Card>
-          <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
+          <Card className="bg-gradient-to-br from-emerald-500 to-emerald-600 border-0 text-white">
             <CardContent className="p-3 text-center">
-              <Target className="w-5 h-5 text-green-600 mx-auto mb-1" />
-              <p className="text-lg font-bold text-green-900">78%</p>
-              <p className="text-xs text-green-700">Accuracy</p>
+              <Target className="w-5 h-5 text-emerald-100 mx-auto mb-1" />
+              <p className="text-lg font-bold">78%</p>
+              <p className="text-xs text-emerald-100">Accuracy</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Quiz Modes */}
         <section>
-          <h2 className="text-lg font-semibold text-gray-900 mb-3">Quiz Modes</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-3">Quiz Modes</h2>
           <div className="grid gap-3">
             {quizModes.map((mode, index) => (
               <motion.div
@@ -193,34 +193,36 @@ export default function QuizLobbyPage() {
                 transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
               >
                 <Link href={mode.href}>
-                  <Card className="group cursor-pointer hover:shadow-md transition-shadow border-gray-200">
+                  {/* Card hover: translate-y-[-2px] for lift, ring on focus */}
+                  <Card className="group cursor-pointer hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-primary/50">
                     <CardContent className="p-4">
                       <div className="flex items-start gap-4">
                         <div
-                          className={`w-12 h-12 rounded-xl ${mode.color} ${mode.hoverColor} flex items-center justify-center transition-colors`}
+                          className={`w-12 h-12 rounded-xl ${mode.color} ${mode.hoverColor} flex items-center justify-center transition-colors flex-shrink-0`}
                         >
                           <mode.icon className="w-6 h-6 text-white" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                            <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                               {mode.name}
                             </h3>
                             <Badge variant="secondary" className="text-xs">
                               {mode.badge}
                             </Badge>
                           </div>
-                          <p className="text-sm text-gray-600 mb-2">
+                          {/* Description: muted-foreground passes WCAG AA on card bg */}
+                          <p className="text-sm text-muted-foreground mb-2">
                             {mode.description}
                           </p>
-                          <div className="flex items-center gap-4 text-xs text-gray-500">
+                          <div className="flex items-center gap-4 text-xs text-muted-foreground">
                             <span className="flex items-center gap-1">
                               <Clock className="w-3 h-3" />
                               {mode.estimatedTime}
                             </span>
                           </div>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
+                        <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
                       </div>
                     </CardContent>
                   </Card>
@@ -232,7 +234,7 @@ export default function QuizLobbyPage() {
 
         {/* Categories */}
         <section>
-          <h2 className="text-lg font-semibold text-gray-900 mb-3">Practice by Category</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-3">Practice by Category</h2>
           <div className="grid grid-cols-2 gap-3">
             {categories.map((category, index) => (
               <motion.div
@@ -242,42 +244,43 @@ export default function QuizLobbyPage() {
                 transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.4 + index * 0.1 }}
               >
                 <Link href={`/quiz/category/${category.id}`}>
-                  <Card className="group cursor-pointer hover:shadow-md transition-all h-full border-gray-200">
+                  <Card className="group cursor-pointer hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 h-full">
                     <CardContent className="p-4">
                       <div
                         className={`w-10 h-10 rounded-lg ${category.color} flex items-center justify-center mb-3`}
                       >
                         <category.icon className="w-5 h-5" />
                       </div>
-                      <h3 className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                      <h3 className="font-semibold text-foreground text-sm mb-1 group-hover:text-primary transition-colors">
                         {category.name}
                       </h3>
-                      <p className="text-xs text-gray-500 mb-2 line-clamp-2">
+                      <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
                         {category.description}
                       </p>
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-gray-500">
+                        <span className="text-muted-foreground">
                           {category.questionCount} questions
                         </span>
                         <span
                           className={`font-medium ${
                             category.progress >= 80
-                              ? "text-green-600"
+                              ? "text-emerald-600 dark:text-emerald-400"
                               : category.progress >= 50
-                              ? "text-yellow-600"
-                              : "text-red-600"
+                              ? "text-amber-600 dark:text-amber-400"
+                              : "text-red-600 dark:text-red-400"
                           }`}
                         >
                           {category.progress}%
                         </span>
                       </div>
-                      <div className="mt-2 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                      {/* Progress bar track uses muted bg — visible on both light + dark */}
+                      <div className="mt-2 h-1.5 bg-muted rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full transition-all ${
                             category.progress >= 80
-                              ? "bg-green-500"
+                              ? "bg-emerald-500"
                               : category.progress >= 50
-                              ? "bg-yellow-500"
+                              ? "bg-amber-500"
                               : "bg-red-500"
                           }`}
                           style={{ width: `${category.progress}%` }}
@@ -297,13 +300,13 @@ export default function QuizLobbyPage() {
             <div className="flex items-center justify-between mb-3">
               <div>
                 <h3 className="font-semibold">Daily Goal</h3>
-                <p className="text-sm text-blue-100">Answer 20 questions today</p>
+                <p className="text-sm text-white/80">Answer 20 questions today</p>
               </div>
               <Badge className="bg-white/20 text-white border-0">
                 15/20
               </Badge>
             </div>
-            <div className="h-2 bg-blue-900/30 rounded-full overflow-hidden">
+            <div className="h-2 bg-black/20 rounded-full overflow-hidden">
               <motion.div
                 className="h-full bg-white rounded-full"
                 initial={{ width: 0 }}
@@ -311,7 +314,7 @@ export default function QuizLobbyPage() {
                 transition={{ duration: 1, delay: 0.5 }}
               />
             </div>
-            <p className="text-xs text-blue-100 mt-2">
+            <p className="text-xs text-white/70 mt-2">
               5 more questions to reach your daily goal!
             </p>
           </CardContent>

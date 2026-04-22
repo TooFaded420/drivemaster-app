@@ -134,10 +134,10 @@ export default function PracticeQuizPage() {
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl font-semibold text-foreground mb-2">
             Failed to load questions
           </h2>
-          <p className="text-gray-600 mb-4">{quiz.error}</p>
+          <p className="text-muted-foreground mb-4">{quiz.error}</p>
           <Button onClick={() => quiz.restartQuiz()}>Try Again</Button>
         </div>
       </MobileLayout>

@@ -128,10 +128,10 @@ export default function MarathonQuizPage() {
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl font-semibold text-foreground mb-2">
             Failed to load questions
           </h2>
-          <p className="text-gray-600 mb-4">{quiz.error}</p>
+          <p className="text-muted-foreground mb-4">{quiz.error}</p>
           <Button onClick={() => quiz.restartQuiz()}>Try Again</Button>
         </div>
       </MobileLayout>
@@ -175,7 +175,7 @@ export default function MarathonQuizPage() {
         {/* Progress */}
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600">
+            <span className="text-muted-foreground">
               Question <span className="font-semibold">{quiz.currentQuestionIndex + 1}</span> of{" "}
               <span className="font-semibold">{quiz.questions.length}</span>
             </span>
@@ -183,7 +183,7 @@ export default function MarathonQuizPage() {
               {Math.round(progressPercentage)}% Complete
             </span>
           </div>
-          <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div className="h-2 bg-muted rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-300"
               style={{ width: `${progressPercentage}%` }}
@@ -192,8 +192,8 @@ export default function MarathonQuizPage() {
         </div>
 
         {/* Marathon Info */}
-        <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-          <div className="flex items-center gap-2 text-orange-700">
+        <div className="bg-accent/10 border border-accent/20 rounded-lg p-3">
+          <div className="flex items-center gap-2 text-accent">
             <Infinity className="w-5 h-5" />
             <span className="text-sm font-medium">
               Marathon Mode: Answer all {quiz.questions.length} questions

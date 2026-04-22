@@ -76,7 +76,7 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
         {/* Test date */}
         <div className="space-y-2">
           <Label htmlFor="testDate" className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-gray-500" />
+            <Calendar className="w-4 h-4 text-muted-foreground" />
             When is your test? (Optional)
           </Label>
           <input
@@ -87,7 +87,7 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
             className="w-full h-10 px-3 rounded-md border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             min={new Date().toISOString().split('T')[0]}
           />
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-muted-foreground">
             Don't have a date yet? No problem! You can set one later.
           </p>
         </div>
@@ -95,7 +95,7 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
         {/* Daily study time */}
         <div className="space-y-3">
           <Label className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-gray-500" />
+            <Clock className="w-4 h-4 text-muted-foreground" />
             How much time can you study daily?
           </Label>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -111,8 +111,8 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
                   }
                 `}
               >
-                <div className="font-medium text-gray-900">{option.label}</div>
-                <div className="text-xs text-gray-500">{option.description}</div>
+                <div className="font-medium text-foreground">{option.label}</div>
+                <div className="text-xs text-muted-foreground">{option.description}</div>
               </button>
             ))}
           </div>
@@ -121,7 +121,7 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
         {/* Target score */}
         <div className="space-y-3">
           <Label className="flex items-center gap-2">
-            <Target className="w-4 h-4 text-gray-500" />
+            <Target className="w-4 h-4 text-muted-foreground" />
             What's your target score?
           </Label>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -137,8 +137,8 @@ export function StepGoals({ data, updateData, onComplete }: StepGoalsProps) {
                   }
                 `}
               >
-                <div className="font-medium text-gray-900">{option.label}</div>
-                <div className="text-xs text-gray-500">{option.description}</div>
+                <div className="font-medium text-foreground">{option.label}</div>
+                <div className="text-xs text-muted-foreground">{option.description}</div>
               </button>
             ))}
           </div>
