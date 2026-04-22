@@ -85,13 +85,25 @@ export default async function DashboardPage() {
   }
 
   // --- Leaderboard preview (top 5 by weekly_xp) -----------------------------
-  const { data: leaderboardRows } = await supabase
+  // NOTE: `leaderboard_entries` is a view created in migration 008. The
+  // generated types file still carries a stale table definition with a
+  // different shape, so we narrow the response type locally here.
+  interface LeaderboardEntryRow {
+    user_id: string;
+    username: string | null;
+    display_name: string | null;
+    weekly_xp: number | null;
+    rank: number | null;
+  }
+  const { data: leaderboardRowsRaw } = await supabase
     .from("leaderboard_entries")
     .select("user_id, username, display_name, weekly_xp, rank")
     .order("weekly_xp", { ascending: false })
     .limit(5);
 
-  const leaderboard: DashboardLeaderboardEntry[] = (leaderboardRows ?? []).map(
+  const leaderboardRows = (leaderboardRowsRaw ?? []) as unknown as LeaderboardEntryRow[];
+
+  const leaderboard: DashboardLeaderboardEntry[] = leaderboardRows.map(
     (entry, index) => ({
       userId: entry.user_id,
       rank: entry.rank ?? index + 1,
