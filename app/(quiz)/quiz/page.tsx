@@ -142,6 +142,8 @@ export default function QuizLobbyPage() {
             <h1 className="text-2xl font-bold text-gray-900">Practice Quiz</h1>
             <p className="text-gray-600">Choose how you want to practice</p>
           </div>
+          {/* speechPosition="left" → bubble extends leftward into open header space,
+              never downward over the stats cards below */}
           <Dash
             emotion={mascot.emotion}
             size="sm"
@@ -149,7 +151,7 @@ export default function QuizLobbyPage() {
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="left"
             onSpeechBubbleClick={() => mascot.hide()}
           />
         </div>

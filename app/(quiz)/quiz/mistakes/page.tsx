@@ -240,6 +240,7 @@ export default function MistakesQuizPage() {
         </Card>
 
         {/* Mascot */}
+        {/* speechPosition="top" — bubble rises up, never overlaps QuestionCard */}
         <div className="flex justify-center py-2">
           <Dash
             emotion={mascot.emotion}
@@ -248,7 +249,7 @@ export default function MistakesQuizPage() {
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="top"
             onSpeechBubbleClick={() => mascot.hide()}
           />
         </div>

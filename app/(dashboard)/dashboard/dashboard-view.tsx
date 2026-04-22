@@ -87,6 +87,9 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
       {/* Welcome Header with Dash */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
+          {/* speechPosition="right" — Dash is on the left of the header row;
+              bubble extends rightward into the header's flex space, not
+              downward over the stats grid below */}
           <Dash
             emotion={mascot.emotion}
             size="sm"
@@ -94,7 +97,7 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="right"
             onSpeechBubbleClick={() => mascot.hide()}
           />
           <div>

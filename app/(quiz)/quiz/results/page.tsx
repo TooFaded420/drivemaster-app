@@ -131,6 +131,8 @@ export default function QuizResultsPage() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Quiz Results</h1>
+          {/* speechPosition="left" — Dash sits on the right of the header row;
+              bubble extends leftward, never downward over the score card */}
           <Dash
             emotion={mascot.emotion}
             size="sm"
@@ -138,7 +140,7 @@ export default function QuizResultsPage() {
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="left"
             onSpeechBubbleClick={() => mascot.hide()}
           />
         </div>

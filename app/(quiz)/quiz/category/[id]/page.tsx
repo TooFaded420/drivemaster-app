@@ -255,6 +255,7 @@ export default function CategoryQuizPage() {
 
         {/* Mascot */}
         <div className="flex justify-center py-2">
+          {/* speechPosition="top" — bubble rises up, never overlaps QuestionCard */}
           <Dash
             emotion={mascot.emotion}
             size="md"
@@ -262,7 +263,7 @@ export default function CategoryQuizPage() {
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="top"
             onSpeechBubbleClick={() => mascot.hide()}
           />
         </div>

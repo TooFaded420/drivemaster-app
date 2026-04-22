@@ -213,7 +213,8 @@ export default function TimedQuizPage() {
           </p>
         </div>
 
-        {/* Mascot */}
+        {/* Mascot — speechPosition="top": bubble rises upward, never
+            overlaps the QuestionCard below */}
         <div className="flex justify-center py-2">
           <Dash
             emotion={mascot.emotion}
@@ -222,7 +223,7 @@ export default function TimedQuizPage() {
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="top"
             onSpeechBubbleClick={() => mascot.hide()}
           />
         </div>
