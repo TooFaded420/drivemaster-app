@@ -39,8 +39,8 @@ export default function PrivacyPage() {
           <p className="mt-2">
             This policy covers what data we collect, why, and how you can control it.
             If you have questions, email us at{" "}
-            <a href="mailto:privacy@drivemaster.app" className="text-blue-600 underline hover:text-blue-700">
-              privacy@drivemaster.app
+            <a href="mailto:privacy@aceyourpermit.com" className="text-blue-600 underline hover:text-blue-700">
+              privacy@aceyourpermit.com
             </a>
             .
           </p>
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
           <p className="mt-3 text-sm text-gray-500">
             Honest note: we currently rely on copy (not a technical age gate) to discourage users under 13.
             If you are a parent and believe your child under 13 has created an account, please email{" "}
-            <a href="mailto:privacy@drivemaster.app" className="text-blue-600 underline">privacy@drivemaster.app</a>{" "}
+            <a href="mailto:privacy@aceyourpermit.com" className="text-blue-600 underline">privacy@aceyourpermit.com</a>{" "}
             and we will delete it promptly.
           </p>
         </section>
@@ -198,8 +198,8 @@ export default function PrivacyPage() {
             <li>
               <strong>Account and quiz data</strong> — kept until you delete your account.
               To request deletion, email{" "}
-              <a href="mailto:privacy@drivemaster.app" className="text-blue-600 underline hover:text-blue-700">
-                privacy@drivemaster.app
+              <a href="mailto:privacy@aceyourpermit.com" className="text-blue-600 underline hover:text-blue-700">
+                privacy@aceyourpermit.com
               </a>
               .
             </li>
@@ -231,8 +231,8 @@ export default function PrivacyPage() {
             10. Your rights
           </h2>
           <p>You can do any of the following by emailing{" "}
-            <a href="mailto:privacy@drivemaster.app" className="text-blue-600 underline hover:text-blue-700">
-              privacy@drivemaster.app
+            <a href="mailto:privacy@aceyourpermit.com" className="text-blue-600 underline hover:text-blue-700">
+              privacy@aceyourpermit.com
             </a>
             :
           </p>
@@ -253,14 +253,14 @@ export default function PrivacyPage() {
           </h2>
           <p>
             Privacy questions, data requests, or parental concerns:{" "}
-            <a href="mailto:privacy@drivemaster.app" className="text-blue-600 underline hover:text-blue-700">
-              privacy@drivemaster.app
+            <a href="mailto:privacy@aceyourpermit.com" className="text-blue-600 underline hover:text-blue-700">
+              privacy@aceyourpermit.com
             </a>
           </p>
           <p className="mt-2">
             General questions:{" "}
-            <a href="mailto:hello@drivemaster.app" className="text-blue-600 underline hover:text-blue-700">
-              hello@drivemaster.app
+            <a href="mailto:hello@aceyourpermit.com" className="text-blue-600 underline hover:text-blue-700">
+              hello@aceyourpermit.com
             </a>
           </p>
         </section>
