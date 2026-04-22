@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Dash } from "@/components/mascot";
 import { useMascot } from "@/hooks/use-mascot";
 import { useQuiz } from "@/hooks/use-quiz";
+import { createClient } from "@/lib/supabase/client";
 import {
   QuestionCard,
   AnswerOptions,
@@ -30,11 +31,27 @@ const ILLINOIS_TEST_CONFIG = {
 export default function TimedQuizPage() {
   const router = useRouter();
   const mascot = useMascot({ autoHideDelay: 4000 });
-  
+  const [userId, setUserId] = useState<string | undefined>(undefined);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      if (!data.user) {
+        router.replace("/login");
+        return;
+      }
+      setUserId(data.user.id);
+      setAuthChecked(true);
+    });
+  }, [router]);
+
   const quiz = useQuiz({
     quizType: "timed",
     questionCount: ILLINOIS_TEST_CONFIG.questionCount,
     timeLimit: ILLINOIS_TEST_CONFIG.timeLimit,
+    userId,
+    enabled: authChecked,
   });
 
   // Handle mascot reactions
@@ -75,6 +92,11 @@ export default function TimedQuizPage() {
           "Keep Trying!"
         );
       }
+
+      // Store results in sessionStorage for the results page
+      try {
+        sessionStorage.setItem("quizResults", JSON.stringify(quiz.results));
+      } catch {}
 
       // Redirect to results after a delay
       const timeout = setTimeout(() => {

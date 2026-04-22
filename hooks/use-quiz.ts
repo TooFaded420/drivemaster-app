@@ -4,6 +4,7 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { QuestionWithAnswers, QuizSession } from "@/types/database";
 import { calculateAnswerXP, calculateXP, XPCalculationResult } from "@/lib/gamification/xp-calculator";
+import { fireConversion } from "@/lib/analytics";
 import { toast } from "sonner";
 
 export interface QuizAnswer {
@@ -16,7 +17,7 @@ export interface QuizAnswer {
 export interface QuizState {
   // Quiz configuration
   quizType: "practice" | "category" | "timed" | "marathon" | "mistakes";
-  categoryId?: number;
+  categoryId?: string;
   timeLimit?: number; // in seconds, for timed mode
   
   // Questions
@@ -60,19 +61,21 @@ export interface QuizResults {
   averageTimePerQuestion: number;
   maxStreak: number;
   xpEarned: XPCalculationResult;
-  weakCategories: { categoryId: number; categoryName: string; wrongCount: number }[];
+  weakCategories: { categoryId: string; categoryName: string; wrongCount: number }[];
 }
 
 interface UseQuizOptions {
   quizType: "practice" | "category" | "timed" | "marathon" | "mistakes";
-  categoryId?: number;
+  categoryId?: string;
   questionCount?: number;
   timeLimit?: number; // in minutes
   userId?: string;
+  // When false, the hook will NOT load questions — used to gate on auth readiness.
+  enabled?: boolean;
 }
 
 export function useQuiz(options: UseQuizOptions) {
-  const { quizType, categoryId, questionCount = 10, timeLimit, userId } = options;
+  const { quizType, categoryId, questionCount = 10, timeLimit, userId, enabled = true } = options;
   const supabase = createClient();
   
   // Generate session ID
@@ -105,10 +108,11 @@ export function useQuiz(options: UseQuizOptions) {
   // Timer interval ref
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Load questions
+  // Load questions (gated on enabled so pages can wait for auth to resolve)
   useEffect(() => {
+    if (!enabled) return;
     loadQuestions();
-  }, []);
+  }, [enabled]);
 
   // Timer for timed mode
   useEffect(() => {
@@ -145,7 +149,33 @@ export function useQuiz(options: UseQuizOptions) {
       params.set("count", String(quizType === "marathon" ? 1000 : questionCount));
 
       if (quizType === "category" && categoryId) {
-        params.set("category", String(categoryId));
+        params.set("category", categoryId);
+      }
+
+      if (quizType === "mistakes") {
+        if (!userId) {
+          // Empty state for mistakes: no user yet means nothing to review.
+          setState((prev) => ({ ...prev, questions: [], questionStartTime: Date.now() }));
+          return;
+        }
+        // Look up the user's recent wrong (non-mastered) question_ids.
+        const { data: wrongRows, error: wrongErr } = await supabase
+          .from("user_wrong_answers")
+          .select("question_id")
+          .eq("user_id", userId)
+          .eq("is_mastered", false)
+          .order("last_attempted", { ascending: false })
+          .limit(questionCount);
+        if (wrongErr) throw wrongErr;
+        const ids = (wrongRows ?? [])
+          .map((r: { question_id: number | string }) => String(r.question_id))
+          .filter(Boolean);
+        if (ids.length === 0) {
+          setState((prev) => ({ ...prev, questions: [], questionStartTime: Date.now() }));
+          return;
+        }
+        params.set("mode", "by_ids");
+        params.set("ids", ids.join(","));
       }
 
       const res = await fetch(`/api/questions/random?${params}`);
@@ -153,6 +183,10 @@ export function useQuiz(options: UseQuizOptions) {
 
       const json = await res.json();
       if (!json.success || !json.data?.length) {
+        if (quizType === "mistakes") {
+          setState((prev) => ({ ...prev, questions: [], questionStartTime: Date.now() }));
+          return;
+        }
         throw new Error("No questions available");
       }
 
@@ -365,22 +399,22 @@ export function useQuiz(options: UseQuizOptions) {
       difficulty: "medium",
     });
 
-    // Calculate weak categories
-    const categoryStats: Record<number, { name: string; wrongCount: number }> = {};
+    // Calculate weak categories (slug IDs after H10)
+    const categoryStats: Record<string, { name: string; wrongCount: number }> = {};
     state.answers.forEach((answer, index) => {
       if (!answer.isCorrect) {
         const question = state.questions[index];
-        const categoryId = question.category_id || 0;
-        if (!categoryStats[categoryId]) {
-          categoryStats[categoryId] = { name: "Unknown", wrongCount: 0 };
+        const catId = String(question.category_id ?? "unknown");
+        if (!categoryStats[catId]) {
+          categoryStats[catId] = { name: "Unknown", wrongCount: 0 };
         }
-        categoryStats[categoryId].wrongCount++;
+        categoryStats[catId].wrongCount++;
       }
     });
 
     const weakCategories = Object.entries(categoryStats)
       .map(([catId, stats]) => ({
-        categoryId: parseInt(catId),
+        categoryId: catId,
         categoryName: stats.name,
         wrongCount: stats.wrongCount,
       }))
@@ -424,21 +458,46 @@ export function useQuiz(options: UseQuizOptions) {
           streak_count: state.maxStreak,
         });
 
-        // Update user stats
-        const { data: userStats } = await supabase
-          .from("user_stats")
-          .select("total_xp")
-          .eq("user_id", userId)
-          .single();
-
-        if (userStats) {
-          await supabase
-            .from("user_stats")
-            .update({
-              total_xp: userStats.total_xp + xpResult.totalXP,
-            })
-            .eq("user_id", userId);
+        // H7 — atomic total_xp via RPC. Replaces the prior read-then-write
+        // pattern which raced under concurrent quiz completions.
+        if (xpResult.totalXP > 0) {
+          const { error: xpErr } = await supabase.rpc("increment_total_xp", {
+            user_id: userId,
+            xp_amount: xpResult.totalXP,
+          });
+          if (xpErr) {
+            console.error("Failed to increment total_xp:", xpErr);
+          }
         }
+
+        // H8 — update the weekly leaderboard via the server route, which
+        // enforces rate-limits and calls the increment_weekly_xp RPC.
+        if (xpResult.totalXP > 0) {
+          try {
+            await fetch("/api/leaderboard/update", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                xpEarned: Math.min(xpResult.totalXP, 500),
+                activityType: quizType,
+              }),
+            });
+          } catch (lbErr) {
+            console.error("Failed to update leaderboard:", lbErr);
+          }
+        }
+
+        // H12 — fire first_quiz_completed conversion exactly once per user.
+        // `isFirstAttempt` is true when quiz_sessions had no prior completed
+        // rows for this user.
+        if (isFirstAttempt) {
+          try {
+            fireConversion("first_quiz_completed");
+          } catch (cvErr) {
+            console.error("Failed to fire conversion:", cvErr);
+          }
+        }
+
       } catch (err) {
         console.error("Failed to save quiz session:", err);
         toast.error("Quiz results saved locally but failed to sync. They'll sync when you're back online.");

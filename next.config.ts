@@ -65,10 +65,27 @@ const nextConfig: NextConfig = {
   
   // Headers for security (will be overridden by vercel.json on Vercel)
   async headers() {
+    // Baseline Content-Security-Policy. Permissive enough for our current
+    // analytics/marketing stack (PostHog, Clarity, Meta Pixel, TikTok Pixel,
+    // GA4) + Supabase. Needs tuning once pixels + fonts are verified in prod.
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.posthog.com https://*.clarity.ms https://connect.facebook.net https://analytics.tiktok.com https://www.googletagmanager.com",
+      "style-src 'self' 'unsafe-inline' https://api.fontshare.com",
+      "img-src 'self' data: https: blob:",
+      "connect-src 'self' https://*.supabase.co https://*.posthog.com https://*.clarity.ms wss://*.supabase.co",
+      "frame-src 'self'",
+      "font-src 'self' data: https://api.fontshare.com",
+    ].join("; ");
+
     return [
       {
         source: "/(.*)",
         headers: [
+          {
+            key: "Content-Security-Policy",
+            value: csp,
+          },
           {
             key: "X-Frame-Options",
             value: "DENY",

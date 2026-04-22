@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dash } from "@/components/mascot";
 import { useMascot } from "@/hooks/use-mascot";
 import { useQuiz } from "@/hooks/use-quiz";
+import { createClient } from "@/lib/supabase/client";
 import {
   QuestionCard,
   AnswerOptions,
@@ -21,33 +22,52 @@ import {
 import { LoadingSpinner } from "@/components/loading-spinner";
 import { ArrowLeft, Trophy, Target, BookOpen } from "lucide-react";
 
-// Category info mapping
-const CATEGORY_INFO: Record<number, { name: string; icon: typeof Target; color: string }> = {
-  1: { name: "Traffic Signs", icon: Target, color: "text-red-600" },
-  2: { name: "Rules of the Road", icon: BookOpen, color: "text-blue-600" },
-  3: { name: "Safe Driving", icon: Target, color: "text-green-600" },
-  4: { name: "Alcohol & Drugs", icon: Target, color: "text-yellow-600" },
-  5: { name: "Vehicle Operation", icon: Target, color: "text-purple-600" },
-  6: { name: "Sharing the Road", icon: Target, color: "text-pink-600" },
+// Category info mapping — keyed by the string slugs used across lib/data/questions.
+const CATEGORY_INFO: Record<string, { name: string; icon: typeof Target; color: string }> = {
+  "traffic-signs": { name: "Traffic Signs & Signals", icon: Target, color: "text-red-600" },
+  "traffic-laws": { name: "Traffic Laws & Rules of the Road", icon: BookOpen, color: "text-blue-600" },
+  "safe-driving": { name: "Safe Driving Practices", icon: Target, color: "text-green-600" },
+  "alcohol-drugs": { name: "Alcohol & Drug Laws", icon: Target, color: "text-yellow-600" },
+  "vehicle-equipment": { name: "Vehicle Equipment & Maintenance", icon: Target, color: "text-purple-600" },
+  "sharing-road": { name: "Sharing the Road", icon: Target, color: "text-pink-600" },
+  "parking-emergency": { name: "Parking & Emergency Situations", icon: Target, color: "text-amber-600" },
+  "road-conditions": { name: "Road Conditions & Weather", icon: Target, color: "text-cyan-600" },
+  "illinois-specific": { name: "Illinois-Specific Laws", icon: Target, color: "text-teal-600" },
 };
 
 export default function CategoryQuizPage() {
   const router = useRouter();
   const params = useParams();
-  const categoryId = parseInt(params.id as string);
+  const categoryId = params.id as string;
   const mascot = useMascot({ autoHideDelay: 4000 });
-  
-  const categoryInfo = CATEGORY_INFO[categoryId] || { 
-    name: "Category Practice", 
-    icon: Target, 
-    color: "text-blue-600" 
+  const [userId, setUserId] = useState<string | undefined>(undefined);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      if (!data.user) {
+        router.replace("/login");
+        return;
+      }
+      setUserId(data.user.id);
+      setAuthChecked(true);
+    });
+  }, [router]);
+
+  const categoryInfo = CATEGORY_INFO[categoryId] || {
+    name: "Category Practice",
+    icon: Target,
+    color: "text-blue-600"
   };
   const CategoryIcon = categoryInfo.icon;
-  
+
   const quiz = useQuiz({
     quizType: "category",
     categoryId,
     questionCount: 15,
+    userId,
+    enabled: authChecked,
   });
 
   // Handle mascot reactions
@@ -93,6 +113,11 @@ export default function CategoryQuizPage() {
           "Don't Give Up!"
         );
       }
+
+      // Store results in sessionStorage for the results page
+      try {
+        sessionStorage.setItem("quizResults", JSON.stringify(quiz.results));
+      } catch {}
 
       // Redirect to results after a delay
       const timeout = setTimeout(() => {

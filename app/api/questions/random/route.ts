@@ -36,15 +36,30 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category');
     const difficulty = searchParams.get('difficulty') as DifficultyLevel | null;
     const exclude = searchParams.get('exclude')?.split(',').filter(Boolean) || [];
-    
+    const idsParam = searchParams.get('ids')?.split(',').filter(Boolean) || [];
+
+    // Hash helper — must stay in lockstep with hooks/use-quiz.ts so the
+    // transformed numeric IDs resolve back to the underlying string slugs.
+    const hashSlug = (slug: string): number =>
+      parseInt(slug.replace(/\D/g, '').slice(0, 8)) || 0;
+
     let questions;
-    
+
     switch (mode) {
+      case 'by_ids': {
+        // Look up questions by the numeric hashed IDs stored in
+        // user_wrong_answers.question_id (H9 — mistakes mode).
+        const targets = new Set(idsParam.map((s) => parseInt(s, 10)).filter((n) => !Number.isNaN(n)));
+        const pool = getRandomQuestions(10000);
+        questions = pool.filter((q) => targets.has(hashSlug(q.id))).slice(0, count);
+        break;
+      }
+
       case 'test':
         // Get a balanced set of questions for a practice test
         questions = getPracticeTestQuestions(count);
         break;
-        
+
       case 'adaptive':
         // Get questions based on adaptive difficulty
         // In a real implementation, this would use user's actual performance

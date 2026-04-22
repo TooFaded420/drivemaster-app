@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dash } from "@/components/mascot";
 import { useMascot } from "@/hooks/use-mascot";
 import { useQuiz } from "@/hooks/use-quiz";
+import { createClient } from "@/lib/supabase/client";
 import {
   QuestionCard,
   AnswerOptions,
@@ -24,10 +25,26 @@ import { ArrowLeft, Trophy, Infinity, Pause } from "lucide-react";
 export default function MarathonQuizPage() {
   const router = useRouter();
   const mascot = useMascot({ autoHideDelay: 4000 });
-  
+  const [userId, setUserId] = useState<string | undefined>(undefined);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      if (!data.user) {
+        router.replace("/login");
+        return;
+      }
+      setUserId(data.user.id);
+      setAuthChecked(true);
+    });
+  }, [router]);
+
   const quiz = useQuiz({
     quizType: "marathon",
     questionCount: 100, // Will load all available questions
+    userId,
+    enabled: authChecked,
   });
 
   // Handle mascot reactions
@@ -65,6 +82,11 @@ export default function MarathonQuizPage() {
         `Marathon complete! You answered ${quiz.results.totalQuestions} questions! You're a true champion! 🏆`,
         "Marathon Complete!"
       );
+
+      // Store results in sessionStorage for the results page
+      try {
+        sessionStorage.setItem("quizResults", JSON.stringify(quiz.results));
+      } catch {}
 
       // Redirect to results after a delay
       const timeout = setTimeout(() => {

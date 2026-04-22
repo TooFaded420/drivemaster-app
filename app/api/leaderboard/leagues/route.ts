@@ -9,10 +9,13 @@ import { LEAGUES, LEAGUE_ORDER, getLeagueByXP } from "@/lib/gamification/leagues
 export async function GET(request: NextRequest) {
   try {
     const supabase = await createClient();
-    
-    // Get current user
+
+    // Require auth — league data is user-specific
     const { data: { user } } = await supabase.auth.getUser();
-    
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     // Get current season
     const now = new Date().toISOString();
     const { data: season, error: seasonError } = await supabase
