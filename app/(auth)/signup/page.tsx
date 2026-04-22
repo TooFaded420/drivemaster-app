@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { createClient } from "@/lib/supabase/client";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2, Mail } from "lucide-react";
 import { Dash } from "@/components/mascot";
 import { GoogleOAuthButton } from "@/components/auth/google-oauth-button";
 
@@ -21,6 +21,7 @@ export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [confirmationRequired, setConfirmationRequired] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,11 +41,11 @@ export default function SignupPage() {
 
     try {
       const supabase = createClient();
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=/onboarding`,
         },
       });
 
@@ -53,7 +54,15 @@ export default function SignupPage() {
         return;
       }
 
-      router.push("/onboarding");
+      // If Supabase is configured to require email confirmation, no session
+      // is returned. Show a "check your email" screen instead of redirecting
+      // to onboarding (which would just bounce back to /login).
+      if (!data.session) {
+        setConfirmationRequired(true);
+        return;
+      }
+
+      router.push("/onboarding?new_signup=true");
       router.refresh();
     } catch {
       setError("An unexpected error occurred. Please try again.");
@@ -61,6 +70,46 @@ export default function SignupPage() {
       setIsLoading(false);
     }
   };
+
+  if (confirmationRequired) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
+        <div className="w-full max-w-md">
+          <div className="flex justify-center mb-4">
+            <Dash emotion="happy" size="md" animate={true} />
+          </div>
+          <Card>
+            <CardHeader className="space-y-1">
+              <div className="flex justify-center mb-2">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-blue-600" />
+                </div>
+              </div>
+              <CardTitle className="text-2xl text-center">Check your email</CardTitle>
+              <CardDescription className="text-center">
+                We sent a confirmation link to <span className="font-medium text-gray-900">{email}</span>.
+                Click it to finish setting up your account.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-500 text-center">
+                Didn&apos;t get it? Check your spam folder, or{" "}
+                <Link href="/signup" className="text-blue-600 hover:underline font-medium">
+                  try again
+                </Link>
+                .
+              </p>
+              <div className="mt-6 text-center text-sm">
+                <Link href="/login" className="text-blue-600 hover:underline font-medium">
+                  Back to sign in
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
