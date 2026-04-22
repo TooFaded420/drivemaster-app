@@ -158,7 +158,7 @@ export default function DashboardPage() {
               </div>
             </Button>
           </Link>
-          <Link href="/test">
+          <Link href="/quiz/timed">
             <Button className="w-full h-auto py-6" variant="outline" size="lg">
               <div className="flex flex-col items-center gap-2">
                 <Clock className="w-6 h-6" />
@@ -173,7 +173,7 @@ export default function DashboardPage() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg">Category Progress</CardTitle>
-              <Link href="/categories">
+              <Link href="/quiz">
                 <Button variant="ghost" size="sm">
                   View All
                   <ArrowRight className="w-4 h-4 ml-1" />
