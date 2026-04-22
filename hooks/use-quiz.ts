@@ -487,6 +487,17 @@ export function useQuiz(options: UseQuizOptions) {
           }
         }
 
+        // H12 — fire first_quiz_completed conversion exactly once per user.
+        // `isFirstAttempt` is true when quiz_sessions had no prior completed
+        // rows for this user.
+        if (isFirstAttempt) {
+          try {
+            fireConversion("first_quiz_completed");
+          } catch (cvErr) {
+            console.error("Failed to fire conversion:", cvErr);
+          }
+        }
+
       } catch (err) {
         console.error("Failed to save quiz session:", err);
         toast.error("Quiz results saved locally but failed to sync. They'll sync when you're back online.");
