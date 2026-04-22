@@ -458,21 +458,18 @@ export function useQuiz(options: UseQuizOptions) {
           streak_count: state.maxStreak,
         });
 
-        // Update user stats
-        const { data: userStats } = await supabase
-          .from("user_stats")
-          .select("total_xp")
-          .eq("user_id", userId)
-          .single();
-
-        if (userStats) {
-          await supabase
-            .from("user_stats")
-            .update({
-              total_xp: userStats.total_xp + xpResult.totalXP,
-            })
-            .eq("user_id", userId);
+        // H7 — atomic total_xp via RPC. Replaces the prior read-then-write
+        // pattern which raced under concurrent quiz completions.
+        if (xpResult.totalXP > 0) {
+          const { error: xpErr } = await supabase.rpc("increment_total_xp", {
+            user_id: userId,
+            xp_amount: xpResult.totalXP,
+          });
+          if (xpErr) {
+            console.error("Failed to increment total_xp:", xpErr);
+          }
         }
+
       } catch (err) {
         console.error("Failed to save quiz session:", err);
         toast.error("Quiz results saved locally but failed to sync. They'll sync when you're back online.");
