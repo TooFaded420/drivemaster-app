@@ -470,6 +470,23 @@ export function useQuiz(options: UseQuizOptions) {
           }
         }
 
+        // H8 — update the weekly leaderboard via the server route, which
+        // enforces rate-limits and calls the increment_weekly_xp RPC.
+        if (xpResult.totalXP > 0) {
+          try {
+            await fetch("/api/leaderboard/update", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                xpEarned: Math.min(xpResult.totalXP, 500),
+                activityType: quizType,
+              }),
+            });
+          } catch (lbErr) {
+            console.error("Failed to update leaderboard:", lbErr);
+          }
+        }
+
       } catch (err) {
         console.error("Failed to save quiz session:", err);
         toast.error("Quiz results saved locally but failed to sync. They'll sync when you're back online.");
