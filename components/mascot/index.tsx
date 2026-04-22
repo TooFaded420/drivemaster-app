@@ -7,9 +7,10 @@ import { DashHappy } from "./dash-happy";
 import { DashExcited } from "./dash-excited";
 import { DashThinking } from "./dash-thinking";
 import { DashEncouraging } from "./dash-encouraging";
+import { DashSad } from "./dash-sad";
 import { DashLoading, DashLoadingScreen } from "./dash-loading";
 
-export type MascotEmotion = "happy" | "excited" | "thinking" | "encouraging";
+export type MascotEmotion = "happy" | "excited" | "thinking" | "encouraging" | "sad";
 export type MascotSize = "sm" | "md" | "lg" | "xl";
 
 interface DashProps {
@@ -29,6 +30,7 @@ const emotionComponents = {
   excited: DashExcited,
   thinking: DashThinking,
   encouraging: DashEncouraging,
+  sad: DashSad,
 };
 
 function SpeechBubble({
@@ -143,5 +145,5 @@ export function Dash({
   );
 }
 
-export { DashHappy, DashExcited, DashThinking, DashEncouraging, DashLoading, DashLoadingScreen };
+export { DashHappy, DashExcited, DashThinking, DashEncouraging, DashSad, DashLoading, DashLoadingScreen };
 export default Dash;
