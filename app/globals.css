@@ -146,37 +146,87 @@
 }
 
 .dark {
-  --background: #0F172A;
-  --foreground: #F8FAFC;
-  --card: #1E293B;
-  --card-foreground: #F8FAFC;
-  --popover: #1E293B;
-  --popover-foreground: #F8FAFC;
-  --primary: #3B82F6;
+  /* ── Brand-intentional dark palette ─────────────────────────────────────
+     Strategy (from DESIGN.md §Dark mode): brand-tinted navy backgrounds,
+     cards with a visible lifted surface, orange stays fully saturated,
+     headings use pure white, body uses zinc-200 (not zinc-500/gray-500).
+     Contrast targets: body text ≥4.5:1, muted ≥3:1 (large text / UI labels).
+  ─────────────────────────────────────────────────────────────────────── */
+
+  /* Surfaces — slight blue-tint so dark mode feels *designed*, not auto-inverted */
+  --background: #0A0F1E;         /* brand-navy-950 — deeper than slate-900 */
+  --foreground: #F1F5F9;         /* zinc-100 — high contrast, not cold white */
+  --card: #131C30;               /* brand-navy-900 — lifted surface, distinct from bg */
+  --card-foreground: #F1F5F9;
+  --popover: #1A2540;            /* slightly lighter than card for layering */
+  --popover-foreground: #F1F5F9;
+
+  /* Brand */
+  --primary: #3B82F6;            /* blue-500 — stays readable on dark bg */
   --primary-foreground: #FFFFFF;
-  --secondary: #334155;
-  --secondary-foreground: #F8FAFC;
-  --muted: #334155;
-  --muted-foreground: #94A3B8;
-  --accent: #EA580C;
-  --accent-foreground: #FFFFFF;
-  --destructive: #EF4444;
-  --border: #334155;
-  --input: #334155;
+
+  /* Orange accent: shift to #FB923C (orange-400) in dark — stays saturated,
+     doesn't look muddy the way #EA580C does on a very dark bg */
+  --accent: #FB923C;             /* orange-400 — full saturation, pops on dark navy */
+  --accent-foreground: #0A0F1E;  /* dark text on bright orange for max contrast */
+
+  /* Semantic */
+  --destructive: #F87171;        /* red-400 — visible on dark bg */
+  --success: #34D399;            /* emerald-400 */
+  --warning: #FBBF24;            /* amber-400 */
+  --gold: #FCD34D;               /* amber-300 */
+
+  /* Neutrals — warmer than default shadcn dark, less gray/cold */
+  --secondary: #1E2D45;          /* slightly blue-tinted mid-surface */
+  --secondary-foreground: #CBD5E1; /* slate-300 */
+  --muted: #1E2D45;
+  --muted-foreground: #94A3B8;   /* slate-400 — ≥4.5:1 on card bg, ≥3:1 on body bg */
+
+  /* Chrome */
+  --border: #1E3A5F;             /* brand-navy border — visible edge without glare */
+  --input: #1E2D45;
   --ring: #3B82F6;
+
+  /* Charts */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+
+  /* Sidebar — match brand navy */
+  --sidebar: #0A0F1E;
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-primary: #3B82F6;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #131C30;
+  --sidebar-accent-foreground: #F1F5F9;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #3B82F6;
+}
+
+/* ============================================
+   DARK MODE — CARD & SURFACE ANCHORING
+   Card borders ensure every card has a visible
+   edge on both light and dark backgrounds.
+   ============================================ */
+
+.dark [data-slot="card"] {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.07),   /* subtle outer ring */
+    0 2px 12px rgba(0, 0, 0, 0.35);         /* depth shadow */
+}
+
+/* Gradient stat cards need a slightly stronger ring so they don't bleed into bg */
+.dark .card-gradient-anchor {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Light mode card shadow refinement — subtle so cards lift off bg */
+[data-slot="card"] {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
 /* ============================================
