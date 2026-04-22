@@ -50,7 +50,7 @@ export default async function DashboardPage() {
       .select("id, category_id")
       .in("id", questionIds);
 
-    const completedByCategory = new Map<number, Set<number>>();
+    const completedByCategory = new Map<string, Set<number>>();
     (questions ?? []).forEach((q) => {
       if (q.category_id == null) return;
       const set = completedByCategory.get(q.category_id) ?? new Set<number>();

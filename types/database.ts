@@ -119,7 +119,7 @@ export interface Database {
       }
       categories: {
         Row: {
-          id: number
+          id: string
           name: string
           description: string | null
           icon: string | null
@@ -128,7 +128,7 @@ export interface Database {
           question_count: number
         }
         Insert: {
-          id?: number
+          id?: string
           name: string
           description?: string | null
           icon?: string | null
@@ -137,7 +137,7 @@ export interface Database {
           question_count?: number
         }
         Update: {
-          id?: number
+          id?: string
           name?: string
           description?: string | null
           icon?: string | null

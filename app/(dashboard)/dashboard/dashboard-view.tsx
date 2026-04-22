@@ -32,7 +32,7 @@ export interface DashboardStats {
 }
 
 export interface DashboardCategoryProgress {
-  id: number;
+  id: string;
   name: string;
   completed: number;
   total: number;
