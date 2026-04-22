@@ -21,6 +21,68 @@
 -- ============================================
 
 -- ============================================
+-- Bootstrap league_seasons + user_leagues (idempotent)
+-- Earlier migrations (003 / 004) referenced these tables but never created
+-- them. Ensure they exist before the view below joins them.
+-- ============================================
+CREATE TABLE IF NOT EXISTS public.league_seasons (
+  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name        TEXT NOT NULL,
+  week_start  TIMESTAMPTZ NOT NULL,
+  week_end    TIMESTAMPTZ NOT NULL,
+  is_active   BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_league_seasons_is_active ON public.league_seasons(is_active);
+CREATE INDEX IF NOT EXISTS idx_league_seasons_week_range ON public.league_seasons(week_start, week_end);
+
+INSERT INTO public.league_seasons (name, week_start, week_end, is_active)
+SELECT
+  'Season ' || TO_CHAR(NOW(), 'YYYY-"W"IW'),
+  DATE_TRUNC('week', NOW()),
+  DATE_TRUNC('week', NOW()) + INTERVAL '7 days',
+  TRUE
+WHERE NOT EXISTS (SELECT 1 FROM public.league_seasons WHERE is_active = TRUE);
+
+CREATE TABLE IF NOT EXISTS public.user_leagues (
+  id             UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id        UUID NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  season_id      UUID NOT NULL REFERENCES public.league_seasons(id) ON DELETE CASCADE,
+  current_league TEXT NOT NULL DEFAULT 'bronze'
+                 CHECK (current_league IN ('bronze', 'silver', 'gold', 'platinum', 'diamond', 'legendary')),
+  weekly_xp      INTEGER NOT NULL DEFAULT 0,
+  rank           INTEGER,
+  updated_at     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  created_at     TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS user_leagues_user_season_unique
+  ON public.user_leagues(user_id, season_id);
+CREATE INDEX IF NOT EXISTS idx_user_leagues_user_id ON public.user_leagues(user_id);
+CREATE INDEX IF NOT EXISTS idx_user_leagues_season_id ON public.user_leagues(season_id);
+CREATE INDEX IF NOT EXISTS idx_user_leagues_weekly_xp ON public.user_leagues(weekly_xp DESC);
+
+ALTER TABLE public.user_leagues ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.league_seasons ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Users can view own league row" ON public.user_leagues;
+CREATE POLICY "Users can view own league row"
+  ON public.user_leagues FOR SELECT TO authenticated USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can insert own league row" ON public.user_leagues;
+CREATE POLICY "Users can insert own league row"
+  ON public.user_leagues FOR INSERT TO authenticated WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users can update own league row" ON public.user_leagues;
+CREATE POLICY "Users can update own league row"
+  ON public.user_leagues FOR UPDATE TO authenticated USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "League seasons readable by authenticated" ON public.league_seasons;
+CREATE POLICY "League seasons readable by authenticated"
+  ON public.league_seasons FOR SELECT TO authenticated USING (true);
+
+-- ============================================
 -- Friends table (stub) — required by use-leaderboard.ts
 -- ============================================
 CREATE TABLE IF NOT EXISTS public.friends (
