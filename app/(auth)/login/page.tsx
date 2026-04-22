@@ -72,7 +72,7 @@ function LoginPageInner() {
           <CardContent>
             <div className="space-y-4">
               <GoogleOAuthButton mode="login" />
-              <div className="flex items-center gap-3 text-sm text-gray-500">
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <div className="h-px flex-1 bg-border" />
                 <span>or</span>
                 <div className="h-px flex-1 bg-border" />
@@ -143,7 +143,7 @@ function LoginPageInner() {
             </form>
 
             <div className="mt-6 text-center text-sm">
-              <span className="text-gray-600">Don&apos;t have an account? </span>
+              <span className="text-muted-foreground">Don&apos;t have an account? </span>
               <Link href="/signup" className="text-blue-600 hover:underline font-medium">
                 Sign up
               </Link>

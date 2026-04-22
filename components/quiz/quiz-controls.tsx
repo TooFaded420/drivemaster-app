@@ -97,7 +97,7 @@ export function QuizControls({
           variant="ghost"
           size="sm"
           onClick={onExit}
-          className="text-gray-500 hover:text-gray-700"
+          className="text-muted-foreground hover:text-foreground"
         >
           <X className="w-4 h-4 mr-1" />
           Exit

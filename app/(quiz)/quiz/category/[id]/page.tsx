@@ -170,10 +170,10 @@ export default function CategoryQuizPage() {
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl font-semibold text-foreground mb-2">
             Failed to load questions
           </h2>
-          <p className="text-gray-600 mb-4">{quiz.error}</p>
+          <p className="text-muted-foreground mb-4">{quiz.error}</p>
           <Button onClick={() => quiz.restartQuiz()}>Try Again</Button>
         </div>
       </MobileLayout>
@@ -185,13 +185,13 @@ export default function CategoryQuizPage() {
     return (
       <MobileLayout>
         <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-4">
-          <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+          <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mb-4">
             <CategoryIcon className="w-10 h-10 text-gray-400" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-2xl font-bold text-foreground mb-2">
             No Questions Available
           </h2>
-          <p className="text-gray-600 mb-6 max-w-sm">
+          <p className="text-muted-foreground mb-6 max-w-sm">
             There are no questions available for this category yet. Check back later!
           </p>
           <Link href="/quiz">
@@ -244,7 +244,7 @@ export default function CategoryQuizPage() {
         />
 
         {/* Category Info */}
-        <div className={`bg-gray-50 border border-gray-200 rounded-lg p-3`}>
+        <div className={`bg-muted border border-gray-200 rounded-lg p-3`}>
           <div className={`flex items-center gap-2 ${categoryInfo.color}`}>
             <CategoryIcon className="w-5 h-5" />
             <span className="text-sm font-medium">
@@ -255,6 +255,7 @@ export default function CategoryQuizPage() {
 
         {/* Mascot */}
         <div className="flex justify-center py-2">
+          {/* speechPosition="top" — bubble rises up, never overlaps QuestionCard */}
           <Dash
             emotion={mascot.emotion}
             size="md"
@@ -262,7 +263,7 @@ export default function CategoryQuizPage() {
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="top"
             onSpeechBubbleClick={() => mascot.hide()}
           />
         </div>

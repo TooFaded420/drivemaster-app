@@ -130,7 +130,9 @@ export default function QuizResultsPage() {
       <div className="space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">Quiz Results</h1>
+          <h1 className="text-2xl font-bold text-foreground">Quiz Results</h1>
+          {/* speechPosition="left" — Dash sits on the right of the header row;
+              bubble extends leftward, never downward over the score card */}
           <Dash
             emotion={mascot.emotion}
             size="sm"
@@ -138,7 +140,7 @@ export default function QuizResultsPage() {
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="left"
             onSpeechBubbleClick={() => mascot.hide()}
           />
         </div>
@@ -214,10 +216,10 @@ export default function QuizResultsPage() {
             <CardContent className="pt-0">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <p className="text-3xl font-bold text-blue-600">
+                  <p className="text-3xl font-bold text-primary">
                     +{animatedXP}
                   </p>
-                  <p className="text-sm text-gray-500">Total XP earned</p>
+                  <p className="text-sm text-muted-foreground">Total XP earned</p>
                 </div>
                 <Button
                   variant="ghost"
@@ -241,14 +243,14 @@ export default function QuizResultsPage() {
                       className="flex items-center justify-between text-sm"
                     >
                       <div>
-                        <span className="font-medium text-gray-700">
+                        <span className="font-medium text-foreground">
                           {item.label}
                         </span>
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-muted-foreground">
                           {item.description}
                         </p>
                       </div>
-                      <span className="font-semibold text-blue-600">
+                      <span className="font-semibold text-primary">
                         +{item.value}
                       </span>
                     </div>
@@ -268,29 +270,29 @@ export default function QuizResultsPage() {
         >
           <Card className="border-0 shadow-sm">
             <CardContent className="p-3 text-center">
-              <Clock className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-              <p className="text-lg font-bold text-gray-900">
+              <Clock className="w-5 h-5 text-primary mx-auto mb-1" />
+              <p className="text-lg font-bold text-foreground">
                 {formatTime(results.totalTimeTaken)}
               </p>
-              <p className="text-xs text-gray-500">Total Time</p>
+              <p className="text-xs text-muted-foreground">Total Time</p>
             </CardContent>
           </Card>
           <Card className="border-0 shadow-sm">
             <CardContent className="p-3 text-center">
-              <Zap className="w-5 h-5 text-yellow-600 mx-auto mb-1" />
-              <p className="text-lg font-bold text-gray-900">
+              <Zap className="w-5 h-5 text-amber-500 mx-auto mb-1" />
+              <p className="text-lg font-bold text-foreground">
                 {Math.round(results.averageTimePerQuestion)}s
               </p>
-              <p className="text-xs text-gray-500">Avg Time</p>
+              <p className="text-xs text-muted-foreground">Avg Time</p>
             </CardContent>
           </Card>
           <Card className="border-0 shadow-sm">
             <CardContent className="p-3 text-center">
-              <Flame className="w-5 h-5 text-orange-600 mx-auto mb-1" />
-              <p className="text-lg font-bold text-gray-900">
+              <Flame className="w-5 h-5 text-accent mx-auto mb-1" />
+              <p className="text-lg font-bold text-foreground">
                 {results.maxStreak}
               </p>
-              <p className="text-xs text-gray-500">Best Streak</p>
+              <p className="text-xs text-muted-foreground">Best Streak</p>
             </CardContent>
           </Card>
         </motion.div>
@@ -310,13 +312,13 @@ export default function QuizResultsPage() {
                 {results.weakCategories.map((category) => (
                   <div
                     key={category.categoryId}
-                    className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    className="flex items-center justify-between p-3 bg-muted rounded-lg"
                   >
                     <div>
-                      <p className="font-medium text-gray-900">
+                      <p className="font-medium text-foreground">
                         {category.categoryName}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-muted-foreground">
                         {category.wrongCount} questions missed
                       </p>
                     </div>

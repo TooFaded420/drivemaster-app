@@ -27,7 +27,7 @@ export default function Error({
         speechPosition="bottom"
       />
       <div className="space-y-2">
-        <h1 className="text-2xl font-bold text-gray-900">Something went sideways</h1>
+        <h1 className="text-2xl font-bold text-foreground">Something went sideways</h1>
         <p className="max-w-md text-muted-foreground">
           Not your fault. Hit retry and let&apos;s keep the streak alive.
         </p>

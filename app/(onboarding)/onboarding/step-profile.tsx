@@ -87,7 +87,7 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
         {/* Name input */}
         <div className="space-y-2">
           <Label htmlFor="displayName" className="flex items-center gap-2">
-            <User className="w-4 h-4 text-gray-500" />
+            <User className="w-4 h-4 text-muted-foreground" />
             What should we call you?
           </Label>
           <Input
@@ -105,7 +105,7 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
         {/* Age input */}
         <div className="space-y-2">
           <Label htmlFor="age" className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-gray-500" />
+            <Calendar className="w-4 h-4 text-muted-foreground" />
             How old are you?
           </Label>
           <Input
@@ -121,7 +121,7 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
           {errors.age && (
             <p className="text-sm text-red-500">{errors.age}</p>
           )}
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-muted-foreground">
             You must be at least 15 years old to apply for a learner's permit in Illinois
           </p>
         </div>
@@ -129,7 +129,7 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
         {/* State selection */}
         <div className="space-y-2">
           <Label htmlFor="state" className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-gray-500" />
+            <MapPin className="w-4 h-4 text-muted-foreground" />
             Which state are you in?
           </Label>
           <select
@@ -144,7 +144,7 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
               </option>
             ))}
           </select>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-muted-foreground">
             Currently optimized for Illinois DMV tests. More states coming soon!
           </p>
         </div>
@@ -152,7 +152,7 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
         {/* License type selection */}
         <div className="space-y-3">
           <Label className="flex items-center gap-2">
-            <Car className="w-4 h-4 text-gray-500" />
+            <Car className="w-4 h-4 text-muted-foreground" />
             What are you studying for?
           </Label>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -168,8 +168,8 @@ export function StepProfile({ data, updateData, onComplete }: StepProfileProps) 
                   }
                 `}
               >
-                <div className="font-medium text-gray-900">{type.label}</div>
-                <div className="text-xs text-gray-500 mt-1">{type.description}</div>
+                <div className="font-medium text-foreground">{type.label}</div>
+                <div className="text-xs text-muted-foreground mt-1">{type.description}</div>
               </button>
             ))}
           </div>

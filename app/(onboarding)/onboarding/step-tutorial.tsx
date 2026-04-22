@@ -143,19 +143,19 @@ export function StepTutorial({ updateData, onComplete }: StepTutorialProps) {
           </div>
 
           <CardContent className="p-6">
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed">
               {slide.description}
             </p>
 
             {/* Feature highlight */}
-            <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+            <div className="mt-6 p-4 bg-muted rounded-xl">
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${slide.color} flex items-center justify-center`}>
                   <Check className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Pro Tip</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-medium text-foreground">Pro Tip</p>
+                  <p className="text-sm text-muted-foreground">
                     {currentSlide === 0 && "Check your dashboard daily to track progress"}
                     {currentSlide === 1 && "Start with quick quizzes to build confidence"}
                     {currentSlide === 2 && "Focus on your weakest categories first"}
@@ -181,7 +181,7 @@ export function StepTutorial({ updateData, onComplete }: StepTutorialProps) {
           Previous
         </Button>
 
-        <span className="text-sm text-gray-500">
+        <span className="text-sm text-muted-foreground">
           {currentSlide + 1} / {tutorialSlides.length}
         </span>
 

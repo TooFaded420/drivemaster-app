@@ -64,10 +64,10 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
           animate={{ y: 0, opacity: 1 }}
           transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.2 }}
         >
-          <h1 className="text-3xl lg:text-4xl font-bold text-gray-900">
+          <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
             Let's Get You Road-Ready!
           </h1>
-          <p className="text-lg text-gray-600 mt-2 max-w-md mx-auto">
+          <p className="text-lg text-muted-foreground mt-2 max-w-md mx-auto">
             Join thousands of learners who've passed their driving test with DriveMaster
           </p>
         </motion.div>
@@ -93,8 +93,8 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
                   <feature.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">{feature.title}</h3>
-                  <p className="text-sm text-gray-600 mt-0.5">{feature.description}</p>
+                  <h3 className="font-semibold text-foreground">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-0.5">{feature.description}</p>
                 </div>
               </CardContent>
             </Card>
@@ -116,7 +116,7 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
         >
           Let's Get Started!
         </Button>
-        <p className="text-sm text-gray-500 mt-3">
+        <p className="text-sm text-muted-foreground mt-3">
           Takes just 2 minutes to complete your setup
         </p>
       </motion.div>

@@ -48,7 +48,7 @@ export function ExplanationCard({
               </p>
               
               {!isCorrect && (
-                <p className="text-sm text-gray-700 mt-1">
+                <p className="text-sm text-foreground mt-1">
                   The correct answer was: <span className="font-medium">{correctAnswer}</span>
                 </p>
               )}
@@ -56,7 +56,7 @@ export function ExplanationCard({
               {explanation && (
                 <div className="mt-3 flex items-start gap-2">
                   <Lightbulb className="w-4 h-4 text-yellow-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {explanation}
                   </p>
                 </div>

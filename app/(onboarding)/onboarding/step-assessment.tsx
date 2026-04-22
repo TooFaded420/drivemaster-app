@@ -92,8 +92,8 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
         />
 
         <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-gray-900">Assessment Complete!</h2>
-          <p className="text-gray-600">You got {correctCount} out of {ASSESSMENT_QUESTIONS.length} correct</p>
+          <h2 className="text-2xl font-bold text-foreground">Assessment Complete!</h2>
+          <p className="text-muted-foreground">You got {correctCount} out of {ASSESSMENT_QUESTIONS.length} correct</p>
         </div>
 
         {/* Score display */}
@@ -119,7 +119,7 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-2xl font-bold text-gray-900">{score}%</span>
+            <span className="text-2xl font-bold text-foreground">{score}%</span>
           </div>
         </div>
 
@@ -139,8 +139,8 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Quick Assessment</h2>
-          <p className="text-sm text-gray-500">Question {currentQuestion + 1} of {ASSESSMENT_QUESTIONS.length}</p>
+          <h2 className="text-xl font-bold text-foreground">Quick Assessment</h2>
+          <p className="text-sm text-muted-foreground">Question {currentQuestion + 1} of {ASSESSMENT_QUESTIONS.length}</p>
         </div>
         <Dash
           emotion="thinking"
@@ -163,7 +163,7 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
           className="space-y-4"
         >
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">{question.question}</h3>
+            <h3 className="text-lg font-medium text-foreground mb-4">{question.question}</h3>
             
             <div className="space-y-2">
               {question.answers.map((answer) => {
@@ -190,7 +190,7 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
                     `}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-gray-900">{answer.text}</span>
+                      <span className="text-foreground">{answer.text}</span>
                       {showResult && isCorrect && (
                         <Check className="w-5 h-5 text-green-500" />
                       )}

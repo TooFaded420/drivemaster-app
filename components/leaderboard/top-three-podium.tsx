@@ -52,7 +52,7 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
       case 1:
         return <Crown className="w-6 h-6 text-yellow-600" />;
       case 0:
-        return <Medal className="w-5 h-5 text-gray-600" />;
+        return <Medal className="w-5 h-5 text-muted-foreground" />;
       case 2:
         return <Trophy className="w-5 h-5 text-amber-700" />;
       default:
@@ -88,7 +88,7 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
                 className={cn(
                   "absolute -top-3 w-8 h-8 rounded-full flex items-center justify-center shadow-lg",
                   actualRank === 1 && "bg-yellow-400",
-                  actualRank === 2 && "bg-gray-300",
+                  actualRank === 2 && "bg-border",
                   actualRank === 3 && "bg-amber-400"
                 )}
               >
@@ -120,7 +120,7 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
                     actualRank === 1
                       ? "w-20 h-20 border-yellow-400"
                       : actualRank === 2
-                      ? "w-16 h-16 border-gray-300"
+                      ? "w-16 h-16 border-border"
                       : "w-16 h-16 border-amber-400"
                   )}
                 >
@@ -129,7 +129,7 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
                     className={cn(
                       "text-lg font-bold",
                       actualRank === 1 && "bg-yellow-100 text-yellow-700",
-                      actualRank === 2 && "bg-gray-100 text-gray-700",
+                      actualRank === 2 && "bg-muted text-foreground",
                       actualRank === 3 && "bg-amber-100 text-amber-700"
                     )}
                   >
@@ -207,7 +207,7 @@ export function CompactTopThree({ entries, className }: CompactTopThreeProps) {
             className={cn(
               "flex flex-col items-center p-4 rounded-xl border-2",
               rank === 1 && "bg-yellow-50 border-yellow-300",
-              rank === 2 && "bg-gray-50 border-gray-300",
+              rank === 2 && "bg-muted border-border",
               rank === 3 && "bg-amber-50 border-amber-300"
             )}
           >
@@ -216,7 +216,7 @@ export function CompactTopThree({ entries, className }: CompactTopThreeProps) {
               className={cn(
                 "w-8 h-8 rounded-full flex items-center justify-center mb-2",
                 rank === 1 && "bg-yellow-400 text-yellow-900",
-                rank === 2 && "bg-gray-300 text-gray-900",
+                rank === 2 && "bg-border text-foreground",
                 rank === 3 && "bg-amber-400 text-amber-900"
               )}
             >
@@ -232,7 +232,7 @@ export function CompactTopThree({ entries, className }: CompactTopThreeProps) {
               className={cn(
                 "border-2 mb-2",
                 rank === 1 && "w-14 h-14 border-yellow-400",
-                rank === 2 && "w-12 h-12 border-gray-300",
+                rank === 2 && "w-12 h-12 border-border",
                 rank === 3 && "w-12 h-12 border-amber-400"
               )}
             >
@@ -240,7 +240,7 @@ export function CompactTopThree({ entries, className }: CompactTopThreeProps) {
               <AvatarFallback
                 className={cn(
                   rank === 1 && "bg-yellow-100 text-yellow-700",
-                  rank === 2 && "bg-gray-100 text-gray-700",
+                  rank === 2 && "bg-muted text-foreground",
                   rank === 3 && "bg-amber-100 text-amber-700"
                 )}
               >

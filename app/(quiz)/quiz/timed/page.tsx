@@ -150,10 +150,10 @@ export default function TimedQuizPage() {
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl font-semibold text-foreground mb-2">
             Failed to load questions
           </h2>
-          <p className="text-gray-600 mb-4">{quiz.error}</p>
+          <p className="text-muted-foreground mb-4">{quiz.error}</p>
           <Button onClick={() => quiz.restartQuiz()}>Try Again</Button>
         </div>
       </MobileLayout>
@@ -206,14 +206,15 @@ export default function TimedQuizPage() {
         />
 
         {/* Test Info Banner */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
-          <p className="text-sm text-blue-700">
-            <strong>Illinois DMV Practice Test</strong> • 
+        <div className="bg-primary/10 border border-primary/20 rounded-lg p-3 text-center">
+          <p className="text-sm text-primary">
+            <strong>Illinois DMV Practice Test</strong> •
             Need {ILLINOIS_TEST_CONFIG.passingScore} correct to pass
           </p>
         </div>
 
-        {/* Mascot */}
+        {/* Mascot — speechPosition="top": bubble rises upward, never
+            overlaps the QuestionCard below */}
         <div className="flex justify-center py-2">
           <Dash
             emotion={mascot.emotion}
@@ -222,7 +223,7 @@ export default function TimedQuizPage() {
             showSpeechBubble={mascot.isVisible}
             speechTitle={mascot.title}
             speechText={mascot.message}
-            speechPosition="bottom"
+            speechPosition="top"
             onSpeechBubbleClick={() => mascot.hide()}
           />
         </div>

@@ -110,10 +110,10 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
         animate={{ y: 0, opacity: 1 }}
         transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3 }}
       >
-        <h1 className="text-3xl lg:text-4xl font-bold text-gray-900">
+        <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
           You're All Set!
         </h1>
-        <p className="text-lg text-gray-600 mt-2">
+        <p className="text-lg text-muted-foreground mt-2">
           Welcome to DriveMaster, Driver!
         </p>
       </motion.div>
@@ -130,8 +130,8 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
             <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
               <Zap className="w-5 h-5 text-blue-600" />
             </div>
-            <p className="text-2xl font-bold text-gray-900">+{xpEarned}</p>
-            <p className="text-xs text-gray-500">XP Earned</p>
+            <p className="text-2xl font-bold text-foreground">+{xpEarned}</p>
+            <p className="text-xs text-muted-foreground">XP Earned</p>
           </CardContent>
         </Card>
 
@@ -140,8 +140,8 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
             <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
               <Star className="w-5 h-5 text-orange-600" />
             </div>
-            <p className="text-2xl font-bold text-gray-900">1</p>
-            <p className="text-xs text-gray-500">Achievement</p>
+            <p className="text-2xl font-bold text-foreground">1</p>
+            <p className="text-xs text-muted-foreground">Achievement</p>
           </CardContent>
         </Card>
 
@@ -150,8 +150,8 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
             <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
               <Target className="w-5 h-5 text-green-600" />
             </div>
-            <p className="text-2xl font-bold text-gray-900">{assessmentScore}%</p>
-            <p className="text-xs text-gray-500">Assessment</p>
+            <p className="text-2xl font-bold text-foreground">{assessmentScore}%</p>
+            <p className="text-xs text-muted-foreground">Assessment</p>
           </CardContent>
         </Card>
 
@@ -160,8 +160,8 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
             <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
               <Sparkles className="w-5 h-5 text-orange-600" />
             </div>
-            <p className="text-2xl font-bold text-gray-900">Day 1</p>
-            <p className="text-xs text-gray-500">Streak Started</p>
+            <p className="text-2xl font-bold text-foreground">Day 1</p>
+            <p className="text-xs text-muted-foreground">Streak Started</p>
           </CardContent>
         </Card>
       </motion.div>
@@ -173,21 +173,21 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
         transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.5 }}
         className="bg-gradient-to-r from-blue-50 to-orange-50 rounded-2xl p-6 max-w-lg mx-auto"
       >
-        <h3 className="font-semibold text-gray-900 mb-3">What's Next?</h3>
+        <h3 className="font-semibold text-foreground mb-3">What's Next?</h3>
         <ul className="space-y-2 text-left">
-          <li className="flex items-center gap-2 text-sm text-gray-600">
+          <li className="flex items-center gap-2 text-sm text-muted-foreground">
             <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
               <span className="text-white text-xs">1</span>
             </div>
             Take your first practice quiz to unlock more features
           </li>
-          <li className="flex items-center gap-2 text-sm text-gray-600">
+          <li className="flex items-center gap-2 text-sm text-muted-foreground">
             <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
               <span className="text-white text-xs">2</span>
             </div>
             Complete daily quests to earn XP and maintain your streak
           </li>
-          <li className="flex items-center gap-2 text-sm text-gray-600">
+          <li className="flex items-center gap-2 text-sm text-muted-foreground">
             <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
               <span className="text-white text-xs">3</span>
             </div>
@@ -211,7 +211,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </Link>
-        <p className="text-sm text-gray-500 mt-3">
+        <p className="text-sm text-muted-foreground mt-3">
           You'll be redirected automatically in a few seconds...
         </p>
       </motion.div>
