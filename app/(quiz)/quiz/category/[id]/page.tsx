@@ -94,6 +94,11 @@ export default function CategoryQuizPage() {
         );
       }
 
+      // Store results in sessionStorage for the results page
+      try {
+        sessionStorage.setItem("quizResults", JSON.stringify(quiz.results));
+      } catch {}
+
       // Redirect to results after a delay
       const timeout = setTimeout(() => {
         router.push("/quiz/results");
