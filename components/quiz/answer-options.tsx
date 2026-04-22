@@ -67,8 +67,8 @@ export function AnswerOptions({
             letterClass += "bg-red-500 text-white";
           } else {
             // Unselected wrong answer
-            buttonClass += "border-gray-200 bg-white opacity-60";
-            letterClass += "bg-gray-200 text-gray-600";
+            buttonClass += "border-border bg-white opacity-60";
+            letterClass += "bg-muted text-muted-foreground";
           }
         } else {
           // Not answered yet
@@ -76,8 +76,8 @@ export function AnswerOptions({
             buttonClass += "border-blue-500 bg-blue-50";
             letterClass += "bg-blue-500 text-white";
           } else {
-            buttonClass += "border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50/50";
-            letterClass += "bg-gray-200 text-gray-600";
+            buttonClass += "border-border bg-white hover:border-blue-300 hover:bg-blue-50/50";
+            letterClass += "bg-muted text-muted-foreground";
           }
         }
 
@@ -118,8 +118,8 @@ export function AnswerOptions({
                       ? "text-green-700 font-medium"
                       : isSelected
                       ? "text-red-700"
-                      : "text-gray-600"
-                    : "text-gray-700"
+                      : "text-muted-foreground"
+                    : "text-foreground"
                 }`}
               >
                 {answer.answer_text}

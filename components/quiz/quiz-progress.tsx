@@ -34,13 +34,13 @@ export function QuizProgress({
       {/* Stats row */}
       <div className="flex items-center justify-between text-sm">
         <div className="flex items-center gap-4">
-          <span className="text-gray-600">
-            Question <span className="font-semibold text-gray-900">{currentQuestion}</span> of{" "}
-            <span className="font-semibold text-gray-900">{totalQuestions}</span>
+          <span className="text-muted-foreground">
+            Question <span className="font-semibold text-foreground">{currentQuestion}</span> of{" "}
+            <span className="font-semibold text-foreground">{totalQuestions}</span>
           </span>
           
           {timeRemaining !== undefined && timeRemaining !== null && (
-            <div className={`flex items-center gap-1.5 ${isTimeLow ? "text-red-600" : "text-gray-600"}`}>
+            <div className={`flex items-center gap-1.5 ${isTimeLow ? "text-red-600" : "text-muted-foreground"}`}>
               <Clock className="w-4 h-4" />
               <span className={`font-mono font-medium ${isTimeLow ? "animate-pulse" : ""}`}>
                 {formatTime(timeRemaining)}

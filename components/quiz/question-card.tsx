@@ -52,7 +52,7 @@ export function QuestionCard({
             className={`p-2 rounded-full transition-colors ${
               isFlagged
                 ? "text-orange-500 bg-orange-100"
-                : "text-gray-500 hover:text-gray-600 hover:bg-gray-100"
+                : "text-muted-foreground hover:text-muted-foreground hover:bg-muted"
             }`}
             aria-label={isFlagged ? "Unflag this question" : "Flag this question"}
           >
@@ -90,10 +90,10 @@ export function QuestionCard({
         </AnimatePresence>
 
         {question.image_url && (
-          <div className="mt-4 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
+          <div className="mt-4 rounded-lg overflow-hidden bg-muted border border-border">
             <div className="aspect-video flex items-center justify-center">
               {imgError ? (
-                <ImageIcon className="w-12 h-12 text-gray-500" aria-hidden="true" />
+                <ImageIcon className="w-12 h-12 text-muted-foreground" aria-hidden="true" />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
