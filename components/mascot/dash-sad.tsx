@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface DashEncouragingProps {
+interface DashSadProps {
   className?: string;
   size?: "sm" | "md" | "lg" | "xl";
   animate?: boolean;
@@ -16,22 +16,22 @@ const sizeMap = {
   xl: { width: 200, height: 200 },
 };
 
-export function DashEncouraging({ className, size = "md", animate = true }: DashEncouragingProps) {
+export function DashSad({ className, size = "md", animate = true }: DashSadProps) {
   const { width, height } = sizeMap[size];
   const shouldReduceMotion = useReducedMotion();
 
   const bodyAnim = animate && !shouldReduceMotion
-    ? { rotate: [0, 2, -1, 2, 0] }
+    ? { rotate: [0, -1.5, 0, -1, 0] }
     : {};
   const bodyTransition = animate && !shouldReduceMotion
-    ? { duration: 1.8, repeat: Infinity, repeatDelay: 1.5, ease: "easeInOut" as const }
+    ? { duration: 4, repeat: Infinity, ease: "easeInOut" as const }
     : {};
 
-  const thumbAnim = animate && !shouldReduceMotion
-    ? { y: [0, -3, 0], rotate: [0, 5, 0] }
+  const tearAnim = animate && !shouldReduceMotion
+    ? { y: [0, 18, 18], opacity: [0, 1, 0], scaleY: [0.5, 1.4, 0.8] }
     : {};
-  const thumbTransition = animate && !shouldReduceMotion
-    ? { duration: 1.2, repeat: Infinity, ease: "easeInOut" as const }
+  const tearTransition = animate && !shouldReduceMotion
+    ? { duration: 2, repeat: Infinity, repeatDelay: 1.2, ease: "easeIn" as const }
     : {};
 
   return (
@@ -42,31 +42,19 @@ export function DashEncouraging({ className, size = "md", animate = true }: Dash
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn("inline-block", className)}
-      initial={animate ? { x: -12, opacity: 0 } : false}
-      animate={animate ? { x: 0, opacity: 1 } : false}
-      transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      aria-label="Dash the mascot, encouraging"
+      initial={animate ? { scale: 0.9, opacity: 0 } : false}
+      animate={animate ? { scale: 1, opacity: 1 } : false}
+      transition={{ type: "spring", stiffness: 200, damping: 24 }}
+      aria-label="Dash the mascot, sad"
       role="img"
     >
-      {/* Ground shadow */}
-      <ellipse cx="100" cy="185" rx="52" ry="7" fill="#1E2D45" opacity="0.18" />
-
-      {/* Thumb-up badge — floats top-right, independent gentle tilt */}
-      <motion.g animate={thumbAnim} transition={thumbTransition} style={{ transformOrigin: "168px 38px" }}>
-        <circle cx="168" cy="38" r="20" fill="#10B981" stroke="#1E2D45" strokeWidth="2" />
-        {/* Thumb shape */}
-        <path
-          d="M160 44 L160 36 C160 34 162 32 164 32 C165 32 166 33 166 34 L166 38 C167 37 168 36 169 36 C170 36 171 37 171 38 L171 39 C172 38 173 38 174 39 C175 40 175 41 174 42 L172 46 C171 48 169 49 167 49 L161 49 C160.4 49 160 48.6 160 48 Z"
-          fill="white"
-          stroke="white"
-          strokeWidth="0.5"
-        />
-      </motion.g>
+      {/* Ground shadow — slightly larger forward tilt shadow */}
+      <ellipse cx="98" cy="185" rx="50" ry="7" fill="#1E2D45" opacity="0.15" />
 
       <motion.g
         animate={bodyAnim}
         transition={bodyTransition}
-        style={{ transformOrigin: "100px 130px" }}
+        style={{ transformOrigin: "100px 140px" }}
       >
 
         {/* Main lower hull */}
@@ -87,31 +75,29 @@ export function DashEncouraging({ className, size = "md", animate = true }: Dash
           strokeLinejoin="round"
         />
 
-        {/* Windshield */}
+        {/* Windshield — slightly darker tint for sad mood */}
         <path
           d="M75 70 C75 70 78 50 84 41 C88 34 93 30 100 30 C107 30 112 34 116 41 C122 50 125 70 125 70 Z"
-          fill="#DBEAFE"
+          fill="#BFDBFE"
           stroke="#93C5FD"
           strokeWidth="1.5"
-          opacity="0.92"
+          opacity="0.88"
         />
-        <path d="M83 44 C85 38 88 33 91 30" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.7" />
+        <path d="M83 44 C85 38 88 33 91 30" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
 
-        {/* Orange racing stripe */}
-        <path d="M38 130 L162 130" stroke="#F97316" strokeWidth="5" strokeLinecap="round" opacity="0.9" />
+        {/* Orange racing stripe — slightly muted */}
+        <path d="M38 130 L162 130" stroke="#F97316" strokeWidth="5" strokeLinecap="round" opacity="0.6" />
 
         {/* Side windows */}
-        <path d="M40 90 L52 70 L68 70 L62 90 Z" fill="#60A5FA" stroke="#1E2D45" strokeWidth="1.5" opacity="0.8" />
-        <path d="M160 90 L148 70 L132 70 L138 90 Z" fill="#60A5FA" stroke="#1E2D45" strokeWidth="1.5" opacity="0.8" />
+        <path d="M40 90 L52 70 L68 70 L62 90 Z" fill="#60A5FA" stroke="#1E2D45" strokeWidth="1.5" opacity="0.7" />
+        <path d="M160 90 L148 70 L132 70 L138 90 Z" fill="#60A5FA" stroke="#1E2D45" strokeWidth="1.5" opacity="0.7" />
 
         {/* Front bumper */}
         <rect x="30" y="148" width="140" height="18" rx="9" fill="#1D4ED8" stroke="#1E2D45" strokeWidth="2" />
 
-        {/* Headlights */}
-        <rect x="33" y="120" width="22" height="14" rx="6" fill="#FEF9C3" stroke="#F97316" strokeWidth="2" />
-        <rect x="145" y="120" width="22" height="14" rx="6" fill="#FEF9C3" stroke="#F97316" strokeWidth="2" />
-        <rect x="37" y="123" width="14" height="8" rx="3" fill="white" opacity="0.7" />
-        <rect x="149" y="123" width="14" height="8" rx="3" fill="white" opacity="0.7" />
+        {/* Headlights — dimmed */}
+        <rect x="33" y="120" width="22" height="14" rx="6" fill="#FEF9C3" stroke="#F97316" strokeWidth="2" opacity="0.45" />
+        <rect x="145" y="120" width="22" height="14" rx="6" fill="#FEF9C3" stroke="#F97316" strokeWidth="2" opacity="0.45" />
 
         {/* Grille */}
         <rect x="76" y="152" width="48" height="10" rx="4" fill="#1E2D45" />
@@ -141,32 +127,42 @@ export function DashEncouraging({ className, size = "md", animate = true }: Dash
         <line x1="136" y1="158" x2="152" y2="174" stroke="#6B7280" strokeWidth="1.5" />
         <line x1="152" y1="158" x2="136" y2="174" stroke="#6B7280" strokeWidth="1.5" />
 
-        {/* ── Face — determined, forward-looking ── */}
-        {/* Confident brows — straight-ish, slightly inward angled */}
-        <path d="M76 48 Q84 44 92 47" stroke="#1E2D45" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-        <path d="M108 47 Q116 44 124 48" stroke="#1E2D45" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        {/* ── Face — downcast eyes, frown, single tear ── */}
+        {/* Sad brows — angled down toward center */}
+        <path d="M76 46 Q84 50 92 48" stroke="#1E2D45" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        <path d="M108 48 Q116 50 124 46" stroke="#1E2D45" strokeWidth="2.5" strokeLinecap="round" fill="none" />
 
-        {/* Eyes — forward focused, pupils centered */}
+        {/* Eyes — looking downward, pupils low */}
         <circle cx="84" cy="58" r="10" fill="white" stroke="#1E2D45" strokeWidth="1.5" />
-        <circle cx="84" cy="58" r="6" fill="#1E2D45" />
-        <circle cx="86" cy="55" r="2.5" fill="white" />
+        <circle cx="84" cy="61" r="6" fill="#1E2D45" />
+        <circle cx="86" cy="59" r="2" fill="white" />
 
         <circle cx="116" cy="58" r="10" fill="white" stroke="#1E2D45" strokeWidth="1.5" />
-        <circle cx="116" cy="58" r="6" fill="#1E2D45" />
-        <circle cx="118" cy="55" r="2.5" fill="white" />
+        <circle cx="116" cy="61" r="6" fill="#1E2D45" />
+        <circle cx="118" cy="59" r="2" fill="white" />
 
-        {/* Determined smile — wide and confident */}
+        {/* Tear — left eye, animated drop */}
+        <motion.ellipse
+          cx="80" cy="68"
+          rx="2.5" ry="4"
+          fill="#93C5FD"
+          opacity="0.85"
+          animate={tearAnim}
+          transition={tearTransition}
+        />
+
+        {/* Frown — downward curve */}
         <path
-          d="M85 71 Q100 82 115 71"
+          d="M86 76 Q100 67 114 76"
           stroke="#1E2D45"
           strokeWidth="3"
           strokeLinecap="round"
           fill="none"
         />
 
-        {/* Warm cheeks */}
-        <circle cx="70" cy="66" r="7" fill="#FCA5A5" opacity="0.4" />
-        <circle cx="130" cy="66" r="7" fill="#FCA5A5" opacity="0.4" />
+        {/* Muted cheeks */}
+        <circle cx="70" cy="66" r="6" fill="#93C5FD" opacity="0.3" />
+        <circle cx="130" cy="66" r="6" fill="#93C5FD" opacity="0.3" />
 
       </motion.g>
     </motion.svg>
