@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,11 +15,23 @@ import { GoogleOAuthButton } from "@/components/auth/google-oauth-button";
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Surface auth-callback errors (e.g. expired magic link) as a toast once.
+  const authErrorShownRef = useRef(false);
+  useEffect(() => {
+    if (authErrorShownRef.current) return;
+    if (searchParams.get("error") === "auth-code-error") {
+      authErrorShownRef.current = true;
+      toast.error("Sign-in link expired or invalid. Please try again.");
+      router.replace("/login");
+    }
+  }, [searchParams, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
