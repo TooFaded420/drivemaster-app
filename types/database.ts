@@ -150,7 +150,7 @@ export interface Database {
       questions: {
         Row: {
           id: number
-          category_id: number | null
+          category_id: string | null
           question_text: string
           question_type: string
           explanation: string | null
@@ -164,7 +164,7 @@ export interface Database {
         }
         Insert: {
           id?: number
-          category_id?: number | null
+          category_id?: string | null
           question_text: string
           question_type?: string
           explanation?: string | null
@@ -178,7 +178,7 @@ export interface Database {
         }
         Update: {
           id?: number
-          category_id?: number | null
+          category_id?: string | null
           question_text?: string
           question_type?: string
           explanation?: string | null
@@ -292,7 +292,7 @@ export interface Database {
           id: string
           user_id: string
           quiz_type: string | null
-          category_id: number | null
+          category_id: string | null
           question_count: number | null
           correct_count: number | null
           xp_earned: number | null
@@ -307,7 +307,7 @@ export interface Database {
           id: string
           user_id: string
           quiz_type?: string | null
-          category_id?: number | null
+          category_id?: string | null
           question_count?: number | null
           correct_count?: number | null
           xp_earned?: number | null
@@ -322,7 +322,7 @@ export interface Database {
           id?: string
           user_id?: string
           quiz_type?: string | null
-          category_id?: number | null
+          category_id?: string | null
           question_count?: number | null
           correct_count?: number | null
           xp_earned?: number | null
@@ -858,6 +858,13 @@ export interface Database {
       increment_xp: {
         Args: {
           user_id_param: string
+          xp_amount: number
+        }
+        Returns: number
+      }
+      increment_total_xp: {
+        Args: {
+          user_id: string
           xp_amount: number
         }
         Returns: number

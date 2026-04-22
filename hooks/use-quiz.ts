@@ -399,22 +399,22 @@ export function useQuiz(options: UseQuizOptions) {
       difficulty: "medium",
     });
 
-    // Calculate weak categories
-    const categoryStats: Record<number, { name: string; wrongCount: number }> = {};
+    // Calculate weak categories (slug IDs after H10)
+    const categoryStats: Record<string, { name: string; wrongCount: number }> = {};
     state.answers.forEach((answer, index) => {
       if (!answer.isCorrect) {
         const question = state.questions[index];
-        const categoryId = question.category_id || 0;
-        if (!categoryStats[categoryId]) {
-          categoryStats[categoryId] = { name: "Unknown", wrongCount: 0 };
+        const catId = String(question.category_id ?? "unknown");
+        if (!categoryStats[catId]) {
+          categoryStats[catId] = { name: "Unknown", wrongCount: 0 };
         }
-        categoryStats[categoryId].wrongCount++;
+        categoryStats[catId].wrongCount++;
       }
     });
 
     const weakCategories = Object.entries(categoryStats)
       .map(([catId, stats]) => ({
-        categoryId: parseInt(catId),
+        categoryId: catId,
         categoryName: stats.name,
         wrongCount: stats.wrongCount,
       }))
