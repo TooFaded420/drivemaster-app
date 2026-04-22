@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { fireConversion } from "@/lib/analytics";
 import { useOnboarding } from "@/hooks/use-onboarding";
 import { Dash } from "@/components/mascot";
 import { Button } from "@/components/ui/button";
@@ -34,8 +35,9 @@ interface MascotMessage {
   emotion: "happy" | "excited" | "thinking" | "encouraging";
 }
 
-export default function OnboardingPage() {
+function OnboardingPageInner() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const onboarding = useOnboarding();
   const shouldReduceMotion = useReducedMotion();
   const [showChecklist, setShowChecklist] = useState(false);
@@ -44,6 +46,19 @@ export default function OnboardingPage() {
     message: "Hi, I'm Dash! I'll be your guide to mastering your driving test. Let's get started!",
     emotion: "excited",
   });
+
+  // Fire the signup conversion once when arriving from auth/callback with
+  // ?new_signup=true (OAuth + email signup both redirect here). Strip the
+  // param via router.replace so a refresh doesn't double-fire.
+  const conversionFiredRef = useRef(false);
+  useEffect(() => {
+    if (conversionFiredRef.current) return;
+    if (searchParams.get("new_signup") === "true") {
+      conversionFiredRef.current = true;
+      fireConversion("signup_completed");
+      router.replace("/onboarding");
+    }
+  }, [searchParams, router]);
 
   // Update mascot message when step changes
   useEffect(() => {
@@ -305,5 +320,13 @@ export default function OnboardingPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function OnboardingPage() {
+  return (
+    <Suspense fallback={null}>
+      <OnboardingPageInner />
+    </Suspense>
   );
 }

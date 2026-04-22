@@ -25,11 +25,15 @@ interface StepCompleteProps {
 export function StepComplete({ data, onComplete }: StepCompleteProps) {
   const shouldReduceMotion = useReducedMotion();
   const [showConfetti, setShowConfetti] = useState(false);
+  // window is not available during SSR — default to a sensible viewport height
+  // and populate the real value on mount. Used by confetti fall animation.
+  const [viewportHeight, setViewportHeight] = useState<number>(800);
 
   useEffect(() => {
     // Trigger confetti animation
     setShowConfetti(true);
-    
+    setViewportHeight(window.innerHeight);
+
     // Complete the step automatically
     const timer = setTimeout(() => {
       onComplete();
@@ -56,7 +60,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
                 top: -20,
               }}
               animate={{
-                y: window.innerHeight + 40,
+                y: viewportHeight + 40,
                 x: (Math.random() - 0.5) * 200,
                 rotate: Math.random() * 360,
               }}
