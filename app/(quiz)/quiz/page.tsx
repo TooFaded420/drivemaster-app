@@ -79,9 +79,11 @@ const quizModes = [
   },
 ];
 
+// H10 — category IDs are the string slugs used throughout lib/data/questions
+// and the category/[id]/page.tsx route param. Numeric IDs would mismatch both.
 const categories = [
   {
-    id: 1,
+    id: "traffic-signs",
     name: "Traffic Signs",
     description: "Road signs, signals, and pavement markings",
     icon: Target,
@@ -90,7 +92,7 @@ const categories = [
     progress: 65,
   },
   {
-    id: 2,
+    id: "traffic-laws",
     name: "Rules of the Road",
     description: "Right-of-way, speed limits, and traffic laws",
     icon: Zap,
@@ -99,7 +101,7 @@ const categories = [
     progress: 40,
   },
   {
-    id: 3,
+    id: "safe-driving",
     name: "Safe Driving",
     description: "Defensive driving and hazard awareness",
     icon: Brain,
@@ -108,7 +110,7 @@ const categories = [
     progress: 80,
   },
   {
-    id: 4,
+    id: "alcohol-drugs",
     name: "Alcohol & Drugs",
     description: "DUI laws and impaired driving",
     icon: AlertCircle,

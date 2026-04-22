@@ -109,7 +109,7 @@ export function useQuizSubmission({ userId }: UseQuizSubmissionOptions) {
     totalTimeTaken: number,
     sessionId: string,
     quizType: string,
-    categoryId?: number
+    categoryId?: string
   ): Promise<QuizResults> => {
     const correctAnswers = answers.filter((a) => a.isCorrect).length;
     const wrongAnswers = answers.length - correctAnswers;
@@ -140,11 +140,11 @@ export function useQuizSubmission({ userId }: UseQuizSubmissionOptions) {
       difficulty: "medium",
     });
 
-    // Calculate weak categories
-    const categoryStats: Record<number, { name: string; wrongCount: number }> = {};
+    // Calculate weak categories (category_id is a string slug after H10)
+    const categoryStats: Record<string, { name: string; wrongCount: number }> = {};
     answers.forEach((answer, index) => {
       if (!answer.isCorrect && questions[index]) {
-        const catId = questions[index].category_id || 0;
+        const catId = String(questions[index].category_id ?? "unknown");
         if (!categoryStats[catId]) {
           categoryStats[catId] = { name: "Unknown", wrongCount: 0 };
         }
@@ -154,7 +154,7 @@ export function useQuizSubmission({ userId }: UseQuizSubmissionOptions) {
 
     const weakCategories = Object.entries(categoryStats)
       .map(([catId, stats]) => ({
-        categoryId: parseInt(catId),
+        categoryId: catId,
         categoryName: stats.name,
         wrongCount: stats.wrongCount,
       }))
