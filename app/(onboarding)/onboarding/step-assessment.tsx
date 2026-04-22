@@ -142,11 +142,6 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
           <h2 className="text-xl font-bold text-foreground">Quick Assessment</h2>
           <p className="text-sm text-muted-foreground">Question {currentQuestion + 1} of {ASSESSMENT_QUESTIONS.length}</p>
         </div>
-        <Dash
-          emotion="thinking"
-          size="sm"
-          animate={selectedAnswer === null}
-        />
       </div>
 
       {/* Progress */}

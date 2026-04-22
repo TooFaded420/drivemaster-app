@@ -379,7 +379,6 @@ export function DashboardView({ stats, categories, leaderboard }: DashboardViewP
         <div className="hidden lg:block fixed bottom-6 right-6 z-50">
           <div className="bg-card rounded-2xl shadow-xl border border-border p-4 max-w-xs">
             <div className="flex items-start gap-3">
-              <Dash emotion="happy" size="sm" animate={true} className="flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <p className="text-sm text-card-foreground">
                   Need help? I&apos;m here to guide you through your practice!
