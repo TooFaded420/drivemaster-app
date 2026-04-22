@@ -1,10 +1,24 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 
+/**
+ * Sanitize the `next` redirect param to prevent open-redirect attacks.
+ * Only allow single-slash relative paths (e.g. `/dashboard`).
+ * Reject protocol-relative (`//evil.com`), backslash variants (`/\evil.com`),
+ * and anything that doesn't start with `/`.
+ */
+function sanitizeNext(raw: string | null): string {
+  if (!raw) return '/dashboard'
+  if (!raw.startsWith('/')) return '/dashboard'
+  if (raw.startsWith('//')) return '/dashboard'
+  if (raw.startsWith('/\\')) return '/dashboard'
+  return raw
+}
+
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
-  const next = searchParams.get('next') ?? '/dashboard'
+  const next = sanitizeNext(searchParams.get('next'))
 
   if (code) {
     const supabase = await createClient()
@@ -14,11 +28,6 @@ export async function GET(request: Request) {
       // within the last 60 seconds (profile is inserted on first sign-in via
       // the handle_new_user trigger). If so, redirect to onboarding with a
       // flag so the client can fire the conversion event.
-      //
-      // TODO(oauth-conversion): fireConversion('signup_completed') is
-      // client-gated (requires window + consent), so we can't call it here.
-      // The onboarding page should read `?new_signup=true` on mount and call
-      // fireConversion('signup_completed') then strip the param from the URL.
       const { data: { user } } = await supabase.auth.getUser()
       if (user) {
         const { data: profile } = await supabase
