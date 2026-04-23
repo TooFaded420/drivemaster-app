@@ -76,7 +76,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <Link href="/login">
-              <Button variant="ghost" className="h-11">Sign In</Button>
+              <Button variant="ghost" className="h-11 text-slate-900 hover:text-slate-900 hover:bg-slate-100">Sign In</Button>
             </Link>
             <Link href="/signup">
               <Button className="bg-blue-600 hover:bg-blue-700 h-11">Get Started</Button>
