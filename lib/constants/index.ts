@@ -107,6 +107,50 @@ export const ILLINOIS_TEST_CONFIG = {
   MINIMUM_AGE_LICENSE: 16,
 } as const;
 
+// ─── Multi-State Registry ─────────────────────────────────────────────────────
+
+export interface StateConfig {
+  code: string;
+  name: string;
+  permitAge: number;
+  testQuestions: number;
+  passThresholdPct: number;
+  passThresholdCorrect: number;
+  agencyName: string;
+  agencyUrl: string;
+  handbookName: string;
+  /** false = infrastructure only; question bank not yet imported */
+  active: boolean;
+}
+
+export const STATES_REGISTRY: StateConfig[] = [
+  {
+    code: "IL",
+    name: "Illinois",
+    permitAge: 15,
+    testQuestions: 35,
+    passThresholdPct: 80,
+    passThresholdCorrect: 28,
+    agencyName: "Illinois Secretary of State",
+    agencyUrl: "https://www.ilsos.gov",
+    handbookName: "Illinois Rules of the Road",
+    active: true,
+  },
+  {
+    code: "PA",
+    name: "Pennsylvania",
+    permitAge: 16,
+    testQuestions: 18,
+    passThresholdPct: 83,
+    passThresholdCorrect: 15,
+    agencyName: "PennDOT (Pennsylvania Department of Transportation)",
+    agencyUrl: "https://www.dmv.pa.gov",
+    handbookName: "Pennsylvania Driver's Manual (PUB 95)",
+    // TODO: Pennsylvania question bank: pending manual import from licensed source (PA Driver's Manual PUB 95).
+    active: false,
+  },
+];
+
 // Categories (Illinois DMV)
 export const DEFAULT_CATEGORIES = [
   {
