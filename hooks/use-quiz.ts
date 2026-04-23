@@ -19,35 +19,35 @@ export interface QuizState {
   quizType: "practice" | "category" | "timed" | "marathon" | "mistakes";
   categoryId?: string;
   timeLimit?: number; // in seconds, for timed mode
-  
+
   // Questions
   questions: QuestionWithAnswers[];
   currentQuestionIndex: number;
-  
+
   // Answers
   answers: QuizAnswer[];
   currentAnswer: number | null; // selected answer ID
-  
+
   // Progress
   isAnswered: boolean;
   isCorrect: boolean | null;
-  
+
   // Timer
   questionStartTime: number;
   totalTimeTaken: number;
   timeRemaining: number | null; // for timed mode
-  
+
   // Streaks
   currentStreak: number;
   maxStreak: number;
-  
+
   // Flags
   flaggedQuestions: number[];
-  
+
   // Session
   sessionId: string | null;
   isComplete: boolean;
-  
+
   // Results
   results: QuizResults | null;
 }
@@ -77,10 +77,10 @@ interface UseQuizOptions {
 export function useQuiz(options: UseQuizOptions) {
   const { quizType, categoryId, questionCount = 10, timeLimit, userId, enabled = true } = options;
   const supabase = createClient();
-  
+
   // Generate session ID
   const sessionIdRef = useRef(`quiz_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
-  
+
   const [state, setState] = useState<QuizState>({
     quizType,
     categoryId,
@@ -109,37 +109,16 @@ export function useQuiz(options: UseQuizOptions) {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Load questions (gated on enabled so pages can wait for auth to resolve)
+  // Fix C: AbortController prevents stale fetch responses on fast re-mounts
   useEffect(() => {
     if (!enabled) return;
-    loadQuestions();
+    const controller = new AbortController();
+    loadQuestions(controller.signal);
+    return () => controller.abort();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enabled]);
 
-  // Timer for timed mode
-  useEffect(() => {
-    if (state.timeLimit && state.timeRemaining !== null && !state.isComplete) {
-      timerRef.current = setInterval(() => {
-        setState((prev) => {
-          const newTimeRemaining = (prev.timeRemaining || 0) - 1;
-          
-          if (newTimeRemaining <= 0) {
-            // Time's up - complete the quiz
-            completeQuiz();
-            return { ...prev, timeRemaining: 0 };
-          }
-          
-          return { ...prev, timeRemaining: newTimeRemaining };
-        });
-      }, 1000);
-
-      return () => {
-        if (timerRef.current) {
-          clearInterval(timerRef.current);
-        }
-      };
-    }
-  }, [state.timeLimit, state.timeRemaining, state.isComplete]);
-
-  const loadQuestions = async () => {
+  const loadQuestions = async (signal?: AbortSignal) => {
     try {
       setIsLoading(true);
       setError(null);
@@ -178,7 +157,7 @@ export function useQuiz(options: UseQuizOptions) {
         params.set("ids", ids.join(","));
       }
 
-      const res = await fetch(`/api/questions/random?${params}`);
+      const res = await fetch(`/api/questions/random?${params}`, { signal });
       if (!res.ok) throw new Error("Failed to fetch questions");
 
       const json = await res.json();
@@ -215,6 +194,8 @@ export function useQuiz(options: UseQuizOptions) {
         questionStartTime: Date.now(),
       }));
     } catch (err) {
+      // Fix C: ignore aborted fetches — not a real error
+      if (err instanceof Error && err.name === "AbortError") return;
       setError(err instanceof Error ? err.message : "Failed to load questions");
     } finally {
       setIsLoading(false);
@@ -371,8 +352,8 @@ export function useQuiz(options: UseQuizOptions) {
 
     const correctAnswers = state.answers.filter((a) => a.isCorrect).length;
     const wrongAnswers = state.answers.length - correctAnswers;
-    const accuracy = state.answers.length > 0 
-      ? Math.round((correctAnswers / state.answers.length) * 100) 
+    const accuracy = state.answers.length > 0
+      ? Math.round((correctAnswers / state.answers.length) * 100)
       : 0;
     const averageTimePerQuestion = state.answers.length > 0
       ? Math.round(state.totalTimeTaken / state.answers.length)
@@ -505,6 +486,32 @@ export function useQuiz(options: UseQuizOptions) {
     }
   }, [state, userId, supabase, quizType, categoryId]);
 
+  // Fix A: timer effect placed after completeQuiz declaration so the dep reference is valid.
+  // Adding completeQuiz to deps ensures the interval callback always holds a fresh reference.
+  useEffect(() => {
+    if (state.timeLimit && state.timeRemaining !== null && !state.isComplete) {
+      timerRef.current = setInterval(() => {
+        setState((prev) => {
+          const newTimeRemaining = (prev.timeRemaining || 0) - 1;
+
+          if (newTimeRemaining <= 0) {
+            // Time's up - complete the quiz
+            completeQuiz();
+            return { ...prev, timeRemaining: 0 };
+          }
+
+          return { ...prev, timeRemaining: newTimeRemaining };
+        });
+      }, 1000);
+
+      return () => {
+        if (timerRef.current) {
+          clearInterval(timerRef.current);
+        }
+      };
+    }
+  }, [state.timeLimit, state.timeRemaining, state.isComplete, completeQuiz]);
+
   const restartQuiz = useCallback(() => {
     sessionIdRef.current = `quiz_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     setState({
@@ -538,14 +545,14 @@ export function useQuiz(options: UseQuizOptions) {
     currentQuestion,
     isLoading,
     error,
-    
+
     // Computed
     progress: state.questions.length > 0
       ? ((state.currentQuestionIndex + (state.isAnswered ? 1 : 0)) / state.questions.length) * 100
       : 0,
     canGoBack: state.currentQuestionIndex > 0,
     canGoForward: state.currentQuestionIndex < state.questions.length - 1 && state.isAnswered,
-    
+
     // Actions
     selectAnswer,
     submitAnswer,

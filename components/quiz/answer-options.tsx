@@ -111,6 +111,7 @@ export function AnswerOptions({
                   getOptionLetter(index)
                 )}
               </div>
+              {/* Fix D: selected-but-not-yet-answered uses text-slate-900 for contrast on bg-blue-50 */}
               <span
                 className={`flex-1 text-base ${
                   showCorrectness
@@ -119,6 +120,8 @@ export function AnswerOptions({
                       : isSelected
                       ? "text-red-700"
                       : "text-muted-foreground"
+                    : isSelected
+                    ? "text-slate-900"
                     : "text-foreground"
                 }`}
               >
