@@ -23,6 +23,7 @@ import {
   Infinity,
   AlertCircle,
 } from "lucide-react";
+import { illinoisDMVQuestions } from "@/lib/data/questions/illinois-dmv-questions";
 
 const quizModes = [
   {
@@ -81,15 +82,13 @@ const quizModes = [
 
 // H10 — category IDs are the string slugs used throughout lib/data/questions
 // and the category/[id]/page.tsx route param. Numeric IDs would mismatch both.
-const categories = [
+const categoryMeta = [
   {
     id: "traffic-signs",
     name: "Traffic Signs",
     description: "Road signs, signals, and pavement markings",
     icon: Target,
     color: "bg-red-100 text-red-600",
-    questionCount: 45,
-    progress: 65,
   },
   {
     id: "traffic-laws",
@@ -97,8 +96,6 @@ const categories = [
     description: "Right-of-way, speed limits, and traffic laws",
     icon: Zap,
     color: "bg-blue-100 text-blue-600",
-    questionCount: 52,
-    progress: 40,
   },
   {
     id: "safe-driving",
@@ -106,8 +103,6 @@ const categories = [
     description: "Defensive driving and hazard awareness",
     icon: Brain,
     color: "bg-green-100 text-green-600",
-    questionCount: 38,
-    progress: 80,
   },
   {
     id: "alcohol-drugs",
@@ -115,10 +110,13 @@ const categories = [
     description: "DUI laws and impaired driving",
     icon: AlertCircle,
     color: "bg-yellow-100 text-yellow-600",
-    questionCount: 25,
-    progress: 90,
   },
 ];
+
+const categories = categoryMeta.map((cat) => ({
+  ...cat,
+  questionCount: illinoisDMVQuestions.filter((q) => q.category_id === cat.id).length,
+}));
 
 export default function QuizLobbyPage() {
   const mascot = useMascot({ autoHideDelay: 6000 });
@@ -257,34 +255,10 @@ export default function QuizLobbyPage() {
                       <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
                         {category.description}
                       </p>
-                      <div className="flex items-center justify-between text-xs">
+                      <div className="flex items-center text-xs">
                         <span className="text-muted-foreground">
                           {category.questionCount} questions
                         </span>
-                        <span
-                          className={`font-medium ${
-                            category.progress >= 80
-                              ? "text-emerald-600 dark:text-emerald-400"
-                              : category.progress >= 50
-                              ? "text-amber-600 dark:text-amber-400"
-                              : "text-red-600 dark:text-red-400"
-                          }`}
-                        >
-                          {category.progress}%
-                        </span>
-                      </div>
-                      {/* Progress bar track uses muted bg — visible on both light + dark */}
-                      <div className="mt-2 h-1.5 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className={`h-full rounded-full transition-all ${
-                            category.progress >= 80
-                              ? "bg-emerald-500"
-                              : category.progress >= 50
-                              ? "bg-amber-500"
-                              : "bg-red-500"
-                          }`}
-                          style={{ width: `${category.progress}%` }}
-                        />
                       </div>
                     </CardContent>
                   </Card>

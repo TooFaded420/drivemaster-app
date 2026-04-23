@@ -68,22 +68,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Also update total XP in user_stats.
-    const { data: userStats } = await supabase
-      .from("user_stats")
-      .select("total_xp")
-      .eq("user_id", user.id)
-      .single();
-
-    if (userStats) {
-      await supabase
-        .from("user_stats")
-        .update({
-          total_xp: userStats.total_xp + xpEarned,
-        })
-        .eq("user_id", user.id);
-    }
-
     return NextResponse.json({
       success: true,
       data: { weekly_xp: newWeeklyXp },

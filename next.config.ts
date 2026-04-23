@@ -60,9 +60,6 @@ const nextConfig: NextConfig = {
     parallelServerCompiles: true,
   },
   
-  // Trailing slash for static export compatibility
-  trailingSlash: true,
-  
   // Headers for security (will be overridden by vercel.json on Vercel)
   async headers() {
     // Baseline Content-Security-Policy. Permissive enough for our current
