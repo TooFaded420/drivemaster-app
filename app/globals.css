@@ -230,6 +230,26 @@
 }
 
 /* ============================================
+   FORCE LIGHT THEME
+   Applied to screens with hardcoded light
+   backgrounds (onboarding, login, signup,
+   privacy) so semantic tokens resolve to dark
+   text regardless of OS dark-mode preference.
+   ============================================ */
+
+.force-light-theme,
+.force-light-theme * {
+  --foreground: #1E293B;
+  --muted-foreground: #6B7280;
+  --card: #ffffff;
+  --card-foreground: #1E293B;
+  --popover: #ffffff;
+  --popover-foreground: #1E293B;
+  --secondary-foreground: #1E293B;
+  color-scheme: light;
+}
+
+/* ============================================
    MOBILE-FIRST BASE STYLES
    ============================================ */
 

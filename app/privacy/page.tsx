@@ -7,7 +7,7 @@ const LAST_UPDATED = "2026-04-21";
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="force-light-theme min-h-screen bg-white">
       {/* Header */}
       <div className="bg-gradient-to-b from-blue-50 to-white py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
         <div className="max-w-3xl mx-auto">

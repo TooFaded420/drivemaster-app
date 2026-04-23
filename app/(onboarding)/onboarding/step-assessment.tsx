@@ -92,8 +92,8 @@ export function StepAssessment({ data, updateData, onComplete }: StepAssessmentP
         />
 
         <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-foreground">Assessment Complete!</h2>
-          <p className="text-muted-foreground">You got {correctCount} out of {ASSESSMENT_QUESTIONS.length} correct</p>
+          <h2 className="text-2xl font-bold text-slate-900">Assessment Complete!</h2>
+          <p className="text-slate-600">You got {correctCount} out of {ASSESSMENT_QUESTIONS.length} correct</p>
         </div>
 
         {/* Score display */}

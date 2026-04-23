@@ -20,8 +20,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A red octagonal (8-sided) sign is the universal STOP sign. You must come to a complete stop at the stop line or before entering the crosswalk or intersection.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/stop-sign.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -72,8 +72,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A red and white upside-down triangle is a YIELD sign. You must slow down and be prepared to stop if necessary to let traffic or pedestrians pass.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/yield-sign.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -119,8 +119,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'The speed limit in school zones in Illinois is 20 mph when children are present. This applies during arrival and dismissal times.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/school-zone-sign.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 11: Speed Limits',
@@ -146,8 +146,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'White rectangular signs with black numbers indicate the speed limit. You must not drive faster than the posted speed limit.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/speed-limit-sign.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -175,8 +175,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A yellow diamond-shaped sign with a black cross indicates an intersection ahead. Be prepared for cross traffic.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/intersection-sign.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -189,8 +189,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A yellow diamond sign with a black curved arrow warns of a curve ahead. Slow down before entering the curve.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/curve-sign.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -203,8 +203,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A yellow circular sign with "RR" and an X warns of a railroad crossing ahead. Be prepared to stop.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/railroad-advance-sign.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -217,8 +217,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'Fluorescent yellow-green pentagon signs indicate school zones or school crossings. Watch for children and reduce speed.',
     category_id: 'traffic-signs',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/signs/school-sign.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -233,8 +233,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A steady red light means STOP. You must stop at the stop line or before entering the crosswalk or intersection.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/red-light.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 4: Traffic Signals',
@@ -252,8 +252,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A steady yellow light warns that the light is about to turn red. Stop if you can do so safely; otherwise, proceed with caution.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/yellow-light.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 4: Traffic Signals',
@@ -271,8 +271,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A steady green light means you may proceed through the intersection if it is clear and safe to do so.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/green-light.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 4: Traffic Signals',
@@ -285,8 +285,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A flashing red light means STOP. After stopping, proceed when the intersection is clear, just like at a stop sign.',
     category_id: 'traffic-signs',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/signs/flashing-red.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 4: Traffic Signals',
@@ -299,8 +299,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A flashing yellow light means proceed with caution. Slow down and watch for hazards.',
     category_id: 'traffic-signs',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/signs/flashing-yellow.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 4: Traffic Signals',
@@ -318,8 +318,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A green arrow means you may turn in the direction the arrow is pointing. You have the right-of-way for that turn.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/green-arrow.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 4: Traffic Signals',
@@ -337,8 +337,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A red arrow means STOP. You may not turn in the direction the arrow is pointing.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/red-arrow.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 4: Traffic Signals',
@@ -407,8 +407,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'This regulatory sign indicates that you must turn left - going straight is prohibited.',
     category_id: 'traffic-signs',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/signs/left-turn-only.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -421,8 +421,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A red circle with a diagonal slash over an arrow means that movement is prohibited. This sign means no left turn.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/no-left-turn.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -435,8 +435,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'This sign prohibits U-turns. You cannot make a U-turn at this location.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/no-u-turn.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -726,8 +726,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A center left-turn lane (shared center lane) allows vehicles from either direction to make left turns. Enter only to turn left.',
     category_id: 'traffic-laws',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/signs/center-turn-lane.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 7: Lane Usage',
@@ -983,8 +983,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'The biggest blind spot on a large truck is on the right side. Avoid driving in truck blind spots - if you cannot see the driver\'s mirrors, they cannot see you.',
     category_id: 'safe-driving',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/scenarios/truck-blind-spots.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 10: Sharing the Road',
@@ -1437,8 +1437,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'Large trucks often need to swing wide to the left before making a right turn. Never try to squeeze between a turning truck and the curb.',
     category_id: 'sharing-road',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/scenarios/truck-right-turn.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 13: Large Trucks',
@@ -1532,8 +1532,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'You must stop when approaching a school bus with flashing red lights from either direction on a two-lane road.',
     category_id: 'sharing-road',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/scenarios/school-bus-stop.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 13: School Buses',
@@ -1645,8 +1645,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'When parking on a hill, turn your wheels away from traffic (toward the curb when facing downhill, away from curb when facing uphill) so the car rolls away from traffic if brakes fail.',
     category_id: 'parking-emergency',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/scenarios/hill-parking.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 14: Parking',
@@ -2439,8 +2439,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A yellow diamond sign with a deer symbol warns of a deer crossing area. Be alert, especially at dawn and dusk.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/deer-crossing.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2458,8 +2458,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A "Do Not Enter" sign means you cannot enter the roadway. It is typically posted on one-way streets and exit ramps.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/do-not-enter.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2477,8 +2477,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'This warning sign indicates that the road surface may be slippery when wet. Reduce speed and avoid sudden braking.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/slippery-when-wet.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2496,8 +2496,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A "One Way" sign means traffic flows only in the direction the arrow is pointing.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/one-way.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2515,8 +2515,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'This sign warns of a steep downgrade ahead. Trucks and other vehicles should use a lower gear.',
     category_id: 'traffic-signs',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/signs/hill-truck.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2529,8 +2529,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A sign with a bicycle symbol indicates a designated bicycle lane or route.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/bike-lane.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2548,8 +2548,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A merge sign warns that traffic from another roadway will be entering your lane. Be prepared to allow merging traffic.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/merge.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2567,8 +2567,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A "Lane Ends" sign warns that the indicated lane will end. Merge into the through lane when safe.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/lane-ends.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2586,8 +2586,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A "No Parking" sign means you cannot park, but you may stop temporarily to load or unload passengers.',
     category_id: 'traffic-signs',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/signs/no-parking.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -2605,8 +2605,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A "No Standing" sign means you cannot stop except to obey traffic signals or signs, or to avoid conflict with other traffic.',
     category_id: 'traffic-signs',
     difficulty: 'hard',
-    has_image: true,
-    image_url: '/questions/signs/no-standing.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -3077,8 +3077,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'Blue signs with service symbols indicate services ahead. A gas pump symbol means a gas station is available.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/gas-station.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Guide Signs',
@@ -3109,8 +3109,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'An "Exit Only" sign means the lane will become an exit ramp and you must exit if you are in that lane.',
     category_id: 'traffic-signs',
     difficulty: 'medium',
-    has_image: true,
-    image_url: '/questions/signs/exit-only.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Guide Signs',
@@ -3123,8 +3123,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A yellow diamond sign with a pedestrian symbol warns of a pedestrian crossing area ahead.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/pedestrian-crossing.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',
@@ -3137,8 +3137,8 @@ export const illinoisDMVQuestions: Question[] = [
     explanation: 'A yellow diamond sign with a traffic light symbol warns that there is a traffic signal ahead. Be prepared to stop.',
     category_id: 'traffic-signs',
     difficulty: 'easy',
-    has_image: true,
-    image_url: '/questions/signs/signal-ahead.svg',
+    has_image: false, // TODO: add sign images
+
     times_asked: 0,
     correct_count: 0,
     source: 'Illinois Rules of the Road 2024 - Chapter 3: Traffic Signs',

@@ -139,7 +139,7 @@ const articleJsonLd = {
 // ---------------------------------------------------------------------------
 export default function IllinoisTeenPermit15Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="force-light-theme min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Structured data */}
       <script
         type="application/ld+json"

@@ -27,7 +27,7 @@ export default async function OnboardingLayout({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="force-light-theme min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {children}
     </div>
   );
