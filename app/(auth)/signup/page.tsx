@@ -73,7 +73,7 @@ export default function SignupPage() {
 
   if (confirmationRequired) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
+      <div className="force-light-theme min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
         <div className="w-full max-w-md">
           <div className="flex justify-center mb-4">
             <Dash emotion="happy" size="md" animate={true} />
@@ -112,7 +112,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
+    <div className="force-light-theme min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
       <div className="w-full max-w-md">
         <div className="flex justify-center mb-4">
           <Dash
