@@ -129,7 +129,8 @@ export function MobileNavigation() {
       </header>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md border-t z-40 md:hidden safe-area-bottom">
+      {/* Fix B: touchAction manipulation prevents scroll-end events firing as taps */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-md border-t z-40 md:hidden safe-area-bottom" style={{ touchAction: "manipulation" }}>
         <div className="flex items-center justify-around h-16 px-2">
           {navItems.map((item) => {
             const Icon = item.icon;
