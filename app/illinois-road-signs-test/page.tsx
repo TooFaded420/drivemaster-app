@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 // ---------------------------------------------------------------------------
 
 export const metadata: Metadata = {
-  title: "Illinois Road Signs Test — Study Guide 2026 | DriveMaster",
+  title: "Illinois Road Signs Test — Study Guide 2026 | Ace Your Permit",
   description:
     "Every road sign on the Illinois permit test — visual descriptions, meanings, and a free quiz. Study regulatory, warning, guide, and construction signs. Pass your IL SOS test in 2026.",
   keywords: [
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     "il sos road signs 2026",
   ],
   alternates: {
-    canonical: "https://drivemaster.app/illinois-road-signs-test",
+    canonical: "https://aceyourpermit.com/illinois-road-signs-test",
   },
   openGraph: {
     title: "Illinois Road Signs Test — Study Guide 2026",
     description:
       "Every road sign on the Illinois permit test with meanings, shapes, colors, and a free quiz. Free for all Illinois teens.",
-    url: "https://drivemaster.app/illinois-road-signs-test",
-    siteName: "DriveMaster",
+    url: "https://aceyourpermit.com/illinois-road-signs-test",
+    siteName: "Ace Your Permit",
     locale: "en_US",
     type: "website",
   },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 // JSON-LD data
 // ---------------------------------------------------------------------------
 
-const canonicalUrl = "https://drivemaster.app/illinois-road-signs-test";
+const canonicalUrl = "https://aceyourpermit.com/illinois-road-signs-test";
 
 const faqItems = [
   {
@@ -83,7 +83,7 @@ const jsonLd = {
       description:
         "Complete visual study guide for every Illinois road sign category with free practice quiz. Covers regulatory, warning, guide, and construction signs.",
       inLanguage: "en-US",
-      isPartOf: { "@id": "https://drivemaster.app/#website" },
+      isPartOf: { "@id": "https://aceyourpermit.com/#website" },
     },
     {
       "@type": "FAQPage",
@@ -105,8 +105,8 @@ const jsonLd = {
         "Self-paced road signs study course covering all sign categories tested on the Illinois DMV permit exam.",
       provider: {
         "@type": "Organization",
-        name: "DriveMaster",
-        url: "https://drivemaster.app",
+        name: "Ace Your Permit",
+        url: "https://aceyourpermit.com",
       },
       hasCourseInstance: {
         "@type": "CourseInstance",
@@ -756,7 +756,7 @@ export default function IllinoisRoadSignsTestPage() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">DriveMaster</span>
+              <span className="text-xl font-bold text-gray-900 font-display">Ace Your Permit</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/login">
@@ -812,7 +812,7 @@ export default function IllinoisRoadSignsTestPage() {
             {[
               { label: "Sign questions on the IL test", value: "~12" },
               { label: "Sign categories tested", value: "4" },
-              { label: "Practice questions in DriveMaster", value: "3,400+" },
+              { label: "Practice questions in Ace Your Permit", value: "3,400+" },
               { label: "Passing score needed", value: "80%" },
             ].map((stat) => (
               <div key={stat.label}>
@@ -1065,7 +1065,7 @@ export default function IllinoisRoadSignsTestPage() {
               </h2>
               <p className="text-gray-600">
                 Real-format questions from our Illinois permit test question bank. Answers and
-                explanations are shown — take the full quiz inside DriveMaster.
+                explanations are shown — take the full quiz inside Ace Your Permit.
               </p>
             </div>
             <div className="space-y-6">
@@ -1106,7 +1106,7 @@ export default function IllinoisRoadSignsTestPage() {
               Ready to ace the Illinois road signs test?
             </h2>
             <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
-              DriveMaster&apos;s full visual quiz covers every sign — with Dash explaining each wrong
+              Ace Your Permit&apos;s full visual quiz covers every sign — with Dash explaining each wrong
               answer so you actually remember it.
             </p>
             <Link href="/signup">

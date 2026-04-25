@@ -8,7 +8,7 @@ import {
 } from "./dashboard-view";
 
 export const metadata = {
-  title: "Dashboard — DriveMaster",
+  title: "Dashboard — Ace Your Permit",
 };
 
 export default async function DashboardPage() {

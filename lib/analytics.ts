@@ -33,7 +33,7 @@ export type AnalyticsEvent =
 function isConsentGranted(): boolean {
   if (typeof window === "undefined") return false;
   try {
-    return localStorage.getItem("drivemaster:analytics-consent") === "granted";
+    return localStorage.getItem("aceyourpermit:analytics-consent") === "granted";
   } catch {
     return false;
   }

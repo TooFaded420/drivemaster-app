@@ -119,12 +119,12 @@ export async function POST(request: NextRequest) {
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: "DriveMaster <updates@drivemaster.app>",
+            from: "Ace Your Permit <updates@aceyourpermit.com>",
             to: parentEmail,
-            subject: `${teenName}'s DriveMaster Weekly Update`,
+            subject: `${teenName}'s Ace Your Permit Weekly Update`,
             html: `
               <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 480px; margin: 0 auto; padding: 24px;">
-                <h1 style="color: #2563EB; font-size: 24px;">DriveMaster</h1>
+                <h1 style="color: #2563EB; font-size: 24px;">Ace Your Permit</h1>
                 <h2 style="font-size: 20px; margin-top: 16px;">${teenName}'s Weekly Progress</h2>
 
                 <div style="background: #F8FAFC; border-radius: 12px; padding: 20px; margin: 16px 0;">
@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
                 </div>
 
                 <p style="color: #6B7280; font-size: 14px; margin-top: 24px;">
-                  You're receiving this because you linked your account to ${teenName}'s DriveMaster profile.
+                  You're receiving this because you linked your account to ${teenName}'s Ace Your Permit profile.
                 </p>
               </div>
             `,

@@ -25,7 +25,7 @@ const faqItems = [
     answer: "15 if you're enrolled in an approved driver's ed course, 17 years and 3 months otherwise.",
   },
   {
-    question: "Is DriveMaster free?",
+    question: "Is Ace Your Permit free?",
     answer: "Yes. All 3,400+ practice questions, zero credit card required.",
   },
   {
@@ -33,7 +33,7 @@ const faqItems = [
     answer: "Yes — road signs, rules of the road, traffic laws, sharing the road, and vehicle operation. Everything on the official test.",
   },
   {
-    question: "How should I use DriveMaster to study?",
+    question: "How should I use Ace Your Permit to study?",
     answer: "Mix Practice Mode (build skills) with Timed Mode (simulate the real test). Even 15 min/day makes a huge difference.",
   },
   {
@@ -68,7 +68,7 @@ export default function Home() {
           <div className="flex items-center">
             <Image
               src="/icons/logo-wordmark.svg"
-              alt="DriveMaster"
+              alt="Ace Your Permit"
               width={200}
               height={48}
               priority
@@ -487,7 +487,7 @@ export default function Home() {
           <div className="flex items-center justify-center mb-4">
             <Image
               src="/icons/logo-wordmark.svg"
-              alt="DriveMaster"
+              alt="Ace Your Permit"
               width={160}
               height={38}
             />
@@ -496,7 +496,7 @@ export default function Home() {
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
           </div>
           <p className="text-center text-gray-600 text-sm">
-            © 2026 DriveMaster. All rights reserved. Not affiliated with the Illinois Secretary of State.
+            © 2026 Ace Your Permit. All rights reserved. Not affiliated with the Illinois Secretary of State.
           </p>
         </div>
       </footer>

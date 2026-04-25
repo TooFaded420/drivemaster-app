@@ -1,7 +1,7 @@
 export const MASCOT_MESSAGES = {
   // Landing Page
   welcome: {
-    title: "Welcome to DriveMaster!",
+    title: "Welcome to Ace Your Permit!",
     message: "Hi, I'm Dash! I'll help you ace your driving test! 🚗",
   },
   getStarted: {

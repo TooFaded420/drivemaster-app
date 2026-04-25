@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 // ---------------------------------------------------------------------------
 
 export const metadata: Metadata = {
-  title: "California Road Signs Test — Study Guide 2026 | DriveMaster",
+  title: "California Road Signs Test — Study Guide 2026 | Ace Your Permit",
   description:
     "Every road sign on the California DMV permit test — visual descriptions, meanings, and a free quiz. Study regulatory, warning, guide, and construction signs. Pass your CA DMV test in 2026.",
   keywords: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description:
       "Every road sign on the California DMV permit test with meanings, shapes, colors, and a free quiz. Free for all California teens.",
     url: "https://aceyourpermit.com/california-road-signs-test",
-    siteName: "DriveMaster",
+    siteName: "Ace Your Permit",
     locale: "en_US",
     type: "website",
   },
@@ -606,7 +606,7 @@ export default function CaliforniaRoadSignsTestPage() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">DriveMaster</span>
+              <span className="text-xl font-bold text-gray-900 font-display">Ace Your Permit</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/login">
@@ -817,7 +817,7 @@ export default function CaliforniaRoadSignsTestPage() {
               Ready to ace the California road signs test?
             </h2>
             <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
-              DriveMaster&apos;s full visual quiz covers every sign — with Dash explaining each wrong
+              Ace Your Permit&apos;s full visual quiz covers every sign — with Dash explaining each wrong
               answer so you actually remember it.
             </p>
             <Link href="/signup">

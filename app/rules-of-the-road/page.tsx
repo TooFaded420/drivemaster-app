@@ -4,7 +4,7 @@ import { Car, BookOpen, CheckCircle2, ArrowRight, ChevronDown } from "lucide-rea
 import { Button } from "@/components/ui/button";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://drivemaster-app.vercel.app";
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://aceyourpermit.com";
 
 const title = "Illinois Rules of the Road — 2026 Handbook Summary";
 const description =
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: canonical,
-    siteName: "DriveMaster",
+    siteName: "Ace Your Permit",
     type: "website",
   },
   twitter: {
@@ -92,7 +92,7 @@ const faqItems = [
   {
     question: "Do I have to read the whole Rules of the Road handbook?",
     answer:
-      "Not word for word. The handbook is the official source, but you need to absorb the concepts — not memorize every page. This summary hits every chapter's highest-value points, and DriveMaster's 3,400+ practice questions reinforce the material interactively.",
+      "Not word for word. The handbook is the official source, but you need to absorb the concepts — not memorize every page. This summary hits every chapter's highest-value points, and Ace Your Permit's 3,400+ practice questions reinforce the material interactively.",
   },
   {
     question: "How long is the Illinois Rules of the Road book?",
@@ -105,9 +105,9 @@ const faqItems = [
       "The Illinois Secretary of State publishes the Rules of the Road handbook as a free PDF at ilsos.gov. You can also pick up a printed copy at any SOS facility. This page summarizes the key content so you can study more efficiently.",
   },
   {
-    question: "Does DriveMaster cover everything in the handbook?",
+    question: "Does Ace Your Permit cover everything in the handbook?",
     answer:
-      "Yes — every chapter of the handbook maps to a question category in DriveMaster. Traffic Laws, Road Signs, Safe Driving, Alcohol & Drug Laws, Sharing the Road, Parking & Emergencies, Vehicle Equipment, Road Conditions, and Illinois-Specific Laws are all covered.",
+      "Yes — every chapter of the handbook maps to a question category in Ace Your Permit. Traffic Laws, Road Signs, Safe Driving, Alcohol & Drug Laws, Sharing the Road, Parking & Emergencies, Vehicle Equipment, Road Conditions, and Illinois-Specific Laws are all covered.",
   },
   {
     question:
@@ -118,7 +118,7 @@ const faqItems = [
   {
     question: "Are the Rules of the Road the same for every state?",
     answer:
-      "No. Traffic laws share a lot of overlap nationally but differ by state on specifics like speed limits, GDL rules, move-over laws, and cell phone regulations. This page and DriveMaster cover Illinois rules only — the exact content on the IL SOS permit test.",
+      "No. Traffic laws share a lot of overlap nationally but differ by state on specifics like speed limits, GDL rules, move-over laws, and cell phone regulations. This page and Ace Your Permit cover Illinois rules only — the exact content on the IL SOS permit test.",
   },
 ];
 
@@ -145,7 +145,7 @@ const courseJsonLd = {
     "A gamified course covering every chapter of the Illinois Rules of the Road handbook with 3,400+ practice questions.",
   provider: {
     "@type": "Organization",
-    name: "DriveMaster",
+    name: "Ace Your Permit",
     sameAs: siteUrl,
   },
   url: canonical,
@@ -183,7 +183,7 @@ export default function RulesOfTheRoadPage() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">DriveMaster</span>
+              <span className="text-xl font-bold text-gray-900 font-display">Ace Your Permit</span>
             </Link>
             <div className="flex items-center gap-4">
               <Link href="/login">
@@ -274,7 +274,7 @@ export default function RulesOfTheRoadPage() {
               solo driving. Violating GDL restrictions can delay your full license or result in suspension.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              The written knowledge test — the one DriveMaster preps you for — covers road signs,
+              The written knowledge test — the one Ace Your Permit preps you for — covers road signs,
               traffic laws, and safe driving practices. You must answer at least 28 of 35 questions
               correctly (80%) to pass. You can retake the test, but a fresh study session before each
               attempt is your fastest route to a passing score.
@@ -423,7 +423,7 @@ export default function RulesOfTheRoadPage() {
               Sample Practice Questions
             </h2>
             <p className="text-gray-600 text-center mb-10">
-              These are real questions from DriveMaster's bank — drawn directly from the Illinois
+              These are real questions from Ace Your Permit's bank — drawn directly from the Illinois
               handbook chapters above. Click "Show Answer" to check yourself.
             </p>
             <div className="space-y-6">
@@ -517,7 +517,7 @@ export default function RulesOfTheRoadPage() {
               Handbook covered. Time to practice.
             </h2>
             <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
-              DriveMaster turns every chapter of the Illinois Rules of the Road into interactive
+              Ace Your Permit turns every chapter of the Illinois Rules of the Road into interactive
               practice questions. Gamified, free, and built for teens. Start now — the permit test
               is closer than you think.
             </p>
@@ -554,7 +554,7 @@ export default function RulesOfTheRoadPage() {
               <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Car className="w-4 h-4 text-white" />
               </div>
-              <span className="font-semibold text-gray-900 font-display">DriveMaster</span>
+              <span className="font-semibold text-gray-900 font-display">Ace Your Permit</span>
             </div>
             <nav className="flex items-center gap-6">
               <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
@@ -562,7 +562,7 @@ export default function RulesOfTheRoadPage() {
               <Link href="/privacy" className="hover:text-gray-900 transition-colors">Privacy</Link>
               <Link href="/signup" className="hover:text-gray-900 transition-colors">Sign Up</Link>
             </nav>
-            <p>&copy; {new Date().getFullYear()} DriveMaster. Not affiliated with Illinois SOS.</p>
+            <p>&copy; {new Date().getFullYear()} Ace Your Permit. Not affiliated with Illinois SOS.</p>
           </div>
         </footer>
       </div>

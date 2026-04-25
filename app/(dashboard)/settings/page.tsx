@@ -3,7 +3,7 @@ import { AnalyticsConsentToggle } from "@/components/analytics-consent-toggle";
 import { Shield, Bell, User } from "lucide-react";
 
 export const metadata = {
-  title: "Settings — DriveMaster",
+  title: "Settings — Ace Your Permit",
 };
 
 export default function SettingsPage() {

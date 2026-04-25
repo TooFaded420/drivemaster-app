@@ -32,17 +32,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
-  title: "How to Get Your Texas Permit at 15 | DriveMaster",
+  title: "How to Get Your Texas Permit at 15 | Ace Your Permit",
   description:
     "Can you get your learner's permit at 15 in Texas? Yes — with approved driver's ed or parent-taught PTDE. Here's every requirement, document, and GDL rule explained for Texas teens.",
   alternates: {
-    canonical: "https://getdrivemaster.com/texas-teen-permit-15-years-old",
+    canonical: "https://aceyourpermit.com/texas-teen-permit-15-years-old",
   },
   openGraph: {
-    title: "How to Get Your Texas Permit at 15 | DriveMaster",
+    title: "How to Get Your Texas Permit at 15 | Ace Your Permit",
     description:
       "Step-by-step guide to Texas teen permits. Minimum age, required docs, parent-taught option, ITTD course, curfew rules, and zero-tolerance BAC — all in one place.",
-    url: "https://getdrivemaster.com/texas-teen-permit-15-years-old",
+    url: "https://aceyourpermit.com/texas-teen-permit-15-years-old",
     type: "article",
   },
 };
@@ -141,12 +141,12 @@ const articleJsonLd = {
     "A complete guide to Texas GDL requirements for teens: minimum age, permit documents, parent-taught option, ITTD course, supervised driving hours, curfew rules, and zero-tolerance BAC.",
   author: {
     "@type": "Organization",
-    name: "DriveMaster",
+    name: "Ace Your Permit",
   },
   publisher: {
     "@type": "Organization",
-    name: "DriveMaster",
-    url: "https://getdrivemaster.com",
+    name: "Ace Your Permit",
+    url: "https://aceyourpermit.com",
   },
   dateModified: "2026-04-22",
 };
@@ -174,7 +174,7 @@ export default function TexasTeenPermit15Page() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -361,7 +361,7 @@ export default function TexasTeenPermit15Page() {
                 step: 8,
                 title: "Pass the written knowledge test",
                 detail:
-                  "30 questions drawn from the Texas Driver Handbook. You need 21 correct (70%) to pass. Practice here on DriveMaster before you go.",
+                  "30 questions drawn from the Texas Driver Handbook. You need 21 correct (70%) to pass. Practice here on Ace Your Permit before you go.",
               },
               {
                 step: 9,
@@ -590,7 +590,7 @@ export default function TexasTeenPermit15Page() {
             Ready to ace the Texas written test?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            DriveMaster is built for Texas teens — gamified streaks, Dash explanations, and
+            Ace Your Permit is built for Texas teens — gamified streaks, Dash explanations, and
             questions aligned with the Texas Driver Handbook. Free to start.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -609,7 +609,7 @@ export default function TexasTeenPermit15Page() {
                 variant="outline"
                 className="border-white text-white hover:bg-blue-600 text-lg px-8 h-12"
               >
-                Learn More About DriveMaster
+                Learn More About Ace Your Permit
               </Button>
             </Link>
           </div>
@@ -623,7 +623,7 @@ export default function TexasTeenPermit15Page() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
@@ -634,7 +634,7 @@ export default function TexasTeenPermit15Page() {
             </Link>
           </div>
           <p className="text-center text-gray-600 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with the Texas Department
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the Texas Department
             of Public Safety. Always verify requirements at{" "}
             <a
               href="https://www.dps.texas.gov"

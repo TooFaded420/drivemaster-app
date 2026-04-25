@@ -55,7 +55,7 @@ function createUpstashLimiter(
     redis,
     limiter: Ratelimit.slidingWindow(limit, `${windowSeconds} s`),
     analytics: true,
-    prefix: `drivemaster:rl:${name}`,
+    prefix: `aceyourpermit:rl:${name}`,
   });
 
   return {

@@ -6,7 +6,7 @@ import { Dash } from "@/components/mascot";
 import { ArrowLeft, User } from "lucide-react";
 
 export const metadata = {
-  title: "Profile — DriveMaster",
+  title: "Profile — Ace Your Permit",
 };
 
 export default function ProfilePage() {
@@ -15,7 +15,7 @@ export default function ProfilePage() {
       <div className="space-y-6">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
-          <p className="text-gray-600 mt-1">Your driver identity on DriveMaster.</p>
+          <p className="text-gray-600 mt-1">Your driver identity on Ace Your Permit.</p>
         </div>
 
         <Card>

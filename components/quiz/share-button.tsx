@@ -37,13 +37,13 @@ function ShareButtonInner({ score, username, streak }: ShareButtonProps) {
       // Fetch the image
       const response = await fetch(cardUrl);
       const blob = await response.blob();
-      const file = new File([blob], "drivemaster-score.png", { type: "image/png" });
+      const file = new File([blob], "aceyourpermit-score.png", { type: "image/png" });
 
       // Try Web Share API first (mobile)
       if (navigator.share && navigator.canShare?.({ files: [file] })) {
         await navigator.share({
-          title: `I scored ${score}% on DriveMaster!`,
-          text: `I scored ${score}% on my Illinois DMV practice test on DriveMaster! Can you beat me?`,
+          title: `I scored ${score}% on Ace Your Permit!`,
+          text: `I scored ${score}% on my Illinois DMV practice test on Ace Your Permit! Can you beat me?`,
           files: [file],
         });
         setIsShared(true);
@@ -53,7 +53,7 @@ function ShareButtonInner({ score, username, streak }: ShareButtonProps) {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "drivemaster-score.png";
+        a.download = "aceyourpermit-score.png";
         a.click();
         URL.revokeObjectURL(url);
         setIsShared(true);

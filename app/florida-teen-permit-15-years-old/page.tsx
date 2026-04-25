@@ -28,7 +28,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // ─── Force light theme ────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "How to Get Your Florida Learner's Permit at 15 | DriveMaster",
+  title: "How to Get Your Florida Learner's Permit at 15 | Ace Your Permit",
   description:
     "Can you get your learner's permit at 15 in Florida? Yes — here's every requirement: TLSAE course, required documents, 50-hour log, curfew rules, and GDL restrictions explained for Florida teens.",
   keywords: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     canonical: "https://aceyourpermit.com/florida-teen-permit-15-years-old",
   },
   openGraph: {
-    title: "How to Get Your Florida Learner's Permit at 15 | DriveMaster",
+    title: "How to Get Your Florida Learner's Permit at 15 | Ace Your Permit",
     description:
       "Step-by-step guide to Florida teen permits. Minimum age 15, TLSAE course, required docs, 50-hour log, curfew rules — all in one place.",
     url: "https://aceyourpermit.com/florida-teen-permit-15-years-old",
@@ -143,8 +143,8 @@ const articleJsonLd = {
   headline: "How to Get Your Florida Learner's Permit at 15",
   description:
     "A complete guide to Florida GDL requirements for teens: minimum age, TLSAE course, permit documents, supervised driving hours, curfew rules, and zero-tolerance BAC.",
-  author: { "@type": "Organization", name: "DriveMaster" },
-  publisher: { "@type": "Organization", name: "DriveMaster", url: "https://aceyourpermit.com" },
+  author: { "@type": "Organization", name: "Ace Your Permit" },
+  publisher: { "@type": "Organization", name: "Ace Your Permit", url: "https://aceyourpermit.com" },
   dateModified: "2026-04-22",
 };
 
@@ -170,7 +170,7 @@ export default function FloridaTeenPermit15Page() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -349,7 +349,7 @@ export default function FloridaTeenPermit15Page() {
                 step: 7,
                 title: "Pass the knowledge test",
                 detail:
-                  "50 questions: 40 road rules + 10 road signs. You need 40 correct (80%) to pass. Practice on DriveMaster before you go — it covers the exact FLHSMV test format.",
+                  "50 questions: 40 road rules + 10 road signs. You need 40 correct (80%) to pass. Practice on Ace Your Permit before you go — it covers the exact FLHSMV test format.",
               },
               {
                 step: 8,
@@ -525,7 +525,7 @@ export default function FloridaTeenPermit15Page() {
 
           <div className="mt-8 text-center">
             <p className="text-gray-600 mb-4">
-              Practice the full 50-question Florida format on DriveMaster — free.
+              Practice the full 50-question Florida format on Ace Your Permit — free.
             </p>
             <Link href="/signup">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-base px-8 h-12">
@@ -576,7 +576,7 @@ export default function FloridaTeenPermit15Page() {
             Ready to ace the Florida written test?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            DriveMaster has the full 50-question Florida format — road rules and road signs —
+            Ace Your Permit has the full 50-question Florida format — road rules and road signs —
             free to practice, no credit card required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -588,7 +588,7 @@ export default function FloridaTeenPermit15Page() {
             </Link>
             <Link href="/">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-blue-600 text-lg px-8 h-12">
-                Learn More About DriveMaster
+                Learn More About Ace Your Permit
               </Button>
             </Link>
           </div>
@@ -602,14 +602,14 @@ export default function FloridaTeenPermit15Page() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
             <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
           </div>
           <p className="text-center text-gray-600 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with the Florida Highway
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the Florida Highway
             Safety and Motor Vehicles (FLHSMV). Always verify requirements at{" "}
             <a
               href="https://www.flhsmv.gov"

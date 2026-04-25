@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "Pennsylvania Road Signs Test — PennDOT Study Guide 2026 | DriveMaster",
+  title: "Pennsylvania Road Signs Test — PennDOT Study Guide 2026 | Ace Your Permit",
   description:
     "Every road sign on the Pennsylvania PennDOT written test — shapes, colors, meanings, and a free quiz. Study regulatory, warning, guide, and construction signs. Pass your PA permit test in 2026.",
   keywords: [
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     "pennsylvania road signs meanings",
   ],
   alternates: {
-    canonical: "https://getdrivemaster.com/pennsylvania-road-signs-test",
+    canonical: "https://aceyourpermit.com/pennsylvania-road-signs-test",
   },
   openGraph: {
     title: "Pennsylvania Road Signs Test — PennDOT Study Guide 2026",
     description:
       "Every road sign on the PA PennDOT permit test with meanings, shapes, colors, and a free quiz. Free for all Pennsylvania teens.",
-    url: "https://getdrivemaster.com/pennsylvania-road-signs-test",
-    siteName: "DriveMaster",
+    url: "https://aceyourpermit.com/pennsylvania-road-signs-test",
+    siteName: "Ace Your Permit",
     locale: "en_US",
     type: "website",
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 
 // ─── Structured Data ─────────────────────────────────────────────────────────
 
-const canonicalUrl = "https://getdrivemaster.com/pennsylvania-road-signs-test";
+const canonicalUrl = "https://aceyourpermit.com/pennsylvania-road-signs-test";
 
 const faqItems = [
   {
@@ -449,7 +449,7 @@ export default function PennsylvaniaRoadSignsTestPage() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">DriveMaster</span>
+              <span className="text-xl font-bold text-gray-900 font-display">Ace Your Permit</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/login"><Button variant="ghost" className="h-11">Sign In</Button></Link>
@@ -593,7 +593,7 @@ export default function PennsylvaniaRoadSignsTestPage() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-3">Sample Pennsylvania Road Sign Questions</h2>
-              <p className="text-gray-600">Real-format questions. Answers and explanations shown — take the full quiz inside DriveMaster.</p>
+              <p className="text-gray-600">Real-format questions. Answers and explanations shown — take the full quiz inside Ace Your Permit.</p>
             </div>
             <div className="space-y-6">
               {sampleQuestions.map((q, i) => <SampleQuizCard key={q.id} q={q} index={i} />)}
@@ -625,7 +625,7 @@ export default function PennsylvaniaRoadSignsTestPage() {
               Ready to ace the Pennsylvania road signs test?
             </h2>
             <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
-              DriveMaster&apos;s full visual quiz covers every sign — with Dash explaining each wrong
+              Ace Your Permit&apos;s full visual quiz covers every sign — with Dash explaining each wrong
               answer so you actually remember it on test day.
             </p>
             <Link href="/signup">

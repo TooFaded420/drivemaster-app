@@ -3,7 +3,7 @@ export const ONBOARDING_STEPS = [
   {
     id: 'welcome',
     title: 'Welcome',
-    description: 'Meet Dash and learn about DriveMaster',
+    description: 'Meet Dash and learn about Ace Your Permit',
     xpReward: 10,
   },
   {

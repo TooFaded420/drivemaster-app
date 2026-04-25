@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "New York Road Signs Test — Study Guide 2026 | DriveMaster",
+  title: "New York Road Signs Test — Study Guide 2026 | Ace Your Permit",
   description:
     "Every road sign on the New York DMV permit test — meanings, shapes, colors, and a free quiz. Study regulatory, warning, guide, and construction signs for your NY permit. Based on NY MV-21 2024.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description:
       "Every road sign on the NY DMV permit test with meanings, shapes, colors, and a free quiz.",
     url: "https://aceyourpermit.com/new-york-road-signs-test",
-    siteName: "DriveMaster",
+    siteName: "Ace Your Permit",
     locale: "en_US",
     type: "website",
   },
@@ -158,7 +158,7 @@ export default function NewYorkRoadSignsTestPage() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -267,7 +267,7 @@ export default function NewYorkRoadSignsTestPage() {
               },
               {
                 step: "4",
-                title: "Practice with DriveMaster",
+                title: "Practice with Ace Your Permit",
                 body: "Our spaced-repetition quiz surfaces the signs you miss most. Three sessions usually moves most people from 60% to 90%+ on signs.",
               },
             ].map((item) => (
@@ -347,7 +347,7 @@ export default function NewYorkRoadSignsTestPage() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
@@ -358,7 +358,7 @@ export default function NewYorkRoadSignsTestPage() {
             </Link>
           </div>
           <p className="text-center text-gray-500 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with the
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the
             New York Department of Motor Vehicles.
           </p>
         </div>

@@ -1,7 +1,7 @@
 {
-  "name": "DriveMaster - Illinois Driving Test Prep",
-  "short_name": "DriveMaster",
-  "description": "Master your Illinois driving test with interactive practice questions, gamified learning, and personalized study plans.",
+  "name": "Ace Your Permit - Illinois Driving Test Prep",
+  "short_name": "Ace Your Permit",
+  "description": "Ace your Illinois permit test with interactive practice questions, gamified learning, and personalized study plans.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F8FAFC",

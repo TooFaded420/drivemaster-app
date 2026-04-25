@@ -27,14 +27,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "How to Get Your NY Permit at 16 | Class DJ Junior License | DriveMaster",
+  title: "How to Get Your NY Permit at 16 | Class DJ Junior License | Ace Your Permit",
   description:
     "Can you get your learner's permit at 16 in New York? Yes — here's every requirement, document, GDL restriction, and the 5-hour pre-licensing course explained for NY teens.",
   alternates: {
     canonical: "https://aceyourpermit.com/new-york-teen-permit-16-years-old",
   },
   openGraph: {
-    title: "How to Get Your NY Permit at 16 | DriveMaster",
+    title: "How to Get Your NY Permit at 16 | Ace Your Permit",
     description:
       "Step-by-step guide to New York teen permits at 16. Class DJ junior license, 5-hour course, passenger restrictions, curfew rules — all in one place.",
     url: "https://aceyourpermit.com/new-york-teen-permit-16-years-old",
@@ -93,7 +93,7 @@ const steps = [
   {
     number: "1",
     title: "Study the NY MV-21 Driver's Manual",
-    body: "Download the free NY MV-21 Driver's Manual from dmv.ny.gov. Focus on traffic signs (shapes and colors), right-of-way rules, speed limits, and GDL restrictions. Use DriveMaster to practice the 20-question format.",
+    body: "Download the free NY MV-21 Driver's Manual from dmv.ny.gov. Focus on traffic signs (shapes and colors), right-of-way rules, speed limits, and GDL restrictions. Use Ace Your Permit to practice the 20-question format.",
     Icon: ClipboardList,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
@@ -117,7 +117,7 @@ const steps = [
   {
     number: "4",
     title: "Pass the 20-question written test",
-    body: "14 out of 20 correct (70%) to pass. If you fail, you can retake the same day for an additional fee. Use DriveMaster's test simulator to practice before you go — most users who score 85%+ on practice pass on the first try.",
+    body: "14 out of 20 correct (70%) to pass. If you fail, you can retake the same day for an additional fee. Use Ace Your Permit's test simulator to practice before you go — most users who score 85%+ on practice pass on the first try.",
     Icon: ClipboardList,
     iconBg: "bg-orange-100",
     iconColor: "text-orange-500",
@@ -152,7 +152,7 @@ export default function NewYorkTeenPermit16Page() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -400,7 +400,7 @@ export default function NewYorkTeenPermit16Page() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
@@ -411,7 +411,7 @@ export default function NewYorkTeenPermit16Page() {
             </Link>
           </div>
           <p className="text-center text-gray-500 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with the
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the
             New York Department of Motor Vehicles.
           </p>
         </div>

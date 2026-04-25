@@ -28,7 +28,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "Free California DMV Practice Test 2026 — No Signup, No Ads | DriveMaster",
+  title: "Free California DMV Practice Test 2026 — No Signup, No Ads | Ace Your Permit",
   description:
     "Take a free California DMV practice test online — no credit card, no trial, no ads on the quiz itself. 46-question format based on the official CA DMV handbook. Start in seconds.",
   keywords: [
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    question: "Is DriveMaster really free for California?",
+    question: "Is Ace Your Permit really free for California?",
     answer:
       "Yes — completely free. All California practice questions are available with no credit card, no free-trial countdown, and no paywalled content. We plan to add optional premium features in the future, but the full practice test library stays free.",
   },
@@ -82,14 +82,14 @@ const faqItems = [
       "In California, you can apply for a provisional instruction permit at age 15 and a half (15 years, 6 months). You must also complete 30 hours of driver education and 6 hours of behind-the-wheel training with a licensed instructor before getting a provisional license.",
   },
   {
-    question: "Is DriveMaster better than the official CA DMV practice tests?",
+    question: "Is Ace Your Permit better than the official CA DMV practice tests?",
     answer:
-      "Different goals. The official CA DMV tests confirm you know the rules. DriveMaster teaches you the rules through gamification, streaks, and Dash's hype-beast explanations — so you actually remember them on test day and beyond.",
+      "Different goals. The official CA DMV tests confirm you know the rules. Ace Your Permit teaches you the rules through gamification, streaks, and Dash's hype-beast explanations — so you actually remember them on test day and beyond.",
   },
   {
     question: "Do you have a mobile app?",
     answer:
-      "DriveMaster is a Progressive Web App (PWA) — install it from your browser on iOS or Android and it works offline. A native App Store release is on the roadmap.",
+      "Ace Your Permit is a Progressive Web App (PWA) — install it from your browser on iOS or Android and it works offline. A native App Store release is on the roadmap.",
   },
 ];
 
@@ -109,7 +109,7 @@ const faqJsonLd = {
 const webAppJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "DriveMaster — Free California DMV Practice Test",
+  name: "Ace Your Permit — Free California DMV Practice Test",
   url: "https://aceyourpermit.com",
   applicationCategory: "EducationApplication",
   operatingSystem: "Any",
@@ -176,7 +176,7 @@ export default function FreeCaliforniaDMVPracticeTestPage() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -324,7 +324,7 @@ export default function FreeCaliforniaDMVPracticeTestPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-10 font-display tracking-tight">
-            What Makes DriveMaster Different
+            What Makes Ace Your Permit Different
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f) => (
@@ -420,7 +420,7 @@ export default function FreeCaliforniaDMVPracticeTestPage() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
@@ -431,7 +431,7 @@ export default function FreeCaliforniaDMVPracticeTestPage() {
             </Link>
           </div>
           <p className="text-center text-gray-500 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with the
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the
             California Department of Motor Vehicles.
           </p>
         </div>
@@ -550,7 +550,7 @@ const features: Array<{
   },
   {
     title: "Installs Like an App",
-    desc: "DriveMaster is a PWA. Add it to your home screen from any browser — iOS or Android — and practice offline.",
+    desc: "Ace Your Permit is a PWA. Add it to your home screen from any browser — iOS or Android — and practice offline.",
     Icon: Smartphone,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",

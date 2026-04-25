@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
             marginBottom: 8,
           }}
         >
-          DriveMaster Certified
+          Ace Your Permit Certified
         </div>
 
         {/* Trophy */}
@@ -106,7 +106,7 @@ export async function GET(request: NextRequest) {
             opacity: 0.5,
           }}
         >
-          drivemaster.app
+          aceyourpermit.com
         </div>
       </div>
     ),

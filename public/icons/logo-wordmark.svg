@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" role="img" aria-label="DriveMaster">
+<!-- TODO(rebrand): This wordmark SVG still says "DriveMaster". It needs to be regenerated
+     with the new "Ace Your Permit" brand name once a final logo is selected.
+     Tracked in PR feat/rebrand-ace-your-permit. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" role="img" aria-label="Ace Your Permit">
   <defs>
     <linearGradient id="bgMark" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#2563EB"/>

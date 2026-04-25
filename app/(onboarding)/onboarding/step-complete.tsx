@@ -114,7 +114,7 @@ export function StepComplete({ data, onComplete }: StepCompleteProps) {
           You're All Set!
         </h1>
         <p className="text-lg text-muted-foreground mt-2">
-          Welcome to DriveMaster, Driver!
+          Welcome to Ace Your Permit, Driver!
         </p>
       </motion.div>
 

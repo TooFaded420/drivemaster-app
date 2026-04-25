@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Privacy Policy — DriveMaster",
-  description: "How DriveMaster collects, uses, and protects your data. Plain language for all users.",
+  title: "Privacy Policy — Ace Your Permit",
+  description: "How Ace Your Permit collects, uses, and protects your data. Plain language for all users.",
 };
 
 const LAST_UPDATED = "2026-04-21";
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
             1. Who we are
           </h2>
           <p>
-            DriveMaster is a free Illinois driving-test prep app used by Illinois residents of many ages
+            Ace Your Permit is a free Illinois driving-test prep app used by Illinois residents of many ages
             preparing for the permit test, including minors. We help you study for the Illinois Secretary
             of State permit and license tests through practice questions, gamified learning, and a study
             buddy named Dash. We&apos;ve built privacy safeguards for under-18 users per COPPA and IL BIPA.
@@ -119,7 +119,7 @@ export default function PrivacyPage() {
             <li>Your precise location or GPS data.</li>
             <li>Your contacts, camera, or microphone.</li>
             <li>Biometric data of any kind.</li>
-            <li>Payment information (DriveMaster is free).</li>
+            <li>Payment information (Ace Your Permit is free).</li>
           </ul>
           <p className="mt-3">
             We do <strong>not</strong> sell your data to third parties — ever.
@@ -143,7 +143,7 @@ export default function PrivacyPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
             7. Sub-processors
           </h2>
-          <p>We share your data with the following services to operate DriveMaster:</p>
+          <p>We share your data with the following services to operate Ace Your Permit:</p>
           <div className="mt-4 overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-gray-50 text-gray-600 text-left">
@@ -215,7 +215,7 @@ export default function PrivacyPage() {
             9. COPPA &amp; Illinois BIPA posture
           </h2>
           <p>
-            DriveMaster is used by people of many ages preparing for the Illinois permit test. <strong>If you are under 13, do not use DriveMaster.</strong>{" "}
+            Ace Your Permit is used by people of many ages preparing for the Illinois permit test. <strong>If you are under 13, do not use Ace Your Permit.</strong>{" "}
             We do not knowingly collect personal information from children under 13. If we learn that a user is under 13,
             we will delete the account and all associated data within 30 days.
           </p>
@@ -269,7 +269,7 @@ export default function PrivacyPage() {
 
       {/* Footer spacer */}
       <div className="h-16 bg-gray-50 border-t border-gray-100 flex items-center justify-center text-sm text-gray-400">
-        © 2026 DriveMaster. Not affiliated with the Illinois Secretary of State.
+        © 2026 Ace Your Permit. Not affiliated with the Illinois Secretary of State.
       </div>
     </main>
   );

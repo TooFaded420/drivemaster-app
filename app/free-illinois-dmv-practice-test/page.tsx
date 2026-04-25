@@ -5,7 +5,7 @@
  * Secondary:         "illinois dmv practice test free", "free illinois permit test online",
  *                    "free illinois driving test", "free illinois practice test no signup"
  * Angle:             "This is free — here's proof, try 3 questions right now."
- *                    Anti-competitor: DriveMaster is free vs paid/ad-supported alternatives.
+ *                    Anti-competitor: Ace Your Permit is free vs paid/ad-supported alternatives.
  */
 
 import type { Metadata } from "next";
@@ -25,7 +25,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "Free Illinois DMV Practice Test 2026 — No Signup, No Ads | DriveMaster",
+  title: "Free Illinois DMV Practice Test 2026 — No Signup, No Ads | Ace Your Permit",
   description:
     "Take a free Illinois DMV practice test online — no credit card, no trial, no ads on the quiz itself. 3,400+ questions based on the official IL Secretary of State handbook. Start in seconds.",
   keywords: [
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     "illinois permit test 2026",
   ],
   alternates: {
-    canonical: "https://getdrivemaster.com/free-illinois-dmv-practice-test",
+    canonical: "https://aceyourpermit.com/free-illinois-dmv-practice-test",
   },
   openGraph: {
     title: "Free Illinois DMV Practice Test — No Signup Required",
     description:
       "3,400+ questions, gamified streaks, Dash AI explanations. 100% free — no credit card, no trial period.",
-    url: "https://getdrivemaster.com/free-illinois-dmv-practice-test",
+    url: "https://aceyourpermit.com/free-illinois-dmv-practice-test",
     type: "website",
   },
   twitter: {
@@ -59,14 +59,14 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    question: "Is DriveMaster really free?",
+    question: "Is Ace Your Permit really free?",
     answer:
       "Yes — completely free. All 3,400+ practice questions are available with no credit card, no free-trial countdown, and no paywalled content. We plan to add optional premium features in the future, but the full practice test library stays free.",
   },
   {
     question: "Why is it free?",
     answer:
-      "We're building an audience first. Every teen who passes their permit test because of DriveMaster is our best marketing. We're not hiding the good stuff behind a paywall to squeeze revenue early.",
+      "We're building an audience first. Every teen who passes their permit test because of Ace Your Permit is our best marketing. We're not hiding the good stuff behind a paywall to squeeze revenue early.",
   },
   {
     question: "Do I need to sign up to practice?",
@@ -79,14 +79,14 @@ const faqItems = [
       "Illinois doesn't have a DMV. Driver's licenses and permit tests are handled by the Illinois Secretary of State (SOS). When people search 'Illinois DMV,' they almost always mean the SOS — we match that language so you can find us, but the official agency is the Secretary of State.",
   },
   {
-    question: "Is DriveMaster better than the official IL SOS practice tests?",
+    question: "Is Ace Your Permit better than the official IL SOS practice tests?",
     answer:
-      "Different goals. The official SOS tests confirm you know the rules. DriveMaster teaches you the rules through gamification, streaks, and Dash's hype-beast explanations — so you actually remember them on test day and beyond.",
+      "Different goals. The official SOS tests confirm you know the rules. Ace Your Permit teaches you the rules through gamification, streaks, and Dash's hype-beast explanations — so you actually remember them on test day and beyond.",
   },
   {
     question: "Do you have a mobile app?",
     answer:
-      "DriveMaster is a Progressive Web App (PWA) — install it from your browser on iOS or Android and it works offline. A native App Store release is on the roadmap.",
+      "Ace Your Permit is a Progressive Web App (PWA) — install it from your browser on iOS or Android and it works offline. A native App Store release is on the roadmap.",
   },
 ];
 
@@ -106,8 +106,8 @@ const faqJsonLd = {
 const webAppJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "DriveMaster — Free Illinois DMV Practice Test",
-  url: "https://getdrivemaster.com",
+  name: "Ace Your Permit — Free Illinois DMV Practice Test",
+  url: "https://aceyourpermit.com",
   applicationCategory: "EducationApplication",
   operatingSystem: "Any",
   offers: {
@@ -166,7 +166,7 @@ export default function FreeIllinoisDMVPracticeTestPage() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -293,7 +293,7 @@ export default function FreeIllinoisDMVPracticeTestPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
-              How DriveMaster Compares
+              How Ace Your Permit Compares
             </h2>
             <p className="text-gray-600">
               Neutral facts. Judge for yourself.
@@ -308,7 +308,7 @@ export default function FreeIllinoisDMVPracticeTestPage() {
                     Feature
                   </th>
                   <th className="py-3 px-4 font-semibold text-blue-600 bg-blue-50 rounded-t-lg">
-                    DriveMaster
+                    Ace Your Permit
                   </th>
                   <th className="py-3 px-4 font-semibold text-gray-700">
                     Zutobi
@@ -353,7 +353,7 @@ export default function FreeIllinoisDMVPracticeTestPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-10 font-display tracking-tight">
-            What Makes DriveMaster Different
+            What Makes Ace Your Permit Different
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f) => (
@@ -449,7 +449,7 @@ export default function FreeIllinoisDMVPracticeTestPage() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
@@ -460,7 +460,7 @@ export default function FreeIllinoisDMVPracticeTestPage() {
             </Link>
           </div>
           <p className="text-center text-gray-500 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with the
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the
             Illinois Secretary of State.
           </p>
         </div>
@@ -665,7 +665,7 @@ const features: Array<{
   },
   {
     title: "Installs Like an App",
-    desc: "DriveMaster is a PWA. Add it to your home screen from any browser — iOS or Android — and practice offline in the car rider line.",
+    desc: "Ace Your Permit is a PWA. Add it to your home screen from any browser — iOS or Android — and practice offline in the car rider line.",
     Icon: Smartphone,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",

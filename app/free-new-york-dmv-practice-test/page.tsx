@@ -27,7 +27,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "Free New York DMV Practice Test 2026 — No Signup, No Ads | DriveMaster",
+  title: "Free New York DMV Practice Test 2026 — No Signup, No Ads | Ace Your Permit",
   description:
     "Take a free New York DMV practice test online — no credit card, no trial, no ads on the quiz itself. Based on the official NY MV-21 Driver's Manual 2024. 20 questions, 70% to pass. Start in seconds.",
   keywords: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    question: "Is DriveMaster really free for the NY DMV practice test?",
+    question: "Is Ace Your Permit really free for the NY DMV practice test?",
     answer:
       "Yes — completely free. All practice questions are available with no credit card, no free-trial countdown, and no paywalled content.",
   },
@@ -86,7 +86,7 @@ const faqItems = [
       "You can browse and try sample questions without an account. To save your streak, track weak spots, and pick up where you left off, you'll need a free account — just an email address, no payment info.",
   },
   {
-    question: "Does DriveMaster cover NYC-specific driving rules?",
+    question: "Does Ace Your Permit cover NYC-specific driving rules?",
     answer:
       "The NY DMV written test is the same statewide — NYC driving restrictions (honking, bus lanes, alternate-side parking) are NOT tested on the permit exam. We focus on the 20 tested knowledge areas from the NY MV-21 manual.",
   },
@@ -108,7 +108,7 @@ const faqJsonLd = {
 const webAppJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "DriveMaster — Free New York DMV Practice Test",
+  name: "Ace Your Permit — Free New York DMV Practice Test",
   url: "https://aceyourpermit.com",
   applicationCategory: "EducationApplication",
   operatingSystem: "Any",
@@ -142,7 +142,7 @@ export default function FreeNewYorkDMVPracticeTestPage() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -264,7 +264,7 @@ export default function FreeNewYorkDMVPracticeTestPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-10 font-display tracking-tight">
-            What Makes DriveMaster Different
+            What Makes Ace Your Permit Different
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f) => (
@@ -360,7 +360,7 @@ export default function FreeNewYorkDMVPracticeTestPage() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
@@ -371,7 +371,7 @@ export default function FreeNewYorkDMVPracticeTestPage() {
             </Link>
           </div>
           <p className="text-center text-gray-500 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with the
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the
             New York Department of Motor Vehicles.
           </p>
         </div>
@@ -422,7 +422,7 @@ const features: Array<{
   },
   {
     title: "Installs Like an App",
-    desc: "DriveMaster is a PWA. Add it to your home screen from any browser — iOS or Android — and practice offline.",
+    desc: "Ace Your Permit is a PWA. Add it to your home screen from any browser — iOS or Android — and practice offline.",
     Icon: Smartphone,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
