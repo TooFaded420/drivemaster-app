@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "DriveMaster - Illinois driving test prep";
+export const alt = "Ace Your Permit - Illinois driving test prep";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -107,7 +107,7 @@ export default async function Image(): Promise<ImageResponse> {
               display: "flex",
             }}
           >
-            DriveMaster
+            Ace Your Permit
           </div>
         </div>
 
@@ -174,7 +174,7 @@ export default async function Image(): Promise<ImageResponse> {
             display: "flex",
           }}
         >
-          drivemaster.app
+          aceyourpermit.com
         </div>
       </div>
     ),

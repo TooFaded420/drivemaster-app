@@ -1,7 +1,7 @@
-# CLAUDE.md — DriveMaster
+# CLAUDE.md — Ace Your Permit (formerly DriveMaster)
 
 ## Project Overview
-DriveMaster is a gamified driving test prep PWA for Illinois, built with Next.js 16, Supabase, and Tailwind CSS. Target user: anyone preparing for the Illinois permit test — from 15yr-olds taking it for the first time to adults new to IL or retaking. Design for the procrastinator regardless of age.
+Ace Your Permit is a gamified driving test prep PWA for Illinois, built with Next.js 16, Supabase, and Tailwind CSS. Target user: anyone preparing for the Illinois permit test — from 15yr-olds taking it for the first time to adults new to IL or retaking. Design for the procrastinator regardless of age.
 
 ## Design System
 Always read DESIGN.md before making any visual or UI decisions.

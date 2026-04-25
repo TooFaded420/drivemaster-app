@@ -25,7 +25,7 @@ import { Button } from "@/components/ui/button";
 // ─── Force light theme ────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "Florida Road Signs Test — Study Guide 2026 | DriveMaster",
+  title: "Florida Road Signs Test — Study Guide 2026 | Ace Your Permit",
   description:
     "Every road sign on the Florida permit test — visual descriptions, meanings, and a free quiz. 10 road sign questions on the FLHSMV 50-question knowledge test. Study shapes, colors, and meanings for 2026.",
   keywords: [
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     description:
       "Every road sign on the Florida permit test with meanings, shapes, colors, and a free quiz. Free for all Florida teens.",
     url: "https://aceyourpermit.com/florida-road-signs-test",
-    siteName: "DriveMaster",
+    siteName: "Ace Your Permit",
     locale: "en_US",
     type: "website",
   },
@@ -454,7 +454,7 @@ export default function FloridaRoadSignsTestPage() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">DriveMaster</span>
+              <span className="text-xl font-bold text-gray-900 font-display">Ace Your Permit</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/login">
@@ -653,7 +653,7 @@ export default function FloridaRoadSignsTestPage() {
               Ready to ace the Florida road signs test?
             </h2>
             <p className="text-blue-100 text-lg mb-8 max-w-xl mx-auto">
-              DriveMaster&apos;s full visual quiz covers every Florida sign — with Dash explaining
+              Ace Your Permit&apos;s full visual quiz covers every Florida sign — with Dash explaining
               each wrong answer so you actually remember it on test day.
             </p>
             <Link href="/signup">
@@ -678,14 +678,14 @@ export default function FloridaRoadSignsTestPage() {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Car className="w-5 h-5 text-white" />
               </div>
-              <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+              <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
             </div>
             <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
               <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
               <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
             </div>
             <p className="text-center text-gray-500 text-sm">
-              &copy; 2026 DriveMaster. All rights reserved. Not affiliated with the Florida Highway
+              &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the Florida Highway
               Safety and Motor Vehicles (FLHSMV). Verify requirements at{" "}
               <a href="https://www.flhsmv.gov" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                 flhsmv.gov

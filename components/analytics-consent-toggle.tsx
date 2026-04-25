@@ -41,7 +41,7 @@ export function AnalyticsConsentToggle() {
           Share anonymous usage data
         </Label>
         <p className="text-sm text-muted-foreground">
-          Help us make DriveMaster better by sharing which screens work and
+          Help us make Ace Your Permit better by sharing which screens work and
           which don&apos;t.
         </p>
         <p className="text-xs text-muted-foreground">

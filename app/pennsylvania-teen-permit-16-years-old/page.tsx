@@ -31,17 +31,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "How to Get Your Pennsylvania Permit at 16 | DriveMaster",
+  title: "How to Get Your Pennsylvania Permit at 16 | Ace Your Permit",
   description:
     "Can you get your learner's permit at 16 in Pennsylvania? Yes — here's every PennDOT requirement, document (including Form DL-180), and GDL rule for teens. Updated 2026.",
   alternates: {
-    canonical: "https://getdrivemaster.com/pennsylvania-teen-permit-16-years-old",
+    canonical: "https://aceyourpermit.com/pennsylvania-teen-permit-16-years-old",
   },
   openGraph: {
-    title: "How to Get Your Pennsylvania Permit at 16 | DriveMaster",
+    title: "How to Get Your Pennsylvania Permit at 16 | Ace Your Permit",
     description:
       "Step-by-step guide to Pennsylvania teen permits. Minimum age 16, Form DL-180 parental consent, 65-hour driving log, curfew rules — all in one place.",
-    url: "https://getdrivemaster.com/pennsylvania-teen-permit-16-years-old",
+    url: "https://aceyourpermit.com/pennsylvania-teen-permit-16-years-old",
     type: "article",
   },
 };
@@ -131,8 +131,8 @@ const articleJsonLd = {
   headline: "How to Get Your Pennsylvania Permit at 16",
   description:
     "A complete guide to Pennsylvania GDL requirements for teens: minimum age 16, Form DL-180 parental consent, 65-hour supervised driving log, curfew rules, and zero-tolerance BAC.",
-  author: { "@type": "Organization", name: "DriveMaster" },
-  publisher: { "@type": "Organization", name: "DriveMaster", url: "https://getdrivemaster.com" },
+  author: { "@type": "Organization", name: "Ace Your Permit" },
+  publisher: { "@type": "Organization", name: "Ace Your Permit", url: "https://aceyourpermit.com" },
   dateModified: "2026-04-22",
 };
 
@@ -152,7 +152,7 @@ export default function PennsylvaniaTeenPermit16Page() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login"><Button variant="ghost" className="h-11">Sign In</Button></Link>
@@ -315,7 +315,7 @@ export default function PennsylvaniaTeenPermit16Page() {
                 step: 6,
                 title: "Pass the PennDOT written knowledge test",
                 detail:
-                  "18 questions drawn from the Pennsylvania Driver's Manual (PUB 95). You need 15 correct (83%) to pass. Practice here on DriveMaster before you go.",
+                  "18 questions drawn from the Pennsylvania Driver's Manual (PUB 95). You need 15 correct (83%) to pass. Practice here on Ace Your Permit before you go.",
               },
               {
                 step: 7,
@@ -492,7 +492,7 @@ export default function PennsylvaniaTeenPermit16Page() {
             Ready to ace the PennDOT written test?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            DriveMaster is built for Pennsylvania teens — gamified streaks, Dash coaching, and
+            Ace Your Permit is built for Pennsylvania teens — gamified streaks, Dash coaching, and
             practice questions based on the PA Driver&apos;s Manual (PUB 95). Free to start.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -504,7 +504,7 @@ export default function PennsylvaniaTeenPermit16Page() {
             </Link>
             <Link href="/">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-blue-600 text-lg px-8 h-12">
-                Learn More About DriveMaster
+                Learn More About Ace Your Permit
               </Button>
             </Link>
           </div>
@@ -518,14 +518,14 @@ export default function PennsylvaniaTeenPermit16Page() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
             <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
           </div>
           <p className="text-center text-gray-600 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with PennDOT or
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with PennDOT or
             the Commonwealth of Pennsylvania. Always verify requirements at{" "}
             <a href="https://www.dmv.pa.gov" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
               dmv.pa.gov

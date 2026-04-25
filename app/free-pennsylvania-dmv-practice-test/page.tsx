@@ -29,7 +29,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "Free Pennsylvania DMV Practice Test 2026 — No Signup | DriveMaster",
+  title: "Free Pennsylvania DMV Practice Test 2026 — No Signup | Ace Your Permit",
   description:
     "Free Pennsylvania PennDOT practice test online — no credit card, no trial, no ads. Study for the PA written knowledge test: 18 questions, pass with 15 correct (83%). Start in seconds.",
   keywords: [
@@ -42,13 +42,13 @@ export const metadata: Metadata = {
     "pa learners permit practice test",
   ],
   alternates: {
-    canonical: "https://getdrivemaster.com/free-pennsylvania-dmv-practice-test",
+    canonical: "https://aceyourpermit.com/free-pennsylvania-dmv-practice-test",
   },
   openGraph: {
     title: "Free Pennsylvania DMV Practice Test — No Signup Required",
     description:
       "Practice for the PennDOT written knowledge test. 18 questions, pass with 15 correct. Gamified streaks, Dash AI explanations. 100% free.",
-    url: "https://getdrivemaster.com/free-pennsylvania-dmv-practice-test",
+    url: "https://aceyourpermit.com/free-pennsylvania-dmv-practice-test",
     type: "website",
   },
   twitter: {
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    question: "Is DriveMaster really free for Pennsylvania drivers?",
+    question: "Is Ace Your Permit really free for Pennsylvania drivers?",
     answer:
       "Yes — completely free. All practice questions are available with no credit card, no free-trial countdown, and no paywalled content.",
   },
@@ -110,8 +110,8 @@ const faqJsonLd = {
 const webAppJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "DriveMaster — Free Pennsylvania DMV Practice Test",
-  url: "https://getdrivemaster.com",
+  name: "Ace Your Permit — Free Pennsylvania DMV Practice Test",
+  url: "https://aceyourpermit.com",
   applicationCategory: "EducationApplication",
   operatingSystem: "Any",
   offers: {
@@ -177,7 +177,7 @@ export default function FreePennsylvaniaDMVPracticeTestPage() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">DriveMaster</span>
+            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -288,7 +288,7 @@ export default function FreePennsylvaniaDMVPracticeTestPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-10 font-display tracking-tight">
-            What Makes DriveMaster Different
+            What Makes Ace Your Permit Different
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f) => (
@@ -375,14 +375,14 @@ export default function FreePennsylvaniaDMVPracticeTestPage() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">DriveMaster</span>
+            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
             <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
           </div>
           <p className="text-center text-gray-500 text-sm">
-            &copy; 2026 DriveMaster. All rights reserved. Not affiliated with PennDOT or
+            &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with PennDOT or
             the Commonwealth of Pennsylvania. Always verify requirements at{" "}
             <a href="https://www.dmv.pa.gov" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
               dmv.pa.gov
@@ -488,7 +488,7 @@ const features: Array<{
   },
   {
     title: "Installs Like an App",
-    desc: "DriveMaster is a PWA. Add it to your home screen from any browser — iOS or Android — and practice offline.",
+    desc: "Ace Your Permit is a PWA. Add it to your home screen from any browser — iOS or Android — and practice offline.",
     Icon: Smartphone,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",

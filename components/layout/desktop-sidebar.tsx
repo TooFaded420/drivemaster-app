@@ -153,7 +153,7 @@ export function DesktopSidebar({
             </div>
             {!collapsed && (
               <span className="font-bold text-xl whitespace-nowrap overflow-hidden">
-                DriveMaster
+                Ace Your Permit
               </span>
             )}
           </Link>

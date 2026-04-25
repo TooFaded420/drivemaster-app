@@ -53,7 +53,7 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
             size="xl"
             animate={true}
             showSpeechBubble={true}
-            speechTitle="Welcome to DriveMaster! 🎉"
+            speechTitle="Welcome to Ace Your Permit! 🎉"
             speechText="I'm Dash, your personal driving test coach! Together, we'll get you ready to ace your Illinois driving test. Ready to start?"
             speechPosition="bottom"
           />
@@ -68,7 +68,7 @@ export function StepWelcome({ onComplete }: StepWelcomeProps) {
             Let's Get You Road-Ready!
           </h1>
           <p className="text-lg text-muted-foreground mt-2 max-w-md mx-auto">
-            Join thousands of learners who've passed their driving test with DriveMaster
+            Join thousands of learners who've passed their driving test with Ace Your Permit
           </p>
         </motion.div>
       </div>

@@ -24,7 +24,7 @@ interface AnalyticsConsentContextValue {
   deny: () => void;
 }
 
-const STORAGE_KEY = "drivemaster:analytics-consent";
+const STORAGE_KEY = "aceyourpermit:analytics-consent";
 
 const AnalyticsConsentContext = createContext<AnalyticsConsentContextValue>({
   consent: "unknown",

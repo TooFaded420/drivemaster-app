@@ -1,6 +1,6 @@
 // App Configuration
-export const APP_NAME = "DriveMaster";
-export const APP_TAGLINE = "Master Your Illinois Driving Test";
+export const APP_NAME = "Ace Your Permit";
+export const APP_TAGLINE = "Ace Your Illinois Driving Test";
 
 // Test Types
 export const TEST_TYPES = {

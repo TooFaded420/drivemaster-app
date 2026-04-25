@@ -51,7 +51,7 @@ function ChallengeCreateInner() {
     if (navigator.share) {
       await navigator.share({
         title: "Can you beat my score?",
-        text: "I challenge you to beat my DriveMaster score!",
+        text: "I challenge you to beat my Ace Your Permit score!",
         url: challengeUrl,
       });
     } else {

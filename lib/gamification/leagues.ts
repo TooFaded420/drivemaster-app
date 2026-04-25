@@ -1,5 +1,5 @@
 /**
- * League System for DriveMaster
+ * League System for Ace Your Permit
  * Duolingo-style weekly competitions with promotion/demotion
  */
 

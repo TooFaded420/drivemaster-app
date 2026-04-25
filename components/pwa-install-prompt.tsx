@@ -118,7 +118,7 @@ export function PWAInstallPrompt({
                 )}
               </div>
               <div>
-                <CardTitle className="text-base">Install DriveMaster</CardTitle>
+                <CardTitle className="text-base">Install Ace Your Permit</CardTitle>
                 <CardDescription className="text-xs">
                   Get the best experience
                 </CardDescription>
@@ -156,12 +156,12 @@ export function PWAInstallPrompt({
               </>
             ) : isAndroid ? (
               <>
-                Install DriveMaster for offline access, faster loading, and a
+                Install Ace Your Permit for offline access, faster loading, and a
                 full-screen experience.
               </>
             ) : (
               <>
-                Install DriveMaster on your computer for quick access and
+                Install Ace Your Permit on your computer for quick access and
                 offline practice.
               </>
             )}

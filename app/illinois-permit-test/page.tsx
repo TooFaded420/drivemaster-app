@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, CheckCircle2, Clock, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_APP_URL ?? "https://drivemaster-app.vercel.app";
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://aceyourpermit.com";
 
 export const metadata: Metadata = {
   title: "Illinois Permit Test Practice 2026",
@@ -84,7 +84,7 @@ const faqItems = [
     question:
       "How many times can I take the Illinois permit test if I fail?",
     answer:
-      "There is no statewide limit on retakes, but you must pay the testing fee again each time. Some Secretary of State facilities may require a waiting period between attempts. Study with DriveMaster between attempts so you know exactly what to fix.",
+      "There is no statewide limit on retakes, but you must pay the testing fee again each time. Some Secretary of State facilities may require a waiting period between attempts. Study with Ace Your Permit between attempts so you know exactly what to fix.",
   },
   {
     question: "What do I need to bring to the DMV for my permit test?",
@@ -99,7 +99,7 @@ const faqItems = [
   {
     question: "How long does the Illinois permit test take?",
     answer:
-      "Most applicants finish in 20-30 minutes. The test is not timed, so you can work at your own pace. Taking timed practice tests on DriveMaster beforehand helps you get comfortable with the format.",
+      "Most applicants finish in 20-30 minutes. The test is not timed, so you can work at your own pace. Taking timed practice tests on Ace Your Permit beforehand helps you get comfortable with the format.",
   },
   {
     question:
@@ -132,7 +132,7 @@ const jsonLd = {
         "Free interactive practice for the Illinois Secretary of State written knowledge (permit) test. Covers all 9 official topic areas with 3,400+ questions, passing-score tracking, and AI-powered explanations.",
       provider: {
         "@type": "Organization",
-        name: "DriveMaster",
+        name: "Ace Your Permit",
         url: siteUrl,
       },
       educationalLevel: "High School",
@@ -163,7 +163,7 @@ export default function IllinoisPermitTestPage() {
                 <Car className="w-6 h-6 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900 font-display">
-                DriveMaster
+                Ace Your Permit
               </span>
             </Link>
             <Link href="/signup">
@@ -351,7 +351,7 @@ export default function IllinoisPermitTestPage() {
             </p>
             <p className="text-gray-700 leading-relaxed">
               Most first-time test takers who study with quality practice
-              questions pass on their first attempt. DriveMaster exists to
+              questions pass on their first attempt. Ace Your Permit exists to
               make that outcome the norm, not the exception.
             </p>
 
@@ -405,7 +405,7 @@ export default function IllinoisPermitTestPage() {
               </li>
             </ul>
             <p className="text-gray-700 leading-relaxed">
-              DriveMaster covers all nine areas with questions written to
+              Ace Your Permit covers all nine areas with questions written to
               match the difficulty and phrasing of the real test.
             </p>
 
@@ -428,7 +428,7 @@ export default function IllinoisPermitTestPage() {
               If you fail, you can retake the test (typically after paying the
               fee again). The SOS does not cap the number of retakes, but
               studying smarter between attempts is the real strategy. That is
-              what DriveMaster&apos;s adaptive practice mode is designed for —
+              what Ace Your Permit&apos;s adaptive practice mode is designed for —
               it spots your weak spots and drills them until they stick.
             </p>
 
@@ -453,13 +453,13 @@ export default function IllinoisPermitTestPage() {
               </li>
               <li>
                 <strong>Days 4-10:</strong> Do 50+ practice questions per day
-                on DriveMaster, category by category. Start with Traffic Signs
+                on Ace Your Permit, category by category. Start with Traffic Signs
                 (the easiest to learn visually), then Traffic Laws, then the
                 rest.
               </li>
               <li>
                 <strong>Days 11-13:</strong> Focus on your weak areas. Use
-                DriveMaster&apos;s category stats to see where your accuracy is
+                Ace Your Permit&apos;s category stats to see where your accuracy is
                 below 80% and drill those specifically.
               </li>
               <li>
@@ -540,17 +540,17 @@ export default function IllinoisPermitTestPage() {
             <p className="text-gray-700 leading-relaxed">
               These GDL rules are tested on the permit exam, so understanding
               them matters twice: once to pass the test, and again to stay legal
-              while you practice driving. DriveMaster includes a dedicated
+              while you practice driving. Ace Your Permit includes a dedicated
               Illinois-Specific Laws category that covers GDL in detail.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 font-display mt-10">
-              Why DriveMaster vs. Other Illinois Permit Test Prep Options
+              Why Ace Your Permit vs. Other Illinois Permit Test Prep Options
             </h2>
             <p className="text-gray-700 leading-relaxed">
               There are several permit test prep products on the market —
               Zutobi, Aceable, and the SOS&apos;s own practice questions among them.
-              Here is how DriveMaster is different:
+              Here is how Ace Your Permit is different:
             </p>
             <ul className="space-y-2 text-gray-700">
               <li>
@@ -580,7 +580,7 @@ export default function IllinoisPermitTestPage() {
             </ul>
             <p className="text-gray-700 leading-relaxed">
               If you are a teen in Illinois who wants to pass the permit test
-              without paying $30+ for a prep course, DriveMaster is the
+              without paying $30+ for a prep course, Ace Your Permit is the
               free alternative that actually works.
             </p>
           </section>
@@ -638,7 +638,7 @@ export default function IllinoisPermitTestPage() {
               Ready to pass? Start free practice.
             </h2>
             <p className="text-gray-600 mb-8 max-w-md mx-auto">
-              Join thousands of Illinois teens who used DriveMaster to pass
+              Join thousands of Illinois teens who used Ace Your Permit to pass
               their permit test on the first try. Free, no credit card needed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

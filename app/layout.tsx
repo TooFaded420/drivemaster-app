@@ -25,8 +25,8 @@ const jetbrainsMono = JetBrains_Mono({
 // Cabinet Grotesk loaded via CSS @import from Fontshare CDN (see globals.css)
 const inter = { variable: `${dmSans.variable} ${jetbrainsMono.variable}` };
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://drivemaster-app.vercel.app";
-const title = "DriveMaster - Illinois Driving Test Prep";
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://aceyourpermit.com";
+const title = "Ace Your Permit - Illinois Driving Test Prep";
 const description =
   "Free Illinois permit practice tests. 3,400+ questions across all official SOS topics. Gamified for teens.";
 
@@ -42,19 +42,19 @@ export const metadata: Metadata = {
     "drivers ed illinois",
     "permit test 2026",
   ],
-  authors: [{ name: "DriveMaster" }],
+  authors: [{ name: "Ace Your Permit" }],
   alternates: { canonical: "/" },
   openGraph: {
     title,
     description,
     url: siteUrl,
-    siteName: "DriveMaster",
+    siteName: "Ace Your Permit",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "DriveMaster - Illinois driving test prep",
+        alt: "Ace Your Permit - Illinois driving test prep",
       },
     ],
     locale: "en_US",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "DriveMaster",
+    title: "Ace Your Permit",
   },
   icons: {
     icon: [
@@ -114,10 +114,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <meta name="application-name" content="DriveMaster" />
+        <meta name="application-name" content="Ace Your Permit" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="DriveMaster" />
+        <meta name="apple-mobile-web-app-title" content="Ace Your Permit" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-config" content="/browserconfig.xml" />

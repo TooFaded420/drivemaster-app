@@ -1,5 +1,5 @@
 /**
- * Multi-state registry for DriveMaster / aceyourpermit.com.
+ * Multi-state registry for Ace Your Permit / aceyourpermit.com.
  *
  * v1 launched with Illinois only. This registry adds CA, FL, NY, PA, TX
  * metadata and SEO landing-page routing. Question banks for non-IL states
