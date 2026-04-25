@@ -72,25 +72,39 @@ export async function GET(request: NextRequest) {
         break;
         
       case 'random':
-      default:
+      default: {
         // Get random questions with optional filters
         let pool = getRandomQuestions(1000); // Get large pool first
-        
+
         if (category) {
           pool = pool.filter(q => q.category_id === category);
         }
-        
+
         if (difficulty) {
           pool = pool.filter(q => q.difficulty === difficulty);
         }
-        
+
         if (exclude.length > 0) {
           pool = pool.filter(q => !exclude.includes(q.id));
         }
-        
-        // Shuffle and limit
-        questions = pool.sort(() => Math.random() - 0.5).slice(0, count);
+
+        // Dedupe by id in case the source bank has duplicate entries
+        const seen = new Set<string>();
+        pool = pool.filter(q => {
+          if (seen.has(q.id)) return false;
+          seen.add(q.id);
+          return true;
+        });
+
+        // Fisher-Yates shuffle to guarantee no repeats within the response
+        for (let i = pool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [pool[i], pool[j]] = [pool[j], pool[i]];
+        }
+
+        questions = pool.slice(0, count);
         break;
+      }
     }
     
     return NextResponse.json({
