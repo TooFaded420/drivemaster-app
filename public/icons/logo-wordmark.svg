@@ -1,7 +1,7 @@
-<!-- TODO(rebrand): This wordmark SVG still says "DriveMaster". It needs to be regenerated
-     with the new "Ace Your Permit" brand name once a final logo is selected.
-     Tracked in PR feat/rebrand-ace-your-permit. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" role="img" aria-label="Ace Your Permit">
+<!-- Wordmark: "Ace Your Permit". Final logo concept TBD (Higgsfield exploration in progress).
+     Speedometer logomark + 2-tone wordmark: "Ace Your" in brand blue, "Permit" in slate-900,
+     orange accent line under "Permit" echoing the needle. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 80" role="img" aria-label="Ace Your Permit">
   <defs>
     <linearGradient id="bgMark" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#2563EB"/>
@@ -52,11 +52,7 @@
        For true path-only wordmark we hand-draw key letterforms below.
   -->
 
-  <!-- "Drive" in primary blue text (rendered as path-approximation via text for correctness) -->
-  <!-- We use text elements with explicit font-family. In the app context Cabinet Grotesk
-       is already loaded. The SVG is served from /public so the font IS available. -->
-
-  <!-- "DRIVE" portion — blue-grey for slight contrast, then "MASTER" in dark -->
+  <!-- "Ace Your" in primary blue, "Permit" in slate-900. Cabinet Grotesk 800 -->
   <text
     x="80" y="58"
     font-family="'Cabinet Grotesk', 'Arial Black', Arial, sans-serif"
@@ -65,19 +61,19 @@
     letter-spacing="-1"
     fill="#2563EB"
     dominant-baseline="auto"
-  >Drive</text>
+  >Ace Your</text>
 
   <text
-    x="192" y="58"
+    x="278" y="58"
     font-family="'Cabinet Grotesk', 'Arial Black', Arial, sans-serif"
     font-weight="800"
     font-size="40"
     letter-spacing="-1"
     fill="#0F172A"
     dominant-baseline="auto"
-  >Master</text>
+  >Permit</text>
 
-  <!-- Orange needle-speed underline accent under "Master" -->
-  <rect x="192" y="64" width="4" height="4" rx="2" fill="#F97316"/>
-  <rect x="200" y="65" width="60" height="3" rx="1.5" fill="#F97316" opacity="0.4"/>
+  <!-- Orange needle-speed underline accent under "Permit" -->
+  <rect x="278" y="64" width="4" height="4" rx="2" fill="#F97316"/>
+  <rect x="286" y="65" width="60" height="3" rx="1.5" fill="#F97316" opacity="0.4"/>
 </svg>
