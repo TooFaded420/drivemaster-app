@@ -71,7 +71,6 @@ export default function Home() {
               alt="Ace Your Permit"
               width={200}
               height={48}
-              style={{ width: "auto", height: "auto" }}
               priority
             />
           </div>
@@ -491,7 +490,6 @@ export default function Home() {
               alt="Ace Your Permit"
               width={160}
               height={38}
-              style={{ width: "auto", height: "auto" }}
             />
           </div>
           <div className="flex items-center justify-center gap-4 mb-4 text-sm text-slate-500">

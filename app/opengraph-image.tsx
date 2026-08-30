@@ -73,20 +73,9 @@ export default async function Image(): Promise<ImageResponse> {
               </linearGradient>
             </defs>
             <rect width="120" height="120" rx="24" fill="url(#bgM)" />
-            {/* Wheel rim: centre 60,79  radius 39 */}
-            <circle cx="60" cy="79" r="39" fill="none" stroke="#0F172A" strokeWidth="4" />
-            <path d="M 41 100 Q 41 88 51 88 Q 41 88 41 100 Z" fill="none" stroke="#0F172A" strokeWidth="2.6" strokeLinejoin="round" />
-            <path d="M 79 100 Q 79 88 69 88 Q 79 88 79 100 Z" fill="none" stroke="#0F172A" strokeWidth="2.6" strokeLinejoin="round" />
-            {/* Dial face */}
-            <circle cx="60" cy="79" r="32" fill="#F8FAFC" />
-            {/* Top tick */}
-            <line x1="60" y1="49" x2="60" y2="43" stroke="#0F172A" strokeWidth="3" strokeLinecap="round" />
-            {/* Orange needle sweeping up-right, arrow tip */}
-            <line x1="45" y1="93" x2="80" y2="57" stroke="#F97316" strokeWidth="5.5" strokeLinecap="round" />
-            <path d="M 80 57 L 92 45 L 84 63 Z" fill="#F97316" />
-            {/* Pivot hub */}
-            <circle cx="60" cy="79" r="5.5" fill="#F97316" />
-            <circle cx="60" cy="79" r="2.8" fill="#EA580C" />
+            {/* Bold checkmark — matches icon.svg, scaled to this 120x120 mark */}
+            <path d="M 33 65.5 L 53.5 86 L 90 55.3" fill="none" stroke="#FFFFFF" strokeWidth="13.6" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="90" cy="55.3" r="7.5" fill="#F97316" />
           </svg>
 
           {/* Wordmark */}

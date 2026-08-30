@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -75,6 +76,14 @@ export default function SignupPage() {
     return (
       <div className="force-light-theme min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
         <div className="w-full max-w-md">
+          <Link href="/" className="flex justify-center mb-4">
+            <Image
+              src="/icons/logo-wordmark.svg"
+              alt="Ace Your Permit"
+              width={180}
+              height={28}
+            />
+          </Link>
           <div className="flex justify-center mb-4">
             <Dash emotion="happy" size="md" animate={true} />
           </div>
@@ -114,6 +123,15 @@ export default function SignupPage() {
   return (
     <div className="force-light-theme min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4">
       <div className="w-full max-w-md">
+        <Link href="/" className="flex justify-center mb-4">
+          <Image
+            src="/icons/logo-wordmark.svg"
+            alt="Ace Your Permit"
+            width={180}
+            height={28}
+            priority
+          />
+        </Link>
         <div className="flex justify-center mb-4">
           <Dash
             emotion="excited"

@@ -1,7 +1,6 @@
 <p align="center">
   <img src="public/images/readme-banner.png" alt="Ace Your Permit" width="100%" />
 </p>
-
 <h1 align="center">Ace Your Permit</h1>
 
 <p align="center"><strong>Pass your driving test. Have fun doing it.</strong></p>

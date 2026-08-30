@@ -1,6 +1,6 @@
-<!-- Wordmark: "Ace Your Permit". Steering-wheel speedometer logomark + 2-tone wordmark.
+<!-- Wordmark: "Ace Your Permit". Bold checkmark logomark + 2-tone wordmark.
      "Ace Your" in brand blue, "Permit" in slate-900, orange accent under. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 80" role="img" aria-label="Ace Your Permit">
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="80" viewBox="0 0 520 80" role="img" aria-label="Ace Your Permit">
   <defs>
     <linearGradient id="bgMark" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#3B82F6"/>
@@ -8,31 +8,11 @@
     </linearGradient>
   </defs>
 
-  <!-- ── LOGOMARK (64×64 squircle, steering-wheel speedometer) ── -->
+  <!-- ── LOGOMARK (64×64 squircle, bold checkmark — matches icon.svg) ── -->
   <rect x="0" y="8" width="64" height="64" rx="14" fill="url(#bgMark)"/>
 
-  <!-- Wheel rim -->
-  <circle cx="32" cy="42" r="21" fill="none" stroke="#0F172A" stroke-width="2"/>
-
-  <!-- Wheel spokes -->
-  <path d="M 21 55 Q 21 46 27 46 Q 21 46 21 55 Z" fill="none" stroke="#0F172A" stroke-width="1.4" stroke-linejoin="round"/>
-  <path d="M 43 55 Q 43 46 37 46 Q 43 46 43 55 Z" fill="none" stroke="#0F172A" stroke-width="1.4" stroke-linejoin="round"/>
-
-  <!-- Dial face -->
-  <circle cx="32" cy="42" r="17" fill="#F8FAFC"/>
-
-  <!-- Tick at top -->
-  <line x1="32" y1="27" x2="32" y2="23" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round"/>
-
-  <!-- Orange needle sweeping up-right with arrow tip -->
-  <line x1="24" y1="50" x2="43" y2="30" stroke="#F97316" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 43 30 L 49 24 L 45 33 Z" fill="#F97316"/>
-
-  <!-- Pivot hub -->
-  <circle cx="32" cy="42" r="3" fill="#F97316"/>
-
-  <!-- Orange accent dot at bottom-right of logomark -->
-  <circle cx="51" cy="62" r="4" fill="#F97316"/>
+  <path d="M 17.5 41.75 L 28.5 52.75 L 48 29.5" fill="none" stroke="#FFFFFF" stroke-width="7.25" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="29.5" r="4" fill="#F97316"/>
 
   <!-- ── WORDMARK: "DriveMaster" as geometric sans paths ──
        Each glyph is hand-constructed with rounded strokes/terminals approximating
