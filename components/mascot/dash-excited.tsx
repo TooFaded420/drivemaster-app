@@ -31,7 +31,7 @@ export function DashExcited({ className, size = "md", animate = true }: DashExci
     ? { scaleX: [1, 0.82, 1], opacity: [0.18, 0.09, 0.18] }
     : {};
 
-  const sparkleProps = (delay: number, cx: number, cy: number) => ({
+  const sparkleProps = (delay: number) => ({
     initial: { scale: 0, opacity: 0 },
     animate: animate && !shouldReduceMotion
       ? { scale: [0, 1.2, 0], opacity: [0, 1, 0] }
@@ -63,23 +63,23 @@ export function DashExcited({ className, size = "md", animate = true }: DashExci
 
       {/* Sparkles — only sparkle elements animate, not full body */}
       {/* Star 1 — top left */}
-      <motion.g {...sparkleProps(0, 22, 30)}>
+      <motion.g {...sparkleProps(0)}>
         <path d="M22 22 L24 28 L30 30 L24 32 L22 38 L20 32 L14 30 L20 28 Z" fill="#FBBF24" />
       </motion.g>
       {/* Star 2 — top right */}
-      <motion.g {...sparkleProps(0.35, 178, 28)}>
+      <motion.g {...sparkleProps(0.35)}>
         <path d="M178 20 L180 26 L186 28 L180 30 L178 36 L176 30 L170 28 L176 26 Z" fill="#F97316" />
       </motion.g>
       {/* Star 3 — mid left */}
-      <motion.g {...sparkleProps(0.7, 14, 88)}>
+      <motion.g {...sparkleProps(0.7)}>
         <path d="M14 82 L16 87 L21 89 L16 91 L14 96 L12 91 L7 89 L12 87 Z" fill="#FCD34D" />
       </motion.g>
       {/* Star 4 — mid right */}
-      <motion.g {...sparkleProps(0.95, 186, 85)}>
+      <motion.g {...sparkleProps(0.95)}>
         <path d="M186 79 L188 84 L193 86 L188 88 L186 93 L184 88 L179 86 L184 84 Z" fill="#FBBF24" />
       </motion.g>
       {/* Star 5 — top center */}
-      <motion.g {...sparkleProps(0.5, 100, 12)}>
+      <motion.g {...sparkleProps(0.5)}>
         <path d="M100 8 L102 13 L107 15 L102 17 L100 22 L98 17 L93 15 L98 13 Z" fill="#F97316" />
       </motion.g>
 

@@ -183,7 +183,7 @@ export default function RulesOfTheRoadPage() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">Ace Your Permit</span>
+              <span className="text-xl font-bold text-slate-900 font-display">Ace Your Permit</span>
             </Link>
             <div className="flex items-center gap-4">
               <Link href="/login">
@@ -203,11 +203,11 @@ export default function RulesOfTheRoadPage() {
               <BookOpen className="w-4 h-4" />
               Illinois SOS Handbook — 2026 Edition
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight font-display tracking-tight">
               Illinois Rules of the Road —{" "}
               <span className="text-blue-600">2026 Handbook Summary</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
               Free chapter-by-chapter summary of the official Illinois Secretary of State handbook.
               3,400+ practice questions tied to each section. Pass the permit test 3x faster
               than reading the PDF. 📘
@@ -240,15 +240,15 @@ export default function RulesOfTheRoadPage() {
           <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div>
               <div className="text-3xl font-bold text-blue-600 font-display tracking-tight">7 Chapters</div>
-              <div className="text-gray-600 text-sm mt-1">Every section of the official handbook</div>
+              <div className="text-slate-600 text-sm mt-1">Every section of the official handbook</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-orange-500 font-display tracking-tight">3,400+ Questions</div>
-              <div className="text-gray-600 text-sm mt-1">Mapped to each handbook topic</div>
+              <div className="text-slate-600 text-sm mt-1">Mapped to each handbook topic</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 font-display tracking-tight">100% Free</div>
-              <div className="text-gray-600 text-sm mt-1">No credit card, no paywall</div>
+              <div className="text-3xl font-bold text-emerald-600 font-display tracking-tight">100% Free</div>
+              <div className="text-slate-600 text-sm mt-1">No credit card, no paywall</div>
             </div>
           </div>
         </section>
@@ -257,156 +257,156 @@ export default function RulesOfTheRoadPage() {
         <article className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto prose prose-gray prose-lg">
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mt-0">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mt-0">
               Chapter 1: Driver Licensing
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Before you ever start an engine, Illinois requires you to hold the right credential
               for your age. Teens aged 15 with an approved driver&apos;s education enrollment can apply
               for an Instruction Permit. Without driver&apos;s ed, the minimum age rises to 17 years and
               3 months. The permit lets you practice with a licensed driver (age 21+) in the front
               seat at all times.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Illinois runs a Graduated Driver Licensing (GDL) program with three stages: Instruction
               Permit, Graduated License (Probationary), and a full Graduated License. Each stage has
               passenger restrictions and nighttime driving limits designed to build experience before
               solo driving. Violating GDL restrictions can delay your full license or result in suspension.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               The written knowledge test — the one Ace Your Permit preps you for — covers road signs,
               traffic laws, and safe driving practices. You must answer at least 28 of 35 questions
               correctly (80%) to pass. You can retake the test, but a fresh study session before each
               attempt is your fastest route to a passing score.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mt-10">
               Chapter 2: Traffic Laws
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Traffic laws form the backbone of the permit test. Right-of-way rules are the most
               heavily tested topic: at a four-way stop, the first vehicle to arrive goes first; if two
               arrive simultaneously, yield to the vehicle on the right. At T-intersections, drivers on
               the terminating road yield to through traffic. When turning left, you always yield to
               oncoming traffic and pedestrians in the crosswalk.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Speed limits in Illinois default to 30 mph in urban areas and 65 mph on most rural
               interstates — but posted limits always override. School zones drop to 20 mph when children
               are present. The &quot;Basic Speed Rule&quot; means you can be cited for driving too fast for
               conditions even if you&apos;re under the posted limit during rain, fog, or construction.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Cell phone laws are strict for new drivers: teens under 19 may not use a handheld device
               at all while driving — not even at a red light. Any use is a moving violation. Hands-free
               is required, and even that is discouraged under Illinois GDL rules.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mt-10">
               Chapter 3: Traffic Signs & Signals
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Illinois recognizes three main sign families: regulatory (red/white, must obey), warning
               (yellow/diamond, slow down and be alert), and guide/informational (green/blue, direction
               and services). The permit test includes photo-based sign identification — you need to
               recognize shapes and colors even without reading the text.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Traffic signal rules catch a lot of new drivers: a yellow light means prepare to stop, not
               speed up. A flashing red is treated as a stop sign; a flashing yellow means proceed with
               caution. A green arrow means you have a protected turn — oncoming traffic is stopped.
               Always check for pedestrians before completing any turn.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Pavement markings matter just as much as signs. A solid yellow center line means no
               passing. A broken yellow line means passing is allowed when safe. White lines separate
               traffic moving in the same direction. Crosswalk lines and stop bars tell you exactly where
               to stop at intersections.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mt-10">
               Chapter 4: Sharing the Road
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Sharing the road is one of the most tested chapters because modern roads involve far more
               than just cars. Illinois requires at least 3 feet of clearance when passing a bicyclist.
               Cyclists can legally take the full lane when the lane is too narrow to share. At crosswalks,
               you must yield to pedestrians in your half of the road — or approaching closely enough to
               be at risk.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Emergency vehicles (lights/sirens active) require you to pull to the right and stop until
               they pass. Scott&apos;s Law — Illinois&apos;s &quot;Move Over&quot; law — additionally requires drivers to
               slow down and change lanes away from emergency and maintenance vehicles stopped on the
               roadside. Violating Scott&apos;s Law carries heavy fines and potential license suspension.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Large trucks have massive blind spots: front 20 feet, rear 30 feet, and both sides. If you
               can&apos;t see the truck&apos;s mirrors, the driver can&apos;t see you. Never cut in front of a truck
               suddenly, and give extra following distance — a fully loaded semi needs nearly twice the
               stopping distance of a passenger car.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mt-10">
               Chapter 5: Vehicle Operation & Safe Driving Tips
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Defensive driving is the core concept Illinois tests in this chapter. The 3-second following
               distance rule (2–4 seconds in good conditions, double in rain or bad weather) gives you
               space to react before a crash. Always scan ahead at least 12 seconds and check mirrors
               every 5–8 seconds to maintain situational awareness.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Blind-spot checks — physically turning your head before lane changes — are required
               technique, not optional. Mirrors alone miss a zone beside and slightly behind your vehicle.
               When merging onto a highway from an entrance ramp, yield to traffic already on the
               highway and match highway speeds before merging.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Adverse weather demands adjusted technique. In rain or snow, reduce speed, increase
               following distance, and avoid hard braking. If you hydroplane, ease off the gas and
               steer straight until traction returns — do not brake sharply. In fog, use low-beam
               headlights: high beams reflect off fog and reduce your visibility further.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mt-10">
               Chapter 6: Crashes, DUI & Implied Consent
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Illinois&apos;s DUI laws are among the toughest in the nation for new drivers. The standard
               Blood Alcohol Concentration (BAC) limit is 0.08% for drivers 21+. For drivers under 21,
               Illinois enforces a Zero Tolerance law: any measurable BAC (0.00%) results in an automatic
               license suspension. A first DUI conviction brings a minimum one-year license revocation.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Implied Consent means that by driving on Illinois roads, you automatically agree to
               chemical testing (breath, blood, or urine) if law enforcement suspects impairment. Refusing
               the test triggers an automatic Statutory Summary Suspension — longer than if you had taken
               and failed the test. There is no winning by refusing.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               After a crash, Illinois law requires you to stop immediately, render reasonable aid, and
               exchange information (name, address, license plate, insurance) with all involved parties.
               Crashes involving injury, death, or property damage over $1,500 must be reported to law
               enforcement. Leaving the scene is a felony.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mt-10">
               Chapter 7: Vehicle Equipment Requirements
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Illinois mandates specific equipment on every vehicle operated on public roads. Headlights
               must be on from sunset to sunrise and any time visibility drops below 1,000 feet — fog,
               rain, and snow all qualify. High beams must be dimmed within 500 feet of an oncoming
               vehicle or 300 feet when following another car.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Seat belts are required for all occupants. Children under age 8 must be in an approved
               child safety seat or booster seat. Teen drivers are personally responsible for ensuring all
               passengers under 19 are buckled — a violation is a separate citation from the driver
               responsibility law.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Tire tread must be at least 2/32 of an inch deep. Worn tires dramatically reduce
               stopping distances on wet roads. Turn signals are required when turning, changing lanes,
               or pulling away from the curb — even when no other traffic appears to be present. Brake
@@ -419,10 +419,10 @@ export default function RulesOfTheRoadPage() {
         {/* Sample Questions */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mb-2 text-center">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mb-2 text-center">
               Sample Practice Questions
             </h2>
-            <p className="text-gray-600 text-center mb-10">
+            <p className="text-slate-600 text-center mb-10">
               These are real questions from Ace Your Permit&apos;s bank — drawn directly from the Illinois
               handbook chapters above. Click &quot;Show Answer&quot; to check yourself.
             </p>
@@ -430,22 +430,22 @@ export default function RulesOfTheRoadPage() {
               {sampleQuestions.map((q, idx) => (
                 <div
                   key={q.id}
-                  className="border border-gray-200 rounded-2xl p-6 shadow-sm"
+                  className="border border-slate-200 rounded-2xl p-6 shadow-sm"
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-xs font-medium px-3 py-1 rounded-full bg-blue-100 text-blue-700">
                       {q.category}
                     </span>
-                    <span className="text-xs text-gray-400">Q{idx + 1}</span>
+                    <span className="text-xs text-slate-400">Q{idx + 1}</span>
                   </div>
-                  <p className="font-semibold text-gray-900 mb-4">{q.question}</p>
+                  <p className="font-semibold text-slate-900 mb-4">{q.question}</p>
                   <ol className="space-y-2 mb-4">
                     {q.options.map((opt, i) => (
                       <li
                         key={i}
-                        className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-50 text-gray-700 text-sm"
+                        className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-50 text-slate-700 text-sm"
                       >
-                        <span className="w-6 h-6 rounded-full bg-gray-200 text-gray-600 text-xs flex items-center justify-center font-mono shrink-0">
+                        <span className="w-6 h-6 rounded-full bg-slate-200 text-slate-600 text-xs flex items-center justify-center font-mono shrink-0">
                           {String.fromCharCode(65 + i)}
                         </span>
                         {opt}
@@ -457,14 +457,14 @@ export default function RulesOfTheRoadPage() {
                       <ChevronDown className="w-4 h-4 group-open:rotate-180 transition-transform" />
                       Show Answer
                     </summary>
-                    <div className="mt-4 p-4 rounded-xl bg-green-50 border border-green-200">
+                    <div className="mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200">
                       <div className="flex items-center gap-2 mb-2">
-                        <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
-                        <span className="font-semibold text-green-800">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                        <span className="font-semibold text-emerald-800">
                           Answer: {q.options[q.correct]}
                         </span>
                       </div>
-                      <p className="text-green-700 text-sm">{q.explanation}</p>
+                      <p className="text-emerald-700 text-sm">{q.explanation}</p>
                     </div>
                   </details>
                 </div>
@@ -485,25 +485,25 @@ export default function RulesOfTheRoadPage() {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 font-display tracking-tight mb-2 text-center">
+            <h2 className="text-2xl font-bold text-slate-900 font-display tracking-tight mb-2 text-center">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600 text-center mb-10">
+            <p className="text-slate-600 text-center mb-10">
               Everything you wanted to know about the Illinois Rules of the Road handbook.
             </p>
             <div className="space-y-4">
               {faqItems.map((item) => (
                 <details
                   key={item.question}
-                  className="group bg-white border border-gray-200 rounded-2xl"
+                  className="group bg-white border border-slate-200 rounded-2xl"
                 >
                   <summary className="flex items-center justify-between p-6 cursor-pointer list-none select-none">
-                    <span className="font-semibold text-gray-900 pr-4">{item.question}</span>
-                    <ChevronDown className="w-5 h-5 text-gray-400 shrink-0 group-open:rotate-180 transition-transform" />
+                    <span className="font-semibold text-slate-900 pr-4">{item.question}</span>
+                    <ChevronDown className="w-5 h-5 text-slate-400 shrink-0 group-open:rotate-180 transition-transform" />
                   </summary>
-                  <div className="px-6 pb-6 text-gray-700 leading-relaxed">{item.answer}</div>
+                  <div className="px-6 pb-6 text-slate-700 leading-relaxed">{item.answer}</div>
                 </details>
               ))}
             </div>
@@ -549,18 +549,18 @@ export default function RulesOfTheRoadPage() {
 
         {/* Footer */}
         <footer className="py-8 px-4 bg-white border-t">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Car className="w-4 h-4 text-white" />
               </div>
-              <span className="font-semibold text-gray-900 font-display">Ace Your Permit</span>
+              <span className="font-semibold text-slate-900 font-display">Ace Your Permit</span>
             </div>
             <nav className="flex items-center gap-6">
-              <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
-              <Link href="/quiz" className="hover:text-gray-900 transition-colors">Practice</Link>
-              <Link href="/privacy" className="hover:text-gray-900 transition-colors">Privacy</Link>
-              <Link href="/signup" className="hover:text-gray-900 transition-colors">Sign Up</Link>
+              <Link href="/" className="hover:text-slate-900 transition-colors">Home</Link>
+              <Link href="/quiz" className="hover:text-slate-900 transition-colors">Practice</Link>
+              <Link href="/privacy" className="hover:text-slate-900 transition-colors">Privacy</Link>
+              <Link href="/signup" className="hover:text-slate-900 transition-colors">Sign Up</Link>
             </nav>
             <p>&copy; {new Date().getFullYear()} Ace Your Permit. Not affiliated with Illinois SOS.</p>
           </div>

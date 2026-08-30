@@ -163,7 +163,7 @@ export default function CaliforniaTeenPermit15Page() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
+            <span className="text-xl font-bold text-slate-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -184,11 +184,11 @@ export default function CaliforniaTeenPermit15Page() {
             California Graduated Driver Licensing (GDL) — 2026 Guide
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-5 font-display tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5 font-display tracking-tight leading-tight">
             How to Get Your California Permit at 15
           </h1>
 
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl leading-relaxed">
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl leading-relaxed">
             Short answer: you can get your provisional instruction permit at 15 and a half (15.5) in California —
             but you need to complete 30 hours of driver education first. Here&apos;s everything you
             need to know, from the docs you bring to the DMV to the 50-hour practice log you fill out
@@ -212,7 +212,7 @@ export default function CaliforniaTeenPermit15Page() {
       </header>
 
       {/* Quick-stat bar */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-100">
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-100">
         <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
           {[
             { label: "Minimum permit age", value: "15.5", sub: "15 yrs + 6 months" },
@@ -224,8 +224,8 @@ export default function CaliforniaTeenPermit15Page() {
               <div className="text-3xl font-bold text-blue-600 font-display tracking-tight mb-0.5">
                 {value}
               </div>
-              <div className="text-sm font-semibold text-gray-800">{label}</div>
-              <div className="text-xs text-gray-500 mt-0.5">{sub}</div>
+              <div className="text-sm font-semibold text-slate-800">{label}</div>
+              <div className="text-xs text-slate-500 mt-0.5">{sub}</div>
             </div>
           ))}
         </div>
@@ -234,7 +234,7 @@ export default function CaliforniaTeenPermit15Page() {
       {/* Age eligibility */}
       <section className="py-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 font-display tracking-tight">
+          <h2 className="text-3xl font-bold text-slate-900 mb-6 font-display tracking-tight">
             How old do you have to be to get a permit in California?
           </h2>
 
@@ -248,23 +248,23 @@ export default function CaliforniaTeenPermit15Page() {
               </CardHeader>
               <CardContent>
                 <p className="text-4xl font-bold text-blue-600 font-display mb-2">15.5</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   As soon as you turn 15 years and 6 months old and complete 30 hours of driver
                   education, you can apply for your provisional instruction permit at a California DMV office.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 shadow-sm">
+            <Card className="border border-slate-200 shadow-sm">
               <CardHeader className="pb-2">
-                <CardTitle className="text-gray-600 font-display text-lg flex items-center gap-2">
+                <CardTitle className="text-slate-600 font-display text-lg flex items-center gap-2">
                   <Clock className="w-5 h-5" />
                   Without completing driver&apos;s ed first
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-4xl font-bold text-gray-500 font-display mb-2">17.5</p>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-4xl font-bold text-slate-500 font-display mb-2">17.5</p>
+                <p className="text-slate-500 text-sm leading-relaxed">
                   If you skip driver&apos;s ed, you must wait until you are 17 years and 6 months.
                   That&apos;s two extra years of waiting. Driver&apos;s ed is worth it.
                 </p>
@@ -291,11 +291,11 @@ export default function CaliforniaTeenPermit15Page() {
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-3">
             <ClipboardList className="w-8 h-8 text-blue-600" />
-            <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight">
               California Teen Permit Checklist
             </h2>
           </div>
-          <p className="text-gray-600 mb-8">
+          <p className="text-slate-600 mb-8">
             Everything you need before and on the day of your CA DMV permit visit.
           </p>
 
@@ -364,7 +364,7 @@ export default function CaliforniaTeenPermit15Page() {
             ].map(({ step, title, detail }) => (
               <li
                 key={step}
-                className="flex gap-4 bg-white rounded-xl border border-gray-200 shadow-sm px-5 py-4"
+                className="flex gap-4 bg-white rounded-xl border border-slate-200 shadow-sm px-5 py-4"
               >
                 <label className="flex items-start gap-4 w-full cursor-default">
                   <span className="mt-0.5 flex-shrink-0">
@@ -376,10 +376,10 @@ export default function CaliforniaTeenPermit15Page() {
                     />
                   </span>
                   <span className="flex-1">
-                    <span className="font-semibold text-gray-900 text-base block mb-1">
+                    <span className="font-semibold text-slate-900 text-base block mb-1">
                       {step}. {title}
                     </span>
-                    <span className="text-gray-600 text-sm leading-relaxed">{detail}</span>
+                    <span className="text-slate-600 text-sm leading-relaxed">{detail}</span>
                   </span>
                 </label>
               </li>
@@ -391,52 +391,52 @@ export default function CaliforniaTeenPermit15Page() {
       {/* GDL rules */}
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             California teen driver rules — permit through license
           </h2>
-          <p className="text-gray-600 mb-10">
+          <p className="text-slate-600 mb-10">
             Getting the permit is step one. Here is the full California GDL roadmap.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            <Card className="border border-gray-200 shadow-sm">
+            <Card className="border border-slate-200 shadow-sm">
               <CardHeader className="pb-3">
-                <CardTitle className="font-display text-lg flex items-center gap-2 text-gray-900">
+                <CardTitle className="font-display text-lg flex items-center gap-2 text-slate-900">
                   <Clock className="w-5 h-5 text-blue-600" />
                   While you have your permit
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-sm text-gray-700">
+                <ul className="space-y-3 text-sm text-slate-700">
                   <li className="flex gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                     <span>A licensed driver aged 25+ must be in the front passenger seat at all times</span>
                   </li>
                   <li className="flex gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                     <span>Log all 50 supervised hours — 10 must be at night</span>
                   </li>
                   <li className="flex gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                     <span>Complete 6 hours of behind-the-wheel training with a licensed instructor</span>
                   </li>
                   <li className="flex gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                     <span>Hold the permit for at least 6 months before your behind-the-wheel test</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 shadow-sm">
+            <Card className="border border-slate-200 shadow-sm">
               <CardHeader className="pb-3">
-                <CardTitle className="font-display text-lg flex items-center gap-2 text-gray-900">
+                <CardTitle className="font-display text-lg flex items-center gap-2 text-slate-900">
                   <Users className="w-5 h-5 text-orange-500" />
                   After you get your provisional license (under 18)
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 text-sm text-gray-700">
+                <ul className="space-y-3 text-sm text-slate-700">
                   <li className="flex gap-2">
                     <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
                     <span>
@@ -471,10 +471,10 @@ export default function CaliforniaTeenPermit15Page() {
       {/* Sample practice questions */}
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             Practice questions — California GDL edition
           </h2>
-          <p className="text-gray-600 mb-8">
+          <p className="text-slate-600 mb-8">
             These are real-format questions from the California DMV knowledge test. Know them cold before you walk in.
           </p>
 
@@ -482,10 +482,10 @@ export default function CaliforniaTeenPermit15Page() {
             {sampleQuestions.map((q, qi) => (
               <div
                 key={q.id}
-                className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden"
+                className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden"
               >
-                <div className="px-6 py-4 border-b border-gray-100 bg-gray-50">
-                  <p className="font-semibold text-gray-900 text-base">
+                <div className="px-6 py-4 border-b border-slate-100 bg-slate-50">
+                  <p className="font-semibold text-slate-900 text-base">
                     Q{qi + 1}. {q.question}
                   </p>
                 </div>
@@ -495,15 +495,15 @@ export default function CaliforniaTeenPermit15Page() {
                       key={oi}
                       className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm border ${
                         oi === q.correctIndex
-                          ? "bg-green-50 border-green-300 text-green-800 font-semibold"
-                          : "bg-gray-50 border-gray-200 text-gray-600"
+                          ? "bg-emerald-50 border-emerald-300 text-emerald-800 font-semibold"
+                          : "bg-slate-50 border-slate-200 text-slate-600"
                       }`}
                     >
                       <span
                         className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
                           oi === q.correctIndex
-                            ? "bg-green-500 text-white"
-                            : "bg-gray-300 text-gray-600"
+                            ? "bg-emerald-500 text-white"
+                            : "bg-slate-300 text-slate-600"
                         }`}
                       >
                         {String.fromCharCode(65 + oi)}
@@ -513,7 +513,7 @@ export default function CaliforniaTeenPermit15Page() {
                   ))}
                 </div>
                 <div className="px-6 pb-4">
-                  <p className="text-sm text-gray-600 bg-blue-50 rounded-lg px-4 py-3 border border-blue-100">
+                  <p className="text-sm text-slate-600 bg-blue-50 rounded-lg px-4 py-3 border border-blue-100">
                     <strong className="text-blue-700">Explanation:</strong> {q.explanation}
                   </p>
                 </div>
@@ -522,7 +522,7 @@ export default function CaliforniaTeenPermit15Page() {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-gray-600 mb-4">
+            <p className="text-slate-600 mb-4">
               Want more California permit practice questions?
             </p>
             <Link href="/signup">
@@ -538,18 +538,18 @@ export default function CaliforniaTeenPermit15Page() {
       {/* FAQ */}
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             California teen permit — FAQs
           </h2>
-          <p className="text-gray-600 mb-8">Straight answers. No extra fluff.</p>
+          <p className="text-slate-600 mb-8">Straight answers. No extra fluff.</p>
 
           <div className="space-y-4">
             {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-xl border border-gray-200 bg-white shadow-sm open:shadow-md transition-shadow"
+                className="group rounded-xl border border-slate-200 bg-white shadow-sm open:shadow-md transition-shadow"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-gray-900 marker:content-none list-none">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-slate-900 marker:content-none list-none">
                   <span>{item.question}</span>
                   <span
                     aria-hidden="true"
@@ -558,7 +558,7 @@ export default function CaliforniaTeenPermit15Page() {
                     +
                   </span>
                 </summary>
-                <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
                   {item.answer}
                 </div>
               </details>
@@ -601,15 +601,15 @@ export default function CaliforniaTeenPermit15Page() {
       </section>
 
       {/* Footer */}
-      <footer className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t">
+      <footer className="py-10 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
+            <span className="text-lg font-bold text-slate-900">Ace Your Permit</span>
           </div>
-          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
+          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-slate-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
               Privacy Policy
             </Link>
@@ -617,7 +617,7 @@ export default function CaliforniaTeenPermit15Page() {
               Home
             </Link>
           </div>
-          <p className="text-center text-gray-600 text-sm">
+          <p className="text-center text-slate-600 text-sm">
             &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the California
             Department of Motor Vehicles. Always verify requirements at{" "}
             <a

@@ -60,22 +60,6 @@ interface PWAState {
    * Whether periodic background sync is supported
    */
   isPeriodicSyncSupported: boolean;
-  /**
-   * Whether push notifications are supported
-   */
-  isPushSupported: boolean;
-  /**
-   * Whether push notifications are subscribed
-   */
-  isPushSubscribed: boolean;
-  /**
-   * Subscribe to push notifications
-   */
-  subscribePush: () => Promise<void>;
-  /**
-   * Unsubscribe from push notifications
-   */
-  unsubscribePush: () => Promise<void>;
 }
 
 /**
@@ -85,7 +69,6 @@ interface PWAState {
  * - Detect standalone mode
  * - Handle install prompt
  * - Monitor online/offline status
- * - Push notification management
  * - Service worker registration
  * 
  * @example
@@ -103,8 +86,6 @@ export function usePWA(): PWAState {
   const [isServiceWorkerRegistered, setIsServiceWorkerRegistered] = useState(false);
   const [isOffline, setIsOffline] = useState(false);
   const [isPeriodicSyncSupported, setIsPeriodicSyncSupported] = useState(false);
-  const [isPushSupported, setIsPushSupported] = useState(false);
-  const [isPushSubscribed, setIsPushSubscribed] = useState(false);
 
   // Check standalone mode
   useEffect(() => {
@@ -160,10 +141,6 @@ export function usePWA(): PWAState {
       }
     }
 
-    // Check push notification support
-    if ("PushManager" in window) {
-      queueMicrotask(() => setIsPushSupported(true));
-    }
   }, []);
 
   // Monitor online/offline status
@@ -199,55 +176,6 @@ export function usePWA(): PWAState {
     setIsInstalling(false);
   }, [deferredPrompt]);
 
-  // Subscribe to push notifications
-  const subscribePush = useCallback(async () => {
-    if (!("serviceWorker" in navigator) || !("PushManager" in window)) return;
-
-    try {
-      const registration = await navigator.serviceWorker.ready;
-      const subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(
-          process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ""
-        ) as BufferSource,
-      });
-
-      // Send subscription to server
-      await fetch("/api/push/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(subscription),
-      });
-
-      setIsPushSubscribed(true);
-    } catch (error) {
-      console.error("Failed to subscribe to push notifications:", error);
-    }
-  }, []);
-
-  // Unsubscribe from push notifications
-  const unsubscribePush = useCallback(async () => {
-    if (!("serviceWorker" in navigator)) return;
-
-    try {
-      const registration = await navigator.serviceWorker.ready;
-      const subscription = await registration.pushManager.getSubscription();
-
-      if (subscription) {
-        await subscription.unsubscribe();
-        await fetch("/api/push/unsubscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ endpoint: subscription.endpoint }),
-        });
-      }
-
-      setIsPushSubscribed(false);
-    } catch (error) {
-      console.error("Failed to unsubscribe from push notifications:", error);
-    }
-  }, []);
-
   return {
     isStandalone,
     canInstall,
@@ -256,25 +184,7 @@ export function usePWA(): PWAState {
     isServiceWorkerRegistered,
     isOffline,
     isPeriodicSyncSupported,
-    isPushSupported,
-    isPushSubscribed,
-    subscribePush,
-    unsubscribePush,
-  };
-}
-
-// Helper function to convert VAPID key
-function urlBase64ToUint8Array(base64String: string): Uint8Array {
-  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-
-  for (let i = 0; i < rawData.length; ++i) {
-    outputArray[i] = rawData.charCodeAt(i);
-  }
-
-  return outputArray;
+};
 }
 
 /**

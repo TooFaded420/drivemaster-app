@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,7 +29,6 @@ export function FriendsList({ className }: FriendsListProps) {
   const {
     friends,
     pendingRequests,
-    addFriend,
     removeFriend,
     acceptFriendRequest,
   } = useLeaderboard();
@@ -178,7 +176,7 @@ function FriendCard({ friend, onRemove }: FriendCardProps) {
       <Button
         variant="ghost"
         size="icon"
-        className="h-8 w-8 text-red-600 hover:text-red-700 hover:bg-red-50"
+        className="min-h-11 min-w-11 text-red-600 hover:text-red-700 hover:bg-red-50"
         onClick={onRemove}
         title="Remove Friend"
       >
@@ -217,7 +215,7 @@ function FriendRequestCard({ request, onAccept, onDecline }: FriendRequestCardPr
         <Button
           variant="ghost"
           size="icon"
-          className="h-8 w-8 text-green-600 hover:text-green-700 hover:bg-green-50"
+          className="min-h-11 min-w-11 text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50"
           onClick={onAccept}
         >
           <Check className="w-4 h-4" />
@@ -225,7 +223,7 @@ function FriendRequestCard({ request, onAccept, onDecline }: FriendRequestCardPr
         <Button
           variant="ghost"
           size="icon"
-          className="h-8 w-8 text-red-600 hover:text-red-700 hover:bg-red-50"
+          className="min-h-11 min-w-11 text-red-600 hover:text-red-700 hover:bg-red-50"
           onClick={onDecline}
         >
           <X className="w-4 h-4" />

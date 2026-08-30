@@ -18,7 +18,7 @@ export { illinoisDMVQuestions } from './illinois-dmv-questions';
 // Re-export for convenience
 import { illinoisDMVQuestions } from './illinois-dmv-questions';
 import { ILLINOIS_CATEGORIES } from './categories';
-import { Question, QuestionCategory, DifficultyLevel } from './types';
+import { Question, DifficultyLevel } from './types';
 import type { CategoryId } from './categories';
 
 /**
@@ -179,8 +179,7 @@ export const getAdaptiveQuestions = (
   // Lower performance = more easy questions
   const easyRatio = Math.max(0.2, 1 - (userPerformance.easy || 0.8));
   const mediumRatio = 0.4;
-  const hardRatio = Math.max(0.1, userPerformance.medium || 0.3);
-  
+
   const easyCount = Math.round(totalQuestions * easyRatio);
   const mediumCount = Math.round(totalQuestions * mediumRatio);
   const hardCount = totalQuestions - easyCount - mediumCount;

@@ -40,8 +40,8 @@ export function QuestionCard({
                   question.difficulty === "hard" 
                     ? "border-red-200 text-red-600" 
                     : question.difficulty === "medium"
-                    ? "border-yellow-200 text-yellow-600"
-                    : "border-green-200 text-green-600"
+                    ? "border-amber-200 text-amber-600"
+                    : "border-emerald-200 text-emerald-600"
                 }`}
               >
                 {question.difficulty.charAt(0).toUpperCase() + question.difficulty.slice(1)}
@@ -69,7 +69,7 @@ export function QuestionCard({
             exit={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
             transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
           >
-            <CardTitle className="text-lg leading-relaxed">
+            <CardTitle className="text-xl leading-relaxed">
               {question.question_text}
             </CardTitle>
           </motion.div>

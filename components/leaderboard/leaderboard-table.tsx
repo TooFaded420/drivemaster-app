@@ -83,7 +83,7 @@ export function LeaderboardTable({
       <Card className={className}>
         <CardHeader className="pb-3">
           <CardTitle className="text-lg flex items-center gap-2">
-            <Trophy className="w-5 h-5 text-yellow-500" />
+            <Trophy className="w-5 h-5 text-amber-500" />
             {title}
           </CardTitle>
         </CardHeader>
@@ -111,7 +111,7 @@ export function LeaderboardTable({
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <CardTitle className="text-xl flex items-center gap-2">
-              <Trophy className="w-5 h-5 text-yellow-500" />
+              <Trophy className="w-5 h-5 text-amber-500" />
               {title}
             </CardTitle>
             {description && (
@@ -258,7 +258,6 @@ export function TabbedLeaderboard({
   ];
 
   const activeEntries = tabs.find((t) => t.id === activeTab)?.entries || [];
-  const ActiveIcon = tabs.find((t) => t.id === activeTab)?.icon || Trophy;
 
   return (
     <div className={className}>

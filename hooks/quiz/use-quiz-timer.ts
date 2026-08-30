@@ -20,11 +20,6 @@ interface UseQuizTimerOptions {
   isComplete: boolean;
 }
 
-interface QuizTimerState {
-  timeRemaining: number | null;
-  isTimedMode: boolean;
-}
-
 export function useQuizTimer({ timeLimit, onTimeUp, isComplete }: UseQuizTimerOptions) {
   const timeLimitSeconds = timeLimit ? timeLimit * 60 : null;
 

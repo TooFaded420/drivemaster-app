@@ -110,7 +110,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Find the pending link with this code
-      const { data: link, error: findError } = await supabase
+      const { data: link } = await supabase
         .from("parent_links")
         .select("id, teen_user_id, invite_expires_at, status")
         .eq("invite_code", inviteCode.toUpperCase())

@@ -78,7 +78,7 @@ export default function PermitSpeedCheckAdPage() {
       </nav>
 
       <header className="px-4 pb-6 pt-12 text-center sm:px-6 sm:pt-16">
-        <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-700">
+        <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700">
           <ShieldCheck className="h-4 w-4" aria-hidden="true" />
           No signup before the question
         </div>

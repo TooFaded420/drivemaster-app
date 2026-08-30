@@ -16,15 +16,6 @@ const sizeMap = {
   xl: { width: 180, height: 180 },
 };
 
-const loadingMessages = [
-  "Fueling up...",
-  "Checking the mirrors...",
-  "Buckling up...",
-  "Starting the engine...",
-  "Adjusting the seat...",
-  "Reading the map...",
-];
-
 export function DashLoading({ className, size = "md", text }: DashLoadingProps) {
   const { width, height } = sizeMap[size];
   const shouldReduceMotion = useReducedMotion();
@@ -237,7 +228,7 @@ export function DashLoading({ className, size = "md", text }: DashLoadingProps) 
       {/* Loading text */}
       {text && (
         <motion.p
-          className="text-gray-600 font-medium text-sm"
+          className="text-slate-600 font-medium text-sm"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 1.6, repeat: Infinity }}
         >

@@ -1,8 +1,8 @@
 "use client";
 
-import { useCountdown, CountdownState } from "@/hooks/use-countdown";
+import { useCountdown } from "@/hooks/use-countdown";
 import { Dash as Mascot } from "@/components/mascot";
-import { Calendar, Target, AlertTriangle } from "lucide-react";
+import { Calendar, AlertTriangle } from "lucide-react";
 import { features } from "@/lib/feature-flags";
 import Link from "next/link";
 
@@ -103,7 +103,6 @@ function TestCountdownInner({ userId }: TestCountdownProps) {
 
   // Active countdown (counting_down or test_day)
   const isTestDay = state === "test_day";
-  const ringColor = isTestDay ? "border-orange-400" : readinessScore >= 90 ? "border-emerald-400" : readinessScore >= 70 ? "border-blue-400" : "border-orange-400";
   const bgGradient = isTestDay
     ? "from-orange-600 to-red-500"
     : "from-blue-700 to-blue-500";

@@ -3,9 +3,10 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { escapeHtml, hasValidBearerSecret, sanitizeHeaderText } from "@/lib/security";
 
 /**
- * POST /api/cron/digest — Weekly parent progress email digest
+ * GET|POST /api/cron/digest — Weekly parent progress email digest
  *
- * Called by Vercel Cron (weekly, Sunday morning).
+ * Called by Vercel Cron (weekly, Sunday morning), which issues GET
+ * requests. POST is kept for manual triggers.
  * Sends an email to each linked parent with their teen's progress.
  * Protected by CRON_SECRET.
  *
@@ -13,7 +14,15 @@ import { escapeHtml, hasValidBearerSecret, sanitizeHeaderText } from "@/lib/secu
  * Resend is not configured.
  */
 
+export async function GET(request: NextRequest) {
+  return handleDigest(request);
+}
+
 export async function POST(request: NextRequest) {
+  return handleDigest(request);
+}
+
+async function handleDigest(request: NextRequest) {
   try {
     // Verify cron secret — must be first check before any DB access
     const authHeader = request.headers.get("authorization");

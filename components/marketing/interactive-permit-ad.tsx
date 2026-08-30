@@ -36,7 +36,7 @@ export function InteractivePermitAd() {
               Instant payoff
             </span>
             <span className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-green-500" aria-hidden="true" />
+              <CheckCircle2 className="h-4 w-4 text-emerald-500" aria-hidden="true" />
               No signup first
             </span>
           </div>
@@ -78,7 +78,7 @@ export function InteractivePermitAd() {
                   disabled={hasAnswered}
                   className={`min-h-[44px] rounded-xl border px-3 py-3 text-center text-sm font-bold ${
                     showCorrect
-                      ? "border-green-300 bg-green-400 text-slate-950"
+                      ? "border-emerald-300 bg-emerald-400 text-slate-950"
                       : showMiss
                         ? "border-orange-200 bg-orange-400 text-slate-950"
                       : "border-white/20 bg-white/10 text-white"

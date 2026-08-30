@@ -1,13 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { LEAGUES, LEAGUE_ORDER } from "@/lib/gamification/leagues";
 import { hasValidBearerSecret } from "@/lib/security";
 
 /**
  * GET /api/leaderboard/leagues
- * Get league information and user's current league status
+ * Get league information and user's current league status.
+ *
+ * Vercel Cron issues GET requests with the CRON_SECRET bearer — those are
+ * routed to the weekly rollover processor instead of the user flow.
  */
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const cronAuth = request.headers.get("authorization");
+  if (hasValidBearerSecret(cronAuth, process.env.CRON_SECRET)) {
+    return processLeagues(request);
+  }
+
   try {
     const supabase = await createClient();
 
@@ -78,13 +87,18 @@ export async function GET() {
 
 /**
  * POST /api/leaderboard/leagues/process
- * Process weekly league results - promotions and demotions
- * This should be called by a cron job at the end of each week
+ * Manual trigger for the weekly rollover processor.
+ * Runs with the service-role client: user_leagues / league_seasons
+ * writes are RLS-denied for the anon role.
  */
 export async function POST(request: NextRequest) {
+  return processLeagues(request);
+}
+
+async function processLeagues(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
+    const supabase = createAdminClient();
+
     // Verify this is an admin or cron job request
     const authHeader = request.headers.get("authorization");
     if (!hasValidBearerSecret(authHeader, process.env.CRON_SECRET)) {

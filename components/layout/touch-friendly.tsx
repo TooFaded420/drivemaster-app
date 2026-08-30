@@ -231,7 +231,6 @@ export function TouchList({
   children,
   className,
   spacing = "normal",
-  interactive = false,
 }: TouchListProps) {
   return (
     <div className={cn(spacingClasses[spacing], className)}>
@@ -367,8 +366,6 @@ interface PullToRefreshProps {
 export function PullToRefresh({
   children,
   className,
-  onRefresh,
-  pullDistance = 80,
 }: PullToRefreshProps) {
   // Placeholder - implement with proper library
   return (

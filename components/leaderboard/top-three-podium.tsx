@@ -37,9 +37,9 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
   const getPodiumColor = (index: number) => {
     switch (index) {
       case 1: // 1st place
-        return "bg-gradient-to-b from-yellow-300 to-yellow-500";
+        return "bg-gradient-to-b from-amber-300 to-amber-500";
       case 0: // 2nd place
-        return "bg-gradient-to-b from-gray-300 to-gray-400";
+        return "bg-gradient-to-b from-slate-300 to-slate-400";
       case 2: // 3rd place
         return "bg-gradient-to-b from-amber-400 to-amber-600";
       default:
@@ -50,7 +50,7 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
   const getRankIcon = (index: number) => {
     switch (index) {
       case 1:
-        return <Crown className="w-6 h-6 text-yellow-600" />;
+        return <Crown className="w-6 h-6 text-amber-600" />;
       case 0:
         return <Medal className="w-5 h-5 text-muted-foreground" />;
       case 2:
@@ -87,7 +87,7 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
               <div
                 className={cn(
                   "absolute -top-3 w-8 h-8 rounded-full flex items-center justify-center shadow-lg",
-                  actualRank === 1 && "bg-yellow-400",
+                  actualRank === 1 && "bg-amber-400",
                   actualRank === 2 && "bg-border",
                   actualRank === 3 && "bg-amber-400"
                 )}
@@ -118,7 +118,7 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
                   className={cn(
                     "border-4 shadow-xl",
                     actualRank === 1
-                      ? "w-20 h-20 border-yellow-400"
+                      ? "w-20 h-20 border-amber-400"
                       : actualRank === 2
                       ? "w-16 h-16 border-border"
                       : "w-16 h-16 border-amber-400"
@@ -128,7 +128,7 @@ export function TopThreePodium({ entries, className }: TopThreePodiumProps) {
                   <AvatarFallback
                     className={cn(
                       "text-lg font-bold",
-                      actualRank === 1 && "bg-yellow-100 text-yellow-700",
+                      actualRank === 1 && "bg-amber-100 text-amber-700",
                       actualRank === 2 && "bg-muted text-foreground",
                       actualRank === 3 && "bg-amber-100 text-amber-700"
                     )}
@@ -206,7 +206,7 @@ export function CompactTopThree({ entries, className }: CompactTopThreeProps) {
             transition={{ delay: index * 0.1 }}
             className={cn(
               "flex flex-col items-center p-4 rounded-xl border-2",
-              rank === 1 && "bg-yellow-50 border-yellow-300",
+              rank === 1 && "bg-amber-50 border-amber-300",
               rank === 2 && "bg-muted border-border",
               rank === 3 && "bg-amber-50 border-amber-300"
             )}
@@ -215,7 +215,7 @@ export function CompactTopThree({ entries, className }: CompactTopThreeProps) {
             <div
               className={cn(
                 "w-8 h-8 rounded-full flex items-center justify-center mb-2",
-                rank === 1 && "bg-yellow-400 text-yellow-900",
+                rank === 1 && "bg-amber-400 text-amber-900",
                 rank === 2 && "bg-border text-foreground",
                 rank === 3 && "bg-amber-400 text-amber-900"
               )}
@@ -231,7 +231,7 @@ export function CompactTopThree({ entries, className }: CompactTopThreeProps) {
             <Avatar
               className={cn(
                 "border-2 mb-2",
-                rank === 1 && "w-14 h-14 border-yellow-400",
+                rank === 1 && "w-14 h-14 border-amber-400",
                 rank === 2 && "w-12 h-12 border-border",
                 rank === 3 && "w-12 h-12 border-amber-400"
               )}
@@ -239,7 +239,7 @@ export function CompactTopThree({ entries, className }: CompactTopThreeProps) {
               <AvatarImage src={entry.avatarUrl || undefined} />
               <AvatarFallback
                 className={cn(
-                  rank === 1 && "bg-yellow-100 text-yellow-700",
+                  rank === 1 && "bg-amber-100 text-amber-700",
                   rank === 2 && "bg-muted text-foreground",
                   rank === 3 && "bg-amber-100 text-amber-700"
                 )}

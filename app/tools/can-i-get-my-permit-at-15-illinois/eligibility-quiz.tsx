@@ -50,13 +50,13 @@ export function PermitAt15EligibilityQuiz() {
               onClick={() => setSelected((current) => ({ ...current, [check]: !current[check] }))}
               className={`flex min-h-[56px] items-center gap-3 rounded-2xl border px-4 py-3 text-left font-medium transition-colors ${
                 active
-                  ? "border-green-500 bg-green-50 text-green-950"
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                   : "border-slate-200 bg-slate-50 text-slate-700 hover:border-blue-300"
               }`}
               aria-pressed={active}
             >
               {active ? (
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-green-700" aria-hidden="true" />
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-700" aria-hidden="true" />
               ) : (
                 <Circle className="h-5 w-5 shrink-0 text-slate-400" aria-hidden="true" />
               )}
@@ -68,7 +68,7 @@ export function PermitAt15EligibilityQuiz() {
       <div
         className={`mt-6 rounded-2xl border p-5 ${
           result.tone === "green"
-            ? "border-green-100 bg-green-50"
+            ? "border-emerald-100 bg-emerald-50"
             : result.tone === "orange"
               ? "border-orange-100 bg-orange-50"
               : "border-blue-100 bg-blue-50"

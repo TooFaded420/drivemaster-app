@@ -4,7 +4,7 @@
  */
 
 import { DifficultyLevel, DifficultyAdjustment, Question } from './questions/types';
-import { classifyDifficulty, getDifficultyDistribution, calculateAdaptiveDifficulty } from './questions/difficulty';
+import { getDifficultyDistribution, calculateAdaptiveDifficulty } from './questions/difficulty';
 
 /**
  * User performance metrics for adaptive system
@@ -51,16 +51,6 @@ export interface AdaptiveSessionState {
   }[];
   difficultyHistory: DifficultyLevel[];
 }
-
-/**
- * Performance threshold configuration
- */
-const PERFORMANCE_THRESHOLDS = {
-  excellent: { accuracy: 0.9, streak: 5 },
-  good: { accuracy: 0.8, streak: 3 },
-  struggling: { accuracy: 0.5, minQuestions: 5 },
-  poor: { accuracy: 0.3 },
-};
 
 /**
  * Initialize adaptive session

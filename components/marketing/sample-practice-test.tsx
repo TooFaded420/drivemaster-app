@@ -139,7 +139,7 @@ function SampleQuestionCard({
               type="button"
               className={`flex min-h-[44px] w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                 showCorrect
-                  ? "border-green-400 bg-green-50 text-green-900"
+                  ? "border-emerald-400 bg-emerald-50 text-emerald-900"
                   : showMiss
                     ? "border-red-300 bg-red-50 text-red-900"
                     : isSelected
@@ -151,7 +151,7 @@ function SampleQuestionCard({
               aria-pressed={isSelected}
             >
               {showCorrect ? (
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-green-500" aria-hidden="true" />
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-500" aria-hidden="true" />
               ) : showMiss ? (
                 <XCircle className="h-5 w-5 shrink-0 text-red-500" aria-hidden="true" />
               ) : (
@@ -159,7 +159,7 @@ function SampleQuestionCard({
               )}
               <span className="flex-1">{option}</span>
               {showCorrect && (
-                <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-bold text-green-700">
+                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-700">
                   Answer
                 </span>
               )}
@@ -171,7 +171,7 @@ function SampleQuestionCard({
       {hasAnswered && (
         <div
           className={`mt-5 rounded-xl border px-4 py-3 ${
-            isCorrect ? "border-green-100 bg-green-50" : "border-blue-100 bg-blue-50"
+            isCorrect ? "border-emerald-100 bg-emerald-50" : "border-blue-100 bg-blue-50"
           }`}
         >
           <p className="text-sm text-slate-900">

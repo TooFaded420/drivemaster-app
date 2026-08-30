@@ -117,8 +117,8 @@ const signCategories = [
   {
     name: "Warning Signs",
     color: "yellow",
-    bgClass: "bg-yellow-50 border-yellow-200",
-    iconClass: "text-yellow-600",
+    bgClass: "bg-amber-50 border-amber-200",
+    iconClass: "text-amber-600",
     Icon: AlertTriangle,
     description:
       "Yellow diamond. Alert you to hazards or changing road conditions ahead. Slow down and be prepared.",
@@ -127,8 +127,8 @@ const signCategories = [
   {
     name: "Guide Signs",
     color: "green",
-    bgClass: "bg-green-50 border-green-200",
-    iconClass: "text-green-600",
+    bgClass: "bg-emerald-50 border-emerald-200",
+    iconClass: "text-emerald-600",
     Icon: Info,
     description:
       "Green with white text. Provide directions, distances, and route information.",
@@ -158,7 +158,7 @@ export default function NewYorkRoadSignsTestPage() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
+            <span className="text-xl font-bold text-slate-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -179,12 +179,12 @@ export default function NewYorkRoadSignsTestPage() {
             Based on NY MV-21 Driver&apos;s Manual 2024
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight font-display tracking-tight">
             New York Road Signs<br />
             <span className="text-blue-600">Study Guide & Test</span>
           </h1>
 
-          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
             Master every sign shape, color, and meaning for the NY DMV permit test.
             Free quiz — no signup required.
           </p>
@@ -209,10 +209,10 @@ export default function NewYorkRoadSignsTestPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
               The 4 Sign Categories You Must Know
             </h2>
-            <p className="text-gray-600">
+            <p className="text-slate-600">
               Learn the pattern: shape + color = meaning. You can identify most signs before you read the text.
             </p>
           </div>
@@ -225,13 +225,13 @@ export default function NewYorkRoadSignsTestPage() {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <cat.Icon className={`w-6 h-6 ${cat.iconClass}`} />
-                  <h3 className="text-lg font-bold text-gray-900">{cat.name}</h3>
+                  <h3 className="text-lg font-bold text-slate-900">{cat.name}</h3>
                 </div>
-                <p className="text-sm text-gray-700 mb-4">{cat.description}</p>
+                <p className="text-sm text-slate-700 mb-4">{cat.description}</p>
                 <ul className="space-y-1">
                   {cat.examples.map((ex) => (
-                    <li key={ex} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
+                    <li key={ex} className="flex items-center gap-2 text-sm text-slate-600">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                       {ex}
                     </li>
                   ))}
@@ -243,9 +243,9 @@ export default function NewYorkRoadSignsTestPage() {
       </section>
 
       {/* ── Quick Memorization Tips ── */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-10 font-display tracking-tight">
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-10 font-display tracking-tight">
             Memorize Signs in 10 Minutes
           </h2>
           <div className="space-y-4">
@@ -271,13 +271,13 @@ export default function NewYorkRoadSignsTestPage() {
                 body: "Our spaced-repetition quiz surfaces the signs you miss most. Three sessions usually moves most people from 60% to 90%+ on signs.",
               },
             ].map((item) => (
-              <div key={item.step} className="flex gap-4 rounded-xl bg-white border border-gray-200 p-5 shadow-sm">
+              <div key={item.step} className="flex gap-4 rounded-xl bg-white border border-slate-200 p-5 shadow-sm">
                 <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm shrink-0">
                   {item.step}
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-900">{item.title}</p>
-                  <p className="text-sm text-gray-600 mt-1">{item.body}</p>
+                  <p className="font-semibold text-slate-900">{item.title}</p>
+                  <p className="text-sm text-slate-600 mt-1">{item.body}</p>
                 </div>
               </div>
             ))}
@@ -289,19 +289,19 @@ export default function NewYorkRoadSignsTestPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600">Real answers, no fluff.</p>
+            <p className="text-slate-600">Real answers, no fluff.</p>
           </div>
 
           <div className="space-y-4">
             {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-xl border border-gray-200 bg-white shadow-sm open:shadow-md transition-shadow"
+                className="group rounded-xl border border-slate-200 bg-white shadow-sm open:shadow-md transition-shadow"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-gray-900 marker:content-none list-none min-h-[44px]">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-slate-900 marker:content-none list-none min-h-[44px]">
                   <span>{item.question}</span>
                   <span
                     aria-hidden="true"
@@ -310,7 +310,7 @@ export default function NewYorkRoadSignsTestPage() {
                     +
                   </span>
                 </summary>
-                <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
                   {item.answer}
                 </div>
               </details>
@@ -341,15 +341,15 @@ export default function NewYorkRoadSignsTestPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t">
+      <footer className="py-10 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
+            <span className="text-lg font-bold text-slate-900">Ace Your Permit</span>
           </div>
-          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
+          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-slate-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
               Privacy Policy
             </Link>
@@ -357,7 +357,7 @@ export default function NewYorkRoadSignsTestPage() {
               Home
             </Link>
           </div>
-          <p className="text-center text-gray-500 text-sm">
+          <p className="text-center text-slate-500 text-sm">
             &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the
             New York Department of Motor Vehicles.
           </p>

@@ -43,10 +43,10 @@ export function GoogleOAuthButton({ mode }: GoogleOAuthButtonProps) {
       className="
         flex w-full items-center justify-center gap-3
         min-h-[44px] px-4 py-2.5
-        rounded-md border border-gray-200 bg-white
-        font-display text-sm font-semibold text-gray-700
+        rounded-md border border-slate-200 bg-white
+        font-display text-sm font-semibold text-slate-700
         shadow-sm
-        hover:bg-gray-50 hover:border-gray-300
+        hover:bg-slate-50 hover:border-slate-300
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
         disabled:opacity-60 disabled:cursor-not-allowed
         transition-colors
@@ -55,7 +55,7 @@ export function GoogleOAuthButton({ mode }: GoogleOAuthButtonProps) {
       {isLoading ? (
         /* Simple spinner that matches Loader2 sizing used elsewhere */
         <svg
-          className="h-4 w-4 animate-spin text-gray-500"
+          className="h-4 w-4 animate-spin text-slate-500"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

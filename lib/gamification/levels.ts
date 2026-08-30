@@ -1,5 +1,5 @@
 import { LEVEL_THRESHOLDS } from "@/lib/constants";
-import { getLevelFromXP, getXPForNextLevel, getXPProgress, getLevelTitle } from "./xp-calculator";
+import { getLevelFromXP, getXPProgress, getLevelTitle } from "./xp-calculator";
 
 export interface LevelInfo {
   level: number;

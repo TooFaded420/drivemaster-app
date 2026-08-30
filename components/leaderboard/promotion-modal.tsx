@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import {
@@ -15,7 +15,6 @@ import {
   LeagueTier,
   LEAGUES,
   LEAGUE_COLORS,
-  getNextLeague,
   getPreviousLeague,
   TOP_THREE_REWARDS,
 } from "@/lib/gamification/leagues";
@@ -73,7 +72,7 @@ export function PromotionModal({
                 className={cn(
                   "absolute inset-x-0 top-0 h-32 -mx-6 -mt-6",
                   isPromotion
-                    ? "bg-gradient-to-b from-green-500/20 to-transparent"
+                    ? "bg-gradient-to-b from-emerald-500/20 to-transparent"
                     : "bg-gradient-to-b from-red-500/20 to-transparent"
                 )}
               />
@@ -87,7 +86,7 @@ export function PromotionModal({
                 <DialogTitle
                   className={cn(
                     "text-center text-2xl",
-                    isPromotion ? "text-green-600" : "text-red-600"
+                    isPromotion ? "text-emerald-600" : "text-red-600"
                   )}
                 >
                   {isPromotion ? "🎉 Promotion!" : "League Update"}
@@ -119,7 +118,7 @@ export function PromotionModal({
                   transition={{ repeat: Infinity, duration: 1 }}
                 >
                   {isPromotion ? (
-                    <ArrowUp className="w-8 h-8 text-green-500" />
+                    <ArrowUp className="w-8 h-8 text-emerald-500" />
                   ) : (
                     <ArrowDown className="w-8 h-8 text-red-500" />
                   )}
@@ -168,7 +167,7 @@ export function PromotionModal({
               {rewards.length > 0 && (
                 <div className="mb-6">
                   <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
-                    <Trophy className="w-4 h-4 text-yellow-500" />
+                    <Trophy className="w-4 h-4 text-amber-500" />
                     Rewards Earned
                   </h4>
                   <div className="space-y-2">

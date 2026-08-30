@@ -41,13 +41,16 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  /* Border radius — fixed per DESIGN.md:
+     sm 6px (inputs, small badges), md 10px (buttons, option cards),
+     lg 16px (cards, dialogs), xl 24px (feature/quiz cards, modals) */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-3xl: 40px;
+  --radius-4xl: 48px;
 
   /* DriveMaster Custom Breakpoints */
   --breakpoint-xs: 320px;
@@ -150,7 +153,7 @@
   /* ── Brand-intentional dark palette ─────────────────────────────────────
      Strategy (from DESIGN.md §Dark mode): brand-tinted navy backgrounds,
      cards with a visible lifted surface, orange stays fully saturated,
-     headings use pure white, body uses zinc-200 (not zinc-500/gray-500).
+     headings use pure white, body uses zinc-200 (not zinc-500/slate-500).
      Contrast targets: body text ≥4.5:1, muted ≥3:1 (large text / UI labels).
   ─────────────────────────────────────────────────────────────────────── */
 

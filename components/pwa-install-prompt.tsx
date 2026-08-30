@@ -125,7 +125,7 @@ export function PWAInstallPrompt({
             <Button
               variant="ghost"
               size="icon"
-              className="h-8 w-8 -mr-2 -mt-2"
+              className="min-h-11 min-w-11 -mr-2 -mt-2"
               onClick={handleDismiss}
             >
               <X className="w-4 h-4" />

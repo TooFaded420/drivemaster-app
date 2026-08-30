@@ -161,15 +161,15 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-600 font-display tracking-tight mb-1">Free to Start</div>
-              <div className="text-gray-600">No credit card, no trial. All 3,400+ questions unlocked.</div>
+              <div className="text-slate-600">No credit card, no trial. All 3,400+ questions unlocked.</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-orange-500 font-display tracking-tight mb-1">IL-Official Topics</div>
-              <div className="text-gray-600">Road signs, rules, traffic laws — everything on the real SOS test.</div>
+              <div className="text-slate-600">Road signs, rules, traffic laws — everything on the real SOS test.</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 font-display tracking-tight mb-1">Game-Like Learning</div>
-              <div className="text-gray-600">XP, streaks, and leagues make studying actually hard to quit.</div>
+              <div className="text-3xl font-bold text-emerald-600 font-display tracking-tight mb-1">Game-Like Learning</div>
+              <div className="text-slate-600">XP, streaks, and leagues make studying actually hard to quit.</div>
             </div>
           </div>
         </div>
@@ -179,10 +179,10 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 font-display tracking-tight">
               Meet Your Study Buddy
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-slate-600 max-w-2xl mx-auto">
               Dash will guide you through your learning journey, celebrate your wins,
               and keep you motivated every step of the way!
             </p>
@@ -232,10 +232,10 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 font-display tracking-tight">
               Everything You Need to Pass
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-slate-600 max-w-2xl mx-auto">
               Comprehensive tools and features designed to make studying engaging and effective
             </p>
           </div>
@@ -253,16 +253,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Updated for 2026
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Covers all test categories
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Detailed explanations
                   </li>
                 </ul>
@@ -281,16 +281,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Daily streaks
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     XP and leveling system
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Achievement badges
                   </li>
                 </ul>
@@ -309,16 +309,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Smart question selection
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Mistake review mode
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Progress tracking
                   </li>
                 </ul>
@@ -327,8 +327,8 @@ export default function Home() {
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                  <Trophy className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4">
+                  <Trophy className="w-6 h-6 text-emerald-600" />
                 </div>
                 <CardTitle>Compete & Win</CardTitle>
                 <CardDescription>
@@ -337,16 +337,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Weekly competitions
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Tiered leagues
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Special challenges
                   </li>
                 </ul>
@@ -355,8 +355,8 @@ export default function Home() {
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-4">
-                  <Car className="w-6 h-6 text-pink-600" />
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                  <Car className="w-6 h-6 text-blue-600" />
                 </div>
                 <CardTitle>Test Simulators</CardTitle>
                 <CardDescription>
@@ -365,16 +365,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Timed practice tests
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Same format as DMV
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Pass/fail prediction
                   </li>
                 </ul>
@@ -383,8 +383,8 @@ export default function Home() {
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-yellow-600" />
+                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-amber-600" />
                 </div>
                 <CardTitle>Study Together</CardTitle>
                 <CardDescription>
@@ -393,16 +393,16 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Share progress
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Challenge friends
                   </li>
-                  <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <li className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                     Family accounts
                   </li>
                 </ul>
@@ -416,10 +416,10 @@ export default function Home() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 font-display tracking-tight">
               Illinois Permit Test — FAQs
             </h2>
-            <p className="text-gray-600">
+            <p className="text-slate-600">
               Real answers, no fluff. Everything you need to know before test day. 🎯
             </p>
           </div>
@@ -428,9 +428,9 @@ export default function Home() {
             {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-xl border border-gray-200 bg-white shadow-sm open:shadow-md transition-shadow"
+                className="group rounded-xl border border-slate-200 bg-white shadow-sm open:shadow-md transition-shadow"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-gray-900 marker:content-none list-none">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-slate-900 marker:content-none list-none">
                   <span>{item.question}</span>
                   <span
                     aria-hidden="true"
@@ -439,7 +439,7 @@ export default function Home() {
                     +
                   </span>
                 </summary>
-                <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
                   {item.answer}
                 </div>
               </details>
@@ -483,7 +483,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t">
+      <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center mb-4">
             <Image
@@ -494,10 +494,10 @@ export default function Home() {
               style={{ width: "auto", height: "auto" }}
             />
           </div>
-          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
+          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-slate-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
           </div>
-          <p className="text-center text-gray-600 text-sm">
+          <p className="text-center text-slate-600 text-sm">
             © 2026 Ace Your Permit. All rights reserved. Not affiliated with the Illinois Secretary of State.
           </p>
         </div>

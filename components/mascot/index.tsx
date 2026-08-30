@@ -73,7 +73,7 @@ function SpeechBubble({
         // w-56 (224px) instead of w-64 — slightly narrower to reduce collision risk
         "absolute z-50 w-56 p-3 rounded-2xl shadow-lg",
         // Light: white card. Dark: popover surface with visible border
-        "bg-white border border-gray-200 dark:bg-[#1A2540] dark:border-[rgba(255,255,255,0.12)]",
+        "bg-white border-2 border-slate-200 dark:bg-[#1A2540] dark:border-[rgba(255,255,255,0.12)]",
         positionClasses[position]
       )}
     >
@@ -90,7 +90,7 @@ function SpeechBubble({
           aria-label="Dismiss Dash message"
           className={cn(
             "flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center",
-            "text-gray-400 hover:text-gray-600 hover:bg-gray-100",
+            "text-slate-400 hover:text-slate-600 hover:bg-slate-100",
             "dark:text-slate-500 dark:hover:text-slate-300 dark:hover:bg-white/10",
             "transition-colors",
             !title && "ml-auto"
@@ -102,7 +102,7 @@ function SpeechBubble({
           </svg>
         </button>
       </div>
-      <p className="text-gray-700 dark:text-slate-300 text-sm leading-relaxed pr-1">
+      <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed pr-1">
         {text}
       </p>
       <div

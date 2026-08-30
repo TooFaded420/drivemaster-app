@@ -327,7 +327,7 @@ function SignFigure({ sign }: { sign: SignCard }) {
   return (
     <figure
       id={sign.id}
-      className="flex flex-col items-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+      className="flex flex-col items-center gap-3 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
       aria-label={`Road sign: ${sign.name}`}
     >
       <div className="w-24 h-24 flex items-center justify-center" aria-hidden="true">
@@ -378,15 +378,15 @@ function SignFigure({ sign }: { sign: SignCard }) {
         </svg>
       </div>
       <figcaption className="text-center">
-        <p className="font-bold text-gray-900 text-sm font-display">{sign.name}</p>
-        <p className="text-xs text-gray-500 mt-0.5">{sign.shapeDesc}</p>
-        <p className="text-xs text-gray-400 mt-0.5">{sign.color}</p>
+        <p className="font-bold text-slate-900 text-sm font-display">{sign.name}</p>
+        <p className="text-xs text-slate-500 mt-0.5">{sign.shapeDesc}</p>
+        <p className="text-xs text-slate-400 mt-0.5">{sign.color}</p>
       </figcaption>
-      <div className="w-full text-left border-t border-gray-100 pt-3 mt-1">
+      <div className="w-full text-left border-t border-slate-100 pt-3 mt-1">
         <p className="text-xs font-semibold text-blue-700 mb-1">Meaning</p>
-        <p className="text-xs text-gray-700 leading-relaxed">{sign.meaning}</p>
+        <p className="text-xs text-slate-700 leading-relaxed">{sign.meaning}</p>
         <p className="text-xs font-semibold text-orange-600 mt-2 mb-1">Pennsylvania Rule</p>
-        <p className="text-xs text-gray-700 leading-relaxed">{sign.rule}</p>
+        <p className="text-xs text-slate-700 leading-relaxed">{sign.rule}</p>
       </div>
     </figure>
   );
@@ -394,12 +394,12 @@ function SignFigure({ sign }: { sign: SignCard }) {
 
 function SampleQuizCard({ q, index }: { q: SampleQuestion; index: number }) {
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+    <div className="bg-white border border-slate-100 rounded-2xl shadow-sm p-6">
       <div className="flex items-start gap-3 mb-4">
         <span className="shrink-0 w-7 h-7 rounded-full bg-blue-100 text-blue-700 text-sm font-bold flex items-center justify-center font-display">
           {index + 1}
         </span>
-        <p className="text-gray-900 font-medium leading-snug">{q.question_text}</p>
+        <p className="text-slate-900 font-medium leading-snug">{q.question_text}</p>
       </div>
       <ol className="space-y-2 mb-4" type="A">
         {q.options.map((opt, i) => (
@@ -407,13 +407,13 @@ function SampleQuizCard({ q, index }: { q: SampleQuestion; index: number }) {
             key={i}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm border transition-colors ${
               i === q.correct_answer
-                ? "bg-green-50 border-green-200 text-green-800 font-semibold"
-                : "bg-gray-50 border-gray-100 text-gray-600"
+                ? "bg-emerald-50 border-emerald-200 text-emerald-800 font-semibold"
+                : "bg-slate-50 border-slate-100 text-slate-600"
             }`}
           >
-            <span className="shrink-0 font-mono text-xs text-gray-400">{String.fromCharCode(65 + i)}</span>
+            <span className="shrink-0 font-mono text-xs text-slate-400">{String.fromCharCode(65 + i)}</span>
             {opt}
-            {i === q.correct_answer && <CheckCircle2 className="ml-auto w-4 h-4 text-green-600 shrink-0" />}
+            {i === q.correct_answer && <CheckCircle2 className="ml-auto w-4 h-4 text-emerald-600 shrink-0" />}
           </li>
         ))}
       </ol>
@@ -427,9 +427,9 @@ function SampleQuizCard({ q, index }: { q: SampleQuestion; index: number }) {
 
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <div className="border-b border-gray-100 py-5 last:border-0">
-      <h3 className="font-semibold text-gray-900 mb-2 font-display text-base">{question}</h3>
-      <p className="text-gray-600 text-sm leading-relaxed">{answer}</p>
+    <div className="border-b border-slate-100 py-5 last:border-0">
+      <h3 className="font-semibold text-slate-900 mb-2 font-display text-base">{question}</h3>
+      <p className="text-slate-600 text-sm leading-relaxed">{answer}</p>
     </div>
   );
 }
@@ -449,7 +449,7 @@ export default function PennsylvaniaRoadSignsTestPage() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">Ace Your Permit</span>
+              <span className="text-xl font-bold text-slate-900 font-display">Ace Your Permit</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/login"><Button variant="ghost" className="h-11">Sign In</Button></Link>
@@ -465,16 +465,16 @@ export default function PennsylvaniaRoadSignsTestPage() {
               <AlertTriangle className="w-4 h-4" />
               Updated for Pennsylvania PennDOT test 2026
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight font-display tracking-tight">
               Pennsylvania Road Signs Test{" "}
               <span className="text-orange-500">— Study Guide 2026</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-4 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 mb-4 max-w-3xl mx-auto">
               Every sign on the Pennsylvania PennDOT permit test — shapes, colors, and exact
               meanings. Study regulatory, warning, guide, and construction signs, then quiz
               yourself for free.
             </p>
-            <p className="text-base text-gray-500 mb-8 max-w-2xl mx-auto">
+            <p className="text-base text-slate-500 mb-8 max-w-2xl mx-auto">
               Signs make up a significant portion of the 18 questions on the PA PennDOT written
               test. Master this page and you&apos;ll have a major edge on exam day.
             </p>
@@ -496,7 +496,7 @@ export default function PennsylvaniaRoadSignsTestPage() {
         </section>
 
         {/* Quick stat bar */}
-        <section className="py-8 px-4 bg-white border-y border-gray-100">
+        <section className="py-8 px-4 bg-white border-y border-slate-100">
           <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
               { label: "Total questions on PA test", value: "18" },
@@ -506,7 +506,7 @@ export default function PennsylvaniaRoadSignsTestPage() {
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl font-bold text-blue-600 font-display mb-1">{stat.value}</div>
-                <div className="text-xs text-gray-500 leading-tight">{stat.label}</div>
+                <div className="text-xs text-slate-500 leading-tight">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -515,10 +515,10 @@ export default function PennsylvaniaRoadSignsTestPage() {
         {/* Shape + Color Quick Reference */}
         <section className="py-14 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-2 font-display tracking-tight">
               Read Any Sign by Shape + Color
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-slate-600 mb-8">
               Pennsylvania road signs use standardized shapes and colors. Learn these two dimensions
               and you can decode any sign — even if you can&apos;t read the text.
             </p>
@@ -526,18 +526,18 @@ export default function PennsylvaniaRoadSignsTestPage() {
               {[
                 { shape: "Octagon", color: "Red", meaning: "STOP — always", bg: "bg-red-50 border-red-100", label: "text-red-700" },
                 { shape: "Inverted Triangle", color: "Red + White", meaning: "YIELD — slow, give way", bg: "bg-red-50 border-red-100", label: "text-red-700" },
-                { shape: "Diamond", color: "Yellow", meaning: "Warning — hazard ahead", bg: "bg-yellow-50 border-yellow-100", label: "text-yellow-700" },
+                { shape: "Diamond", color: "Yellow", meaning: "Warning — hazard ahead", bg: "bg-amber-50 border-amber-100", label: "text-amber-700" },
                 { shape: "Diamond", color: "Orange", meaning: "Construction / work zone", bg: "bg-orange-50 border-orange-100", label: "text-orange-700" },
                 { shape: "Pentagon", color: "Fluorescent Yellow-Green", meaning: "School zone / crossing", bg: "bg-lime-50 border-lime-100", label: "text-lime-700" },
-                { shape: "Rectangle", color: "Green", meaning: "Guide / destination info", bg: "bg-green-50 border-green-100", label: "text-green-700" },
-                { shape: "Rectangle", color: "White", meaning: "Regulatory — what you must do", bg: "bg-gray-50 border-gray-200", label: "text-gray-700" },
+                { shape: "Rectangle", color: "Green", meaning: "Guide / destination info", bg: "bg-emerald-50 border-emerald-100", label: "text-emerald-700" },
+                { shape: "Rectangle", color: "White", meaning: "Regulatory — what you must do", bg: "bg-slate-50 border-slate-200", label: "text-slate-700" },
                 { shape: "Rectangle", color: "Blue", meaning: "Motorist services (gas, food)", bg: "bg-blue-50 border-blue-100", label: "text-blue-700" },
-                { shape: "Round (yellow)", color: "Yellow / Black", meaning: "Railroad crossing advance", bg: "bg-yellow-50 border-yellow-100", label: "text-yellow-700" },
+                { shape: "Round (yellow)", color: "Yellow / Black", meaning: "Railroad crossing advance", bg: "bg-amber-50 border-amber-100", label: "text-amber-700" },
               ].map((row) => (
                 <div key={`${row.shape}-${row.color}`} className={`rounded-xl border p-4 ${row.bg}`}>
                   <div className={`text-sm font-bold font-display ${row.label}`}>{row.shape}</div>
-                  <div className="text-xs text-gray-500 mb-1">{row.color}</div>
-                  <div className="text-sm text-gray-800 font-medium">{row.meaning}</div>
+                  <div className="text-xs text-slate-500 mb-1">{row.color}</div>
+                  <div className="text-sm text-slate-800 font-medium">{row.meaning}</div>
                 </div>
               ))}
             </div>
@@ -547,8 +547,8 @@ export default function PennsylvaniaRoadSignsTestPage() {
         {/* Regulatory Signs */}
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-red-50/40">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">Regulatory Signs</h2>
-            <p className="text-gray-600 mb-8">Regulatory signs tell you what you <strong>must</strong> or <strong>must not</strong> do. They carry the force of law.</p>
+            <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">Regulatory Signs</h2>
+            <p className="text-slate-600 mb-8">Regulatory signs tell you what you <strong>must</strong> or <strong>must not</strong> do. They carry the force of law.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {regulatorySigns.map((sign) => <SignFigure key={sign.id} sign={sign} />)}
             </div>
@@ -556,10 +556,10 @@ export default function PennsylvaniaRoadSignsTestPage() {
         </section>
 
         {/* Warning Signs */}
-        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-yellow-50/40">
+        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-amber-50/40">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">Warning Signs</h2>
-            <p className="text-gray-600 mb-8">Warning signs alert you to <strong>potential hazards</strong> ahead. They are diamond-shaped and yellow.</p>
+            <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">Warning Signs</h2>
+            <p className="text-slate-600 mb-8">Warning signs alert you to <strong>potential hazards</strong> ahead. They are diamond-shaped and yellow.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {warningSigns.map((sign) => <SignFigure key={sign.id} sign={sign} />)}
             </div>
@@ -569,8 +569,8 @@ export default function PennsylvaniaRoadSignsTestPage() {
         {/* Construction Signs */}
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-orange-50/40">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">Construction &amp; Work Zone Signs</h2>
-            <p className="text-gray-600 mb-8">Orange diamond signs mark <strong>temporary construction zones</strong>. Pennsylvania increases penalties for violations in active work zones.</p>
+            <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">Construction &amp; Work Zone Signs</h2>
+            <p className="text-slate-600 mb-8">Orange diamond signs mark <strong>temporary construction zones</strong>. Pennsylvania increases penalties for violations in active work zones.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {constructionSigns.map((sign) => <SignFigure key={sign.id} sign={sign} />)}
             </div>
@@ -578,10 +578,10 @@ export default function PennsylvaniaRoadSignsTestPage() {
         </section>
 
         {/* Guide Signs */}
-        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-green-50/40">
+        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-emerald-50/40">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">Guide Signs</h2>
-            <p className="text-gray-600 mb-8">Guide signs provide <strong>direction, distance, and services</strong>. Green signs give route and destination info; blue signs point to motorist services.</p>
+            <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">Guide Signs</h2>
+            <p className="text-slate-600 mb-8">Guide signs provide <strong>direction, distance, and services</strong>. Green signs give route and destination info; blue signs point to motorist services.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {guideSigns.map((sign) => <SignFigure key={sign.id} sign={sign} />)}
             </div>
@@ -592,8 +592,8 @@ export default function PennsylvaniaRoadSignsTestPage() {
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-blue-50">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-3">Sample Pennsylvania Road Sign Questions</h2>
-              <p className="text-gray-600">Real-format questions. Answers and explanations shown — take the full quiz inside Ace Your Permit.</p>
+              <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-3">Sample Pennsylvania Road Sign Questions</h2>
+              <p className="text-slate-600">Real-format questions. Answers and explanations shown — take the full quiz inside Ace Your Permit.</p>
             </div>
             <div className="space-y-6">
               {sampleQuestions.map((q, i) => <SampleQuizCard key={q.id} q={q} index={i} />)}
@@ -605,7 +605,7 @@ export default function PennsylvaniaRoadSignsTestPage() {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <p className="text-sm text-gray-500 mt-3">Free — no credit card required</p>
+              <p className="text-sm text-slate-500 mt-3">Free — no credit card required</p>
             </div>
           </div>
         </section>
@@ -613,7 +613,7 @@ export default function PennsylvaniaRoadSignsTestPage() {
         {/* FAQ */}
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-8">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-8">Frequently Asked Questions</h2>
             <div>{faqItems.map((item) => <FaqItem key={item.question} question={item.question} answer={item.answer} />)}</div>
           </div>
         </section>

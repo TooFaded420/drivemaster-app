@@ -31,7 +31,7 @@ export function WeeklyProgress({
 
   const getStatusIcon = () => {
     if (progress.promotionZone) {
-      return <Trophy className="w-5 h-5 text-green-500" />;
+      return <Trophy className="w-5 h-5 text-emerald-500" />;
     }
     if (progress.demotionZone) {
       return <AlertTriangle className="w-5 h-5 text-red-500" />;
@@ -44,8 +44,8 @@ export function WeeklyProgress({
       return {
         title: "Promotion Zone!",
         description: "Keep it up to advance to the next league!",
-        color: "text-green-600",
-        bgColor: "bg-green-50",
+        color: "text-emerald-600",
+        bgColor: "bg-emerald-50",
       };
     }
     if (progress.demotionZone) {
@@ -164,7 +164,7 @@ export function WeeklyProgress({
             className={cn(
               "flex-1 py-2 px-3 rounded-lg text-center transition-colors",
               progress.promotionZone
-                ? "bg-green-100 text-green-700 font-medium"
+                ? "bg-emerald-100 text-emerald-700 font-medium"
                 : "bg-muted text-muted-foreground"
             )}
           >

@@ -70,7 +70,7 @@ export function ReadinessChecker() {
       <div
         className={`mt-6 rounded-2xl border p-5 ${
           result.tone === "green"
-            ? "border-green-100 bg-green-50"
+            ? "border-emerald-100 bg-emerald-50"
             : result.tone === "orange"
               ? "border-orange-100 bg-orange-50"
               : "border-blue-100 bg-blue-50"

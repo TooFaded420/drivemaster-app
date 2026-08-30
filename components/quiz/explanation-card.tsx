@@ -25,13 +25,13 @@ export function ExplanationCard({
     >
       <Card
         className={`border-0 shadow-md ${
-          isCorrect ? "bg-green-50" : "bg-orange-50"
+          isCorrect ? "bg-emerald-50" : "bg-orange-50"
         }`}
       >
         <CardContent className="p-4">
           <div className="flex items-start gap-3">
             {isCorrect ? (
-              <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
                 <CheckCircle2 className="w-5 h-5 text-white" />
               </div>
             ) : (
@@ -43,7 +43,7 @@ export function ExplanationCard({
             <div className="flex-1">
               <p
                 className={`font-semibold ${
-                  isCorrect ? "text-green-700" : "text-orange-700"
+                  isCorrect ? "text-emerald-700" : "text-orange-700"
                 }`}
               >
                 {isCorrect ? "Nice hit" : "Close but"}
@@ -57,7 +57,7 @@ export function ExplanationCard({
               
               {explanation && (
                 <div className="mt-3 flex items-start gap-2">
-                  <Lightbulb className="w-4 h-4 text-yellow-600 flex-shrink-0 mt-0.5" />
+                  <Lightbulb className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {explanation}
                   </p>

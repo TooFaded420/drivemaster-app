@@ -36,7 +36,7 @@ const tutorialSlides = [
     icon: Play,
     title: "Take Quizzes",
     description: "Practice with quick quizzes, full tests, or focus on specific categories. Each quiz helps you earn XP and improve your score.",
-    color: "from-green-500 to-green-600",
+    color: "from-emerald-500 to-emerald-600",
   },
   {
     id: "categories",
@@ -121,7 +121,7 @@ export function StepTutorial({ updateData, onComplete }: StepTutorialProps) {
                   ? "w-6 bg-blue-500"
                   : completedSlides.includes(index)
                   ? "w-2.5 bg-blue-300"
-                  : "w-2.5 bg-gray-200"
+                  : "w-2.5 bg-slate-200"
                 }
               `}
             />

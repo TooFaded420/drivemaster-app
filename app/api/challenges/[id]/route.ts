@@ -22,7 +22,7 @@ export async function GET(
     }
 
     // Fetch challenge
-    const { data: challenge, error } = await supabase
+    const { data: challenge } = await supabase
       .from("challenges")
       .select("*, creator:profiles!creator_id(username)")
       .eq("id", id)

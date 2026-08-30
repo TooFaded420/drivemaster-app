@@ -26,9 +26,9 @@ export function LeaderboardRow({
   const getRankIcon = () => {
     switch (entry.rank) {
       case 1:
-        return <Crown className="w-5 h-5 text-yellow-500" />;
+        return <Crown className="w-5 h-5 text-amber-500" />;
       case 2:
-        return <Medal className="w-5 h-5 text-gray-400" />;
+        return <Medal className="w-5 h-5 text-slate-400" />;
       case 3:
         return <Award className="w-5 h-5 text-amber-600" />;
       default:
@@ -39,9 +39,9 @@ export function LeaderboardRow({
   const getRankStyle = () => {
     switch (entry.rank) {
       case 1:
-        return "bg-gradient-to-r from-yellow-100 to-yellow-50 dark:from-yellow-900/20 dark:to-yellow-800/10 border-yellow-300";
+        return "bg-gradient-to-r from-amber-100 to-amber-50 dark:from-amber-900/20 dark:to-amber-800/10 border-amber-300";
       case 2:
-        return "bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-800/20 dark:to-gray-700/10 border-gray-300";
+        return "bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800/20 dark:to-slate-700/10 border-slate-300";
       case 3:
         return "bg-gradient-to-r from-amber-100 to-amber-50 dark:from-amber-900/20 dark:to-amber-800/10 border-amber-300";
       default:
@@ -77,7 +77,7 @@ export function LeaderboardRow({
       {/* Rank Change */}
       <div className="flex items-center justify-center w-8">
         {rankChange > 0 ? (
-          <div className="flex items-center gap-0.5 text-green-500">
+          <div className="flex items-center gap-0.5 text-emerald-500">
             <TrendingUp className="w-3 h-3" />
             <span className="text-xs font-medium">{rankChange}</span>
           </div>
@@ -117,7 +117,7 @@ export function LeaderboardRow({
           )}
         </div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span>{entry.totalXP.toLocaleString()} total XP</span>
+          <span className="font-mono tabular-nums">{entry.totalXP.toLocaleString()} total XP</span>
           {showLeagueBadge && (entry as LeagueStanding & { leagueTier?: string }).leagueTier && (
             <>
               <span>•</span>
@@ -129,7 +129,7 @@ export function LeaderboardRow({
 
       {/* Weekly XP */}
       <div className="text-right">
-        <div className="font-bold text-foreground">
+        <div className="font-mono tabular-nums font-bold text-foreground">
           {entry.weeklyXP.toLocaleString()}
         </div>
         <div className="text-xs text-muted-foreground">XP this week</div>
@@ -188,7 +188,7 @@ export function CompactLeaderboardRow({
       </span>
 
       {/* XP */}
-      <span className="text-sm font-semibold">
+      <span className="font-mono tabular-nums text-sm font-semibold">
         {entry.weeklyXP.toLocaleString()}
       </span>
     </div>

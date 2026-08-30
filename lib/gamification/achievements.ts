@@ -414,9 +414,9 @@ export function getAchievementRarity(xpReward: number): {
 } {
   if (xpReward >= 500) {
     return {
-      color: "text-purple-600",
-      bgColor: "bg-purple-100",
-      borderColor: "border-purple-200",
+      color: "text-orange-600",
+      bgColor: "bg-orange-100",
+      borderColor: "border-orange-200",
       label: "Legendary",
     };
   }

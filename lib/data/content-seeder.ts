@@ -6,7 +6,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { illinoisDMVQuestions } from './questions/illinois-dmv-questions';
 import { ILLINOIS_CATEGORIES } from './questions/categories';
-import { Question, QuestionCategory } from './questions/types';
 
 type SeederError = {
   message: string;

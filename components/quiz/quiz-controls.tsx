@@ -28,11 +28,9 @@ export function QuizControls({
   onComplete,
   isFlagged,
   canGoBack,
-  canGoForward,
   isAnswered,
   hasSelectedAnswer,
   isLastQuestion,
-  isComplete,
 }: QuizControlsProps) {
   return (
     <div className="flex flex-col gap-3">

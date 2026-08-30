@@ -180,7 +180,7 @@ export default function FreeTexasDMVPracticeTestPage() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
+            <span className="text-xl font-bold text-slate-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -200,21 +200,21 @@ export default function FreeTexasDMVPracticeTestPage() {
       {/* ── Hero ── */}
       <section className="pt-16 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium mb-6">
             <ShieldCheck className="w-4 h-4" />
             No credit card &bull; No trial &bull; No ads on the quiz
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight font-display tracking-tight">
             Free Texas DPS<br />
             <span className="text-blue-600">Practice Test</span>
           </h1>
 
-          <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 mb-4 max-w-2xl mx-auto">
             Practice questions based on the official Texas Driver Handbook.
             Gamified streaks, Dash explanations, zero paywalls.
           </p>
-          <p className="text-sm text-gray-500 mb-10 max-w-xl mx-auto">
+          <p className="text-sm text-slate-500 mb-10 max-w-xl mx-auto">
             <strong>Quick note:</strong> Texas doesn&apos;t have a DMV — driving
             tests are run by the Texas Department of Public Safety (DPS). We match the &ldquo;DMV&rdquo;
             search term because that&apos;s what most people call it, but everything
@@ -245,9 +245,9 @@ export default function FreeTexasDMVPracticeTestPage() {
       </section>
 
       {/* ── TX Test Facts Bar ── */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-100">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-100">
         <div className="max-w-5xl mx-auto">
-          <p className="text-center text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">
+          <p className="text-center text-sm font-semibold text-slate-500 uppercase tracking-widest mb-6">
             Texas DPS knowledge test at a glance
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
@@ -258,9 +258,9 @@ export default function FreeTexasDMVPracticeTestPage() {
               { label: "No ads on quizzes", sub: "clean quiz experience" },
             ].map((item) => (
               <div key={item.label} className="flex flex-col items-center gap-1">
-                <CheckCircle2 className="w-6 h-6 text-green-500 mb-1" />
-                <span className="font-bold text-gray-900">{item.label}</span>
-                <span className="text-sm text-gray-500">{item.sub}</span>
+                <CheckCircle2 className="w-6 h-6 text-emerald-500 mb-1" />
+                <span className="font-bold text-slate-900">{item.label}</span>
+                <span className="text-sm text-slate-500">{item.sub}</span>
               </div>
             ))}
           </div>
@@ -271,10 +271,10 @@ export default function FreeTexasDMVPracticeTestPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
               Try 3 Real Questions Right Now
             </h2>
-            <p className="text-gray-600">
+            <p className="text-slate-600">
               No account needed. Pick an answer and Dash will explain it.
             </p>
           </div>
@@ -282,7 +282,7 @@ export default function FreeTexasDMVPracticeTestPage() {
           <SamplePracticeTest questions={sampleQuestions} />
 
           <div className="mt-10 text-center">
-            <p className="text-gray-600 mb-4">
+            <p className="text-slate-600 mb-4">
               Want all practice questions with streaks, XP, and Dash coaching?
             </p>
             <Link href="/signup">
@@ -301,7 +301,7 @@ export default function FreeTexasDMVPracticeTestPage() {
       {/* ── Features ── */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-10 font-display tracking-tight">
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-10 font-display tracking-tight">
             What Makes Ace Your Permit Different
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -316,7 +316,7 @@ export default function FreeTexasDMVPracticeTestPage() {
                   <CardTitle className="text-base">{f.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600">{f.desc}</p>
+                  <p className="text-sm text-slate-600">{f.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -328,19 +328,19 @@ export default function FreeTexasDMVPracticeTestPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600">Real answers, no fluff.</p>
+            <p className="text-slate-600">Real answers, no fluff.</p>
           </div>
 
           <div className="space-y-4">
             {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-xl border border-gray-200 bg-white shadow-sm open:shadow-md transition-shadow"
+                className="group rounded-xl border border-slate-200 bg-white shadow-sm open:shadow-md transition-shadow"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-gray-900 marker:content-none list-none min-h-[44px]">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-slate-900 marker:content-none list-none min-h-[44px]">
                   <span>{item.question}</span>
                   <span
                     aria-hidden="true"
@@ -349,7 +349,7 @@ export default function FreeTexasDMVPracticeTestPage() {
                     +
                   </span>
                 </summary>
-                <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
                   {item.answer}
                 </div>
               </details>
@@ -392,15 +392,15 @@ export default function FreeTexasDMVPracticeTestPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t">
+      <footer className="py-10 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
+            <span className="text-lg font-bold text-slate-900">Ace Your Permit</span>
           </div>
-          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
+          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-slate-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
               Privacy Policy
             </Link>
@@ -408,7 +408,7 @@ export default function FreeTexasDMVPracticeTestPage() {
               Home
             </Link>
           </div>
-          <p className="text-center text-gray-500 text-sm">
+          <p className="text-center text-slate-500 text-sm">
             &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the
             Texas Department of Public Safety.
           </p>
@@ -448,15 +448,15 @@ const features: Array<{
     title: "Streaks & XP",
     desc: "Build daily streaks, earn XP, and level up — the same loop that makes games addictive, applied to actually learning Texas road rules.",
     Icon: Zap,
-    iconBg: "bg-yellow-100",
-    iconColor: "text-yellow-600",
+    iconBg: "bg-amber-100",
+    iconColor: "text-amber-600",
   },
   {
     title: "Texas DPS-Aligned Content",
     desc: "Every question maps to the official Texas Driver Handbook — road signs, traffic laws, right-of-way, sharing the road.",
     Icon: CheckCircle2,
-    iconBg: "bg-green-100",
-    iconColor: "text-green-600",
+    iconBg: "bg-emerald-100",
+    iconColor: "text-emerald-600",
   },
   {
     title: "Installs Like an App",
@@ -469,14 +469,14 @@ const features: Array<{
     title: "Zero Paywalls",
     desc: "No locked categories, no premium question packs, no countdown timer on a free trial. The full question bank is free — full stop.",
     Icon: ShieldCheck,
-    iconBg: "bg-purple-100",
-    iconColor: "text-purple-600",
+    iconBg: "bg-emerald-100",
+    iconColor: "text-emerald-600",
   },
   {
     title: "Timed Test Simulator",
     desc: "Simulate the real TX DPS test format: 30 questions, timed, pass/fail score. Practice the pressure before you feel it at the DPS office.",
     Icon: Car,
-    iconBg: "bg-pink-100",
-    iconColor: "text-pink-600",
+    iconBg: "bg-orange-100",
+    iconColor: "text-orange-600",
   },
 ];

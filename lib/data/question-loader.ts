@@ -13,7 +13,6 @@ import {
 import {
   illinoisDMVQuestions,
   getQuestionsByCategory,
-  getQuestionsByDifficulty,
   getRandomQuestions,
   getQuestionById,
   getPracticeTestQuestions,

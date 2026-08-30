@@ -74,36 +74,36 @@ function OnboardingPageInner() {
   return (
     <div className="force-light-theme min-h-screen flex flex-col lg:flex-row bg-[#F8FAFC] text-slate-900">
       {/* Mobile: Top progress bar */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-gray-700">
+            <span className="text-sm font-medium text-slate-700">
               Step {onboarding.currentStep + 1} of {ONBOARDING_STEPS.length}
             </span>
-            <span className="text-sm text-gray-500">{onboarding.progressPercentage}%</span>
+            <span className="text-sm text-slate-500">{onboarding.progressPercentage}%</span>
           </div>
           <Progress value={onboarding.progressPercentage} className="h-1.5" />
         </div>
       </div>
 
       {/* Left side - Progress & Checklist (Desktop) */}
-      <div className="hidden lg:flex lg:w-80 xl:w-96 bg-white border-r border-gray-100 flex-col">
-        <div className="p-6 border-b border-gray-100">
+      <div className="hidden lg:flex lg:w-80 xl:w-96 bg-white border-r border-slate-100 flex-col">
+        <div className="p-6 border-b border-slate-100">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-orange-500 rounded-xl flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="font-bold text-gray-900">Getting Started</h1>
-              <p className="text-sm text-gray-500">Complete your setup</p>
+              <h1 className="font-bold text-slate-900">Getting Started</h1>
+              <p className="text-sm text-slate-500">Complete your setup</p>
             </div>
           </div>
 
           {/* Progress */}
           <div className="space-y-2">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-600">Overall Progress</span>
-              <span className="font-medium text-gray-900">{onboarding.progressPercentage}%</span>
+              <span className="text-slate-600">Overall Progress</span>
+              <span className="font-medium text-slate-900">{onboarding.progressPercentage}%</span>
             </div>
             <Progress value={onboarding.progressPercentage} className="h-2" />
           </div>
@@ -118,12 +118,12 @@ function OnboardingPageInner() {
         </div>
 
         {/* XP Counter */}
-        <div className="p-6 border-t border-gray-100 bg-gradient-to-r from-blue-50 to-orange-50">
+        <div className="p-6 border-t border-slate-100 bg-gradient-to-r from-blue-50 to-orange-50">
           <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-600">XP Earned</span>
+            <span className="text-sm text-slate-600">XP Earned</span>
             <span className="font-bold text-blue-600">+{onboarding.xpEarned} XP</span>
           </div>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Complete steps to earn more XP!
           </p>
         </div>
@@ -132,12 +132,12 @@ function OnboardingPageInner() {
       {/* Right side - Step content */}
       <div className="flex-1 flex flex-col pt-16 lg:pt-0">
         {/* Desktop header */}
-        <div className="hidden lg:flex items-center justify-between px-8 py-6 border-b border-gray-100 bg-white/50 backdrop-blur-sm">
+        <div className="hidden lg:flex items-center justify-between px-8 py-6 border-b border-slate-100 bg-white/50 backdrop-blur-sm">
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-slate-500">
               Step {onboarding.currentStep + 1} of {ONBOARDING_STEPS.length}
             </span>
-            <h2 className="font-semibold text-gray-900">
+            <h2 className="font-semibold text-slate-900">
               {ONBOARDING_STEPS[onboarding.currentStep]?.title}
             </h2>
           </div>
@@ -147,7 +147,7 @@ function OnboardingPageInner() {
               variant="ghost"
               size="sm"
               onClick={onboarding.skipStep}
-              className="text-gray-500 hover:text-gray-700"
+              className="text-slate-500 hover:text-slate-700"
             >
               Skip for now
               <SkipForward className="w-4 h-4 ml-1" />
@@ -182,7 +182,7 @@ function OnboardingPageInner() {
         </div>
 
         {/* Mobile: Back/skip controls. Each step owns its Continue action. */}
-        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 p-4 safe-area-inset-bottom">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 p-4 safe-area-inset-bottom">
           <div className="flex items-center justify-between gap-4">
             <Button
               variant="outline"
@@ -200,7 +200,7 @@ function OnboardingPageInner() {
                 variant="ghost"
                 size="sm"
                 onClick={onboarding.skipStep}
-                className="text-gray-500"
+                className="text-slate-500"
               >
                 Skip for now
               </Button>
@@ -211,7 +211,7 @@ function OnboardingPageInner() {
         </div>
 
         {/* Desktop: Bottom navigation */}
-        <div className="hidden lg:flex items-center justify-between px-8 py-6 border-t border-gray-100 bg-white/50 backdrop-blur-sm">
+        <div className="hidden lg:flex items-center justify-between px-8 py-6 border-t border-slate-100 bg-white/50 backdrop-blur-sm">
           <Button
             variant="outline"
             onClick={onboarding.goToPreviousStep}
@@ -244,7 +244,7 @@ function OnboardingPageInner() {
                       ? "w-6 bg-blue-500"
                       : onboarding.completedSteps.includes(index)
                       ? "w-2.5 bg-blue-300"
-                      : "w-2.5 bg-gray-200"
+                      : "w-2.5 bg-slate-200"
                     }
                   `}
                 />

@@ -90,7 +90,7 @@ export function BottomSheet({
 }: BottomSheetProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const isOpen = controlledOpen ?? internalOpen;
-  const [currentSnap, setCurrentSnap] = useState(0);
+  const [, setCurrentSnap] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragY, setDragY] = useState(0);
   const [startY, setStartY] = useState(0);
@@ -204,12 +204,6 @@ export function BottomSheet({
       };
     }
   }, [isDragging, handleDragMove, handleDragEnd]);
-
-  const translateY = isDragging
-    ? dragY
-    : isOpen
-    ? `${100 - snapPoints[currentSnap]}%`
-    : "100%";
 
   return (
     <BottomSheetContext.Provider value={{ isOpen, open, close, toggle }}>

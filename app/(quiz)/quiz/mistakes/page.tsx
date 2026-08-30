@@ -308,7 +308,7 @@ export default function MistakesQuizPage() {
         {quiz.answers.length > 0 && (
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
-              <span className="font-semibold text-green-600">
+              <span className="font-semibold text-emerald-600">
                 {quiz.answers.filter((a) => a.isCorrect).length}
               </span>{" "}
               of{" "}

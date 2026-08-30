@@ -59,8 +59,8 @@ export function AnswerOptions({
         if (showCorrectness) {
           if (answer.id === correctAnswerId) {
             // Correct answer
-            buttonClass += "border-green-500 bg-green-50";
-            letterClass += "bg-green-500 text-white";
+            buttonClass += "border-emerald-500 bg-emerald-50";
+            letterClass += "bg-emerald-500 text-white";
           } else if (isSelected) {
             // Wrong selected answer
             buttonClass += "border-red-500 bg-red-50";
@@ -116,7 +116,7 @@ export function AnswerOptions({
                 className={`flex-1 text-base ${
                   showCorrectness
                     ? answer.id === correctAnswerId
-                      ? "text-green-700 font-medium"
+                      ? "text-emerald-700 font-medium"
                       : isSelected
                       ? "text-red-700"
                       : "text-muted-foreground"

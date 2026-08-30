@@ -155,7 +155,7 @@ export default function QuizResultsPage() {
           <Card
             className={`border-0 shadow-lg ${
               isPassing
-                ? "bg-gradient-to-br from-green-500 to-green-600 text-white"
+                ? "bg-gradient-to-br from-emerald-500 to-emerald-600 text-white"
                 : "bg-gradient-to-br from-orange-500 to-orange-600 text-white"
             }`}
           >
@@ -183,7 +183,7 @@ export default function QuizResultsPage() {
               </p>
 
               <div className="flex items-center justify-center gap-2 mb-4">
-                <span className="text-5xl font-bold">{results.accuracy}</span>
+                <span className="font-mono tabular-nums text-5xl font-bold">{results.accuracy}</span>
                 <span className="text-2xl">%</span>
               </div>
 
@@ -210,14 +210,14 @@ export default function QuizResultsPage() {
           <Card className="border-0 shadow-md">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg flex items-center gap-2">
-                <Star className="w-5 h-5 text-yellow-500" />
+                <Star className="w-5 h-5 text-amber-500" />
                 XP Earned
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <p className="text-3xl font-bold text-primary">
+                  <p className="font-mono tabular-nums text-3xl font-bold text-primary">
                     +{animatedXP}
                   </p>
                   <p className="text-sm text-muted-foreground">Total XP earned</p>
@@ -251,7 +251,7 @@ export default function QuizResultsPage() {
                           {item.description}
                         </p>
                       </div>
-                      <span className="font-semibold text-primary">
+                      <span className="font-mono tabular-nums font-semibold text-primary">
                         +{item.value}
                       </span>
                     </div>
@@ -272,7 +272,7 @@ export default function QuizResultsPage() {
           <Card className="border-0 shadow-sm">
             <CardContent className="p-3 text-center">
               <Clock className="w-5 h-5 text-primary mx-auto mb-1" />
-              <p className="text-lg font-bold text-foreground">
+              <p className="font-mono tabular-nums text-lg font-bold text-foreground">
                 {formatTime(results.totalTimeTaken)}
               </p>
               <p className="text-xs text-muted-foreground">Total Time</p>
@@ -281,7 +281,7 @@ export default function QuizResultsPage() {
           <Card className="border-0 shadow-sm">
             <CardContent className="p-3 text-center">
               <Zap className="w-5 h-5 text-amber-500 mx-auto mb-1" />
-              <p className="text-lg font-bold text-foreground">
+              <p className="font-mono tabular-nums text-lg font-bold text-foreground">
                 {Math.round(results.averageTimePerQuestion)}s
               </p>
               <p className="text-xs text-muted-foreground">Avg Time</p>
@@ -290,7 +290,7 @@ export default function QuizResultsPage() {
           <Card className="border-0 shadow-sm">
             <CardContent className="p-3 text-center">
               <Flame className="w-5 h-5 text-accent mx-auto mb-1" />
-              <p className="text-lg font-bold text-foreground">
+              <p className="font-mono tabular-nums text-lg font-bold text-foreground">
                 {results.maxStreak}
               </p>
               <p className="text-xs text-muted-foreground">Best Streak</p>

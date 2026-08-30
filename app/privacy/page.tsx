@@ -9,25 +9,25 @@ export default function PrivacyPage() {
   return (
     <main className="force-light-theme min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-gradient-to-b from-blue-50 to-white py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
+      <div className="bg-gradient-to-b from-blue-50 to-white py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-100">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 font-display tracking-tight">
+          <h1 className="text-4xl font-bold text-slate-900 mb-4 font-display tracking-tight">
             Privacy Policy
           </h1>
           {/* Friendly summary — Dash tone */}
           <p className="text-lg text-orange-600 font-semibold mb-3">
             Short version: we track your quiz progress to help you pass the test. That&apos;s it. Analytics are off unless you turn them on.
           </p>
-          <p className="text-sm text-gray-500">Last updated: {LAST_UPDATED}</p>
+          <p className="text-sm text-slate-500">Last updated: {LAST_UPDATED}</p>
         </div>
       </div>
 
       {/* Body */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12 text-gray-700 leading-relaxed">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12 text-slate-700 leading-relaxed">
 
         {/* 1 — Who we are */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             1. Who we are
           </h2>
           <p>
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
 
         {/* 2 — Account data */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             2. What we collect when you sign up
           </h2>
           <ul className="list-disc list-inside space-y-2 ml-2">
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
 
         {/* 3 — Quiz data */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             3. What we collect when you take quizzes
           </h2>
           <p>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
 
         {/* 4 — Analytics */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             4. Analytics — opt-in only
           </h2>
           <p>
@@ -102,7 +102,7 @@ export default function PrivacyPage() {
             <a href="/settings" className="text-blue-600 underline hover:text-blue-700">Settings → Privacy</a>{" "}
             and toggle off the analytics options. Opt-out takes effect immediately.
           </p>
-          <p className="mt-3 text-sm text-gray-500">
+          <p className="mt-3 text-sm text-slate-500">
             Honest note: we currently rely on copy (not a technical age gate) to discourage users under 13.
             If you are a parent and believe your child under 13 has created an account, please email{" "}
             <a href="mailto:privacy@aceyourpermit.com" className="text-blue-600 underline">privacy@aceyourpermit.com</a>{" "}
@@ -112,7 +112,7 @@ export default function PrivacyPage() {
 
         {/* 5 — What we never collect */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             5. What we never collect
           </h2>
           <ul className="list-disc list-inside space-y-2 ml-2">
@@ -128,7 +128,7 @@ export default function PrivacyPage() {
 
         {/* 6 — Parental link */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             6. Parental progress link
           </h2>
           <p>
@@ -140,20 +140,20 @@ export default function PrivacyPage() {
 
         {/* 7 — Sub-processors */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             7. Sub-processors
           </h2>
           <p>We share your data with the following services to operate Ace Your Permit:</p>
-          <div className="mt-4 overflow-x-auto rounded-xl border border-gray-200">
+          <div className="mt-4 overflow-x-auto rounded-xl border border-slate-200">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 text-gray-600 text-left">
+              <thead className="bg-slate-50 text-slate-600 text-left">
                 <tr>
                   <th className="px-4 py-3 font-semibold">Service</th>
                   <th className="px-4 py-3 font-semibold">Purpose</th>
                   <th className="px-4 py-3 font-semibold">Data shared</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-slate-100">
                 <tr>
                   <td className="px-4 py-3 font-medium">Supabase</td>
                   <td className="px-4 py-3">Database &amp; authentication</td>
@@ -191,7 +191,7 @@ export default function PrivacyPage() {
 
         {/* 8 — Retention */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             8. How long we keep your data
           </h2>
           <ul className="list-disc list-inside space-y-2 ml-2">
@@ -211,7 +211,7 @@ export default function PrivacyPage() {
 
         {/* 9 — COPPA + IL BIPA */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             9. COPPA &amp; Illinois BIPA posture
           </h2>
           <p>
@@ -227,7 +227,7 @@ export default function PrivacyPage() {
 
         {/* 10 — Your rights */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             10. Your rights
           </h2>
           <p>You can do any of the following by emailing{" "}
@@ -248,7 +248,7 @@ export default function PrivacyPage() {
 
         {/* 11 — Contact */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+          <h2 className="text-2xl font-bold text-slate-900 mb-3 font-display tracking-tight">
             11. Contact us
           </h2>
           <p>
@@ -268,7 +268,7 @@ export default function PrivacyPage() {
       </div>
 
       {/* Footer spacer */}
-      <div className="h-16 bg-gray-50 border-t border-gray-100 flex items-center justify-center text-sm text-gray-400">
+      <div className="h-16 bg-slate-50 border-t border-slate-100 flex items-center justify-center text-sm text-slate-400">
         © 2026 Ace Your Permit. Not affiliated with the Illinois Secretary of State.
       </div>
     </main>

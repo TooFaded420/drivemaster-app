@@ -26,7 +26,7 @@ export function StreakIndicator({ streak }: StreakIndicatorProps) {
     if (count >= 10) return "bg-gradient-to-br from-orange-500 to-red-500 text-white border-orange-300";
     if (count >= 7) return "bg-red-100 text-red-700 border-red-200";
     if (count >= 5) return "bg-orange-100 text-orange-700 border-orange-200";
-    return "bg-yellow-100 text-yellow-700 border-yellow-200";
+    return "bg-amber-100 text-amber-700 border-amber-200";
   };
 
   return (

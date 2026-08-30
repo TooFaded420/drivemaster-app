@@ -1,64 +1,64 @@
 export const MASCOT_MESSAGES = {
   // Landing Page
   welcome: {
-    title: "Welcome to Ace Your Permit!",
-    message: "Hi, I'm Dash! I'll help you ace your driving test! 🚗",
+    title: "Welcome to Ace Your Permit",
+    message: "Yo, I'm Dash. I'll get you ready to ace this test 🚗",
   },
   getStarted: {
     title: "Ready to start?",
-    message: "Let's begin your journey to becoming a safe driver!",
+    message: "Let's get you that permit. First quiz is on me.",
   },
 
   // Quiz / Learning
   correctAnswer: {
-    title: "Great job!",
+    title: "Let's go!",
     messages: [
-      "That's right! You're on the road to success!",
-      "Excellent! You're driving your way to mastery!",
-      "Perfect! Keep up the fantastic work!",
-      "Awesome job! You're really getting the hang of this!",
+      "Ayy, that's it. You're locked in.",
+      "Clean. That's how it's done.",
+      "Yup. Keep that same energy.",
+      "Certified correct. Keep cooking.",
     ],
   },
   wrongAnswer: {
-    title: "Keep trying!",
+    title: "Close but nah",
     messages: [
-      "Not quite, but don't give up! Every mistake is a learning opportunity!",
-      "Close! Let's review this one together.",
-      "That's okay! Learning takes practice. You've got this!",
-      "Stay positive! You'll get it next time!",
+      "Nah, not this one. But that's how you learn — run it back.",
+      "Oof, close but nope. Check the explanation, you'll get the next one.",
+      "That ain't it, but you're one rep away. Keep going.",
+      "Close but nah. Read why, then go again.",
     ],
   },
   streak: {
-    title: "On Fire! 🔥",
+    title: "On Fire 🔥",
     messages: [
-      "What a streak! You're unstoppable!",
-      "Keep it going! You're in the zone!",
-      "Amazing! You're on a roll!",
+      "You're on a heater. Don't touch the dial.",
+      "This streak is actually insane. Keep it rolling.",
+      "Locked in mode. Keep going.",
     ],
   },
 
   // Dashboard
   dailyGoalComplete: {
-    title: "Daily Goal Crushed! 🎉",
-    message: "You completed your daily goal! You're one step closer to your license!",
+    title: "Goal crushed 🎉",
+    message: "Daily goal done. That's how permits get earned.",
   },
   streakWarning: {
-    title: "Don't break the chain!",
-    message: "Complete a quiz today to keep your streak alive!",
+    title: "Streak on the line",
+    message: "One quiz today keeps the streak alive. Don't let it die.",
   },
   levelUp: {
-    title: "Level Up! 🚀",
-    message: "Congratulations! You've reached a new level!",
+    title: "Level Up 🚀",
+    message: "New level unlocked. You're moving different.",
   },
 
   // Empty States
   noQuizzes: {
-    title: "Time to start!",
-    message: "No quizzes completed yet. Let's take your first one together!",
+    title: "Let's start",
+    message: "Zero quizzes so far. Take your first one with me.",
   },
   noFavorites: {
-    title: "Build your collection!",
-    message: "Star questions you want to review later!",
+    title: "Build your collection",
+    message: "Star questions you want to run back later.",
   },
 
   // Loading
@@ -74,19 +74,19 @@ export const MASCOT_MESSAGES = {
 
   // Encouragement
   encouragement: {
-    title: "You've got this! 💪",
+    title: "You've got this 💪",
     messages: [
-      "Every expert was once a beginner. Keep going!",
-      "Practice makes perfect. You're doing great!",
-      "Believe in yourself! You're closer than you think!",
-      "Small steps lead to big achievements!",
+      "Every pro was a beginner once. Keep going.",
+      "Reps build results. You're doing better than you think.",
+      "Trust the process — you're closer than you feel.",
+      "Small steps stack up. Keep moving.",
     ],
   },
 
   // Achievements
   achievementUnlocked: {
-    title: "Achievement Unlocked! 🏆",
-    message: "You earned a new badge! Keep up the amazing work!",
+    title: "Achievement Unlocked 🏆",
+    message: "New badge in the collection. Keep stacking.",
   },
 } as const;
 

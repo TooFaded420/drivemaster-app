@@ -3,8 +3,8 @@
  * Tracks and analyzes performance by question category
  */
 
-import { Question, CategoryStats, UserQuestionProgress, DifficultyLevel } from './questions/types';
-import { ILLINOIS_CATEGORIES, getCategoryById, CategoryId } from './questions/categories';
+import { UserQuestionProgress } from './questions/types';
+import { ILLINOIS_CATEGORIES, CategoryId } from './questions/categories';
 import { getQuestionsByCategory, illinoisDMVQuestions } from './questions';
 
 /**

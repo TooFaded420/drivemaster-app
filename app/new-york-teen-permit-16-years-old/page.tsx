@@ -103,16 +103,16 @@ const steps = [
     title: "Gather your documents (6-point ID)",
     body: "NY uses a 6-point system. Your birth certificate is worth 4 points. A Social Security card or W-2 adds 3 points. A utility bill or bank statement proves residency. Total must reach 6 points. Check dmv.ny.gov for the full list.",
     Icon: ShieldCheck,
-    iconBg: "bg-green-100",
-    iconColor: "text-green-600",
+    iconBg: "bg-emerald-100",
+    iconColor: "text-emerald-600",
   },
   {
     number: "3",
     title: "Visit a DMV office with a parent or guardian",
     body: "You must visit in person (no online permit test in NY for first-time applicants under 18). A parent or guardian must be present to sign the application. You'll take the written test and vision screening on the same visit.",
     Icon: Users,
-    iconBg: "bg-purple-100",
-    iconColor: "text-purple-600",
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
   },
   {
     number: "4",
@@ -127,8 +127,8 @@ const steps = [
     title: "Hold your permit for 6+ months",
     body: "You must hold the learner's permit for at least 6 months before scheduling a road test. During this time, you must always be supervised by a licensed driver 21+ in the front seat.",
     Icon: Clock,
-    iconBg: "bg-yellow-100",
-    iconColor: "text-yellow-600",
+    iconBg: "bg-amber-100",
+    iconColor: "text-amber-600",
   },
   {
     number: "6",
@@ -152,7 +152,7 @@ export default function NewYorkTeenPermit16Page() {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
               <Car className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">Ace Your Permit</span>
+            <span className="text-xl font-bold text-slate-900">Ace Your Permit</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/login">
@@ -173,12 +173,12 @@ export default function NewYorkTeenPermit16Page() {
             NY Class DJ Junior License — Age 16
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight font-display tracking-tight">
             How to Get Your<br />
             <span className="text-blue-600">NY Permit at 16</span>
           </h1>
 
-          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
             Step-by-step guide: 6-point ID, 20-question written test, 5-hour pre-licensing
             course, and Class DJ junior license restrictions — all in one place.
           </p>
@@ -200,7 +200,7 @@ export default function NewYorkTeenPermit16Page() {
       </section>
 
       {/* ── Quick Stats ── */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-100">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-100">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
@@ -211,8 +211,8 @@ export default function NewYorkTeenPermit16Page() {
             ].map((item) => (
               <div key={item.label} className="flex flex-col items-center gap-1">
                 <CheckCircle2 className="w-6 h-6 text-blue-500 mb-1" />
-                <span className="font-bold text-gray-900">{item.label}</span>
-                <span className="text-sm text-gray-500">{item.sub}</span>
+                <span className="font-bold text-slate-900">{item.label}</span>
+                <span className="text-sm text-slate-500">{item.sub}</span>
               </div>
             ))}
           </div>
@@ -223,17 +223,17 @@ export default function NewYorkTeenPermit16Page() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
               Getting Your NY Permit at 16 — Step by Step
             </h2>
-            <p className="text-gray-600">
+            <p className="text-slate-600">
               Follow these steps in order. Most teens complete steps 1–4 in a single DMV visit.
             </p>
           </div>
 
           <div className="space-y-4">
             {steps.map((step) => (
-              <Card key={step.number} className="border border-gray-200 shadow-sm">
+              <Card key={step.number} className="border border-slate-200 shadow-sm">
                 <CardHeader className="pb-2">
                   <div className="flex items-center gap-4">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${step.iconBg} shrink-0`}>
@@ -245,7 +245,7 @@ export default function NewYorkTeenPermit16Page() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-600">{step.body}</p>
+                  <p className="text-sm text-slate-600">{step.body}</p>
                 </CardContent>
               </Card>
             ))}
@@ -254,13 +254,13 @@ export default function NewYorkTeenPermit16Page() {
       </section>
 
       {/* ── Class DJ Restrictions ── */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
               Class DJ Junior License Restrictions
             </h2>
-            <p className="text-gray-600">
+            <p className="text-slate-600">
               These apply until you turn 18 or upgrade your license.
             </p>
           </div>
@@ -309,7 +309,7 @@ export default function NewYorkTeenPermit16Page() {
                 className={`flex gap-4 rounded-xl border p-5 ${
                   item.warn
                     ? "bg-red-50 border-red-200"
-                    : "bg-white border-gray-200"
+                    : "bg-white border-slate-200"
                 } shadow-sm`}
               >
                 <item.Icon
@@ -318,8 +318,8 @@ export default function NewYorkTeenPermit16Page() {
                   }`}
                 />
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm">{item.label}</p>
-                  <p className="text-sm text-gray-600 mt-1">{item.body}</p>
+                  <p className="font-semibold text-slate-900 text-sm">{item.label}</p>
+                  <p className="text-sm text-slate-600 mt-1">{item.body}</p>
                 </div>
               </div>
             ))}
@@ -331,19 +331,19 @@ export default function NewYorkTeenPermit16Page() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3 font-display tracking-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-600">Real answers, no fluff.</p>
+            <p className="text-slate-600">Real answers, no fluff.</p>
           </div>
 
           <div className="space-y-4">
             {faqItems.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-xl border border-gray-200 bg-white shadow-sm open:shadow-md transition-shadow"
+                className="group rounded-xl border border-slate-200 bg-white shadow-sm open:shadow-md transition-shadow"
               >
-                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-gray-900 marker:content-none list-none min-h-[44px]">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-4 text-base font-semibold text-slate-900 marker:content-none list-none min-h-[44px]">
                   <span>{item.question}</span>
                   <span
                     aria-hidden="true"
@@ -352,7 +352,7 @@ export default function NewYorkTeenPermit16Page() {
                     +
                   </span>
                 </summary>
-                <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                <div className="px-6 pb-5 text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
                   {item.answer}
                 </div>
               </details>
@@ -394,15 +394,15 @@ export default function NewYorkTeenPermit16Page() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t">
+      <footer className="py-10 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Car className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg font-bold text-gray-900">Ace Your Permit</span>
+            <span className="text-lg font-bold text-slate-900">Ace Your Permit</span>
           </div>
-          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-gray-500">
+          <div className="flex items-center justify-center gap-4 mb-4 text-sm text-slate-500">
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">
               Privacy Policy
             </Link>
@@ -410,7 +410,7 @@ export default function NewYorkTeenPermit16Page() {
               Home
             </Link>
           </div>
-          <p className="text-center text-gray-500 text-sm">
+          <p className="text-center text-slate-500 text-sm">
             &copy; 2026 Ace Your Permit. All rights reserved. Not affiliated with the
             New York Department of Motor Vehicles.
           </p>

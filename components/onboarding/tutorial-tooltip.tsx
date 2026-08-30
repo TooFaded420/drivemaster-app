@@ -161,7 +161,7 @@ export function TutorialTooltip({
         exit={{ opacity: 0, scale: 0.9, y: 10 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
         className={cn(
-          "fixed z-50 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+          "fixed z-50 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden"
         )}
         style={position}
       >
@@ -183,7 +183,7 @@ export function TutorialTooltip({
 
         {/* Content */}
         <div className="p-4">
-          <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+          <p className="text-slate-600 text-sm leading-relaxed">{step.description}</p>
         </div>
 
         {/* Footer with navigation */}
@@ -207,7 +207,7 @@ export function TutorialTooltip({
                     ? "bg-blue-500"
                     : index < currentStep
                     ? "bg-blue-300"
-                    : "bg-gray-200"
+                    : "bg-slate-200"
                 )}
               />
             ))}
@@ -220,7 +220,7 @@ export function TutorialTooltip({
                 variant="ghost"
                 size="sm"
                 onClick={onPrevious}
-                className="h-8 px-2"
+                className="min-h-11 px-2"
               >
                 <ChevronLeft className="w-4 h-4" />
               </Button>
@@ -230,7 +230,7 @@ export function TutorialTooltip({
               <Button
                 size="sm"
                 onClick={onComplete}
-                className="h-8 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
+                className="min-h-11 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
               >
                 Finish
               </Button>
@@ -238,7 +238,7 @@ export function TutorialTooltip({
               <Button
                 size="sm"
                 onClick={onNext}
-                className="h-8 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
+                className="min-h-11 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600"
               >
                 Next
                 <ChevronRight className="w-4 h-4 ml-1" />

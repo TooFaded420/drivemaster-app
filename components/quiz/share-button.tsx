@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Share2, Download, Check } from "lucide-react";
+import { Share2, Check } from "lucide-react";
 import { features } from "@/lib/feature-flags";
 import { toast } from "sonner";
 

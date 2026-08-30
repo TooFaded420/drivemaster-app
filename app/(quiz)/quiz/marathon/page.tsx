@@ -271,8 +271,8 @@ export default function MarathonQuizPage() {
 
         {/* Take a Break Reminder */}
         {quiz.currentQuestionIndex > 0 && quiz.currentQuestionIndex % 25 === 0 && (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-center">
-            <div className="flex items-center justify-center gap-2 text-yellow-700">
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-center">
+            <div className="flex items-center justify-center gap-2 text-amber-700">
               <Pause className="w-4 h-4" />
               <span className="text-sm">
                 {quiz.currentQuestionIndex} questions down. A short break is allowed.

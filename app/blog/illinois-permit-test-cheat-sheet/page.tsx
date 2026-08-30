@@ -69,7 +69,7 @@ export default function IllinoisPermitCheatSheetPage() {
               <ul className="mt-4 space-y-3">
                 {section.items.map((item) => (
                   <li key={item} className="flex gap-3 text-slate-700">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-600" aria-hidden="true" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}

@@ -6,7 +6,7 @@
 import { Question, DifficultyLevel } from './questions/types';
 import { illinoisDMVQuestions } from './questions/illinois-dmv-questions';
 import { ILLINOIS_CATEGORIES, isValidCategoryId } from './questions/categories';
-import { classifyDifficulty, validateDifficulty } from './questions/difficulty';
+import { validateDifficulty } from './questions/difficulty';
 
 /**
  * Validation result
@@ -546,7 +546,6 @@ function countByDifficulty(): Record<DifficultyLevel, number> {
  */
 export function generateValidationReport(): string {
   const result = validateQuestionBank();
-  const answerCheck = verifyAnswerKeys();
   const sourceCheck = verifySourceCitations();
   const similarQuestions = findSimilarQuestions(0.9);
 

@@ -61,8 +61,8 @@ export function LeagueBadge({
           animated && "animate-pulse",
           tier === "diamond" && "shadow-cyan-500/50",
           tier === "platinum" && "shadow-slate-400/50",
-          tier === "gold" && "shadow-yellow-500/50",
-          tier === "silver" && "shadow-gray-400/50",
+          tier === "gold" && "shadow-amber-500/50",
+          tier === "silver" && "shadow-slate-400/50",
           tier === "bronze" && "shadow-amber-700/50"
         )}
         style={{
@@ -75,8 +75,8 @@ export function LeagueBadge({
             "absolute inset-1 rounded-full bg-gradient-to-br opacity-50",
             tier === "diamond" && "from-white to-cyan-200",
             tier === "platinum" && "from-white to-slate-200",
-            tier === "gold" && "from-yellow-200 to-yellow-400",
-            tier === "silver" && "from-gray-200 to-gray-300",
+            tier === "gold" && "from-amber-200 to-amber-400",
+            tier === "silver" && "from-slate-200 to-slate-300",
             tier === "bronze" && "from-amber-200 to-amber-400"
           )}
         />

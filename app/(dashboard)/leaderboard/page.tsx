@@ -26,7 +26,7 @@ import {
   Share2,
   Sparkles,
 } from "lucide-react";
-import { LEAGUES, LEAGUE_COLORS } from "@/lib/gamification/leagues";
+import { LEAGUES } from "@/lib/gamification/leagues";
 
 export default function LeaderboardPage() {
   const { profile } = useUser();
@@ -66,7 +66,7 @@ export default function LeaderboardPage() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold flex items-center gap-3">
-              <Trophy className="w-8 h-8 text-yellow-500" />
+              <Trophy className="w-8 h-8 text-amber-500" />
               Leaderboard
             </h1>
             <p className="text-muted-foreground mt-1">

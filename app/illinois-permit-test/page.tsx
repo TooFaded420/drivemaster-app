@@ -162,7 +162,7 @@ export default function IllinoisPermitTestPage() {
               <div className="w-10 h-10 bg-[#2563EB] rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">
+              <span className="text-xl font-bold text-slate-900 font-display">
                 Ace Your Permit
               </span>
             </Link>
@@ -182,12 +182,12 @@ export default function IllinoisPermitTestPage() {
               Free for Illinois teens — no credit card needed
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight font-display tracking-tight">
               Illinois Permit Test{" "}
               <span className="text-[#2563EB]">Practice 2026</span>
             </h1>
 
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
               3,400+ free questions covering every official Illinois SOS topic.
               Passing-score tracking and Dash AI explanations included — no
               signup wall for practice.
@@ -220,19 +220,19 @@ export default function IllinoisPermitTestPage() {
                 <div className="text-2xl font-bold text-[#2563EB] font-display">
                   35
                 </div>
-                <div className="text-sm text-gray-500">Questions on test</div>
+                <div className="text-sm text-slate-500">Questions on test</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-[#F97316] font-display">
                   80%
                 </div>
-                <div className="text-sm text-gray-500">Passing score</div>
+                <div className="text-sm text-slate-500">Passing score</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-[#10B981] font-display">
                   3,400+
                 </div>
-                <div className="text-sm text-gray-500">Practice Qs</div>
+                <div className="text-sm text-slate-500">Practice Qs</div>
               </div>
             </div>
           </div>
@@ -243,11 +243,11 @@ export default function IllinoisPermitTestPage() {
           <section aria-labelledby="sample-questions-heading">
             <h2
               id="sample-questions-heading"
-              className="text-2xl font-bold text-gray-900 mb-2 font-display"
+              className="text-2xl font-bold text-slate-900 mb-2 font-display"
             >
               Try 3 Real Illinois Permit Test Questions
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-slate-600 mb-6">
               These come straight from our question bank, built from the
               official Illinois Rules of the Road handbook. Click{" "}
               <strong>Reveal Answer</strong> to check yourself.
@@ -257,7 +257,7 @@ export default function IllinoisPermitTestPage() {
               {sampleQuestions.map((q, idx) => (
                 <div
                   key={q.id}
-                  className="border border-gray-200 rounded-2xl p-6 bg-white shadow-sm"
+                  className="border border-slate-200 rounded-2xl p-6 bg-white shadow-sm"
                 >
                   <div className="flex items-start gap-3 mb-4">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-sm font-bold font-display">
@@ -267,7 +267,7 @@ export default function IllinoisPermitTestPage() {
                       <span className="inline-block text-xs font-medium text-[#2563EB] bg-blue-50 px-2 py-0.5 rounded-full mb-2">
                         {q.category}
                       </span>
-                      <p className="text-gray-900 font-semibold text-lg leading-snug">
+                      <p className="text-slate-900 font-semibold text-lg leading-snug">
                         {q.question}
                       </p>
                     </div>
@@ -275,8 +275,8 @@ export default function IllinoisPermitTestPage() {
 
                   <ol className="space-y-2 mb-4 pl-11" type="A">
                     {q.options.map((opt, oIdx) => (
-                      <li key={oIdx} className="flex items-center gap-2 text-gray-700">
-                        <span className="w-6 h-6 flex-shrink-0 rounded border border-gray-300 flex items-center justify-center text-xs font-mono text-gray-500">
+                      <li key={oIdx} className="flex items-center gap-2 text-slate-700">
+                        <span className="w-6 h-6 flex-shrink-0 rounded border border-slate-300 flex items-center justify-center text-xs font-mono text-slate-500">
                           {String.fromCharCode(65 + oIdx)}
                         </span>
                         {opt}
@@ -291,16 +291,16 @@ export default function IllinoisPermitTestPage() {
                         Hide Answer
                       </span>
                     </summary>
-                    <div className="mt-3 pl-0 border-l-4 border-[#10B981] pl-4 bg-green-50 rounded-r-lg py-3 pr-3">
-                      <p className="text-sm font-semibold text-green-800 mb-1">
+                    <div className="mt-3 pl-0 border-l-4 border-[#10B981] pl-4 bg-emerald-50 rounded-r-lg py-3 pr-3">
+                      <p className="text-sm font-semibold text-emerald-800 mb-1">
                         Correct:{" "}
                         <span className="font-bold">
                           {String.fromCharCode(65 + q.correctIndex)}.{" "}
                           {q.options[q.correctIndex]}
                         </span>
                       </p>
-                      <p className="text-sm text-green-900">{q.explanation}</p>
-                      <p className="text-xs text-green-700 mt-2 italic">
+                      <p className="text-sm text-emerald-900">{q.explanation}</p>
+                      <p className="text-xs text-emerald-700 mt-2 italic">
                         Source: {q.source}
                       </p>
                     </div>
@@ -329,11 +329,11 @@ export default function IllinoisPermitTestPage() {
           >
             <h2
               id="about-heading"
-              className="text-2xl font-bold text-gray-900 font-display"
+              className="text-2xl font-bold text-slate-900 font-display"
             >
               What Is the Illinois Permit Test?
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               The Illinois permit test — formally called the written knowledge
               exam — is a 35-question multiple-choice test administered by the
               Illinois Secretary of State (SOS). You must pass it before you
@@ -342,28 +342,28 @@ export default function IllinoisPermitTestPage() {
               <em>Illinois Rules of the Road</em> handbook, which the SOS
               publishes and updates annually.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               You need at least 28 correct answers out of 35 — an 80% passing
               score. Questions cover road signs, traffic signals, right-of-way
               rules, speed limits, safe driving practices, alcohol and drug
               laws, and Illinois-specific regulations like Scott&apos;s Law and the
               Graduated Driver Licensing (GDL) program.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Most first-time test takers who study with quality practice
               questions pass on their first attempt. Ace Your Permit exists to
               make that outcome the norm, not the exception.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display mt-10">
               What Topics Are Covered on the Illinois Permit Test?
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               The Illinois SOS does not publish an exact topic breakdown, but
               based on the official handbook the test draws from nine core
               subject areas:
             </p>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2 text-slate-700">
               <li>
                 <strong>Traffic Signs &amp; Signals</strong> — regulatory
                 signs, warning signs, guide signs, traffic lights, flashing
@@ -404,27 +404,27 @@ export default function IllinoisPermitTestPage() {
                 headlight use, and seat belt laws
               </li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Ace Your Permit covers all nine areas with questions written to
               match the difficulty and phrasing of the real test.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display mt-10">
               How Many Questions Are on the Illinois Permit Test?
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               The test has exactly <strong>35 questions</strong>. You need to
               answer at least <strong>28 correctly (80%)</strong> to pass.
               That means you can miss up to 7 questions and still get your
               permit.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               The test is not timed — most people finish in 20 to 30 minutes.
               The format is multiple choice with four answer options per
               question. There is no partial credit; each question is worth one
               point.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               If you fail, you can retake the test (typically after paying the
               fee again). The SOS does not cap the number of retakes, but
               studying smarter between attempts is the real strategy. That is
@@ -432,20 +432,20 @@ export default function IllinoisPermitTestPage() {
               it spots your weak spots and drills them until they stick.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display mt-10">
               How to Pass the Illinois Permit Test: A Study Plan That Works
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Most teens who fail the permit test do so because they tried to
               memorize the entire handbook in one sitting. That does not work.
               What does work is spaced, active practice — answering real
               questions, reviewing explanations for every wrong answer, and
               repeating the topics where you keep slipping.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Here is a practical two-week plan:
             </p>
-            <ol className="space-y-2 text-gray-700 list-decimal list-inside">
+            <ol className="space-y-2 text-slate-700 list-decimal list-inside">
               <li>
                 <strong>Days 1-3:</strong> Read the Illinois Rules of the Road
                 handbook once, cover to cover. Do not memorize — just get
@@ -468,21 +468,21 @@ export default function IllinoisPermitTestPage() {
                 If you score 80%+ consistently, you are ready.
               </li>
             </ol>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Even 15 minutes of practice per day beats one long cram session.
               Consistency is the variable that separates first-time passers from
               repeat test takers.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display mt-10">
               What to Expect at the Illinois Secretary of State Office
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Walk-ins are accepted at most Illinois SOS facilities, but
               appointments are faster. You can schedule online at the
               Illinois Secretary of State website. Bring the following:
             </p>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2 text-slate-700">
               <li>
                 <strong>Proof of identity</strong> — birth certificate,
                 passport, or other acceptable document
@@ -504,23 +504,23 @@ export default function IllinoisPermitTestPage() {
                 SOS website; pay by cash, check, or card
               </li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               The written test is taken on a computer at the SOS office. You
               will get your result immediately. If you pass, you receive a
               temporary paper permit the same day; the official card arrives
               by mail.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display mt-10">
               Illinois Graduated Driver Licensing (GDL): What Permit Holders
               Need to Know
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               Illinois uses a Graduated Driver Licensing system that limits
               what new drivers can do until they gain more experience. As an
               instruction permit holder under 18:
             </p>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2 text-slate-700">
               <li>
                 You must always drive with a licensed driver aged 21 or older
                 in the front seat
@@ -537,22 +537,22 @@ export default function IllinoisPermitTestPage() {
                 driving
               </li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               These GDL rules are tested on the permit exam, so understanding
               them matters twice: once to pass the test, and again to stay legal
               while you practice driving. Ace Your Permit includes a dedicated
               Illinois-Specific Laws category that covers GDL in detail.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 font-display mt-10">
+            <h2 className="text-2xl font-bold text-slate-900 font-display mt-10">
               Why Ace Your Permit vs. Other Illinois Permit Test Prep Options
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               There are several permit test prep products on the market —
               Zutobi, Aceable, and the SOS&apos;s own practice questions among them.
               Here is how Ace Your Permit is different:
             </p>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2 text-slate-700">
               <li>
                 <strong>Built for Illinois teens, not generic users</strong> —
                 every question and explanation is written for the IL SOS test
@@ -578,7 +578,7 @@ export default function IllinoisPermitTestPage() {
                 homework
               </li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed">
               If you are a teen in Illinois who wants to pass the permit test
               without paying $30+ for a prep course, Ace Your Permit is the
               free alternative that actually works.
@@ -589,7 +589,7 @@ export default function IllinoisPermitTestPage() {
           <section aria-labelledby="faq-heading">
             <h2
               id="faq-heading"
-              className="text-2xl font-bold text-gray-900 mb-6 font-display"
+              className="text-2xl font-bold text-slate-900 mb-6 font-display"
             >
               Illinois Permit Test — Frequently Asked Questions
             </h2>
@@ -598,15 +598,15 @@ export default function IllinoisPermitTestPage() {
               {faqItems.map((item, idx) => (
                 <details
                   key={idx}
-                  className="group border border-gray-200 rounded-xl overflow-hidden"
+                  className="group border border-slate-200 rounded-xl overflow-hidden"
                 >
-                  <summary className="cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-gray-900 hover:bg-gray-50 transition-colors list-none min-h-[44px]">
+                  <summary className="cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-slate-900 hover:bg-slate-50 transition-colors list-none min-h-[44px]">
                     <span>{item.question}</span>
                     <span className="ml-4 flex-shrink-0 text-[#2563EB] group-open:rotate-180 transition-transform">
                       ▾
                     </span>
                   </summary>
-                  <div className="px-6 pb-5 pt-1 text-gray-700 leading-relaxed border-t border-gray-100">
+                  <div className="px-6 pb-5 pt-1 text-slate-700 leading-relaxed border-t border-slate-100">
                     {item.answer}
                   </div>
                 </details>
@@ -621,10 +621,10 @@ export default function IllinoisPermitTestPage() {
                 🚗
               </div>
               <div>
-                <p className="font-semibold text-gray-900 mb-1">
+                <p className="font-semibold text-slate-900 mb-1">
                   Dash says:
                 </p>
-                <p className="text-gray-700">
+                <p className="text-slate-700">
                   The permit test is 35 questions — you only need to nail 28 of
                   them. That is totally doable with a week of smart practice. Start now and Dash will flag every weak spot before you even walk into the SOS office.
                 </p>
@@ -633,11 +633,11 @@ export default function IllinoisPermitTestPage() {
           </section>
 
           {/* Footer CTA */}
-          <section className="text-center py-12 border-t border-gray-100">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-display">
+          <section className="text-center py-12 border-t border-slate-100">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 font-display">
               Ready to pass? Start free practice.
             </h2>
-            <p className="text-gray-600 mb-8 max-w-md mx-auto">
+            <p className="text-slate-600 mb-8 max-w-md mx-auto">
               Join thousands of Illinois teens who used Ace Your Permit to pass
               their permit test on the first try. Free, no credit card needed.
             </p>

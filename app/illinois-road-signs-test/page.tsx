@@ -509,7 +509,7 @@ function SignFigure({ sign }: { sign: SignCard }) {
   return (
     <figure
       id={sign.id}
-      className="flex flex-col items-center gap-3 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+      className="flex flex-col items-center gap-3 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
       aria-label={`Road sign: ${sign.name}`}
     >
       {/* SVG sign representation */}
@@ -673,17 +673,17 @@ function SignFigure({ sign }: { sign: SignCard }) {
       </div>
 
       <figcaption className="text-center">
-        <p className="font-bold text-gray-900 text-sm font-display">{sign.name}</p>
-        <p className="text-xs text-gray-500 mt-0.5">{sign.shapeDesc}</p>
-        <p className="text-xs text-gray-400 mt-0.5">{sign.color}</p>
+        <p className="font-bold text-slate-900 text-sm font-display">{sign.name}</p>
+        <p className="text-xs text-slate-500 mt-0.5">{sign.shapeDesc}</p>
+        <p className="text-xs text-slate-400 mt-0.5">{sign.color}</p>
       </figcaption>
 
       {/* Semantic meaning */}
-      <div className="w-full text-left border-t border-gray-100 pt-3 mt-1">
+      <div className="w-full text-left border-t border-slate-100 pt-3 mt-1">
         <p className="text-xs font-semibold text-blue-700 mb-1">Meaning</p>
-        <p className="text-xs text-gray-700 leading-relaxed">{sign.meaning}</p>
+        <p className="text-xs text-slate-700 leading-relaxed">{sign.meaning}</p>
         <p className="text-xs font-semibold text-orange-600 mt-2 mb-1">Illinois Rule</p>
-        <p className="text-xs text-gray-700 leading-relaxed">{sign.rule}</p>
+        <p className="text-xs text-slate-700 leading-relaxed">{sign.rule}</p>
       </div>
     </figure>
   );
@@ -691,12 +691,12 @@ function SignFigure({ sign }: { sign: SignCard }) {
 
 function SampleQuizCard({ q, index }: { q: SampleQuestion; index: number }) {
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+    <div className="bg-white border border-slate-100 rounded-2xl shadow-sm p-6">
       <div className="flex items-start gap-3 mb-4">
         <span className="shrink-0 w-7 h-7 rounded-full bg-blue-100 text-blue-700 text-sm font-bold flex items-center justify-center font-display">
           {index + 1}
         </span>
-        <p className="text-gray-900 font-medium leading-snug">{q.question_text}</p>
+        <p className="text-slate-900 font-medium leading-snug">{q.question_text}</p>
       </div>
       <ol className="space-y-2 mb-4" type="A">
         {q.options.map((opt, i) => (
@@ -704,16 +704,16 @@ function SampleQuizCard({ q, index }: { q: SampleQuestion; index: number }) {
             key={i}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm border transition-colors ${
               i === q.correct_answer
-                ? "bg-green-50 border-green-200 text-green-800 font-semibold"
-                : "bg-gray-50 border-gray-100 text-gray-600"
+                ? "bg-emerald-50 border-emerald-200 text-emerald-800 font-semibold"
+                : "bg-slate-50 border-slate-100 text-slate-600"
             }`}
           >
-            <span className="shrink-0 font-mono text-xs text-gray-400">
+            <span className="shrink-0 font-mono text-xs text-slate-400">
               {String.fromCharCode(65 + i)}
             </span>
             {opt}
             {i === q.correct_answer && (
-              <CheckCircle2 className="ml-auto w-4 h-4 text-green-600 shrink-0" />
+              <CheckCircle2 className="ml-auto w-4 h-4 text-emerald-600 shrink-0" />
             )}
           </li>
         ))}
@@ -728,9 +728,9 @@ function SampleQuizCard({ q, index }: { q: SampleQuestion; index: number }) {
 
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   return (
-    <div className="border-b border-gray-100 py-5 last:border-0">
-      <h3 className="font-semibold text-gray-900 mb-2 font-display text-base">{question}</h3>
-      <p className="text-gray-600 text-sm leading-relaxed">{answer}</p>
+    <div className="border-b border-slate-100 py-5 last:border-0">
+      <h3 className="font-semibold text-slate-900 mb-2 font-display text-base">{question}</h3>
+      <p className="text-slate-600 text-sm leading-relaxed">{answer}</p>
     </div>
   );
 }
@@ -756,7 +756,7 @@ export default function IllinoisRoadSignsTestPage() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
                 <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-display">Ace Your Permit</span>
+              <span className="text-xl font-bold text-slate-900 font-display">Ace Your Permit</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/login">
@@ -776,16 +776,16 @@ export default function IllinoisRoadSignsTestPage() {
               <AlertTriangle className="w-4 h-4" />
               Updated for Illinois permit test 2026
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight font-display tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight font-display tracking-tight">
               Illinois Road Signs Test{" "}
               <span className="text-orange-500">— Study Guide 2026</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-4 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 mb-4 max-w-3xl mx-auto">
               Every sign on the Illinois permit test — visual descriptions, shapes, colors, and
               exact meanings. Study regulatory, warning, guide, and construction signs in visual
               format, then quiz yourself for free.
             </p>
-            <p className="text-base text-gray-500 mb-8 max-w-2xl mx-auto">
+            <p className="text-base text-slate-500 mb-8 max-w-2xl mx-auto">
               Signs make up approximately 10–15 of the 35 questions on the IL SOS written test.
               Master this page and you&apos;ll ace the biggest chunk of the exam.
             </p>
@@ -807,7 +807,7 @@ export default function IllinoisRoadSignsTestPage() {
         </section>
 
         {/* Quick stat bar */}
-        <section className="py-8 px-4 bg-white border-y border-gray-100">
+        <section className="py-8 px-4 bg-white border-y border-slate-100">
           <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
               { label: "Sign questions on the IL test", value: "~12" },
@@ -817,7 +817,7 @@ export default function IllinoisRoadSignsTestPage() {
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl font-bold text-blue-600 font-display mb-1">{stat.value}</div>
-                <div className="text-xs text-gray-500 leading-tight">{stat.label}</div>
+                <div className="text-xs text-slate-500 leading-tight">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -826,10 +826,10 @@ export default function IllinoisRoadSignsTestPage() {
         {/* Shape + Color Quick Reference */}
         <section className="py-14 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2 font-display tracking-tight">
+            <h2 className="text-3xl font-bold text-slate-900 mb-2 font-display tracking-tight">
               Read Any Sign by Shape + Color
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-slate-600 mb-8">
               Illinois road signs use standardized shapes and colors. Learn these two dimensions and
               you can decode any sign — even if you can&apos;t read the text from a distance.
             </p>
@@ -853,8 +853,8 @@ export default function IllinoisRoadSignsTestPage() {
                   shape: "Diamond",
                   color: "Yellow",
                   meaning: "Warning — hazard ahead",
-                  bg: "bg-yellow-50 border-yellow-100",
-                  label: "text-yellow-700",
+                  bg: "bg-amber-50 border-amber-100",
+                  label: "text-amber-700",
                 },
                 {
                   shape: "Diamond",
@@ -874,15 +874,15 @@ export default function IllinoisRoadSignsTestPage() {
                   shape: "Rectangle",
                   color: "Green",
                   meaning: "Guide / destination info",
-                  bg: "bg-green-50 border-green-100",
-                  label: "text-green-700",
+                  bg: "bg-emerald-50 border-emerald-100",
+                  label: "text-emerald-700",
                 },
                 {
                   shape: "Rectangle",
                   color: "White",
                   meaning: "Regulatory — what you must do",
-                  bg: "bg-gray-50 border-gray-200",
-                  label: "text-gray-700",
+                  bg: "bg-slate-50 border-slate-200",
+                  label: "text-slate-700",
                 },
                 {
                   shape: "Rectangle",
@@ -895,8 +895,8 @@ export default function IllinoisRoadSignsTestPage() {
                   shape: "Round (yellow)",
                   color: "Yellow / Black",
                   meaning: "Railroad crossing advance",
-                  bg: "bg-yellow-50 border-yellow-100",
-                  label: "text-yellow-700",
+                  bg: "bg-amber-50 border-amber-100",
+                  label: "text-amber-700",
                 },
               ].map((row) => (
                 <div
@@ -904,8 +904,8 @@ export default function IllinoisRoadSignsTestPage() {
                   className={`rounded-xl border p-4 ${row.bg}`}
                 >
                   <div className={`text-sm font-bold font-display ${row.label}`}>{row.shape}</div>
-                  <div className="text-xs text-gray-500 mb-1">{row.color}</div>
-                  <div className="text-sm text-gray-800 font-medium">{row.meaning}</div>
+                  <div className="text-xs text-slate-500 mb-1">{row.color}</div>
+                  <div className="text-sm text-slate-800 font-medium">{row.meaning}</div>
                 </div>
               ))}
             </div>
@@ -916,10 +916,10 @@ export default function IllinoisRoadSignsTestPage() {
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-red-50/40">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">
+              <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">
                 Regulatory Signs
               </h2>
-              <p className="text-gray-600">
+              <p className="text-slate-600">
                 Regulatory signs tell you what you <strong>must</strong> or <strong>must not</strong> do.
                 They carry the force of law — ignoring them is a traffic violation. Most are white,
                 red, or black.
@@ -934,13 +934,13 @@ export default function IllinoisRoadSignsTestPage() {
         </section>
 
         {/* Warning Signs */}
-        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-yellow-50/40">
+        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-amber-50/40">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">
+              <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">
                 Warning Signs
               </h2>
-              <p className="text-gray-600">
+              <p className="text-slate-600">
                 Warning signs alert you to <strong>potential hazards</strong> ahead. They are diamond-shaped
                 and yellow (or fluorescent yellow-green for school zones). No legal requirement to stop —
                 but you must slow down and use caution.
@@ -958,10 +958,10 @@ export default function IllinoisRoadSignsTestPage() {
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-orange-50/40">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">
+              <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">
                 Construction &amp; Work Zone Signs
               </h2>
-              <p className="text-gray-600">
+              <p className="text-slate-600">
                 Orange diamond signs mark <strong>temporary construction zones</strong>. Illinois law doubles
                 fines for moving violations committed in active work zones. Treat them with the same
                 respect as regulatory signs.
@@ -976,13 +976,13 @@ export default function IllinoisRoadSignsTestPage() {
         </section>
 
         {/* Guide Signs */}
-        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-green-50/40">
+        <section className="py-14 px-4 sm:px-6 lg:px-8 bg-emerald-50/40">
           <div className="max-w-5xl mx-auto">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">
+              <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">
                 Guide Signs
               </h2>
-              <p className="text-gray-600">
+              <p className="text-slate-600">
                 Guide signs provide <strong>direction, distance, and services</strong>. Green signs give
                 route and destination information; blue signs point to motorist services; brown signs
                 mark recreational areas and cultural sites.
@@ -999,10 +999,10 @@ export default function IllinoisRoadSignsTestPage() {
         {/* Pavement Markings */}
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-2">
+            <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-2">
               Pavement Markings
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-slate-600 mb-8">
               Pavement markings work alongside signs to guide traffic. The Illinois permit test
               frequently asks about lane colors and what they mean.
             </p>
@@ -1012,43 +1012,43 @@ export default function IllinoisRoadSignsTestPage() {
                   mark: "Solid Yellow Center Line",
                   meaning: "Divides traffic moving in opposite directions.",
                   rule: "Do not cross a solid yellow line to pass.",
-                  color: "bg-yellow-400",
+                  color: "bg-amber-400",
                 },
                 {
                   mark: "Broken Yellow Center Line",
                   meaning: "You may pass when the way is clear.",
                   rule: "Only cross when it is safe to return before oncoming traffic.",
-                  color: "bg-yellow-400",
+                  color: "bg-amber-400",
                 },
                 {
                   mark: "Double Solid Yellow Lines",
                   meaning: "No passing zone in either direction.",
                   rule: "Treat as a median — never cross.",
-                  color: "bg-yellow-400",
+                  color: "bg-amber-400",
                 },
                 {
                   mark: "Solid White Edge Line",
                   meaning: "Marks the right edge of the roadway.",
                   rule: "Do not drive to the right of this line except to park.",
-                  color: "bg-gray-100 border border-gray-300",
+                  color: "bg-slate-100 border border-slate-300",
                 },
                 {
                   mark: "Broken White Lane Lines",
                   meaning: "Separate lanes of traffic moving in the same direction.",
                   rule: "You may change lanes when it is safe.",
-                  color: "bg-gray-100 border border-gray-300",
+                  color: "bg-slate-100 border border-slate-300",
                 },
                 {
                   mark: "White Stop Line",
                   meaning: "Marks where you must stop at a sign or signal.",
                   rule: "Stop before — not on — the line.",
-                  color: "bg-gray-100 border border-gray-300",
+                  color: "bg-slate-100 border border-slate-300",
                 },
               ].map((item) => (
-                <div key={item.mark} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
+                <div key={item.mark} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
                   <div className={`h-2 w-full rounded-full mb-3 ${item.color}`} />
-                  <p className="font-bold text-sm text-gray-900 font-display mb-1">{item.mark}</p>
-                  <p className="text-xs text-gray-600 mb-2">{item.meaning}</p>
+                  <p className="font-bold text-sm text-slate-900 font-display mb-1">{item.mark}</p>
+                  <p className="text-xs text-slate-600 mb-2">{item.meaning}</p>
                   <p className="text-xs text-orange-600 font-medium">{item.rule}</p>
                 </div>
               ))}
@@ -1060,10 +1060,10 @@ export default function IllinoisRoadSignsTestPage() {
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-blue-50">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-3">
+              <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-3">
                 Sample Illinois Road Sign Questions
               </h2>
-              <p className="text-gray-600">
+              <p className="text-slate-600">
                 Real-format questions from our Illinois permit test question bank. Answers and
                 explanations are shown — take the full quiz inside Ace Your Permit.
               </p>
@@ -1080,7 +1080,7 @@ export default function IllinoisRoadSignsTestPage() {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <p className="text-sm text-gray-500 mt-3">Free — no credit card required</p>
+              <p className="text-sm text-slate-500 mt-3">Free — no credit card required</p>
             </div>
           </div>
         </section>
@@ -1088,7 +1088,7 @@ export default function IllinoisRoadSignsTestPage() {
         {/* FAQ */}
         <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 font-display tracking-tight mb-8">
+            <h2 className="text-3xl font-bold text-slate-900 font-display tracking-tight mb-8">
               Frequently Asked Questions
             </h2>
             <div>

@@ -75,14 +75,14 @@ export function OnboardingChecklist({
   const progress = Math.round((completedCount / ONBOARDING_CHECKLIST.length) * 100);
 
   return (
-    <div className={cn("bg-white rounded-2xl border border-gray-100 shadow-sm p-6", className)}>
+    <div className={cn("bg-white rounded-2xl border border-slate-100 shadow-sm p-6", className)}>
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-gray-900">Getting Started</h3>
-        <span className="text-sm text-gray-500">{completedCount}/{ONBOARDING_CHECKLIST.length}</span>
+        <h3 className="font-semibold text-slate-900">Getting Started</h3>
+        <span className="text-sm text-slate-500">{completedCount}/{ONBOARDING_CHECKLIST.length}</span>
       </div>
 
       {/* Progress bar */}
-      <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-6">
+      <div className="h-2 bg-slate-100 rounded-full overflow-hidden mb-6">
         <motion.div
           className="h-full bg-gradient-to-r from-blue-500 to-orange-500 rounded-full"
           initial={{ width: 0 }}
@@ -105,18 +105,18 @@ export function OnboardingChecklist({
               transition={{ delay: index * 0.1 }}
               className={cn(
                 "flex items-center gap-3 p-3 rounded-xl transition-colors",
-                status === "completed" && "bg-green-50",
+                status === "completed" && "bg-emerald-50",
                 status === "current" && "bg-blue-50",
-                status === "pending" && "bg-gray-50"
+                status === "pending" && "bg-slate-50"
               )}
             >
               {/* Status icon */}
               <div
                 className={cn(
                   "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
-                  status === "completed" && "bg-green-500 text-white",
+                  status === "completed" && "bg-emerald-500 text-white",
                   status === "current" && "bg-blue-500 text-white",
-                  status === "pending" && "bg-gray-200 text-gray-400"
+                  status === "pending" && "bg-slate-200 text-slate-400"
                 )}
               >
                 {status === "completed" ? (
@@ -132,9 +132,9 @@ export function OnboardingChecklist({
               <span
                 className={cn(
                   "text-sm font-medium",
-                  status === "completed" && "text-green-700 line-through",
+                  status === "completed" && "text-emerald-700 line-through",
                   status === "current" && "text-blue-700",
-                  status === "pending" && "text-gray-500"
+                  status === "pending" && "text-slate-500"
                 )}
               >
                 {item.label}
@@ -142,7 +142,7 @@ export function OnboardingChecklist({
 
               {/* Post-onboarding indicator */}
               {item.isPostOnboarding && status === "pending" && (
-                <span className="ml-auto text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full">
+                <span className="ml-auto text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded-full">
                   Next
                 </span>
               )}
@@ -156,7 +156,7 @@ export function OnboardingChecklist({
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mt-4 p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl text-white text-center"
+          className="mt-4 p-3 bg-gradient-to-r from-emerald-500 to-emerald-500 rounded-xl text-white text-center"
         >
           <p className="text-sm font-medium">🎉 All set! You&apos;re ready to ace your test!</p>
         </motion.div>
@@ -168,7 +168,6 @@ export function OnboardingChecklist({
 // Compact version for dashboard
 export function OnboardingChecklistCompact({
   completedSteps,
-  currentStep,
   firstQuizCompleted = false,
   className,
 }: OnboardingChecklistProps) {
@@ -190,12 +189,12 @@ export function OnboardingChecklistCompact({
   const progress = Math.round((completedCount / ONBOARDING_CHECKLIST.length) * 100);
 
   return (
-    <div className={cn("bg-white rounded-xl border border-gray-100 p-4", className)}>
+    <div className={cn("bg-white rounded-xl border border-slate-100 p-4", className)}>
       <div className="flex items-center gap-3">
         <div className="relative w-12 h-12">
           <svg className="w-12 h-12 -rotate-90" viewBox="0 0 36 36">
             <path
-              className="text-gray-100"
+              className="text-slate-100"
               d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
               fill="none"
               stroke="currentColor"
@@ -214,17 +213,17 @@ export function OnboardingChecklistCompact({
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-xs font-semibold text-gray-700">{progress}%</span>
+            <span className="text-xs font-semibold text-slate-700">{progress}%</span>
           </div>
         </div>
         
         <div className="flex-1">
-          <p className="text-sm font-medium text-gray-900">
+          <p className="text-sm font-medium text-slate-900">
             {completedCount === ONBOARDING_CHECKLIST.length 
               ? "All tasks completed!" 
               : `${completedCount} of ${ONBOARDING_CHECKLIST.length} tasks done`}
           </p>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-slate-500">
             {completedCount === ONBOARDING_CHECKLIST.length 
               ? "You\'re ready to start practicing" 
               : "Complete your setup to get started"}

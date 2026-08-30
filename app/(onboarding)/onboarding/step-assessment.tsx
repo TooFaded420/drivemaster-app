@@ -94,14 +94,14 @@ export function StepAssessment({ updateData, onComplete }: StepAssessmentProps) 
         <div className="relative w-32 h-32 mx-auto">
           <svg className="w-32 h-32 -rotate-90" viewBox="0 0 36 36">
             <path
-              className="text-gray-100"
+              className="text-slate-100"
               d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
               fill="none"
               stroke="currentColor"
               strokeWidth="3"
             />
             <motion.path
-              className={score >= 60 ? "text-green-500" : "text-orange-500"}
+              className={score >= 60 ? "text-emerald-500" : "text-orange-500"}
               d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
               fill="none"
               stroke="currentColor"
@@ -151,7 +151,7 @@ export function StepAssessment({ updateData, onComplete }: StepAssessmentProps) 
           transition={shouldReduceMotion ? { duration: 0 } : undefined}
           className="space-y-4"
         >
-          <div className="bg-white rounded-xl border border-gray-200 p-6">
+          <div className="bg-white rounded-xl border border-slate-200 p-6">
             <h3 className="text-lg font-medium text-foreground mb-4">{question.question}</h3>
             
             <div className="space-y-2">
@@ -168,12 +168,12 @@ export function StepAssessment({ updateData, onComplete }: StepAssessmentProps) 
                     className={`
                       min-h-14 w-full rounded-lg border-2 p-4 text-left transition-all
                       ${showResult && isCorrect
-                        ? "border-green-500 bg-green-50"
+                        ? "border-emerald-500 bg-emerald-50"
                         : showResult && isSelected && !isCorrect
                         ? "border-red-500 bg-red-50"
                         : isSelected
                         ? "border-blue-500 bg-blue-50"
-                        : "border-gray-200 hover:border-gray-300"
+                        : "border-slate-200 hover:border-slate-300"
                       }
                       ${showResult ? "cursor-default" : "cursor-pointer"}
                     `}
@@ -181,7 +181,7 @@ export function StepAssessment({ updateData, onComplete }: StepAssessmentProps) 
                     <div className="flex items-center justify-between">
                       <span className="text-foreground">{answer.text}</span>
                       {showResult && isCorrect && (
-                        <Check className="w-5 h-5 text-green-500" />
+                        <Check className="w-5 h-5 text-emerald-500" />
                       )}
                       {showResult && isSelected && !isCorrect && (
                         <X className="w-5 h-5 text-red-500" />

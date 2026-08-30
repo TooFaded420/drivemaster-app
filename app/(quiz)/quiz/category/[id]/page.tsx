@@ -184,7 +184,7 @@ export default function CategoryQuizPage() {
       <MobileLayout>
         <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-4">
           <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mb-4">
-            <CategoryIcon className="w-10 h-10 text-gray-400" />
+            <CategoryIcon className="w-10 h-10 text-slate-400" />
           </div>
           <h2 className="text-2xl font-bold text-foreground mb-2">
             No Questions Available
@@ -242,7 +242,7 @@ export default function CategoryQuizPage() {
         />
 
         {/* Category Info */}
-        <div className={`bg-muted border border-gray-200 rounded-lg p-3`}>
+        <div className={`bg-muted border border-slate-200 rounded-lg p-3`}>
           <div className={`flex items-center gap-2 ${categoryInfo.color}`}>
             <CategoryIcon className="w-5 h-5" />
             <span className="text-sm font-medium">

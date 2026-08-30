@@ -53,7 +53,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             </CardHeader>
             <CardContent className="space-y-4">
               {this.state.error && (
-                <div className="p-3 bg-gray-50 rounded-lg text-sm text-gray-600 font-mono overflow-auto max-h-32">
+                <div className="p-3 bg-slate-50 rounded-lg text-sm text-slate-600 font-mono overflow-auto max-h-32">
                   {this.state.error.message}
                 </div>
               )}
@@ -75,10 +75,9 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 }
 
 // Simple error fallback component for use with ErrorBoundary
-export function ErrorFallback({ 
-  error, 
-  reset 
-}: { 
+export function ErrorFallback({
+  reset
+}: {
   error?: Error; 
   reset?: () => void;
 }) {

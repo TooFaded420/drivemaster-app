@@ -66,7 +66,7 @@ export function SchoolZoneSpeedGame() {
                 disabled={selected !== undefined}
                 className={`min-h-[56px] rounded-2xl border px-4 py-3 text-lg font-bold transition-colors ${
                   showCorrect
-                    ? "border-green-300 bg-green-400 text-slate-950"
+                    ? "border-emerald-300 bg-emerald-400 text-slate-950"
                     : showMiss
                       ? "border-orange-300 bg-orange-400 text-slate-950"
                       : "border-white/20 bg-white/10 text-white hover:bg-white/15"
